@@ -1,0 +1,891 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<title>The missing UI library for the Web : jQuery Tools</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">	
+	<meta name="author" content="Tero Piirainen">	
+	<meta name="robots" content="noindex" />
+	
+	<link rel="shortcut icon" href="/media/favicon.ico">
+	<link rel="apple-touch-icon" href="/media/apple-touch-icon.png"> 
+	<link rel="stylesheet" href="/media/css/style.css">
+	
+<link rel="stylesheet" type="text/css" href="/media/css/tooltip-generic.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/download.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>	
+
+	
+	<!-- only one thing inside your HEAD: mom (momjs.com) -->
+	<script src="/media/js/mom.js"></script>
+	<script>mom.feature("logged", mom.cookie("authcode"));</script>
+</head>
+
+<body>
+
+	<div id="top">
+	
+		<div id="top-wrap">
+			<a id="top-fp" href="http://flowplayer.org/index.html">Flowplayer</a>
+			<a id="top-jt" class="active">jQuery Tools</a>		
+				
+			<form id="top-search" action="/search.html">
+				<input type="text" name="q" />
+				<button type="submit">Search</button>
+			</form>
+		</div>
+		
+	</div>
+
+	<div id="wrap">
+	
+		<div id="nav" class="clear"> 
+			<a id="nav1" href="/index.html">Home</a>
+			<a id="nav2" href="/download/index.html">Download</a>
+			<a id="nav3" href="/demos/index.html">Demos</a>
+			<a id="nav4" href="/documentation/index.html">Documentation</a>
+			<a id="nav5" href="http://forum.jquerytools.org/">Forum</a>
+		</div>
+		
+		<div id="page">
+			
+<div id="main" class="clear">
+
+		
+	
+	<div id="content" class="content">  
+		
+<h1 id="page-title">
+	Download
+	<em>Version <strong>1.2.5</strong></em>
+</h1>
+
+<h2 class="first">Quick start</h2>
+
+<p>
+	 Insert the following line on your HTML page and you are done!
+</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>
+	 This is the official <strong>jQuery Tools UI library</strong> and after the inclusion you will have the following tools available:
+</p>
+
+<ol>
+	<li><a class="external" href="http://jquery.com">jQuery 1.4.2</a></li>    
+	<li><a href="/tools/tabs/index.html">Tabs</a></li>     
+	<li><a href="/tools/tooltip/index.html">Tooltip</a></li>       
+	<li><a href="/tools/scrollable/index.html">Scrollable</a></li>       
+	<li><a href="/tools/overlay/index.html">Overlay</a></li>      
+</ol>
+
+<p>
+	The tools will be loaded with <a href="../documentation/performance.html">maximum performance</a> no matter where your user is located on the globe. Without the jQuery library, the file size is only <strong>4.05 Kb</strong> when gzipping is enabled on the server-side. If you already have jQuery included on your page, you can simply remove it and use only the above <samp>script src</samp> statement.
+</p>
+
+<p style="margin-bottom:40px">
+	Please note that this global content delivery network is <strong>completely free</strong>. You can use it freely in any website including production environments. This network has been kindly offered for all jQuery Tools users by <a href="http://www.maxcdn.com/" class="external">Max CDN</a>. Respect to them!
+</p>
+
+
+<a name="combine"></a>
+<h2 class="first">Build a custom set of Tools. <em id="selected"></em></h2>
+<h3 style="color:#7788FF;margin:5px 0 15px 0;">Or download the source code</h3>
+
+<p>
+	Here you can download individual tools or create a custom combination of tools by selecting only those you want. Both the <strong>source code</strong> and the <strong>minified versions</strong> are available.
+</p>
+
+
+<table class="listing">
+
+
+	
+	
+
+		<tr id="t_jquery" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="jquery" value="5000" /> jQuery 1.4.2
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/jquery-1.4.2.js">4kb</a></td>
+				<td><a href="/download/1.2.5/jquery-1.4.2.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>jQuery 1.4.2</h3>
+					<p>All tools depend on this library (except flashembed). Can alternatively be included from googleapis (see below)</p>
+					
+						<p> <a href="/http://jquery.com">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+		</table>
+		<h3>UI tools</h3>
+		<table class="listing">
+		
+	
+
+
+	
+	
+
+		<tr id="t_tabs" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="tabs" value="5000" /> Tabs
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/tabs/tabs.js">4kb</a></td>
+				<td><a href="/download/1.2.5/tabs/tabs.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Tabs</h3>
+					<p>The most important UI tool</p>
+					
+						<p> <a href="/tabs/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_tabs.slideshow" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="tabs.slideshow" value="5000" /> Slideshow plugin
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/tabs/tabs.slideshow.js">4kb</a></td>
+				<td><a href="/download/1.2.5/tabs/tabs.slideshow.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Slideshow plugin</h3>
+					<p>Transforms tabs into a working slideshow</p>
+					
+						<p> <a href="/tabs/slideshow.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_tooltip" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="tooltip" value="5000" /> Tooltip
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/tooltip/tooltip.js">4kb</a></td>
+				<td><a href="/download/1.2.5/tooltip/tooltip.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Tooltip</h3>
+					<p>The basics of UI design</p>
+					
+						<p> <a href="/tooltip/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_tooltip.slide" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="tooltip.slide" value="5000" /> Slide effect
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/tooltip/tooltip.slide.js">4kb</a></td>
+				<td><a href="/download/1.2.5/tooltip/tooltip.slide.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Slide effect</h3>
+					<p>A sliding tooltip effect with customized sliding directions, dimensions and speeds</p>
+					
+						<p> <a href="/tooltip/slide.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_tooltip.dynamic" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="tooltip.dynamic" value="5000" /> Dynamic plugin
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/tooltip/tooltip.dynamic.js">4kb</a></td>
+				<td><a href="/download/1.2.5/tooltip/tooltip.dynamic.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Dynamic plugin</h3>
+					<p>Dynamic positioning of the tooltip so that it always stays in the viewport</p>
+					
+						<p> <a href="/tooltip/dynamic.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_scrollable" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="scrollable" value="5000" /> Scrollable
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/scrollable/scrollable.js">4kb</a></td>
+				<td><a href="/download/1.2.5/scrollable/scrollable.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Scrollable</h3>
+					<p>A generic HTML scrolling widget</p>
+					
+						<p> <a href="/scrollable/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_scrollable.autoscroll" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="scrollable.autoscroll" value="5000" /> Autoscroll plugin
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/scrollable/scrollable.autoscroll.js">4kb</a></td>
+				<td><a href="/download/1.2.5/scrollable/scrollable.autoscroll.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Autoscroll plugin</h3>
+					<p>Makes the scrolling behaviour automatic. highly configurable</p>
+					
+						<p> <a href="/scrollable/autoscroll.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_scrollable.navigator" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="scrollable.navigator" value="5000" /> Navigator plugin
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/scrollable/scrollable.navigator.js">4kb</a></td>
+				<td><a href="/download/1.2.5/scrollable/scrollable.navigator.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Navigator plugin</h3>
+					<p>Provides navigation buttons for switching between pages in scrollable</p>
+					
+						<p> <a href="/scrollable/navigator.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_overlay" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="overlay" value="5000" /> Overlay
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/overlay/overlay.js">4kb</a></td>
+				<td><a href="/download/1.2.5/overlay/overlay.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Overlay</h3>
+					<p>A generic HTML overlaying widget</p>
+					
+						<p> <a href="/overlay/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_overlay.apple" class="plugin">
+			<td>
+				
+					<label>
+						<input type="checkbox" name="overlay.apple" value="5000" /> Apple effect
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/overlay/overlay.apple.js">4kb</a></td>
+				<td><a href="/download/1.2.5/overlay/overlay.apple.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Apple effect</h3>
+					<p>An overlay effect that you have seen on apple.com</p>
+					
+						<p> <a href="/overlay/apple.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+		</table>
+		<h3>Form tools</h3>
+		<table class="listing">
+		
+	
+
+
+	
+	
+
+		<tr id="t_dateinput" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="dateinput" value="5000" /> Dateinput
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/dateinput/dateinput.js">4kb</a></td>
+				<td><a href="/download/1.2.5/dateinput/dateinput.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Dateinput</h3>
+					<p>HTML5 date input for humans</p>
+					
+						<p> <a href="/dateinput/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_rangeinput" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="rangeinput" value="5000" /> Rangeinput
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/rangeinput/rangeinput.js">4kb</a></td>
+				<td><a href="/download/1.2.5/rangeinput/rangeinput.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Rangeinput</h3>
+					<p>HTML5 range input for humans</p>
+					
+						<p> <a href="/rangeinput/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_validator" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="validator" value="5000" /> Validator
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/validator/validator.js">4kb</a></td>
+				<td><a href="/download/1.2.5/validator/validator.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Validator</h3>
+					<p>HTML5 input validation for humans</p>
+					
+						<p> <a href="/validator/index.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+		</table>
+		<h3>Toolbox</h3>
+		<table class="listing">
+		
+	
+
+
+	
+	
+
+		<tr id="t_toolbox.flashembed" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="toolbox.flashembed" value="5000" /> Flashembed
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/toolbox/toolbox.flashembed.js">4kb</a></td>
+				<td><a href="/download/1.2.5/toolbox/toolbox.flashembed.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Flashembed</h3>
+					<p>The future of Flash embedding. Works as a standalone tool and jQuery is not required.</p>
+					
+						<p> <a href="/toolbox/flashembed.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_toolbox.history" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="toolbox.history" value="5000" /> History
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/toolbox/toolbox.history.js">4kb</a></td>
+				<td><a href="/download/1.2.5/toolbox/toolbox.history.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>History</h3>
+					<p>Back button for AJAX apps</p>
+					
+						<p> <a href="/toolbox/history.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_toolbox.expose" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="toolbox.expose" value="5000" /> Expose
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/toolbox/toolbox.expose.js">4kb</a></td>
+				<td><a href="/download/1.2.5/toolbox/toolbox.expose.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Expose</h3>
+					<p>Makes your HTML stand out from its surroundings</p>
+					
+						<p> <a href="/toolbox/expose.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+	
+	
+
+		<tr id="t_toolbox.mousewheel" >
+			<td>
+				
+					<label>
+						<input type="checkbox" name="toolbox.mousewheel" value="5000" /> Mousewheel
+					</label>
+				
+			</td>
+			<td><small></small></td>
+
+			
+			
+				<td><a href="/download/1.2.5/toolbox/toolbox.mousewheel.js">4kb</a></td>
+				<td><a href="/download/1.2.5/toolbox/toolbox.mousewheel.min.js">7kb</a></td>
+			
+
+			<td style="text-align:right;padding-right:5px">
+				<img src="/img/global/info_small.png" />
+				<div class="box petrol tooltip">
+					<h3>Mousewheel</h3>
+					<p>A generic mousewheel support for jQuery</p>
+					
+						<p> <a href="/toolbox/mousewheel.html">documentation</a> </p>
+					
+				</div>
+			</td>
+		</tr>
+		
+	
+
+
+
+</table>
+
+<a href="#" id="downloadLink">
+	<img src="/media/img/download.png" alt="Download jQuery Tools" />
+</a>
+
+<h3 style="margin:10px 0 20px 0">
+	<em>Size</em>: <span id="minified"></span> / <span id="gzipped"></span>
+</h3>
+
+
+<h2 id="cdn">jQuery Tools from CDN</h2>
+      
+<p>
+	Here is a list of all available jQuery Tools combinations from a <strong>free</strong> Content Delivery Network.
+</p>
+
+<div class="highlight"><pre><span class="c">&lt;!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay (4.05 Kb) --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/tiny/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- Form tools: Dateinput, Rangeinput and Validator. No jQuery library. (5.68 Kb) --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/form/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- ALL jQuery Tools. No jQuery library --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- jQuery Library + UI Tools --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- jQuery Library + ALL jQuery Tools --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>
+	If you prefer to load the jQuery library separately the recommended practice is to load jQuery from Google's CDN service. Make sure the jQuery library is always loaded <em>before</em> the jQuery Tools library.
+</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+	
+
+	</div>
+	
+	<div id="right" class="right box">
+		
+
+<p>
+	<img src="/media/img/github-logo.png" />
+	<img src="/media/img/github.png" />
+</p>
+
+<p>
+	There are two jQuery Tools repositories on Github:
+</p>
+
+<p>
+	<a href="http://github.com/jquerytools/jquerytools" class="external">jQuery Tools library</a>
+</p>
+
+<p>
+	<a href="http://github.com/jquerytools/www" class="external">jQuery Tools website</a>
+</p>
+
+<p>
+	If you want to contribute please email your thougths from Github and send the contributions trough <a href="http://github.com/jquerytools/jquerytools/forkqueue" class="external">fork queue</a>.
+</p>
+
+<hr />
+
+					
+		
+		<p>
+			<a href="${jqt}/release-notes/index.html">
+				<img src="/media/img/1.2/banner-small.jpg"
+					title="Introducing jQuery Tools 1.2" /></a>
+		</p>		
+		 
+		<p>
+			<a href="/release-notes/version-1.2.x.html">What's new in 1.2.5 &raquo;</a>
+		</p>
+		
+	</div>
+	
+</div>
+			
+		</div>
+	
+		<div id="footer" class="clear">
+		
+			
+			<h2>jQuery Tools Twitter feed</h2>
+			
+			<div id="twitter" class="clear"> 
+			
+				<div id="tweets"></div> 
+	
+				<a id="follow" href="http://twitter.com/jquerytools" title="Follow us on Twitter">
+					jQuery Tools Twitter feed</a>
+			</div>
+			
+			
+			<div id="footerlinks" class="clear">
+				<a href="https://github.com/jquerytools/jquerytools">tools on github</a>
+				<a href="https://github.com/jquerytools/jquerytools/www">website on github</a>
+				<a href="https://github.com/jquerytools/jquerytools/issues">report a bug</a>									
+			</div>
+			
+		</div>
+		
+	</div>
+  
+	<script>	
+	$LAB
+	
+	
+	// jquery && custom jQuery scripting
+	.script("/media/js/jquery.tools.min.js").wait(function() { 
+		 
+	})
+	
+	// site scripts
+	.script("/media/js/site.js")
+	
+	// custom libs
+	
+.script("/media/js/download.js")
+ 
+	
+	
+	
+	// google analytics
+	.script("/media/js/ga.js").wait(function(){
+		var tracker = _gat._getTracker("");
+		 
+	});
+	
+	</script>
+   
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<title>The missing UI library for the Web : jQuery Tools</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">	
+	<meta name="author" content="Tero Piirainen">	
+	<meta name="robots" content="noindex" />
+	
+	<link rel="shortcut icon" href="/media/favicon.ico">
+	<link rel="apple-touch-icon" href="/media/apple-touch-icon.png"> 
+	<link rel="stylesheet" href="/media/css/style.css">
+	
+	
+	<!-- only one thing inside your HEAD: mom (momjs.com) -->
+	<script src="/media/js/mom.js"></script>
+	<script>mom.feature("logged", mom.cookie("authcode"));</script>
+</head>
+
+<body>
+
+	<div id="top">
+	
+		<div id="top-wrap">
+			<a id="top-fp" href="http://flowplayer.org/index.html">Flowplayer</a>
+			<a id="top-jt" class="active">jQuery Tools</a>		
+				
+			<form id="top-search" action="/search.html">
+				<input type="text" name="q" />
+				<button type="submit">Search</button>
+			</form>
+		</div>
+		
+	</div>
+
+	<div id="wrap">
+	
+		<div id="nav" class="clear"> 
+			<a id="nav1" href="/index.html">Home</a>
+			<a id="nav2" href="/download/index.html">Download</a>
+			<a id="nav3" href="/demos/index.html">Demos</a>
+			<a id="nav4" href="/documentation/index.html">Documentation</a>
+			<a id="nav5" href="http://forum.jquerytools.org/">Forum</a>
+		</div>
+		
+		<div id="page">
+			
+<div id="content" class="clear">
+	
+
+
+
+
+
+<style>
+img {
+	border:0;		
+}
+
+#scroll {
+	position:relative;
+	height:;
+	overflow:hidden;
+	border:1px solid #ddd;
+	width:948px;
+	padding:15px;
+	height:473px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+#tools {
+	width:9999em;
+	position:absolute;
+	height:400px;
+}
+
+.tool {
+	float:left;
+	width:1000px;
+	height:340px;
+	text-align:center;
+}
+
+.details {
+	font-size:18px;
+	color:#555;
+	margin-top:-20px;
+	background-color:transparent;
+	padding:5px 148px;
+}
+
+
+#thumbs {
+	background:url(/media/img/demo-navi.jpg) no-repeat;
+	height:90px;
+	position:absolute;
+	top:425px;
+	width:990px;
+	left:-8px;
+}
+
+.t {
+	padding:0 !important;
+	border:0 !important;
+}
+
+.t a {
+	background:transparent url(/media/img/demo-navi.jpg) no-repeat scroll -21px -90px;
+	margin-left:11px;
+	display:block;
+	width:99px;
+	float:left;
+	height:90px;
+	cursor:pointer;
+}
+
+.t a.active {
+	cursor:default !important;
+}
+
+.navi {
+	margin-left:314px;
+	_margin-left:304px;
+}
+
+/* CSS sprite for the navigation */
+#t0 		  { margin-left:20px; _margin-left:10px;}
+#t0.active { background-position:-21px 0 !important; }
+#t0:hover  { background-position:-21px -180px; }
+#t0:active { background-position:-21px -270px; }
+
+#t1			{ background-position:-325px -90px; }
+#t1:hover 	{ background-position:-325px -180px; }
+#t1:active	{ background-position:-325px -270px; }
+#t1.active	{ background-position:-325px 0 !important; }
+
+#t2			{ background-position:-435px -90px; }
+#t2:hover 	{ background-position:-435px -180px; }
+#t2:active	{ background-position:-435px -270px; }
+#t2.active	{ background-position:-435px 0 !important; }
+
+#t3			{ background-position:-545px -90px; }
+#t3:hover 	{ background-position:-545px -180px; }
+#t3:active	{ background-position:-545px -270px; }
+#t3.active	{ background-position:-545px 0 !important; }
+
+#t4			{ background-position:-655px -90px; }
+#t4:hover 	{ background-position:-655px -180px; }
+#t4:active	{ background-position:-655px -270px; }
+#t4.active	{ background-position:-655px 0 !important; }
+
+#t5			{ background-position:-765px -90px; }
+#t5:hover 	{ background-position:-765px -180px; }
+#t5:active	{ background-position:-765px -270px; }
+#t5.active	{ background-position:-765px 0 !important; }
+
+#t6			{ background-position:-875px -90px; }
+#t6:hover 	{ background-position:-875px -180px; }
+#t6:active	{ background-position:-875px -270px; }
+#t6.active	{ background-position:-875px 0 !important; }
+</style>
+
+
+
+<!-- root element for everything -->
+<div id="scroll">
+
+	<!-- scrollable items -->
+	<div id="tools">
+
+		<!-- empty slot -->
+		<div class="tool">&nbsp;</div>
+
+		<!-- tabs -->
+		<div class="tool">
+
+			<a href="${jqt}/tabs/index.html">
+				<img src="/media/img/hero/tabs.jpg"/></a>
+
+			<div class="details">
+				<strong>Tabs</strong> is the most popular JavaScript tool on the web. Tabs, horizontal tabs and accordions, finally done the right way.
+			</div>
+
+		</div>
+
+		<!-- tooltip -->
+		<div class="tool">
+
+			<a href="${jqt}/tooltip/index.html">
+				<img src="/media/img/hero/tooltip.jpg"/></a>
+
+			<div class="details">
+				<strong>Tooltip</strong> helps you to build easier user interfaces. Big or small. Pluggable effects. Yet another crucial tool.
+			</div>
+
+		</div>
+
+		<!-- overlay -->
+		<div class="tool">
+
+			<a href="${jqt}/overlay/index.html">
+				<img src="/media/img/hero/overlay.jpg"/></a>
+
+			<div class="details">
+				<strong>Overlay</strong> is a significant part of the JavaScript/Web 2.0 landscape. This tool handles them all: commercial overlays, modal dialogs and slideshows.
+			</div>
+
+		</div>
+
+		<!-- scrollable -->
+		<div class="tool">
+
+			<a href="${jqt}/scrollable/index.html">
+				<img src="/media/img/hero/scrollable.jpg"/></a>
+
+			<div class="details">
+				<strong>Scrollable</strong> is the most successful tool in this library. Any size and shape. Infinite loops and more.
+			</div>
+
+		</div>
+
+		<!-- FORM -->
+		<div class="tool">
+
+			<a href="${jqt}/release-notes/index.html#form">
+				<img src="/media/img/hero/form.jpg"/></a>
+
+			<div class="details">
+				<strong>FORM</strong> is a collection of essential form building tools. Validation, range- and date inputs for humans. New wave form development is here.
+			</div>
+
+		</div>
+
+		<!-- toolbox -->
+		<div class="tool">
+
+			<a href="${jqt}/toolbox/flashembed.html">
+				<img src="/media/img/hero/toolbox/toolbox.jpg"/></a>
+
+			<div class="details">
+				<strong>TOOLBOX</strong> is a set of small niceties. Take control of the mousewheel and your browser's back button. Embed Flash and place masks over your document.
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- intro "page" -->
+	<div id="intro" class="tool">
+
+		<img style="margin:-17px 0 28px 0" width="721" height="346" alt="jQuery Tools. The ultimate UI library for web"
+			src="/media/img/hero/jquerytools.jpg" />
+
+		<div class="details">
+			<strong>jQuery Tools</strong> is a collection of the most important user-interface components for modern websites. Used by large sites all over the world.
+		</div>
+
+	</div>
+
+	<!-- required for IE6/IE7 -->
+	<br clear="all" />
+
+	<!-- thumbnails -->
+	<div id="thumbs" class="t">
+
+		<!-- intro page navi button -->
+		<a id="t0" class="active"></a>
+
+		<!-- scrollable navigator root element -->
+		<div class="navi">
+			<a style="display:none"></a>
+			<a id="t1"></a>
+			<a id="t2"></a>
+			<a id="t3"></a>
+			<a id="t4"></a>
+			<a id="t5"></a>
+			<a id="t6"></a>
+		</div>
+
+	</div>
+
+</div>
+
+
+<script>
+/* dependencies with LAB */
+$LAB.script("/media/js/jquery.tools.min.js").wait(function() {
+	
+// initialize scrollable and return the programming API
+var api = $("#scroll").scrollable({
+	items: '#tools'
+
+// use the navigator plugin
+}).navigator().data("scrollable");
+
+
+// this callback does the special handling of our "intro page"
+api.onBeforeSeek(function(e, i) {
+
+	// when on the first item: hide the intro
+	if (i) {
+		$("#intro").fadeOut("slow");
+
+		// dirty hack for IE7-. cannot explain
+		if ($.browser.msie && $.browser.version < 8) {
+			$("#intro").hide();
+		}
+
+	// otherwise show the intro
+	} else {
+		$("#intro").fadeIn(1000);
+	}
+
+	// toggle activity for the intro thumbnail
+	$("#t0").toggleClass("active", i == 0);
+});
+
+// a dedicated click event for the intro thumbnail
+$("#t0").click(function() {
+
+	// seek to the beginning (the hidden first item)
+	$("#scroll").scrollable().begin();
+
+});
+			
+});
+document.getElementById("nav1").className = "active";
+</script>
+
+<div id="features">
+	
+	<div id="less" class="feature clear">
+	
+		<h2>Less is <strong>MORE</strong></h2> 
+		
+		{#
+			firebug Net tab, ZOOM: cdn, combined, expiry. Badge: 4.9 KB!
+			http://culturedcode.com/styles_2.0/images/screenshot_things_big4.jpg
+			http://dribbble.com/shots/32157-Geek-Girls-Guide-Badges
+		#}
+		
+		<p>
+			Web is all about speed. Your ADHD audience hates to wait. jQuery Tools is freaking 80% smaller in file size than others. It does the essentials only. Your job is to make faster sites with thinner manuals.
+		</p>
+		
+	</div>
+	
+	<div id="possible" class="feature clear toright">
+	
+		<h2>Everything is possible</h2>	
+	
+		
+		
+		<p>
+			You have an idea. Time to build it. After a desperate search for a magic widget you'll end up <strong>combining</strong> the tools. Overlayed tabs, scrollable inside a tooltip, tabbed HTML5 form, big or small, black or white - you design it.
+		</p>
+		
+	</div>
+	
+		
+	<div id="policy" class="feature clear">
+	
+		<h2>Say <strong>NO</strong> to frameworks</h2>
+		
+		{#
+			firebug HTML tab + zoom
+			http://flowplayer.org/tools/demos/combine/html5-form/img/code.jpg
+		#}
+		
+		<p>
+			jQuery Tools is there to make the job done. It's a simple collection of tools and not a heavy framework. Just pick what you need. No weird idioms or coding rules. Just good old HTML, CSS and JavaScript. 
+		</p>
+		
+	</div>
+		
+	<div id="mobile" class="feature clear toright">
+	
+		<h2>Mobile users will love it</h2>
+		
+		
+		
+		<p>
+			Mobile sites are the same - their goal is to present your idea. This time in a very small screen. Now speed is even more important. Heavy frameworks will kill. 
+		</p>
+		
+		<p>	
+			Once again you need <strong>speed</strong>, your own <strong>looks</strong> and the right <strong>tools</strong>.
+		</p>
+		
+	</div>
+		
+</div>	
+	
+
+<a id="tease" href="release-notes/" class="clear"></a>
+
+				
+</div>
+			
+		</div>
+	
+		<div id="footer" class="clear">
+		
+			
+			
+			<div id="footerlinks" class="clear">
+				<a href="https://github.com/jquerytools/jquerytools">tools on github</a>
+				<a href="https://github.com/jquerytools/jquerytools/www">website on github</a>
+				<a href="https://github.com/jquerytools/jquerytools/issues">report a bug</a>									
+			</div>
+			
+		</div>
+		
+	</div>
+  
+	<script>	
+	$LAB
+	
+	
+	// google analytics
+	.script("/media/js/ga.js").wait(function(){
+		var tracker = _gat._getTracker("");
+		 
+	});
+	
+	</script>
+   
+</body>
+</html>

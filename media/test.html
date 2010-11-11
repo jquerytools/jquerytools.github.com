@@ -1,0 +1,98 @@
+<!doctype html>  
+<html class="no-js">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	
+	<title></title>	
+	<meta name="description" content="">
+	<meta name="keywords" content="">	
+	<meta name="author" content="">	
+	
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png"> 
+	<link rel="stylesheet" href="css/style.css">
+	
+	<!-- CSS scripting & LabJS only-->
+	<script>this.birth = {root: "media"};</script>
+	<script src="js/birth.min.js"></script>
+</head>
+
+<body>
+
+	<div id="top">
+	
+		<div id="top-wrap">
+			<a id="top-fp" class="active">Flowplayer</a>
+			<a id="top-jt" href="/tools/index.html">jQuery Tools</a>		
+				
+			<form id="top-search" action="/search.html">
+				<input type="text" name="q" />
+				<button type="submit">Search</button>
+			</form>
+		</div>
+		
+	</div>
+	
+
+	<div id="wrap">
+	
+		<div id="nav"> 
+			<div id="nav-wrap">
+				<a id="fp1" href="/index.html">Home</a>
+				<a id="fp2" href="/download/index.html">Download</a>
+				<a id="fp3" href="/demos/index.html">Demos</a>
+				<a id="fp4" href="/documentation/index.html">Documentation</a>
+				<a id="fp5" href="/plugins/index.html">Plugins</a> 
+				<a id="fp6" href="/forum/index.html">Forums</a>
+			</div>
+		</div>
+		
+		<div id="header"></div>
+	
+		<div id="main">				
+			<div id="content" class="clear">
+
+				<!-- home page -->
+				<a id="hero" href="/setup/index.html"></a>				
+				<a id="latest" href="/3.2/3/" title="Flowplayer 3.2.3: iPad and iPhone support"></a>				
+				<a id="release" href="/3.2/"></a>			
+			
+			</div>
+		</div>
+	
+		<div id="footer" class="clear">
+			
+			<h2>Flowplayer Twitter feed</h2>
+			
+			<div id="twitter" class="clear"> 
+			
+				<div id="tweets"></div> 
+	
+				<a id="follow" href="http://twitter.com/flowplayer" title="Follow us on Twitter">
+					Flowplayer Twitter feed</a>
+			</div>
+			
+			<div id="footerlinks" class="clear">
+				<a href="/company.html">Flowplayer Ltd</a> | <a href="/sites.html">Sites using Flowplayer</a>				
+			</div>
+			
+		</div>
+		
+	</div>
+  
+	<script>	
+	$LAB
+	.script("http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js").wait()
+	.script("js/site.js")
+	.script("http://www.google-analytics.com/ga.js").wait(function(){
+		var tracker = _gat._getTracker("<YOUR_CODE>");
+		// tracker._trackPageview();
+	});
+	</script>
+   
+</body>
+</html>
+
+
