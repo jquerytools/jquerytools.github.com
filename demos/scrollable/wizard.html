@@ -1,0 +1,780 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>A scrollable registration wizard</title>
+    <meta name="description" content="Scroll your HTML with eye candy">
+    <meta name="keywords" content="jquery scrolling,jquery scrollable,javascript scrolling,javascript scrolling plugin,jquery scrolling plugin,jquery scrollable plugin,scrolling html elements">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-wizard.css"/>
+<!-- a little more standalone page styling 
+<style>
+  body {
+  background-color:#234;
+  padding-top:5%;
+  }
+</style>
+-->
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/scrollable.jpg">
+
+<div id="demo_content">
+<style>
+  #wizard li {
+  margin-top:0 !important;
+  list-style-type:none !important;
+  list-style-image:none !important;
+  }
+</style>
+
+<div class="blurb">
+
+<h1 class="teaser title">A scrollable registration wizard</h1>
+
+<p>
+  Here is a registration wizard with primitive input validation logic
+  and a "twitter" style message box for validation errors:
+</p>
+
+<div class="box full">
+<!-- twitter style notification bar for validation errors -->
+<div id="drawer">
+  Please fill in the empty fields marked with
+  a <samp style="color:red">red</samp> border.
+</div>
+
+<!-- the form -->
+<form action="#">
+
+  <div id="wizard">
+
+    <ul id="status">
+      <li class="active"><strong>1.</strong> Create Account</li>
+      <li><strong>2.</strong> Contact Information</li>
+      <li><strong>3.</strong> Finalize</li>
+    </ul>
+
+    <div class="items">
+
+      <!-- page1 -->
+      <div class="page">
+
+	<h2>
+	  <strong>Step 1: </strong> jQuery Tools Account
+	  <em>Please enter your login information:</em>
+	</h2>
+
+	<ul>
+	  <!-- email -->
+	  <li class="required">
+	    <label>
+	      <strong>1.</strong> Enter Your Email Address <span>*</span><br />
+	      <input type="text" class="text" name="email" />
+	      <em>Your password will be sent to this address. Your
+	        address will not made public.</em>
+	    </label>
+	  </li>
+
+	  <!-- username -->
+	  <li>
+	    <label>
+	      <strong>2.</strong> Pick a username <br />
+	      <input type="text" class="text" name="username" />
+	      <em>Your preferred username to be used when logging in.</em>
+	    </label>
+	  </li>
+
+	  <!-- password -->
+	  <li class="required double">
+
+	    <label>
+	      <strong>3.</strong> Choose a Password <span>*</span><br />
+	      <input type="password" class="text" name="password" />
+	      <em>Must be at least 8 characters long.</em>
+	    </label>
+
+	    <label>
+	      Verify Password <span>*</span><br />
+	      <input type="password" class="text" name="password1" />
+	    </label>
+	  </li>
+
+	  <li class="clearfix">
+	    <button type="button" class="next right">Proceed &raquo;</button>
+	  </li>
+	</ul>
+
+      </div>
+
+      <!-- page2 -->
+      <div class="page">
+
+	<h2>
+	  <strong>Step 2: </strong> Contact Information <b></b>
+	  <em>Please tell us where you live:</em>
+	</h2>
+
+	<ul>
+	  <!-- address -->
+	  <li class="required">
+	    <label>
+	      <strong>1.</strong>
+              Enter Your Street Address <span>*</span><br />
+	      <input type="text" class="text" name="email" />
+	      <em><strong>Example</strong>: Random Street 69 A 666</em>
+	    </label>
+	  </li>
+
+	  <!-- zip / city -->
+	  <li class="required double">
+
+	    <label>
+	      <strong>2.</strong> Enter Your Zip Code <span>*</span><br />
+	      <input class="text" name="zip" />
+	      <em>This must be a numeric value</em>
+	    </label>
+
+	    <label>
+	      <strong>3.</strong> and The City <span>*</span>
+	      <select name="city">
+		<option value="">-- please select --</option>
+		<option>Helsinki</option>
+		<option>Berlin</option>
+		<option>New York</option>
+	      </select>
+	    </label>
+	  </li>
+
+	  <li class="clearfix">
+	    <button type="button" class="prev" style="float:left">
+              &laquo; Back
+            </button>
+	    <button type="button" class="next right">
+              Proceed &raquo;
+            </button>
+	  </li>
+
+	  <br clear="all" />
+	</ul>
+
+      </div>
+
+      <!-- page3 -->
+      <div class="page">
+
+	<h2>
+	  <strong>Step 3: </strong> Congratulations! <b></b>
+	  <em>You are now a happy member of the Open Source community</em>
+	</h2>
+
+
+	<img src="/media/img/title/eye.png"
+             style="margin:30px 0 0 140px" />
+
+	<p style="margin-top:30px">
+	  <button type="button" class="prev">&laquo; Back</button>
+	</p>
+
+      </div>
+
+    </div><!--items-->
+
+  </div><!--wizard-->
+
+</form>
+
+<script>
+  $(function() {
+      var root = $("#wizard").scrollable();
+  
+      // some variables that we need
+    var api = root.scrollable(), drawer = $("#drawer");
+
+    // validation logic is done inside the onBeforeSeek callback
+    api.onBeforeSeek(function(event, i) {
+
+    // we are going 1 step backwards so no need for validation
+    if (api.getIndex() < i) {
+
+		         // 1. get current page
+		         var page = root.find(".page").eq(api.getIndex()),
+
+			 // 2. .. and all required fields inside the page
+			 inputs = page.find(".required :input").removeClass("error"),
+
+			 // 3. .. which are empty
+			 empty = inputs.filter(function() {
+			 return $(this).val().replace(/\s*/g, '') == '';
+			 });
+
+		         // if there are empty fields, then
+		         if (empty.length) {
+
+			 // slide down the drawer
+			 drawer.slideDown(function()  {
+
+			 // colored flash effect
+			 drawer.css("backgroundColor", "#229");
+			 setTimeout(function() { drawer.css("backgroundColor", "#fff"); }, 1000);
+			 });
+
+			 // add a CSS class name "error" for empty & required fields
+			 empty.addClass("error");
+
+			 // cancel seeking of the scrollable by returning false
+			 return false;
+
+		         // everything is good
+		         } else {
+
+			 // hide the drawer
+			 drawer.slideUp();
+		         }
+
+	                 }
+
+	                 // update status bar
+	                 $("#status li").removeClass("active").eq(i).addClass("active");
+
+                         });
+                         
+                             // if tab is pressed on the next button seek to next page
+    root.find("button.next").keydown(function(e) {
+    if (e.keyCode == 9) {
+
+    // seeks to next tab by executing our validation routine
+    api.next();
+    e.preventDefault();
+    }
+    });
+                           });
+</script>
+
+</div>
+<a class="standalone" href="wizard.htm">standalone demo</a>
+
+</div>
+
+<h3>HTML coding</h3>
+
+<p>
+  The HTML structure follows the same principles as
+  the <a href="index.html">minimal setup</a> for Scrollable with the
+  addition of two special elements: <samp>#drawer</samp> for showing
+  the error messages in "twitter style" and <samp>#status</samp> for
+  displaying the page the user is currently on.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- twitter style &quot;drawer&quot; for displaying validation errors --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;drawer&quot;</span><span class="nt">&gt;</span>[ERROR MESSAGE]<span class="nt">&lt;/div&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- the form --&gt;</span><br /><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- scrollable root element --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;wizard&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />    <span class="c">&lt;!-- status bar --&gt;</span><br />    <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;status&quot;</span><span class="nt">&gt;</span><br />      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;&lt;strong&gt;</span>1.<span class="nt">&lt;/strong&gt;</span> Create Account<span class="nt">&lt;/li&gt;</span><br />      <span class="nt">&lt;li&gt;&lt;strong&gt;</span>2.<span class="nt">&lt;/strong&gt;</span> Contact Information<span class="nt">&lt;/li&gt;</span><br />      <span class="nt">&lt;li&gt;&lt;strong&gt;</span>3.<span class="nt">&lt;/strong&gt;</span> Finalize<span class="nt">&lt;/li&gt;</span><br />    <span class="nt">&lt;/ul&gt;</span><br />&nbsp;<br />    <span class="c">&lt;!-- scrollable items --&gt;</span><br />    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;items&quot;</span><span class="nt">&gt;</span><br />      <span class="c">&lt;!-- pages --&gt;</span><br />      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>[ Any HTML content ]<span class="nt">&lt;/div&gt;</span><br />      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>[ Any HTML content ]<span class="nt">&lt;/div&gt;</span><br />      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;page&quot;</span><span class="nt">&gt;</span>[ Any HTML content ]<span class="nt">&lt;/div&gt;</span><br />    <span class="nt">&lt;/div&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;/div&gt;</span><br /><span class="nt">&lt;/form&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h3>CSS coding</h3>
+
+<p>
+  The CSS coding is the hardest part of this demo. Here are the most
+  important parts taken from the
+  <a href="/media/css/scrollable-wizard.css">scrollable-wizard.css</a>
+  which is used for styling the entire demo.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c">/* the root element for scrollable */</span><br />  <span class="nf">#wizard</span> <span class="p">{</span><br />  <span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">;</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="c">/* scrollable items */</span><br />  <span class="nf">#wizard</span> <span class="nc">.items</span> <span class="p">{</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">20000em</span><span class="p">;</span><br />  <span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="c">/* single scrollable item called &quot;.page&quot; in this setup */</span><br />  <span class="nf">#wizard</span> <span class="nc">.page</span> <span class="p">{</span><br />  <span class="k">padding</span><span class="o">:</span><span class="m">20px</span> <span class="m">30px</span><span class="p">;</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">500px</span><span class="p">;</span><br />  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="c">/* validation error message bar. positioned on the top edge */</span><br />  <span class="nf">#drawer</span> <span class="p">{</span><br />  <span class="k">overflow</span><span class="o">:</span><span class="k">visible</span><span class="p">;</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">fixed</span><span class="p">;</span><br />  <span class="k">left</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />  <span class="k">top</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<h3>Scrollable setup</h3>
+
+<p>
+  This is the easy part (again). Self explanatory.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#wizard&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">();</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>Input validation logic</h3>
+
+<p>
+  The wizard contains a simple validation logic that only checks that
+  the required fields are not blank. It checks for input fields that
+  are nested inside an <samp>li.required</samp> element and makes sure
+  that they have a value. White space characters are not accepted. If
+  you want to implement a proper validation logic please use
+  the <a href="/validator">Validator Tool</a>.
+</p>
+
+<p>
+  I have added lots of comments so that you'll understand what's
+  happening. Notice that the "drawer" logic is a very simple one-liner
+  although the effect is very useful.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="c1">// some variables that we need</span><br />    <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">scrollable</span><span class="p">(),</span> <span class="nx">drawer</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#drawer&quot;</span><span class="p">);</span><br />&nbsp;<br />    <span class="c1">// validation logic is done inside the onBeforeSeek callback</span><br />    <span class="nx">api</span><span class="p">.</span><span class="nx">onBeforeSeek</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />    <span class="c1">// we are going 1 step backwards so no need for validation</span><br />    <span class="k">if</span> <span class="p">(</span><span class="nx">api</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />		         <span class="c1">// 1. get current page</span><br />		         <span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.page&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="nx">api</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">()),</span><br />&nbsp;<br />			 <span class="c1">// 2. .. and all required fields inside the page</span><br />			 <span class="nx">inputs</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.required :input&quot;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">),</span><br />&nbsp;<br />			 <span class="c1">// 3. .. which are empty</span><br />			 <span class="nx">empty</span> <span class="o">=</span> <span class="nx">inputs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />			 <span class="k">return</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s*/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">;</span><br />			 <span class="p">});</span><br />&nbsp;<br />		         <span class="c1">// if there are empty fields, then</span><br />		         <span class="k">if</span> <span class="p">(</span><span class="nx">empty</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />			 <span class="c1">// slide down the drawer</span><br />			 <span class="nx">drawer</span><span class="p">.</span><span class="nx">slideDown</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span>  <span class="p">{</span><br />&nbsp;<br />			 <span class="c1">// colored flash effect</span><br />			 <span class="nx">drawer</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;backgroundColor&quot;</span><span class="p">,</span> <span class="s2">&quot;#229&quot;</span><span class="p">);</span><br />			 <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">drawer</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;backgroundColor&quot;</span><span class="p">,</span> <span class="s2">&quot;#fff&quot;</span><span class="p">);</span> <span class="p">},</span> <span class="mi">1000</span><span class="p">);</span><br />			 <span class="p">});</span><br />&nbsp;<br />			 <span class="c1">// add a CSS class name &quot;error&quot; for empty &amp; required fields</span><br />			 <span class="nx">empty</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">);</span><br />&nbsp;<br />			 <span class="c1">// cancel seeking of the scrollable by returning false</span><br />			 <span class="k">return</span> <span class="kc">false</span><span class="p">;</span><br />&nbsp;<br />		         <span class="c1">// everything is good</span><br />		         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br />&nbsp;<br />			 <span class="c1">// hide the drawer</span><br />			 <span class="nx">drawer</span><span class="p">.</span><span class="nx">slideUp</span><span class="p">();</span><br />		         <span class="p">}</span><br />&nbsp;<br />	                 <span class="p">}</span><br />&nbsp;<br />	                 <span class="c1">// update status bar</span><br />	                 <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#status li&quot;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">);</span><br />&nbsp;<br />                         <span class="p">});</span><br />                         <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>The final tweak</h3>
+
+<p>
+  We still need to make one optimization for the whole setup. If the
+  user advances through those form fields with the TAB key we must
+  make sure that the form page is validated before advancing to the
+  next tab. This can be achieved with the following JavaScript
+  snippet:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="c1">// if tab is pressed on the next button seek to next page</span><br />    <span class="nx">root</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;button.next&quot;</span><span class="p">).</span><span class="nx">keydown</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span><br />    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />    <span class="c1">// seeks to next tab by executing our validation routine</span><br />    <span class="nx">api</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span><br />    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><br />    <span class="p">}</span><br />    <span class="p">});</span><br />                         <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a class="active"                title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

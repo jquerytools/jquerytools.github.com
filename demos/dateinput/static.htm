@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- dateinput styling -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/dateinput/large.css"/>
+<style>
+#calendar {
+	height:400px;
+	width:410px;
+	float:left;
+}
+
+#theday {
+	-moz-border-radius:5px;
+	background-color:#36387B;
+	color:#FFFFFF;
+	float:left;
+	font-size:90px;
+	height:80px;
+	line-height:50px;
+	margin-top:30px;
+	padding:60px;
+	text-shadow:0 0 5px #DDDDDD;
+	width:117px;
+}
+
+#theday span {
+	display:block;
+	font-size:16px;
+	text-align:center;
+}
+</style>
+</head>
+<body><!-- wrapper element -->
+<div id="calendar">
+  <input type="date" name="mydate" value="0" />
+</div>
+
+<!-- large date display -->
+<div id="theday"></div>
+
+<br clear="all"/>
+
+<!-- make it happen -->
+<script>
+$(function() {
+// initialize dateinput
+$(":date").dateinput( {
+
+	// closing is not possible
+	onHide: function()  {
+		return false;
+	},
+
+	// when date changes update the day display
+	change: function(e, date)  {
+		$("#theday").html(this.getValue("dd<span>mmmm yyyy</span>"));
+	}
+
+// set initial value and show dateinput when page loads
+}).data("dateinput").setValue(0).show();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Custom input types and attributes</title>
+    <meta name="description" content="HTML5 form validation made easy">
+    <meta name="keywords" content="jquery validator, jquery form validation, jquery validation, form validation, html5 form validation">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <!-- same styling as in minimal setup -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/validator/form.css"/>
+
+<!-- override it to have a columned layout -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/validator/columns.css"/>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/validator.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Custom input types and attributes</h1>
+
+<p>
+  Here we make a custom <samp>time</samp> input with
+  custom <samp>minlength</samp> and <samp>data-equals</samp>
+  attributes. New wave form development. jQuery Tools Validator makes
+  it easy.
+</p>
+
+<div class="box full">
+<form id="myform" class="cols">
+  <h3>HTML5 form with custom inputs</h3>
+
+  <fieldset>
+    <label> email * <input type="email" required="required" minlength="9" /> </label>
+    <label> username * <input type="text" name="username" minlength="5" /> </label>
+    <label> Password <input type="password" name="password" minlength="4" /> </label>
+    <label> Password check <input type="password" name="check" data-equals="password" /> </label>
+  </fieldset>
+
+  <fieldset>
+    <label> website * <input type="url" required="required" /> </label>
+    <label> name * <input type="text" name="name" required="required" maxlength="30" /> </label>
+    <label> age <input type="number" name="age" size="4" maxlength="3" /> </label>
+    <label> time <input type="time" name="time" maxlength="8" /> </label>
+  </fieldset>
+
+  <div class="clear"></div>
+
+  <button type="submit">Submit form</button>
+</form>
+
+<script>
+      // Regular Expression to test whether the value is valid
+    $.tools.validator.fn("[type=time]", "Please supply a valid time", function(input, value) {
+    return /^\d\d:\d\d$/.test(value);
+    });
+        $.tools.validator.fn("[data-equals]", "Value not equal with the $1 field", function(input) {
+    var name = input.attr("data-equals"),
+    field = this.getInputs().filter("[name=" + name + "]");
+    return input.val() == field.val() ? true : [name];
+    });
+        $.tools.validator.fn("[minlength]", function(input, value) {
+    var min = input.attr("minlength");
+
+    return value.length >= min ? true : {
+    en: "Please provide at least " +min+ " character" + (min > 1 ? "s" : ""),
+    fi: "Kent&auml;n minimipituus on " +min+ " merkki&auml;"
+    };
+    });
+        $.tools.validator.localizeFn("[type=time]", {
+    en: 'Please supply a valid time',
+    fi: 'Virheellinen aika'
+    });
+        $("#myform").validator({
+    position: 'top left',
+    offset: [-12, 0],
+    message: '<div><em/></div>' // em element is the arrow
+    });
+  </script>
+
+</div>
+<a class="standalone" href="custom-validators.htm">standalone demo</a>
+
+</div>
+
+<h3>HTML coding</h3>
+
+<p>
+  Here it is. A HTML5 form together with our new attributes:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;myform&quot;</span> <span class="na">class=</span><span class="s">&quot;cols&quot;</span><span class="nt">&gt;</span><br />  <span class="nt">&lt;h3&gt;</span>HTML5 form with custom inputs<span class="nt">&lt;/h3&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;fieldset&gt;</span><br />    <span class="nt">&lt;label&gt;</span> email * <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;email&quot;</span> <span class="na">required=</span><span class="s">&quot;required&quot;</span> <span class="na">minlength=</span><span class="s">&quot;9&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> username * <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;username&quot;</span> <span class="na">minlength=</span><span class="s">&quot;5&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> Password <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">minlength=</span><span class="s">&quot;4&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> Password check <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">name=</span><span class="s">&quot;check&quot;</span> <span class="na">data-equals=</span><span class="s">&quot;password&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />  <span class="nt">&lt;/fieldset&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;fieldset&gt;</span><br />    <span class="nt">&lt;label&gt;</span> website * <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;url&quot;</span> <span class="na">required=</span><span class="s">&quot;required&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> name * <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">required=</span><span class="s">&quot;required&quot;</span> <span class="na">maxlength=</span><span class="s">&quot;30&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> age <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">name=</span><span class="s">&quot;age&quot;</span> <span class="na">size=</span><span class="s">&quot;4&quot;</span> <span class="na">maxlength=</span><span class="s">&quot;3&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />    <span class="nt">&lt;label&gt;</span> time <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;time&quot;</span> <span class="na">name=</span><span class="s">&quot;time&quot;</span> <span class="na">maxlength=</span><span class="s">&quot;8&quot;</span> <span class="nt">/&gt;</span> <span class="nt">&lt;/label&gt;</span><br />  <span class="nt">&lt;/fieldset&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;clear&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span><span class="nt">&gt;</span>Submit form<span class="nt">&lt;/button&gt;</span><br /><span class="nt">&lt;/form&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h2>Custom validators</h2>
+
+<p>
+  Implementing new attributes and input type is very easy with this
+  tool. So easy that you'll end up developing new ones regularly. Each
+  new attribute and input type requires a new custom validator
+  function. They are added to the Validator tool with
+  the <samp>$.tools.validator.fn</samp> method.
+</p>
+
+<h3><samp>time</samp> input type</h3>
+
+<p>
+  Time input belongs to the HTML5 standard. Here we implement it. A
+  valid input has two numbers followed by ":" followed by two
+  numbers. For example: 12:44.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="c1">// Regular Expression to test whether the value is valid</span><br />    <span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">validator</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="s2">&quot;[type=time]&quot;</span><span class="p">,</span> <span class="s2">&quot;Please supply a valid time&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br />    <span class="k">return</span> <span class="sr">/^\d\d:\d\d$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span><br />    <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  This is the most common way of defining a custom validator. The
+  first argument matches all inputs you want to validate. Here we
+  select input fields whose <samp>type</samp> attribute is equal to
+  "time". The second argument is the error message that is shown when
+  validation fails. The third argument is the actual validator
+  function; it must return <samp>true</samp> if the value is
+  valid. The value is supplied as the second argument to the validator
+  function.
+</p>
+
+<h3><samp>data-equals</samp> attribute</h3>
+
+<p>
+  Our next validator ensures that one field's value is equal to
+  another field's value. For
+  example <samp>data-equals="password"</samp> means that the value
+  must equal to a field named "password". The <samp>data-</samp>
+  prefix makes it valid HTML5.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">validator</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="s2">&quot;[data-equals]&quot;</span><span class="p">,</span> <span class="s2">&quot;Value not equal with the $1 field&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span><br />    <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;data-equals&quot;</span><span class="p">),</span><br />    <span class="nx">field</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getInputs</span><span class="p">().</span><span class="nx">filter</span><span class="p">(</span><span class="s2">&quot;[name=&quot;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span><span class="p">);</span><br />    <span class="k">return</span> <span class="nx">input</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="nx">field</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="p">[</span><span class="nx">name</span><span class="p">];</span><br />    <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Here you can see the backreference <samp>$1</samp> in the error
+  message. It is being replaced by the return value of the validator
+  function when a validation fails. You can have zero or more
+  backreferences and they must be contained in an Array. Also note
+  that inside the validator <samp>this</samp> is a reference to
+  the <a href="/validator#api">validator API</a>.
+</p>
+
+<h3><samp>minlength</samp> attribute</h3>
+
+<p>
+  Here we make use of the non-standard <samp>minlength</samp>
+  attribute. When making custom attributes you can use any attribute
+  name you like and things will work. The downside is that custom
+  names don't pass HTML validation but in
+  an <a href="http://www.crockford.com/html/" class="external">ideal
+  world</a> this shouldn't be the case.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">validator</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="s2">&quot;[minlength]&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br />    <span class="kd">var</span> <span class="nx">min</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;minlength&quot;</span><span class="p">);</span><br />&nbsp;<br />    <span class="k">return</span> <span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">min</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="p">{</span><br />    <span class="nx">en</span><span class="o">:</span> <span class="s2">&quot;Please provide at least &quot;</span> <span class="o">+</span><span class="nx">min</span><span class="o">+</span> <span class="s2">&quot; character&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">min</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">?</span> <span class="s2">&quot;s&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">),</span><br />    <span class="nx">fi</span><span class="o">:</span> <span class="s2">&quot;Kent&amp;auml;n minimipituus on &quot;</span> <span class="o">+</span><span class="nx">min</span><span class="o">+</span> <span class="s2">&quot; merkki&amp;auml;&quot;</span><br />    <span class="p">};</span><br />    <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  This time we return the error message and don't provide it as the
+  second argument. This gives you the possibility to dynamically
+  construct the message. You can return a simple string in which case
+  it is assumed to be in English or you can return an object just as
+  we do here.
+</p>
+
+<h3>Localization</h3>
+
+<p>
+  Here we localize our time input with
+  the <samp>$.tools.validator.localizeFn</samp> call.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">validator</span><span class="p">.</span><span class="nx">localizeFn</span><span class="p">(</span><span class="s2">&quot;[type=time]&quot;</span><span class="p">,</span> <span class="p">{</span><br />    <span class="nx">en</span><span class="o">:</span> <span class="s1">&#39;Please supply a valid time&#39;</span><span class="p">,</span><br />    <span class="nx">fi</span><span class="o">:</span> <span class="s1">&#39;Virheellinen aika&#39;</span><br />    <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  And here are all the messages contained inside the validator as seen
+  from the <a href="http://getfirebug.com/"
+  class="external">Firebug</a> console.
+</p>
+
+<p>
+  <img src="/media/img/validator/messages-custom2.gif" alt="" />
+</p>
+
+<p>
+  You can read more about custom validators and localization from
+  the <a href="/validator">validator documentation</a>.
+</p>
+
+<h3>Validator initialization</h3>
+
+<p>
+  Once the custom validators have been defined we initialize
+  validation for our form. We tweak the position of the error message
+  with the <samp>offset</samp> configuration variable:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myform&quot;</span><span class="p">).</span><span class="nx">validator</span><span class="p">({</span><br />    <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;top left&#39;</span><span class="p">,</span><br />    <span class="nx">offset</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span><br />    <span class="nx">message</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;&lt;em/&gt;&lt;/div&gt;&#39;</span> <span class="c1">// em element is the arrow</span><br />    <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  You need to place the <samp>script</samp> block <em>after</em> the
+  HTML code or you can alternatively use
+  jQuery's <samp>$(document).ready</samp> to execute the script as
+  soon as the webpage's Document Object Model (DOM) has been
+  loaded. Read more about that from
+  the <a href="/documentation/basics.html#document_ready">User's
+  Manual</a>.
+</p>
+
+<h2>CSS coding</h2>
+
+<p>
+  We use
+  <a href="/media/css/validator/form.css">two</a>
+  <a href="/media/css/validator/columns.css">stylesheets</a>
+  for the job:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="o">&lt;!</span><span class="nt">--</span> <span class="nt">same</span> <span class="nt">styling</span> <span class="nt">as</span> <span class="nt">in</span> <span class="nt">minimal</span> <span class="nt">setup</span> <span class="nt">--</span><span class="o">&gt;</span><br /><span class="o">&lt;</span><span class="nt">link</span> <span class="nt">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><br />      <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;/media/css/validator/form.css&quot;</span><span class="o">/&gt;</span><br />&nbsp;<br /><span class="o">&lt;!</span><span class="nt">--</span> <span class="nt">override</span> <span class="nt">it</span> <span class="nt">to</span> <span class="nt">have</span> <span class="nt">a</span> <span class="nt">columned</span> <span class="nt">layout</span> <span class="nt">--</span><span class="o">&gt;</span><br /><span class="o">&lt;</span><span class="nt">link</span> <span class="nt">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nt">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span><br />      <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;/media/css/validator/columns.css&quot;</span><span class="o">/&gt;</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<h3>Pure CSS arrow</h3>
+
+<p>
+  One interesting feature in <samp>columns.css</samp> is the arrow
+  that is done with CSS only. No images. Here is the trick:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* pure CSS arrow */</span><br /><span class="nc">.error</span> <span class="nt">em</span> <span class="p">{</span><br />  <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />  <span class="k">height</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />  <span class="k">border</span><span class="o">:</span><span class="m">10px</span> <span class="k">solid</span><span class="p">;</span><br />  <span class="k">border-color</span><span class="o">:</span><span class="m">#FFFE36</span> <span class="k">transparent</span> <span class="k">transparent</span><span class="p">;</span><br />&nbsp;<br />  <span class="c">/* positioning */</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />  <span class="k">bottom</span><span class="o">:-</span><span class="m">17px</span><span class="p">;</span><br />  <span class="k">left</span><span class="o">:</span><span class="m">60px</span><span class="p">;</span><br />  <span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a class="active"                title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

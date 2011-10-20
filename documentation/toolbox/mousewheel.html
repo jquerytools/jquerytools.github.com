@@ -1,0 +1,151 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+                <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background:url(/media/img/hero/toolbox/mousewheel.jpg) 0 30px no-repeat">
+  jQuery Tools / Mousewheel - Take control of your mousewheel
+</h1>
+
+<h2 class="first">Usage</h2>
+
+<p>
+  The Mousewheel plugin allows you to take control of the
+  mousewheel. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// make #myelement listen for mousewheel events</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#myelement&quot;</span><span class="p">).</span><span class="nx">mousewheel</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">delta</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Whenever the mousewheel is used while the mouse point is over the
+  elements specified by the jQuery selector, the supplied callback
+  function is called. It takes two arguments. The first one is the
+  jQuery <a href="http://docs.jquery.com/Event" class="external">event
+  object</a> and the second argument specifies how much the wheel was
+  rotated. A positive value for <samp>delta</samp> means movement
+  downwards and a negative value means movement upwards.
+</p>
+
+<p style="color:#666">
+  This plugin is based on Three Dub
+  Media's <a href="http://plugins.jquery.com/project/wheel">wheel
+  plugin</a> which is a smaller, simplified interpretation of the
+  Brandon Aaron's well-known special event, "Mouse Wheel
+  Extension". Thanks.
+</p>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

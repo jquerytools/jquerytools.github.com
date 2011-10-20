@@ -1,23 +1,26 @@
-<!doctype html>
-
-<!-- Full list of demos @ http://jquerytools.org/demos/ -->
-
+<!DOCTYPE html>
 <html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
 
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
 <head>
-	<title>jQuery Tools home page scrollable : jQuery Tools</title> 
-	
-	<!-- standalone page styling. can be removed --> 
-	<style>
-		body 		{ width:982px; margin:50px auto; font-family:sans-serif; }
-		a:active { outline:none; } :focus { -moz-outline-style:none; }
-	</style>
-	
-	
+  <title>jQuery Tools standalone demo</title>
 
-<style>
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <style>
 img {
-	border:0;		
+	border:0;
 }
 
 #scroll {
@@ -123,180 +126,179 @@ img {
 #t6:active	{ background-position:-875px -270px; }
 #t6.active	{ background-position:-875px 0 !important; }
 </style>
-
-	
-
-	<!-- include tools -->	
-	<script src="/media/js/jquery.tools.min.js"></script>
-	
-	
 </head>
-
-<body>
-	
-
-<!-- root element for everything -->
+<body><!-- root element for everything -->
 <div id="scroll">
 
-	<!-- scrollable items -->
-	<div id="tools">
+  <!-- scrollable items -->
+  <div id="tools">
 
-		<!-- empty slot -->
-		<div class="tool">&nbsp;</div>
+    <!-- empty slot -->
+    <div class="tool">&nbsp;</div>
 
-		<!-- tabs -->
-		<div class="tool">
+    <!-- tabs -->
+    <div class="tool">
 
-			<a href="${jqt}/tabs/index.html">
-				<img src="/media/img/hero/tabs.jpg"/></a>
+      <a href="/tabs/index.html">
+	<img src="/media/img/hero/tabs.jpg"/></a>
 
-			<div class="details">
-				<strong>Tabs</strong> is the most popular JavaScript tool on the web. Tabs, horizontal tabs and accordions, finally done the right way.
-			</div>
+      <div class="details">
+	<strong>Tabs</strong> is the most popular JavaScript tool on
+	the web. Tabs, horizontal tabs and accordions, finally done
+	the right way.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- tooltip -->
-		<div class="tool">
+    <!-- tooltip -->
+    <div class="tool">
 
-			<a href="${jqt}/tooltip/index.html">
-				<img src="/media/img/hero/tooltip.jpg"/></a>
+      <a href="/tooltip/index.html">
+	<img src="/media/img/hero/tooltip.jpg"/></a>
 
-			<div class="details">
-				<strong>Tooltip</strong> helps you to build easier user interfaces. Big or small. Pluggable effects. Yet another crucial tool.
-			</div>
+      <div class="details">
+	<strong>Tooltip</strong> helps you to build easier user
+	interfaces. Big or small. Pluggable effects. Yet another
+	crucial tool.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- overlay -->
-		<div class="tool">
+    <!-- overlay -->
+    <div class="tool">
 
-			<a href="${jqt}/overlay/index.html">
-				<img src="/media/img/hero/overlay.jpg"/></a>
+      <a href="/overlay/index.html">
+	<img src="/media/img/hero/overlay.jpg"/></a>
 
-			<div class="details">
-				<strong>Overlay</strong> is a significant part of the JavaScript/Web 2.0 landscape. This tool handles them all: commercial overlays, modal dialogs and slideshows.
-			</div>
+      <div class="details">
+	<strong>Overlay</strong> is a significant part of the
+	JavaScript/Web 2.0 landscape. This tool handles them all:
+	commercial overlays, modal dialogs and slideshows.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- scrollable -->
-		<div class="tool">
+    <!-- scrollable -->
+    <div class="tool">
 
-			<a href="${jqt}/scrollable/index.html">
-				<img src="/media/img/hero/scrollable.jpg"/></a>
+      <a href="/scrollable/index.html">
+	<img src="/media/img/hero/scrollable.jpg"/></a>
 
-			<div class="details">
-				<strong>Scrollable</strong> is the most successful tool in this library. Any size and shape. Infinite loops and more.
-			</div>
+      <div class="details">
+	<strong>Scrollable</strong> is the most successful tool in
+	this library. Any size and shape. Infinite loops and more.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- FORM -->
-		<div class="tool">
+    <!-- FORM -->
+    <div class="tool">
 
-			<a href="${jqt}/release-notes/index.html#form">
-				<img src="/media/img/hero/form.jpg"/></a>
+      <a href="/release-notes/index.html#form">
+	<img src="/media/img/hero/form.jpg"/></a>
 
-			<div class="details">
-				<strong>FORM</strong> is a collection of essential form building tools. Validation, range- and date inputs for humans. New wave form development is here.
-			</div>
+      <div class="details">
+	<strong>FORM</strong> is a collection of essential form
+	building tools. Validation, range- and date inputs for
+	humans. New wave form development is here.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- toolbox -->
-		<div class="tool">
+    <!-- toolbox -->
+    <div class="tool">
 
-			<a href="${jqt}/toolbox/flashembed.html">
-				<img src="/media/img/hero/toolbox/toolbox.jpg"/></a>
+      <a href="/toolbox/flashembed.html">
+	<img src="/media/img/hero/toolbox/toolbox.jpg"/></a>
 
-			<div class="details">
-				<strong>TOOLBOX</strong> is a set of small niceties. Take control of the mousewheel and your browser's back button. Embed Flash and place masks over your document.
-			</div>
+      <div class="details">
+	<strong>TOOLBOX</strong> is a set of small niceties. Take
+	control of the mousewheel and your browser's back
+	button. Embed Flash and place masks over your document.
+      </div>
 
-		</div>
+    </div>
 
-	</div>
+    <%--}}}--%>
+  </div>
 
-	<!-- intro "page" -->
-	<div id="intro" class="tool">
+  <!-- intro "page" -->
+  <div id="intro" class="tool">
 
-		<img style="margin:-17px 0 28px 0" width="721" height="346" alt="jQuery Tools. The ultimate UI library for web"
-			src="/media/img/hero/jquerytools.jpg" />
+    <img style="margin:-17px 0 28px 0" width="721" height="346"
+	 alt="jQuery Tools. The ultimate UI library for web"
+	 src="/media/img/hero/jquerytools.jpg" />
 
-		<div class="details">
-			<strong>jQuery Tools</strong> is a collection of the most important user-interface components for modern websites. Used by large sites all over the world.
-		</div>
+    <div class="details">
+      <strong>jQuery Tools</strong> is a collection of the most
+      important user-interface components for modern websites. Used by
+      large sites all over the world.
+    </div>
 
-	</div>
+  </div>
 
-	<!-- required for IE6/IE7 -->
-	<br clear="all" />
+  <!-- required for IE6/IE7 -->
+  <br clear="all" />
 
-	<!-- thumbnails -->
-	<div id="thumbs" class="t">
+  <!-- thumbnails -->
+  <div id="thumbs" class="t">
 
-		<!-- intro page navi button -->
-		<a id="t0" class="active"></a>
+    <!-- intro page navi button -->
+    <a id="t0" class="active"></a>
 
-		<!-- scrollable navigator root element -->
-		<div class="navi">
-			<a style="display:none"></a>
-			<a id="t1"></a>
-			<a id="t2"></a>
-			<a id="t3"></a>
-			<a id="t4"></a>
-			<a id="t5"></a>
-			<a id="t6"></a>
-		</div>
+    <!-- scrollable navigator root element -->
+    <div class="navi">
+      <a style="display:none"></a>
+      <a id="t1"></a>
+      <a id="t2"></a>
+      <a id="t3"></a>
+      <a id="t4"></a>
+      <a id="t5"></a>
+      <a id="t6"></a>
+    </div>
 
-	</div>
+  </div>
 
 </div>
 
-
-
 <script>
+  // initialize scrollable and return the programming API
+  var api = $("#scroll").scrollable({
+  items: '#tools'
 
-// initialize scrollable and return the programming API
-var api = $("#scroll").scrollable({
-	items: '#tools'
-
-// use the navigator plugin
-}).navigator().data("scrollable");
+  // use the navigator plugin
+  }).navigator().data("scrollable");
 
 
-// this callback does the special handling of our "intro page"
-api.onBeforeSeek(function(e, i) {
+  // this callback does the special handling of our "intro page"
+  api.onBeforeSeek(function(e, i) {
 
-	// when on the first item: hide the intro
-	if (i) {
-		$("#intro").fadeOut("slow");
+  // when on the first item: hide the intro
+  if (i) {
+  $("#intro").fadeOut("slow");
 
-		// dirty hack for IE7-. cannot explain
-		if ($.browser.msie && $.browser.version < 8) {
-			$("#intro").hide();
-		}
+  // dirty hack for IE7-. cannot explain
+  if ($.browser.msie && $.browser.version < 8) {
+			                    $("#intro").hide();
+		                            }
 
-	// otherwise show the intro
-	} else {
-		$("#intro").fadeIn(1000);
-	}
+	                                    // otherwise show the intro
+	                                    } else {
+		                            $("#intro").fadeIn(1000);
+	                                    }
 
-	// toggle activity for the intro thumbnail
-	$("#t0").toggleClass("active", i == 0);
-});
+	                                    // toggle activity for the intro thumbnail
+	                                    $("#t0").toggleClass("active", i == 0);
+                                            });
 
-// a dedicated click event for the intro thumbnail
-$("#t0").click(function() {
+                                            // a dedicated click event for the intro thumbnail
+                                            $("#t0").click(function() {
 
-	// seek to the beginning (the hidden first item)
-	$("#scroll").scrollable().begin();
+	                                    // seek to the beginning (the hidden first item)
+	                                    $("#scroll").scrollable().begin();
 
-});
+                                            });
 
 </script>
-			   
 </body>
-
 </html>

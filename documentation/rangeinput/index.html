@@ -1,0 +1,614 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+          <!-- rangeinput styling -->
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/rangeinput/skin1.css"/>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background:url(/media/img/hero/rangeinput.jpg) no-repeat -14px 5px">
+  jQuery Rangeinput @ jQuery Tools
+  <em>HTML5 range input for humans</em>
+</h1>
+
+<p class="more" style="margin-top:0">
+  This tool brings <strong>HTML5</strong> range input to all browsers
+  in such a way that you can make it look and behave like you
+  want. This small candy weights only <strong>2.2 Kb</strong>.
+</p>
+
+<div style="margin:20px 0">
+  <!-- HTML5 range input -->
+  <input type="range" name="test" min="100" max="300" value="150" />
+
+  <!-- make it happen -->
+  <script>
+    $(":range").rangeinput();
+  </script>
+
+</div>
+
+<p class="less" style="margin-bottom:30px">
+  <small>
+    Change the value of the above range either by dragging the handle,
+    clicking on the slider or changing the value of the input
+    field. When you have the focus on the input field you can change
+    the value with your <samp>Arrow Keys</samp> or
+    with <strong>VIM</strong> keyboard
+    shortcuts <samp>HJKL</samp>. <samp>PageUp</samp>
+    and <samp>PageDown</samp> go 10 steps forward and backward.
+  </small>
+</p>
+
+<div class="feat">
+  <h3 class="first">HTML5 range input</h3>
+  <p>
+    This tool brings HTML5 <samp>&lt;input type="range" /&gt;</samp>
+    support for all browsers in a consistent and standardized
+    manner <em>today.</em> The range field is just like any
+    other <samp>form</samp> field which can be scripted and
+    submitted. Opera and Safari will render range input even if
+    JavaScript is disabled.
+  </p>
+</div>
+<div class="feat last">
+  <h3 class="first">For nerds and humans</h3>
+  <p>
+    Call <samp>$(":range").rangeinput();</samp> and all your HTML5
+    range inputs are working. End users can pick values by dragging a
+    slider or using the keyboard arrow keys. Hackers can
+    use <strong>VIM</strong> keyboard shortcuts to move the range back
+    and forth.
+  </p>
+</div>
+<div class="feat">
+  <h3>Styleable</h3>
+  <p>
+    You can design ranges to fit the overall feel of your site. Use
+    images and even the latest CSS3 techniques if you like. Every bit
+    of the range is skinnable. The default CSS class names can be
+    changed and you can design both horizontal and vertical
+    ranges. Professional example skins are provided and you may use
+    them for free.
+  </p>
+</div>
+<div class="feat last">
+  <h3>File size: <strong>2.20 Kb!</strong></h3>
+  <p>
+    It contains everything you need: configurability, skinning,
+    orientation, standards based behaviour, <a href="#api">scripting
+    API</a> and an <a href="#events">event model</a>. And as a bonus
+    you'll get a generic drag utility! Last, but not least: a smaller
+    codebase is easier to control and results in snappier behaviour.
+  </p>
+</div>
+<br clear="all" />
+
+
+<a name="usage"></a>
+<h2>Usage</h2>
+
+<p>
+  Here is a quick preview of how this tool is used:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c">&lt;!-- styling for the range --&gt;</span><br />  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href=</span><span class="s">&quot;range.css&quot;</span><span class="nt">/&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- a couple of HTML5 range inputs with standard attributes --&gt;</span><br />  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">name=</span><span class="s">&quot;range1&quot;</span> <span class="na">min=</span><span class="s">&quot;50&quot;</span> <span class="na">max=</span><span class="s">&quot;500&quot;</span> <span class="na">step=</span><span class="s">&quot;20&quot;</span> <span class="na">value=</span><span class="s">&quot;100&quot;</span> <span class="nt">/&gt;</span><br />  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">name=</span><span class="s">&quot;range2&quot;</span> <span class="na">min=</span><span class="s">&quot;0&quot;</span> <span class="na">max=</span><span class="s">&quot;1500&quot;</span> <span class="na">step=</span><span class="s">&quot;50&quot;</span> <span class="na">value=</span><span class="s">&quot;450&quot;</span> <span class="nt">/&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- select all range inputs and make them ranges --&gt;</span><br />  <span class="nt">&lt;script&gt;</span><br />    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:range&quot;</span><span class="p">).</span><span class="nx">rangeinput</span><span class="p">();</span><br />  <span class="nt">&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  Now your cross-browser range inputs are available. The browser's
+  built-in range input is replaced by a normal text input to keep it
+  from messing things up. Essentially the original range inputs are
+  replaced by new input fields where the type attribute has been
+  changed to "text". For further details take a look at the
+  demo: <a href="/demos/rangeinput/index.html">minimal setup for
+  range input</a>.
+</p>
+
+
+
+<a name="demos"></a>
+<h2>Demos</h2>
+
+<ul>
+  <c:forEach items="${f:getDemo(context.toolDemos2, 'rangeinput/index.html').category.demos}" var="demo">
+    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
+  </c:forEach>
+</ul>
+
+
+
+<a name="configuration"></a>
+<h2>Configuration</h2>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">css</td>
+    <td>Object</td>
+    <td>
+      CSS class names used by the generated range. Here are the
+      default values that you can change:
+      <div class="codebox"><figure class="code"><div class="highlight"><pre>        <span class="nt">css</span><span class="o">:</span> <span class="p">{</span><br />        <span class="n">input</span><span class="o">:</span> <span class="s1">&#39;range&#39;</span><span class="o">,</span>       <span class="c">/* class name for the generated text input field */</span><br />        <span class="n">slider</span><span class="o">:</span> <span class="s1">&#39;slider&#39;</span><span class="o">,</span>     <span class="c">/* class name for rangeinput */</span><br />        <span class="n">progress</span><span class="o">:</span> <span class="s1">&#39;progress&#39;</span><span class="o">,</span> <span class="c">/* class name for progress bar  */</span><br />        <span class="n">handle</span><span class="o">:</span> <span class="s1">&#39;handle&#39;</span>      <span class="c">/* class name for drag handle */</span><br />        <span class="p">}</span><br />      <br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="code">keyboard</td>
+    <td>true</td>
+    <td>
+      Whether keyboard shortcuts are enabled when the focus is on the
+      input field. Both arrow keys and VIM shortcuts are
+      supported. The page-up and page-down keys move the range by 10
+      steps.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">max</td>
+    <td>100</td>
+    <td>
+      Maximum value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">min</td>
+    <td>0</td>
+    <td>
+      Minimum value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">precision</td>
+    <td>0</td>
+    <td>
+      By default the value's precision (the amount of decimal places)
+      is determined by the value of the <samp>step</samp>
+      configuration option. For example a value <samp>0.01</samp>
+      results in a precision value 2 (two decimal places). You can
+      override the automatic precision calculation with this
+      configuration option.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">progress</td>
+    <td>false</td>
+    <td>
+      Whether the progress bar is shown and its width is adjusted
+      accordingly.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">speed</td>
+    <td>200</td>
+    <td>
+      Animation speed for the drag handle when the range is clicked.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">step</td>
+    <td>'any'</td>
+    <td>
+      <p>
+        A number that defines the size of a single step (the granularity
+        of the value) limiting the amount of allowed values. A zero
+        value or the string "any" disables stepping. The following range
+        control only accepts values in the range from 0 to 1 and allows
+        100 steps within that range:
+      </p>
+      <div class="codebox"><figure class="code"><div class="highlight"><pre>      <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">opacity</span> <span class="na">type=</span><span class="s">range</span> <span class="na">min=</span><span class="s">0</span> <span class="na">max=</span><span class="s">1</span> <span class="na">step=</span><span class="s">&quot;0.01&quot;</span><span class="nt">&gt;</span><br />      <br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="code">value</td>
+    <td>0</td>
+    <td>
+      Initial value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">vertical</td>
+    <td>false</td>
+    <td>
+      If the slider element's height is larger than its width, the
+      tool assumes that the range is vertical. You can override the
+      assumption with this configuration variable.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="attributes"></a>
+<h3>Input attributes</h3>
+
+<p>
+  You can also configure the range by supplying valid HTML5 attributes
+  for the range input field. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">value=</span><span class="s">&quot;40&quot;</span> <span class="na">min=</span><span class="s">&quot;20&quot;</span> <span class="na">max=</span><span class="s">&quot;400&quot;</span> <span class="na">step=</span><span class="s">&quot;20&quot;</span> <span class="nt">/&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">disabled</td>
+    <td>
+      Whether the range is completely disabled. Both the slider and
+      the input field are disabled. The <samp>disabled</samp> attribute
+      can be toggled dynamically by scripting.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">max</td>
+    <td>
+      Maximum value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">min</td>
+    <td>
+      Minimum value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">readonly</td>
+    <td>
+      When enabled, the range is functional but the associative input
+      field cannot be edited.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">step</td>
+    <td>
+      The amount of steps the range takes between <samp>min</samp>
+      and <samp>max</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">value</td>
+    <td>Initial value.</td>
+  </tr>
+</table>
+
+
+
+<a name="skinning"></a>
+<h2>Skinning</h2>
+
+<p>
+  Once the range is initialized the following kind of HTML layout is
+  constructed:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;slider&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;progress&quot;</span> <span class="na">style=</span><span class="s">&quot;width: 200px; display: block;&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;handle&quot;</span> <span class="na">style=</span><span class="s">&quot;left: 200px;&quot;</span><span class="nt">&gt;&lt;/a&gt;</span><br />  <span class="nt">&lt;/div&gt;</span><br />  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">value=</span><span class="s">&quot;4&quot;</span> <span class="na">step=</span><span class="s">&quot;10&quot;</span> <span class="na">max=</span><span class="s">&quot;20&quot;</span> <span class="na">min=</span><span class="s">&quot;2&quot;</span> <span class="na">class=</span><span class="s">&quot;range&quot;</span><span class="nt">&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  There are two elements. The rangeinput and the input. Inside the
+  rangeinput there is a progress bar and a drag handle. Here the
+  handle has been dragged to position 200px, and the progress bar
+  follows if it is enabled. The original range input is placed after
+  the rangeinput component with its type attribute changed to
+  "text". When it comes to skinning it's all about making your CSS
+  against this structure. Here is
+  one <a href="/media/css/rangeinput/skin2.css">example skin</a> which
+  uses only one background gradient image.
+</p>
+
+
+
+<a name="api"></a>
+<h2>Scripting API</h2>
+
+<p>
+  First make sure you have familiarized yourself
+  with <a href="/documentation/scripting.html">jQuery Tools
+  scripting</a>.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th nowrap>Return value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">getConf</td>
+    <td><code>Object</code></td>
+    <td>
+      Returns the configuration of the current instance.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getHandle</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the drag handle element.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getInput</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the input element.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getProgress</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the progress element. The one that "follows" the handle.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getValue</td>
+    <td><code>Number</code></td>
+    <td>
+      Returns the current value of the range.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">next</td>
+    <td><code>API</code></td>
+    <td>
+      Advance to the next step (value).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">prev</td>
+    <td><code>API</code></td>
+    <td>
+      Return to the previous step (value).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">setValue(value)</td>
+    <td><code>API</code></td>
+    <td>
+      Sets the range value to the one specified in the argument.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">step(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Changes the range value by the value given in
+      the <samp>step</samp> configuration option multiplied
+      by <samp>amount</samp>. The default amount is 1. A negative
+      value decreases the value and a positive value increases it.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">stepDown(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Decreases the value with the amount of steps given in the
+      argument. identical to <samp>step(-amount)</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">stepUp(amount)</td>
+    <td><code>API</code></td>
+    <td>
+      Increases the value with the amount of steps given in the
+      argument. identical to <samp>step(amount)</samp>.
+    </td>
+  </tr>
+</table>
+
+
+
+<h3>DOM API</h3>
+
+<p>
+  The official HTML5 range input defines a couple
+  of <a href="http://dev.w3.org/html5/spec-author-view/common-input-element-attributes.html#common-input-element-apis"
+  class="external">DOM methods and attributes</a> which are being
+  enabled by this tool.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th nowrap>Return value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">stepDown(amount)</td>
+    <td><code></code></td>
+    <td>
+      Decreases the value with the amount of steps given in the
+      argument. identical to <samp>step(-amount)</samp> in
+      the <a href="#api">API</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">stepUp(amount)</td>
+    <td><code></code></td>
+    <td>
+      Increases the value with the amount of steps given in the
+      argument. identical to <samp>step(amount)</samp> in
+      the <a href="#api">API</a>.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="events"></a>
+<h2>Events</h2>
+
+<p>
+  First make sure you have read
+  about <a href="/documentation/scripting.html#events">Events in
+  jQuery Tools</a>. All event listeners receive
+  the <a href="/documentation/scripting.html#event_object">Event
+  Object</a> as the first argument. Here is an example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// select all range inputs and assign event listeners to them</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:range&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br />  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;value changed to&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th nowrap>When does it occur?</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">onSlide</td>
+    <td>
+      When sliding occurs. You can cancel the action by
+      returning <samp>false</samp> or
+      calling <samp>preventDefault()</samp> for the event object. Note
+      that assigning this event listener is performance heavy and may
+      affect the smoothness of the sliding experience.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">change</td>
+    <td>
+      After the range value is changed. If you slide the range by
+      clicking on the underlying slider this is the only event that is
+      being triggered. Note that the name is the same as the
+      jQuery's <samp>change</samp> method and you can bind the event
+      directly with that function. For other events you must use
+      the <samp>bind</samp> method. This leads to more fluent syntax
+      as shown in the example above.
+    </td>
+  </tr>
+</table>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <style>
+p.more, p.more a {
+  font-size:16px;
+  margin:20px 0;
+  letter-spacing:-1px;
+}
+#content .plus {
+  list-style-image:url(/media/img/plus.png);
+}
+#content .minus {
+  list-style-image:url(/media/img/plus.png);
+}
+h1.hero_title {
+  background:url( /media/img/hero/usersguide.jpg ) no-repeat 0 10px;
+  margin-bottom:-360px;
+}
+</style>
+
+<style>
+.col {
+	margin:25px 60px 0 0;
+	width:330px;
+	height:310px;
+}
+
+.col img {
+	float:left;
+	margin:0 15px 100px 0 !important;
+}
+
+.col.last {
+	margin-top:25px !important;
+}
+
+.col p {
+	color:#333;
+}
+
+p.more {
+	color:#888;
+	font-size:16px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+        <script>
+$(function() {
+  var page = location.href.split("/").pop().split("#").shift() || 'index.html';
+  $("ul.tabs a[href*=" +page+ "]").addClass("current");
+  $("#right ul a[href*=/configuration]").addClass("selected");
+  $("#biglink").addClass("current").click(function() { return false; });
+});
+</script>
+  </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 class="hero_title">
+  jQuery Tools Users Guide - Common practices for each of the tools
+</h1>
+
+<ul class="tabs" style="position:relative;top:-25px;">
+  <li><a href="/documentation/index.html">Introduction</a>
+  <li><a href="/documentation/basics.html">The Basics</a>
+  <li><a class="w1" href="/documentation/scripting.html">
+      Scripting &amp; Events
+  </a></li>
+  <li><a href="/documentation/performance.html">
+      Performance
+  </a></li>
+</ul>
+
+<div class="col" style="margin-top:-15px">
+
+  <h3>Essential tools for modern websites</h3>
+
+  <p class="more">
+    Let's face it: do you really need drag-and-drop, resizable windows
+    or sortable lists in your web applications?
+  </p>
+
+  <img src="/media/img/essential_tools.jpg"/>
+
+
+  <p>
+    Websites are not desktop applications. They are different. What
+    you really need is high usability, striking visual effects and all
+    those "web 2.0" goodies that you have seen on your favourite
+    websites.
+  </p>
+
+  <p>
+    This library is an answer to this need. All tools can be used
+    together, extended, configured and styled. You'll find your
+    personal way of using the library.
+  </p>
+
+</div>
+
+<div class="col last" style="margin-top:-15px !important">
+
+  <h3>Small size. High performance. Free CDN.</h3>
+
+  <p class="more">
+    The UI part of this library weighs ${v.jqtSize} Kb. This is
+    possible with good programming habits and compressed files
+  </p>
+
+
+  <img src="/media/img/performance.jpg" />
+
+  <p>
+    You can pick your own selection of tools from the download page or
+    you can load the most common combinations directly from a free
+    Content Delivery Network (CDN).
+  </p>
+
+  <p>
+    The CDN is configured with the proper expire headers and
+    compression settings so that the file loads fast. This CDN can be
+    used in production environments without any charge.
+  </p>
+
+
+</div>
+
+<div class="col">
+
+  <h3>For beginners</h3>
+
+  <p class="more">
+    A large demo area lets you copy &amp; paste working code directly
+    into your pages.
+  </p>
+
+  <img src="/media/img/user_basic.png" style="margin:5px 30px" />
+
+  <p>
+    From each demo there is a minimal version without redundant HTML,
+    CSS or JavaScript. You can use them as templates and fine tune
+    them to your requirements. They provide a quick way to get
+    started. You are also free to use and modify all the graphics
+    you'll find.
+  </p>
+
+
+
+</div>
+
+<div class="col last">
+
+  <h3>For serious programmers</h3>
+
+  <p class="more">
+    Each tool does only what it is supposed to do and nothing
+    else. Tools and not policy.
+  </p>
+
+  <img src="/media/img/user_advanced.png" style="margin:5px 30px"/>
+
+  <p>
+    Understandable API design. Clean design patterns. Compact and
+    human readable source code
+    on <a href="http://github.com/jquerytools/jquerytools"
+    class="external">Github</a>. That's it.
+  </p>
+
+  <p>
+    Learn one tool and you also have learned the other tools.
+  </p>
+
+</div>
+<br clear="all" />
+
+
+<a name="understanding"></a>
+<h2 class="first">Understanding <em>jQuery Tools</em></h2>
+
+<p>
+  jQuery Tools is a collection of the most important user interface
+  components for the web. These are tabs, accordions, tooltips,
+  overlays, exposing effects and scrollables. They can dramatically
+  improve the usability and responsiveness of your site. They mainly
+  focus on <em>presenting information</em> and <em>visual
+  appeal</em>. After all, this is exactly what most websites
+  desperately want: to present their content to the reader in an easy
+  and visually pleasing manner.
+</p>
+
+<p>
+  Other JavaScript UI libraries focus on desktop-like features such as
+  drag-and-drop, ranges, sortable tables or draggable windows. They
+  are meant to build "rich internet applications" (RIAs) such as email
+  clients, task managers, CRM software, image organizers or feed
+  viewers. These kinds of applications are very useful within a small
+  group or when used in intranets; however, normal websites are very
+  different in nature. Their purpose is to look good and present
+  information. jQuery Tools are built exactly for that purpose.
+</p>
+
+<p>
+  It is recommended that you start designing your pages without using
+  any JavaScript. There are many examples of highly functional, good
+  looking and user friendly web sites that are not using
+  JavaScript. The purpose of this library is to enhance an existing
+  site with the great possibilities that modern JavaScript techniques
+  have to offer. This is essentially the idea of "progressive
+  enhancement" which is a common design pattern today. You should
+  realize that highly professional sites don't overuse JavaScript just
+  for the fun of it. Scripting is only used when it truly makes the
+  pages more readable and user-friendly. This is where these jQuery
+  Tools come into play.
+</p>
+
+<p>
+  This library is not a framework with a steep learning curve, lots of
+  preliminary work and strict coding rules. You are not tied to any
+  predefined HTML or CSS structures. You can include the library on
+  your pages and start using it immediately. You can freely design the
+  look and feel of your site or you can use any of the designs we
+  present in our demos as a template.
+</p>
+
+<p>
+  These tools can be easily combined. Think of scrollables that
+  trigger overlays or overlays that contain scrollables together with
+  tooltips or whatever combination you can imagine. The possibilities
+  are endless. And if that is not enough, you can harness the enormous
+  power of the jQuery library. Many times you see complex JavaScript
+  components implemented that could be done with just a few lines of
+  jQuery code. For many websites, this may be the only JavaScript
+  library necessary.
+</p>
+
+<p style="font-size:16px;margin-top:20px">
+  The old UNIX design philosophy <strong>"tools, not policy"</strong>
+  is very important in web design.
+</p>
+
+
+<a name="browser_support"></a>
+<h2>Browser Support</h2>
+
+<p>
+  jQuery Tools have been proven to work with the following browsers:
+</p>
+
+<ul>
+  <li> <a class="external" href="http://www.mozilla.com/en-US/firefox/">Firefox</a> 2.0+</li>
+  <li> <a class="external" href="http://www.microsoft.com/windows/products/winfamily/ie/">Internet Explorer</a> 6+</li>
+  <li> <a class="external" href="http://www.apple.com/safari/">Safari</a> 3+ </li>
+  <li> <a class="external" href="http://www.opera.com/browser/">Opera</a> 9+ </li>
+  <li> <a class="external" href="http://www.google.com/chrome/">Chrome</a> 1+ </li>
+</ul>
+
+<p>
+  If you encounter any problem with jQuery Tools and any of these
+  browsers, please report it to the <a href="/forum/20">jQuery Tools
+  forum</a>.
+</p>
+
+
+<a name="flowplayer"></a>
+<h2>jQuery Tools and Flowplayer</h2>
+
+<p>
+  You must have noticed that this project is hosted on the Flowplayer
+  website. This is because some of the tools were initially developed
+  for making widgets that work well with video
+  sites. <samp>Scrollable</samp> was made for building playlists
+  and <samp>Overlay</samp> was made for showing videos over other
+  elements on the page. Little by little those widgets matured to the
+  point where they are now.
+</p>
+
+<p>
+  Today Flowplayer and jQuery Tools have nothing specific to do with
+  each other. Flowplayer is a video player and jQuery Tools is a
+  generic user-interface library for the web. Of course, they can be
+  used together because both are well behaving pieces of
+  software. Here is a quick example of how videos can be overlayed on
+  a page:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// install flowplayer into a container element whose id is &quot;player&quot;</span><br />  <span class="kd">var</span> <span class="nx">player</span> <span class="o">=</span> <span class="nx">$f</span><span class="p">(</span><span class="s2">&quot;player&quot;</span><span class="p">,</span> <span class="s2">&quot;/media/swf/flowplayer/flowplayer-3.2.7.swf&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// setup button action. it will fire our overlay</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a.overlayLink&quot;</span><span class="p">).</span><span class="nx">overlay</span><span class="p">({</span><br />&nbsp;<br />  <span class="c1">// when the overlay is opened, load our player</span><br />  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />  <span class="nx">player</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span><br />  <span class="p">},</span><br />&nbsp;<br />  <span class="c1">// when the overlay is closed, unload our player</span><br />  <span class="nx">onClose</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />  <span class="nx">player</span><span class="p">.</span><span class="nx">unload</span><span class="p">();</span><br />  <span class="p">}</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Flowplayer is Open Source software licensed with the GPL&nbsp;3 open
+  source license. There are also commercial licenses that allow us to
+  focus full time on the development of tools and the player
+  itself. They also allow us to provide the free content delivery
+  network for the users of jQuery Tools. There is currently no
+  possibility of expressing your satisfaction through making a
+  donation; however, if you are interested in showing videos on your
+  site you could consider purchasing a
+  <a href="/download">Flowplayer commercial license</a>.
+</p>
+
+
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

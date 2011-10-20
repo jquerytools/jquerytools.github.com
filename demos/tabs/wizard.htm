@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <link rel="stylesheet" type="text/css" href="/media/css/tabs.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/tabs-panes.css"/>
+<style>
+  div.panes div {
+  background:#fff url(/media/img/gradient/h300.png) repeat-x 0 5px;
+  -background:#fff;
+  height:172px;
+  }
+
+  div.panes label {
+  margin-bottom:15px;
+  display:block;
+  }
+
+  label.error {
+  color:red;
+  }
+</style>
+</head>
+<body><div id="wizard_tabs">
+  <!-- tabs -->
+  <ul class="tabs">
+    <li><a href="#" class="l">Personal info</a></li>
+    <li><a href="#" class="l">Shopping basket</a></li>
+    <li><a href="#" class="l">Review order</a></li>
+  </ul>
+
+  <!-- panes -->
+  <div class="panes">
+    <div>
+      <label>
+	Username <br />
+	<input name="username"/>
+      </label>
+
+      <label>
+	Email <br />
+	<input name="email"/>
+      </label>
+
+      <label>
+	<input id="terms" type="checkbox" />
+	I accept <a href="#">these</a> terms and conditions
+      </label>
+
+      <p>
+	<button class="next">Next &raquo;</button>
+      </p>
+    </div>
+
+    <div>
+      <h2>An imaginary basket is here...</h2>
+      <p>
+	<button class="prev">&laquo; Prev</button>
+	<button class="next">Next &raquo;</button>
+      </p>
+    </div>
+
+    <div>
+      <h2>An imaginary order is here...</h2>
+      <p>
+	<button class="prev">&laquo; Prev</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- activate tabs with JavaScript -->
+<script>
+  $(function() {
+
+      // get container for the wizard and initialize its exposing
+    var wizard = $("#wizard_tabs").expose({color: '#789', lazy: true});
+
+    // enable exposing on the wizard
+    wizard.click(function() {
+    $(this).expose().load();
+  });
+  
+        // enable tabs that are contained within the wizard
+      $("ul.tabs", wizard).tabs("div.panes > div", function(event, index) {
+
+      /* now we are inside the onBeforeClick event */
+
+      // ensure that the "terms" checkbox is checked.
+      var terms = $("#terms");
+      if (index > 0 && !terms.get(0).checked)  {
+      terms.parent().addClass("error");
+
+      // when false is returned, the user cannot advance to the next tab
+      return false;
+      }
+
+      // everything is ok. remove possible red highlight from the terms
+      terms.parent().removeClass("error");
+      });
+  
+        // get handle to the tabs API
+      var api = $("ul.tabs", wizard).data("tabs");
+
+      // "next tab" button
+      $("button.next", wizard).click(function() {
+      api.next();
+      });
+
+      // "previous tab" button
+      $("button.prev", wizard).click(function() {
+      api.prev();
+      });
+    });
+</script>
+</body>
+</html>

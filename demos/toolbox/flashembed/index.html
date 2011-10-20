@@ -1,0 +1,626 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Basics of Flash embedding</title>
+    <meta name="description" content="The Future of Flash embedding">
+    <meta name="keywords" content="javascript tabs, jquery tabs, javascript tabbed navigation, ajax tabs, tab history">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <style>
+#clock {
+	width: 250px;
+	height: 250px;
+    margin: 0 auto;
+}
+</style>
+
+
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/flashembed.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Basics of Flash embedding</h1>
+
+<h2>Minimal Flash embedding setup</h2>
+
+<p>
+  Here you have a simple Flash object. Below the object you can see
+  how it is placed on the page:
+</p>
+
+<div class="box full">
+<div id="clock"></div>
+
+<script>
+flashembed("clock", "/media/swf/global/clock.swf");
+</script>
+
+</div>
+<a class="standalone" href="index1.htm">standalone demo</a>
+
+</div>
+
+<h3>HTML setup</h3>
+
+<p>
+  First you need to include the Flashembed script on your page:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;toolbox.flashembed.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  It is recommended that you use the minified (.min) version to reduce
+  the download size. You can get the
+  script <a href="/download">here</a>. Second, you have to have
+  a HTML container for the object; we are using a <samp>DIV</samp>
+  element in our example. We use an <samp>id</samp> attribute to
+  reference this container later in the embedding.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;clock&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+
+<h3>JavaScript setup</h3>
+
+<p>
+  Next, we place a Flash object inside the container. This happens
+  with this simple flashembed call:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;clock&quot;</span><span class="p">,</span> <span class="s2">&quot;/media/swf/global/clock.swf&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The call must be placed <strong>after</strong> the DIV element or
+  you must place it inside the <samp>$(document).ready()</samp> block
+  with jQuery. That is really all you need.
+</p>
+
+<h3>CSS code</h3>
+
+<p>
+  By default, the Flash object is placed <strong>inside</strong> the
+  player container so that its width and height properties are set
+  to <samp>100%</samp>. This means that you can control the dimensions
+  of the Flash object by setting the dimensions of the container. In
+  this minimal setup we have following CSS settings:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nf">#clock</span> <span class="p">{</span><br />  <span class="k">width</span><span class="o">:</span> <span class="m">250px</span><span class="p">;</span><br />  <span class="k">height</span><span class="o">:</span> <span class="m">250px</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+
+<h2>Configuring Flash objects</h2>
+
+<p>
+  Here we have another Flash object and this time we pass parameters
+  (or configuration) to it. Here is our flashembed call:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="s2">&quot;/media/swf/global/flashvars.swf&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// these properties are given for the Flash object</span><br />  <span class="nx">name1</span><span class="o">:</span> <span class="s1">&#39;configuration value #1&#39;</span><span class="p">,</span><br />  <span class="nx">name2</span><span class="o">:</span> <span class="s1">&#39;configuration value #2&#39;</span><span class="p">,</span><br />  <span class="nx">name3</span><span class="o">:</span> <span class="s1">&#39;Hello World! I am changing&#39;</span><span class="p">,</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Here is the result. The passed parameters are seen:
+</p>
+
+<div class="box">
+<div id="info" style="width:300px;height:125px;margin: 0 auto;"></div>
+
+<script>
+flashembed("info", "/media/swf/global/flashvars.swf", {
+	name1: 'configuration value #1',
+	name2: 'configuration value #2',
+	name3: 'Hello World! I am changing'
+});
+</script>
+
+</div>
+<a class="standalone" href="index2.htm">standalone demo</a>
+
+<h2>Configuring Flash with JSON</h2>
+
+<p>
+  Flashembed has the unique feature of configuring your Flash objects
+  with JSON. This gives you the ability to supply complex
+  configurations directly upon embedding. JSON is a JavaScript-based
+  syntax and is much more flexible and simpler than XML which has
+  historically been used in Flash configuration.
+</p>
+
+<p>
+  Flowplayer is one example of a Flash application that accepts
+  JSON-based configurations. Here is our flashembed call:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;player&quot;</span><span class="p">,</span> <span class="s2">&quot;/media/swf/flowplayer/flowplayer-3.2.7.swf&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// &quot;config&quot; parameter is a complex JSON object, not just a simple value</span><br />  <span class="nx">config</span><span class="o">:</span> <span class="p">{</span><br />    <span class="nx">clip</span><span class="o">:</span>  <span class="p">{</span><br />      <span class="nx">autoPlay</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span><br />      <span class="nx">autoBuffering</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span><br />      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://e1h13.simplecdn.net/flowplayer/flowplayer.flv&#39;</span><br />    <span class="p">}</span><br />  <span class="p">}</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  And here is the result:
+</p>
+
+<div class="box">
+<div id="player" style="width:500px;height:300px;margin: 0 auto;"></div>
+
+<script>
+flashembed("player", "/media/swf/flowplayer/flowplayer-3.2.7.swf", {
+	config: {
+		clip:  {
+			autoPlay: false,
+			autoBuffering: true,
+			url: 'http://blip.tv/file/get/KimAronson-TwentySeconds6421.m4v'
+		}
+	}
+});
+</script>
+
+</div>
+<a class="standalone" href="index3.htm">standalone demo</a>
+
+<p>
+  If you are developing a Flash object and want to configure it with
+  JSON, you can find JSON parsers for Flash
+  from <a href="http://code.google.com/p/as3corelib/"
+  class="external">as3corelib</a>.
+</p>
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a class="active"                title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

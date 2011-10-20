@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/skin1.css"/>
+<style>
+/* Override skin1.css to make it vertical */
+
+/* height is now larger than width  */
+.slider {
+		height:300px;
+		width:9px;
+		margin:0 0 0 60px;
+	}
+
+	/* tweak drag handle position */
+	.handle {
+		top:0;
+		left:-10px;
+	}
+
+	/* position progressbar on the bottom edge */
+	.progress {
+		width:9px;
+		position:absolute;
+		bottom:0;
+	}
+</style>
+</head>
+<body><input type="range" max="10"  value="5" />
+<input type="range" max="1"   step="0.1" value="0.2" />
+<input type="range" max="100" step="5" />
+<input type="range" min="400" max="1000" step="1" value="500" />
+
+<script>
+$(":range").rangeinput({ progress: true, max: 100 });
+</script>
+</body>
+</html>

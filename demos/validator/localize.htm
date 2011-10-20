@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <link rel="stylesheet" type="text/css"
+      href="/media/css/validator/form.css"/>
+</head>
+<body><form id="myform">
+  <fieldset>
+    <h3>Sample registration form</h3>
+    <p> Enter bad values and then press the submit button. </p>
+
+    <p>
+      <label>email *</label>
+      <input type="email" name="email" required="required" />
+    </p>
+    <p>
+      <label>website *</label>
+      <input type="url" name="url" required="required" />
+    </p>
+    <p>
+      <label>name *</label>
+      <input type="text" name="name" pattern="[a-zA-Z ]{5,}" maxlength="30" />
+    </p>
+    <p>
+      <label>age</label>
+      <input type="number" name="age" size="4" min="5" max="50" />
+    </p>
+    <p id="terms">
+      <label>I accept the terms</label>
+      <input type="checkbox" required="required" />
+    </p>
+    <button type="submit">Submit form</button>
+    <button type="reset">Reset</button>
+  </fieldset>
+</form>
+<script>
+// supply the language
+$.tools.validator.localize("fi", {
+	'*'			: 'Virheellinen arvo',
+	':email'  	: 'Virheellinen s&auml;hk&ouml;postiosoite',
+	':number' 	: 'Arvon on oltava numeerinen',
+	':url' 		: 'Virheellinen URL',
+	'[max]'	 	: 'Arvon on oltava pienempi, kuin $1',
+	'[min]'		: 'Arvon on oltava suurempi, kuin $1',
+	'[required]'	: 'Kent&auml;n arvo on annettava'
+});
+
+// use the finnish language in the validator
+$("#myform").validator({ lang: 'fi' });
+</script>
+</body>
+</html>

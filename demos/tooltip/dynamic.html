@@ -1,0 +1,640 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Dynamic positioning of the tooltip</title>
+    <meta name="description" content="The second most important UI widget">
+    <meta name="keywords" content="tooltips, javascript tooltip, jquery tooltip, jquery tooltip plugin, javascript tooltips, jquery tooltips">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <style>
+    /* tooltip styling. by default the element to be styled is .tooltip  */
+  .tooltip {
+    display:none;
+    background:transparent url(/media/img/tooltip/black_arrow.png);
+    font-size:12px;
+    height:70px;
+    width:160px;
+    padding:25px;
+    color:#eee;
+  }
+    /* style the trigger elements */
+  #demo img {
+    border:0;
+    cursor:pointer;
+    margin:0 1px;
+  }
+</style>
+<!--[if lt IE 7]>
+<style>
+  .tooltip {
+    background-image:url(/media/img/tooltip/black_arrow.gif);
+  }
+</style>
+<![endif]-->
+
+
+<style>
+/* override the arrow image of the tooltip */
+.tooltip.bottom {
+  background:url(/media/img/tooltip/black_arrow_bottom.png);
+  padding-top:40px;
+  height:55px;
+}
+
+.tooltip.bottom {
+  background:url(/media/img/tooltip/black_arrow_bottom.png);
+}
+</style>
+
+<!--[if lt IE 7]>
+<style>
+.tooltip {
+  background-image:url(/media/img/tooltip/black_arrow.gif);
+}
+
+.tooltip.bottom {
+  background:url(/media/img/tooltip/black_arrow_bottom.gif);
+}
+</style>
+<![endif]-->
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/tooltips.jpg">
+
+<div id="demo_content">
+
+<div class="blurb">
+
+<h1 class="teaser title">Dynamic positioning of the tooltip</h1>
+<p>
+  Below you can see triggers whose tooltip is centered on the top edge
+  of the trigger. <a href="#lower">Click here</a> to scroll a little
+  lower and see how the tooltips behave now. We are
+  using <a href="/tools/tooltip/dynamic.html">dynamic
+  plugin</a> which repositions our tooltips so that it is always
+  visible on the viewport.
+</p>
+
+<a name="lower"></a>
+<div class="box full">
+<div id="dyna">
+  <img src="/media/img/photos/1.jpg" style="margin-left:4px"
+       title="A must have tool for designing better layouts and more intuitive user-interfaces."/>
+  <img src="/media/img/photos/2.jpg"
+       title="Tooltips can be positioned anywhere relative to the trigger element."/>
+  <img src="/media/img/photos/3.jpg"
+       title="Tooltips can contain any HTML such as links, images, forms, tables, etc."/>
+  <img src="/media/img/photos/4.jpg" style="margin-right:0px"
+       title="There are many built-in show/hide effects and you can also make your own."/>
+</div>
+
+<script>
+$(function() {
+// initialize tooltip
+$("#dyna img[title]").tooltip({
+
+   // tweak the position
+   offset: [10, 2],
+
+   // use the "slide" effect
+   effect: 'slide'
+
+// add dynamic plugin with optional configuration for bottom edge
+}).dynamic({ bottom: { direction: 'down', bounce: true } });
+});
+</script>
+
+</div>
+<a class="standalone" href="dynamic.htm">standalone demo</a>
+
+
+<p>
+  If there is no room on the top edge then the tooltip is shown on the
+  bottom edge. The same happens on every edge of the tooltip: top,
+  bottom, left and right. When there is no room then the opposite edge
+  is used. Note that this demo is only for vertical repositioning.
+</p>
+
+<p>
+  It is possible to change the style, effect and other configuration
+  variables whenever the dynamic repositioning occurs. You can see
+  that in the above example the "slide" effect goes downwards when it
+  is displayed from the bottom edge and we are using a different
+  background image where the arrow points upwards.
+</p>
+
+<p>
+  We are using the <samp>offset</samp> option to position the tooltip
+  a little higher by default. When using the dynamic effect this value
+  is inverted. Higher means lower and further right means further
+  left.
+</p>
+
+<p>
+  The dynamic plugin can be used together with any effect. The above
+  configuration uses the
+  custom <a href="/tools/tooltip/slide.html">slide
+  effect</a>.
+</p>
+</div>
+
+<h3>HTML coding</h3>
+
+<p>
+  A <a href="index.html">minimal setup</a> with the tooltip element
+  and the triggers:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- tooltip triggers --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;dyna&quot;</span><span class="nt">&gt;</span><br />  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image1.jpg&quot;</span> <span class="na">title=</span><span class="s">&quot;The tooltip text #1&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image2.jpg&quot;</span> <span class="na">title=</span><span class="s">&quot;The tooltip text #2&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image3.jpg&quot;</span> <span class="na">title=</span><span class="s">&quot;The tooltip text #3&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;image4.jpg&quot;</span> <span class="na">title=</span><span class="s">&quot;The tooltip text #4&quot;</span><span class="nt">/&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h3>CSS coding</h3>
+
+<p>
+  When tooltip is repositioned it is assigned new CSS class names. By
+  default we are using "top", "bottom", "left" and "right" to identify
+  which edge is the newly positioned edge. These names can be changed
+  from the plugin's
+  <a href="/tools/tooltip/index.html#dynamic">configuration</a>.
+  Here are our settings for the repositioned bottom edge.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* override the arrow image of the tooltip */</span><br /><span class="nc">.tooltip.bottom</span> <span class="p">{</span><br />  <span class="k">background</span><span class="o">:</span><span class="sx">url(/media/img/tooltip/black_arrow_bottom.png)</span><span class="p">;</span><br />  <span class="k">padding-top</span><span class="o">:</span><span class="m">40px</span><span class="p">;</span><br />  <span class="k">height</span><span class="o">:</span><span class="m">55px</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="nc">.tooltip.bottom</span> <span class="p">{</span><br />  <span class="k">background</span><span class="o">:</span><span class="sx">url(/media/img/tooltip/black_arrow_bottom.png)</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<h3>JavaScript coding</h3>
+
+<p>
+  After initializing the tooltip we will chain
+  our <samp>dynamic()</samp> plugin. We have used
+  the <samp>bottom</samp> parameter to alter the tooltip configuration
+  for the bottom
+  edge. Every <a href="/tooltip/index.html#configuration">configuration
+  option</a> can be used to alter the tooltip's behaviour.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// initialize tooltip</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#dyna img[title]&quot;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span><br />&nbsp;<br />   <span class="c1">// tweak the position</span><br />   <span class="nx">offset</span><span class="o">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span><br />&nbsp;<br />   <span class="c1">// use the &quot;slide&quot; effect</span><br />   <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;slide&#39;</span><br />&nbsp;<br /><span class="c1">// add dynamic plugin with optional configuration for bottom edge</span><br /><span class="p">}).</span><span class="nx">dynamic</span><span class="p">({</span> <span class="nx">bottom</span><span class="o">:</span> <span class="p">{</span> <span class="nx">direction</span><span class="o">:</span> <span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="nx">bounce</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  <strong>Note:</strong> the dynamic plugin and the slide effect are
+  not included in the standard jQuery Tools distribution. You must
+  download
+  a <a href="/download/index.html#combine">custom
+  combination</a> to include those effects.
+</p>
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a class="active"                title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

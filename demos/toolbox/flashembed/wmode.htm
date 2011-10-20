@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <style>
+#layer {
+	height:120px;
+	width:400px;
+
+	/* must be absolutely positioned so that overlapping will occur */
+	position:absolute;
+	background-color:#123;
+	padding:20px;
+	color:white;
+	font-size:30px;
+	margin:30px;
+}
+
+#flash {
+	width:704px;
+	height:300px;
+}
+</style>
+</head>
+<body><!-- overlayed element. must be positioned absolutely -->
+<div id="layer">This layer is on top of the Flash object</div>
+
+<!-- the flash container -->
+<div id="flash"></div>
+
+<script>
+// wmode parameter does the trick
+flashembed("flash", {src: "/media/swf/global/flash10.swf", wmode: 'opaque'});
+</script>
+</body>
+</html>

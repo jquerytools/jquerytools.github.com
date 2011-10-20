@@ -1,0 +1,371 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-navigator.css" />
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background-image:url(/media/img/hero/scrollable.jpg)">
+  jQuery Tools / Scrollable - New Wave UI design
+</h1>
+
+<h2 class="first">Navigator plugin</h2>
+
+<p>
+  The Navigator plugin will allow your users to more easily navigate
+  between different pages in the scrollable. This plugin is convenient
+  if you have lots of items in a scrollable list. Here is the
+  navigator plugin in action:
+</p>
+
+<div style="margin:20px -15px">
+  
+<!-- wrapper for navigator elements -->
+<div class="navi"></div>
+
+<div style="margin:0 auto; width: 634px; height:120px;">
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="navigator">
+
+  <!-- root element for the items -->
+  <div class="items">
+
+    <!-- 1-5 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
+      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
+    </div>
+
+    <!-- 5-10 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
+      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+    </div>
+
+    <!-- 10-15 -->
+    <div>
+      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
+    </div>
+
+  </div>
+
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+</div>
+<br clear="all" />
+
+<!-- javascript coding -->
+<script>
+$(document).ready(function() {
+// initialize scrollable together with the navigator plugin
+$("#navigator").scrollable().navigator();
+});
+</script>
+
+
+</div>
+
+<a name="navigator_usage"></a>
+<h3>HTML setup</h3>
+
+<p>
+  Here is the HTML setup for the example above:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- wrapper for navigator elements --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  This navigator element will be <strong>auto-populated</strong> with
+  the type of HTML elements specified by your
+  configuration's <samp>naviItem</samp> property, as follows:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#0&quot;</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">&gt;&lt;/a&gt;</span><br />    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#1&quot;</span> <span class="nt">&gt;&lt;/a&gt;</span><br />    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#2&quot;</span> <span class="nt">&gt;&lt;/a&gt;</span><br />  <span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  The number of nested <samp>naviItem</samp> elements depends on the
+  number of scrollable items you have. It's up to you how you
+  visualize those elements using CSS. The navigator knows which page
+  you are currently viewing, and will assign the class name specified
+  in the <samp>activeClass</samp> configuration property to the active
+  navigation element.
+</p>
+
+<h3>JavaScript setup</h3>
+
+<p>
+  Here is the JavaScript setup for the example above.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// initialize scrollable together with the navigator plugin</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#navigator&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">().</span><span class="nx">navigator</span><span class="p">();</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+<a name="navigator_manual"></a>
+<h3>Manual setup</h3>
+
+<p>
+  You can also use an existing HTML structure as a navigator. Here is
+  an example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c">&lt;!-- manual navigator configuration --&gt;</span><br />  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;tabs&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#first&quot;</span><span class="nt">&gt;</span>First item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#second&quot;</span><span class="nt">&gt;</span>Second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#third&quot;</span><span class="nt">&gt;</span>Third item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />  <span class="nt">&lt;/ul&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  This can be setup as a navigator by doing the following:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;jquery selector&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">().</span><span class="nx">navigator</span><span class="p">({</span><br />&nbsp;<br />  <span class="c1">// ul.tabs now functions as our navigator</span><br />  <span class="nx">navi</span><span class="o">:</span><span class="s1">&#39;ul.tabs&#39;</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The items inside navigator can be anything such
+  as <samp>li</samp>, <samp>a</samp>, <samp>span</samp>
+  or <samp>p</samp> elements. By default the plugin uses the direct
+  children as navigator items but you can supply
+  the <samp>naviItem</samp> configuration that will select the
+  specified child elements to be used as navigator items.
+</p>
+
+<p>
+  If you are using <samp>a</samp> tags inside the wrapper and you
+  supply <samp>href</samp> attributes for them you have the added
+  benefit of automatically seeking to the correct item when you enter
+  the page with a matching "hash" of the URL. For example if you go to
+  the URL <samp>mypage.html#second</samp> for the above setup, the
+  scrollable will automatically seek to the <em>second</em> item. You
+  can see an example of
+  this <a href="/demos/scrollable/one-sized.html#plugins">here</a>. Note
+  that the third tab is automatically opened.
+</p>
+
+
+<a name="navigator_configuration"></a>
+<h3>Configuration</h3>
+
+<p>
+  Here is a full list of available configuration options:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">activeClass</td>
+    <td><code>"active"</code></td>
+    <td>
+      The CSS class name for the navigator item which corresponds to
+      the current page.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">idPrefix</td>
+    <td></td>
+    <td>
+      <strong>Since 1.1.2.</strong>. By supplying a value here the
+      navigator generates an <samp>id</samp> attribute for each item
+      so that they can be uniquely styled with CSS. For example, the
+      value "foo" generates the IDs: "foo0", "foo1", "foo2" and so on.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">indexed</td>
+    <td><code>false</code></td>
+    <td>
+      If this is enabled then the auto-populated navigator elements
+      will have an index number.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">history</td>
+    <td><code>false</code></td>
+    <td>
+      <strong>Since 1.2.0</strong>. Enables support for the browser's
+      "back button" so that when the user clicks on the back or
+      forward buttons the scrollable seeks backwards and forward
+      accordingly. Requires that
+      the <a href="/toolbox/history.html">History tool</a> is
+      included on your page.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">navi</td>
+    <td><code>".navi"</code></td>
+    <td>
+      Selector for the element that contains a navigator for switching
+      between pages. You can have any number of navigator elements on
+      your page and they will all do the same thing. If you want to
+      instantiate multiple scrollables with a navigator instance then
+      you should <a href="index.html#multiple">read this</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">naviItem</td>
+    <td><code></code></td>
+    <td>
+      <p>
+	The HTML element name for navigational items which are
+	auto-populated inside the navigator. If none is supplied
+	the <samp>a</samp> tag will be used.
+      </p>
+      <p>
+	In manual setup this property is used to select the elements
+	inside the root element that will be used as navigator
+	items. The <samp>activeClass</samp> CSS class name is assigned
+	to these items. If this property is not supplied the direct
+	children of the root element are used as navigator items.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+<a name="navigator_api"></a>
+<h3>JavaScript API</h3>
+
+<p>
+  The navigator plugin <em>overrides</em>
+  the <samp>getNaviButtons</samp> methods of
+  the <a href="index.html#api">scrollable API</a> so that it will also
+  contain the navigator element.
+</p>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

@@ -1,0 +1,1078 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>4 different skins with CSS</title>
+    <meta name="description" content="The most import ui widget for the web">
+    <meta name="keywords" content="javascript tabs, jquery tabs, javascript tabbed navigation, ajax tabs, tab history, jquery accordion">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/tabs-no-images.css"/>
+
+<link rel="stylesheet" type="text/css"
+      href="/media/css/tabs-no-images.css"/>
+<style>
+/* alternate colors: skin2 */
+ul.skin2 a {
+    background-color:#89a;
+    color:#fff !important;
+}
+
+/* mouseover state */
+ul.skin2 a:hover {
+    background-color:#678;
+}
+
+/* active tab */
+ul.skin2 a.current {
+    background-color:#4F5C6A;
+    border-bottom:2px solid #4F5C6A;
+}
+
+/* tab pane with background gradient */
+div.skin2 div {
+    min-height:200px;
+    color:#fff;
+    background:#234 url(/media/img/gradient/h300.png) repeat-x scroll 0 -50px;
+
+    /* IE6 does not support PNG24 images natively */
+    _background:#4F5C6A;
+}
+</style>
+
+<link rel="stylesheet" type="text/css"
+      href="/media/css/tabs-flowplayer-v2.css"/>
+<style>
+  #flowtabs li {
+  list-style-image:none !important;
+  list-style-type:none !important;
+  margin:0 !important;
+  }
+  #content div.skin2 div h2 {
+  margin-top:0px;
+  color:#ddd;
+  }
+</style>
+
+<style>
+  /* navigation */
+  #tab_nav {
+  background:#ddd url(/media/img/gradient/h300_reverse.png);
+  border-bottom:1px solid #CCCCCC;
+  height:156px;
+  width:652px;
+  }
+
+  #tab_nav ul {
+  width:600px;
+  margin:0 auto;
+  }
+
+  #tab_nav li {
+  border-right:1px solid #ddd;
+  float:left;
+  padding-left:1px;
+  width:175px;
+  list-style-type:none;
+  text-align:center;
+  margin-top:0px;
+  }
+
+  #tab_nav a {
+  color:#333333;
+  display:block;
+  padding:17px;
+  position:relative;
+  word-spacing:-2px;
+  font-size:11px;
+  height:122px;
+  text-decoration:none;
+  }
+
+  #tab_nav a.current {
+  background:url(/media/img/tabs/down_large.jpg);
+  }
+
+  #tab_nav img {
+  background-color:#fff;
+  border:1px solid #ccc;
+  margin:3px 0 5px 27px;
+  padding:4px;
+  display:block;
+  }
+
+  #tab_nav strong {
+  display:block;
+  font-size:13px;
+  }
+
+  /* panes */
+  #panes {
+  background:#fff url(/media/img/gradient/h300_reverse.png) repeat scroll 0 0;
+  border-color:#ccc;
+  border-style:solid;
+  border-width:1px 1px 0;
+  width:650px;
+  height:255px;
+  margin-bottom:-20px;
+  padding-bottom:20px;
+
+  /* must be relative so the individual panes can be absolutely positioned */
+  position:relative;
+  }
+
+  /* crossfading effect needs absolute positioning from the elements */
+  #panes div {
+  display:none;
+  position:absolute;
+  top:20px;
+  left:20px;
+  font-size:13px;
+  color:#444;
+  width:600px;
+  }
+
+  #panes img {
+  float:left;
+  margin-right:20px;
+  }
+
+  #panes p.more {
+  color:#000;
+  font-weight:bold;
+  font-size:13px;
+  }
+
+  #panes h3 {
+  margin:0 0 -5px 0;
+  font-size:22px;
+  font-weight:normal;
+  }
+
+  .overlay {
+  display:none;
+  width:500px;
+  padding:20px;
+  background-color:#ddd;
+  }
+</style>
+
+<style>
+  #nav li {
+    list-style-image:none !important;
+  }
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/tabs.jpg">
+
+<div id="demo_content">
+
+<section class="blurb">
+
+<h1 class="teaser title">4 different skins with CSS</h1>
+
+<p>
+  This page demonstrates various ways of skinning tabs. For more
+  background information you may want to read
+  about <a href="/documentation/index.html#graphics">graphic
+  design and presentation</a> as it applies to jQuery Tools.
+</p>
+
+<h2>Mostly CSS based skin</h2>
+
+<p>
+  Here we have a tab setup that uses only one background image for the
+  selected tab and a semi-transparent gradient for the background of
+  the panes. Otherwise the whole thing is just simple CSS dimensions,
+  borders, paddings and coloring.
+</p>
+
+<div class="box">
+<!-- tab panes -->
+<div id="panes">
+
+  <div>
+    <img src="http://farm1.static.flickr.com/114/299183878_4feac12b04_m.jpg"/>
+
+    <h3>Seagram Building</h3>
+
+    <p class="more">
+      The Seagram Building is a skyscraper in New York City, located
+      at 375 Park Avenue, between 52nd Street and 53rd Street in
+      Midtown Manhattan. It was designed by the German architect
+      Ludwig Mies van der Rohe, in collaboration with the American
+      Philip Johnson.
+    </p>
+
+    <p>
+      It is 515 feet tall with 38 stories. Severud Associates were
+      the structural engineering consultants. It stands as one of
+      the finest examples of the functionalist aesthetic and a
+      masterpiece of corporate modernism. It was designed as the
+      headquarters for the Canadian distillers Joseph E. Seagram's
+      &amp; Sons, thanks to the foresight of Phyllis Lambert, the
+      daughter of Samuel Bronfman, Seagram's CEO.
+    </p>
+  </div>
+
+  <div>
+    <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_m.jpg"/>
+
+    <h3>Barcelona Pavilion</h3>
+
+    <p class="more">
+      The Barcelona Pavilion, designed by Ludwig Mies van der Rohe,
+      was the German Pavilion for the 1929 International Exposition
+      in Barcelona, Spain. This building was used for the official
+      opening of the German section of the exhibition.
+    </p>
+
+    <p>
+      Mies was offered the commission of this building in 1928 after
+      his successful administration of the 1927 Werkbund exhibition
+      in Stuttgart. The German Reich entrusted Mies with the
+      artistic management and erection of not only the Barcelona
+      Pavilion, but for the buildings for all the German sections at
+      the 1929 Universal Exhibition.
+    </p>
+  </div>
+
+  <div>
+    <img src="http://farm1.static.flickr.com/40/122343298_22333fb8e3_m.jpg" />
+
+    <h3>Neue Nationalgalerie</h3>
+
+    <p class="more">
+      Neue Nationalgalerie at the Kulturforum is a museum for
+      classical modern art in Berlin, with main focus on early the
+      20th century. It is part of the German National Gallery. The
+      museum building and its sculpture garden were designed by
+      Ludwig Mies van der Rohe and opened in 1968.
+    </p>
+
+    <p>
+      The collection features a number of unique highlights of
+      modern 20th century art. Particularly well represented are
+      Cubism, Expressionism, the Bauhaus and Surrealism. The
+      collection owns masterpieces of artists like Pablo Picasso,
+      Ernst Ludwig Kirchner, Joan Mir&oacute;, Wassily Kandinsky and
+      Barnett Newman.
+    </p>
+  </div>
+</div>
+
+<!-- navigator -->
+<div id="tab_nav">
+  <ul>
+
+    <li>
+      <a href="#1">
+	<img src="http://farm4.static.flickr.com/3278/2691545308_e7e817afb0_s.jpg"/>
+	<strong>Seagram Building</strong>
+	New York City, USA
+      </a>
+    </li>
+    <li>
+      <a href="#2">
+	<img src="http://farm1.static.flickr.com/3624/3323893148_8318838fbd_s.jpg"/>
+	<strong>Barcelona Pavilion</strong>
+	Barcelona, Spain
+      </a>
+    </li>
+    <li>
+      <a href="#3">
+	<img src="http://farm1.static.flickr.com/40/122343298_22333fb8e3_s.jpg" />
+	<strong>National Gallery</strong>
+	Berlin, Germany
+      </a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  $(function() {
+    $("#tab_nav ul").tabs("#panes > div", {effect: 'fade', fadeOutSpeed: 400});
+    });
+</script>
+
+</div>
+<a class="standalone" href="skin4.htm">standalone demo</a>
+
+
+<p>
+  The above tabs use a cross-fading effect which can be accomplished
+  with the following setup:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#tab_nav ul&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;#panes &gt; div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span><span class="p">,</span> <span class="nx">fadeOutSpeed</span><span class="o">:</span> <span class="mi">400</span><span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The individual panes need to be absolutely positioned so that the
+  cross-fading is possible.
+</p>
+
+</section>
+
+<h2>Tab skin without images</h2>
+
+<p>
+  These tabs are skinned without any images. We are playing solely
+  with background colors and borders. The tab title can be anything
+  and the width is adjusted accordingly:
+</p>
+
+<div class="box">
+<!-- tabs -->
+<ul class="css-tabs">
+  <li><a id="t1" href="#tab1">Tab 1</a></li>
+  <li><a id="t2" href="#tab2">Second tab</a></li>
+  <li><a id="t3" href="#tab3">A ultra long third tab</a></li>
+</ul>
+<!-- panes -->
+<div class="css-panes">
+
+  <div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+      viverra, leo sit amet auctor fermentum, risus lorem posuere
+      tortor, in accumsan purus magna imperdiet sem.
+    </p>
+
+    <p>
+      Suspendisse enim. Pellentesque facilisis aliquam enim. Maecenas
+      facilisis molestie lectus. Sed ornare ultricies tortor. Vivamus
+      nibh metus, faucibus quis, semper ut, dignissim id, diam.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Mauris ultricies. Nam feugiat egestas nulla. Donec augue dui,
+      molestie sed, tristique sit amet, blandit eu, turpis. Mauris
+      hendrerit, nisi et sodales tempor, orci tellus laoreet elit, sed
+      molestie dui quam vitae dui.
+    </p>
+    <p>
+      Pellentesque nisl. Ut adipiscing vehicula risus. Nam eget
+      tortor. Maecenas id augue. Vivamus interdum nulla ac
+      dolor. Fusce metus. Suspendisse eu purus. Maecenas quis lacus
+      eget dui volutpat molestie.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Maecenas at odio. Nunc laoreet lectus vel ante. Nullam
+      imperdiet. Sed justo dolor, mattis eu, euismod sed, tempus a,
+      nisl. Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.
+    </p>
+
+    <p>
+      In sed dolor. Etiam eget quam ac nibh pharetra
+      adipiscing. Nullam vitae ligula. Sed sit amet leo sit amet arcu
+      mollis ultrices. Vivamus rhoncus sapien nec lorem. In mattis
+      nisi. Vivamus at enim. Integer semper imperdiet
+      massa. Vestibulum nulla massa, pretium quis, porta id,
+      vestibulum vitae, velit.
+    </p>
+  </div>
+</div>
+<!-- activate tabs with JavaScript -->
+<script>
+  $(function() {
+  // :first selector is optional if you have only one tabs on the page
+  $(".css-tabs:first").tabs(".css-panes:first > div");
+  });
+</script>
+
+</div>
+<a class="standalone" href="skin1.htm">standalone page</a>
+
+<p>
+  The setup is similar to the <a href="index.html">minimal
+  setup</a>. Take a look at
+  the <a href="/media/css/tabs-no-images.css">CSS file</a>.
+</p>
+
+<br clear="all" />
+
+<h2>A more styled example</h2>
+
+<p>
+  These tabs use the
+  same <a href="/media/css/tabs-no-images.css">CSS file</a> as
+  the previous tabs with a few extra CSS declarations:
+</p>
+
+
+<div class="box">
+<ul class="css-tabs skin2">
+  <li><a href="#">Tab 1</a></li>
+  <li><a href="#">Second tab</a></li>
+  <li><a href="#">A ultra long third tab</a></li>
+</ul>
+
+<div class="css-panes skin2">
+  <div>
+    <img src="/media/img/title/eye192.png" alt="Flying screens"
+         style="float:left;margin:0 30px 20px 0" />
+    <h2>Lorem ipsum dolor sit amet</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+      viverra, leo sit amet auctor fermentum, risus lorem posuere
+      tortor, in accumsan purus magna imperdiet sem.
+    </p>
+    <p>
+      Suspendisse enim. Pellentesque facilisis aliquam enim. Maecenas
+      facilisis molestie lectus. Sed ornare ultricies tortor. Vivamus
+      nibh metus, faucibus quis, semper ut, dignissim id, diam.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Mauris ultricies. Nam feugiat egestas nulla. Donec augue dui,
+      molestie sed, tristique sit amet, blandit eu, turpis. Mauris
+      hendrerit, nisi et sodales tempor, orci tellus laoreet elit, sed
+      molestie dui quam vitae dui.
+    </p>
+    <p>
+      Pellentesque nisl. Ut adipiscing vehicula risus. Nam eget
+      tortor. Maecenas id augue. Vivamus interdum nulla ac
+      dolor. Fusce metus. Suspendisse eu purus. Maecenas quis lacus
+      eget dui volutpat molestie.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Maecenas at odio. Nunc laoreet lectus vel ante. Nullam
+      imperdiet. Sed justo dolor, mattis eu, euismod sed, tempus a,
+      nisl. Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.
+    </p>
+
+    <p>
+      In sed dolor. Etiam eget quam ac nibh pharetra
+      adipiscing. Nullam vitae ligula. Sed sit amet leo sit amet arcu
+      mollis ultrices. Vivamus rhoncus sapien nec lorem. In mattis
+      nisi. Vivamus at enim. Integer semper imperdiet
+      massa. Vestibulum nulla massa, pretium quis, porta id,
+      vestibulum vitae, velit.
+    </p>
+  </div>
+</div>
+
+<!-- activate tabs with JavaScript -->
+<script>
+  $(function() {
+  $("ul.skin2").tabs("div.skin2 > div");
+  });
+</script>
+
+</div>
+<a class="standalone" href="skin2.htm">standalone page</a>
+
+<h3>CSS overrides</h3>
+
+<p>
+  Here are the CSS settings that override the external CSS file:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* alternate colors: skin2 */</span><br /><span class="nt">ul</span><span class="nc">.skin2</span> <span class="nt">a</span> <span class="p">{</span><br />    <span class="k">background-color</span><span class="o">:</span><span class="m">#89a</span><span class="p">;</span><br />    <span class="k">color</span><span class="o">:</span><span class="m">#fff</span> <span class="cp">!important</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* mouseover state */</span><br /><span class="nt">ul</span><span class="nc">.skin2</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span><br />    <span class="k">background-color</span><span class="o">:</span><span class="m">#678</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* active tab */</span><br /><span class="nt">ul</span><span class="nc">.skin2</span> <span class="nt">a</span><span class="nc">.current</span> <span class="p">{</span><br />    <span class="k">background-color</span><span class="o">:</span><span class="m">#4F5C6A</span><span class="p">;</span><br />    <span class="k">border-bottom</span><span class="o">:</span><span class="m">2px</span> <span class="k">solid</span> <span class="m">#4F5C6A</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* tab pane with background gradient */</span><br /><span class="nt">div</span><span class="nc">.skin2</span> <span class="nt">div</span> <span class="p">{</span><br />    <span class="k">min-height</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span><br />    <span class="k">color</span><span class="o">:</span><span class="m">#fff</span><span class="p">;</span><br />    <span class="k">background</span><span class="o">:</span><span class="m">#234</span> <span class="sx">url(/media/img/gradient/h300.png)</span> <span class="k">repeat-x</span> <span class="k">scroll</span> <span class="m">0</span> <span class="m">-50px</span><span class="p">;</span><br />&nbsp;<br />    <span class="c">/* IE6 does not support PNG24 images natively */</span><br />    <span class="err">_</span><span class="k">background</span><span class="o">:</span><span class="m">#4F5C6A</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<p>
+  The benefit of using skins without images is that they are very
+  flexible. You can alter the default tab look and feel with just a
+  few extra settings, allowing you to have many different kinds of tab
+  styling on your pages.
+</p>
+
+<h2>Tab skin with images</h2>
+
+<p>
+  Here we are using a single background image for the whole
+  setup. This can be achieved with
+  the <a href="http://www.alistapart.com/articles/sprites/">CSS sprite
+  technique</a>. By using only a single image this setup loads very
+  quickly. CSS sprites are a very important technology in modern web
+  design.
+</p>
+
+<div class="box">
+<!-- tabs -->
+<ul id="flowtabs">
+  <li><a id="t1" href="#player_tab">The Player</a></li>
+  <li><a id="t2" href="#plugins_tab">Plugins</a></li>
+  <li><a id="t3" href="#streaming_tab">Streaming</a></li>
+  <li><a id="t4" href="#scripting_tab">Scripting</a></li>
+</ul>
+
+<!-- panes -->
+<div id="flowpanes">
+
+  <!-- remove the space between tabs and panes -->
+  <br clear="all" />
+
+  <div>
+    <h2>Lorem ipsum dolor sit amet</h2>
+
+    <img src="/media/img/title/screens.png" alt="Flying screens"
+         style="float:left;margin:0 30px 200px 0" />
+
+    <p style="font-weight:bold">
+      Consectetur adipiscing elit. Duis viverra, leo sit amet auctor
+      fermentum, risus lorem posuere tortor, in accumsan purus magna
+      imperdiet sem.
+    </p>
+    <p>
+      Suspendisse enim. Pellentesque facilisis aliquam enim. Maecenas
+      facilisis molestie lectus. Sed ornare ultricies tortor. Vivamus
+      nibh metus, faucibus quis, semper ut, dignissim id, diam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+      viverra, leo sit amet auctor fermentum, risus lorem posuere
+      tortor, in accumsan purus magna imperdiet sem.
+    </p>
+  </div>
+
+  <div>
+    <h2>Lorem ipsum dolor sit amet</h2>
+
+    <img src="/media/img/title/eye192.png" alt="Flying screens"
+         style="float:left;margin:0 30px 200px 0" />
+
+    <p>
+      Suspendisse enim. Pellentesque facilisis aliquam enim. Maecenas
+      facilisis molestie lectus. Sed ornare ultricies tortor. Vivamus
+      nibh metus, faucibus quis, semper ut, dignissim id, diam.
+    </p>
+    <p>
+      Mauris ultricies. Nam feugiat egestas nulla. Donec augue dui,
+      molestie sed, tristique sit amet, blandit eu, turpis. Mauris
+      hendrerit, nisi et sodales tempor, orci tellus laoreet elit, sed
+      molestie dui quam vitae dui.
+    </p>
+    <p>
+      Pellentesque nisl. Ut adipiscing vehicula risus. Nam eget
+      tortor. Maecenas id augue. Vivamus interdum nulla ac
+      dolor. Fusce metus. Suspendisse eu purus. Maecenas quis lacus
+      eget dui volutpat molestie.
+    </p>
+  </div>
+
+  <div>
+    <h2>Title for the third tab pane</h2>
+
+    <p>
+      Mauris ultricies. Nam feugiat egestas nulla. Donec augue dui,
+      molestie sed, tristique sit amet, blandit eu, turpis. Mauris
+      hendrerit, nisi et sodales tempor, orci tellus laoreet elit, sed
+      molestie dui quam vitae dui.
+    </p>
+    <p>
+      Pellentesque nisl. Ut adipiscing vehicula risus. Nam eget
+      tortor. Maecenas id augue. Vivamus interdum nulla ac
+      dolor. Fusce metus. Suspendisse eu purus. Maecenas quis lacus
+      eget dui volutpat molestie.
+    </p>
+
+    <img src="/media/img/title/eye192.png" alt="Flying screens" />
+
+  </div>
+
+  <div>
+    <h2>Fourth pane is here</h2>
+
+    <p>
+      Maecenas at odio. Nunc laoreet lectus vel ante. Nullam
+      imperdiet. Sed justo dolor, mattis eu, euismod sed, tempus a,
+      nisl. Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.
+    </p>
+    <p>
+      In sed dolor. Etiam eget quam ac nibh pharetra
+      adipiscing. Nullam vitae ligula. Sed sit amet leo sit amet arcu
+      mollis ultrices. Vivamus rhoncus sapien nec lorem. In mattis
+      nisi. Vivamus at enim. Integer semper imperdiet
+      massa. Vestibulum nulla massa, pretium quis, porta id,
+      vestibulum vitae, velit.
+    </p>
+  </div>
+</div>
+
+<script>
+  $(function() {
+      $("#flowtabs").tabs("#flowpanes > div");
+    });
+</script>
+
+</div>
+<a class="standalone" style="width:758px" href="skin3.htm">standalone demo</a>
+
+<p>
+  Take a look at the documented
+  <a href="/media/css/tabs-flowplayer-v2.css">CSS file</a>
+  being used. You may also be interested in
+  a <a href="/demos/scrollable/one-sized.html">scrollable
+  version</a> of these tabs.
+</p>
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a class="active"                title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

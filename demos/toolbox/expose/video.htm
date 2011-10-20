@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- styling of an exposed element -->
+<style>
+#exposeMask {
+/* use a custom background color and image on the mask */
+background:#123 url(/media/img/global/player/acme-gray.png) 50px 366px no-repeat;
+}
+
+/* player splash image styling */
+#player {
+background:#333 url(/media/img/flow_eye.jpg) no-repeat 37px 0;
+width:500px;
+height:300px;
+display:block;
+text-align:center;
+margin:10px auto;
+}
+
+#player img {
+	margin-top:110px;
+	border:0px;
+}
+
+/* style for the player's wrapper element */
+#player_wrap {
+	background:#000 url(/media/img/gradient/h300.png) 0 0 repeat-x;
+}
+</style>
+</head>
+<body><!-- javascript coding -->
+<script src="/media/js/flowplayer/flowplayer-3.2.6.min.js"></script>
+<script>
+// execute your scripts when the the DOM is ready. this is a good habit
+$(function() {
+
+// install flowplayer.
+$f("player", "/media/swf/flowplayer/flowplayer-3.2.7.swf", {
+
+	// when playback starts, perform exposing
+	onStart: function() {
+
+		$("#player").expose({
+
+			// mask lets 20% of the content show through
+			opacity: 0.8,
+
+			// close expose slowly
+			closeSpeed: 'slow',
+
+			// we only want to close exposing when playback is finished
+			// (or the ESC button is pressed)
+			closeOnClick: false,
+
+			// when the mask closes, alter its background color
+			onBeforeClose: function() {
+				$f().pause();
+				this.getMask().css({backgroundColor: '#b8128f'});
+			},
+
+			// when the mask loads again, use the original background color
+			onBeforeLoad: function() {
+				this.getMask().css({backgroundColor: null});
+			}
+		});
+	},
+
+	onResume: function() {
+		$.mask.load();
+	},
+
+	// when playback finishes, close the expose
+	onFinish: function() {
+		$.mask.close();
+	}
+
+});
+});
+</script>
+
+<!-- the player -->
+<div class="black box" id="player_wrap">
+  <a id="player" href="http://blip.tv/file/get/KimAronson-TwentySeconds6421.m4v">
+    <img src="/media/img/global/player/btn/play_text_large.png" alt="Show me" />
+  </a>
+</div>
+</body>
+</html>

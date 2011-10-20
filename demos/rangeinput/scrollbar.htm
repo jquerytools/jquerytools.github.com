@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/scrollbar.css"/>
+</head>
+<body><!-- our scrollable element -->
+<div id="scrollwrap">
+  <div id="scroll">
+    jQuery TOOLS 1.2.5  Rangeinput. HTML5 ranges for humans.
+  </div>
+</div>
+
+<!-- rangeinput that controls the scroll -->
+<input type="range" max="2600" step="10" />
+
+<script>
+// get handle to the scrollable DIV
+var scroll = $("#scroll");
+
+// initialize rangeinput
+$(":range").rangeinput({
+
+	// slide the DIV along with the range using jQuery's css() method
+	onSlide: function(ev, step)  {
+		scroll.css({left: -step});
+	},
+
+	// display progressbar
+	progress: true,
+
+	// initial value. also sets the DIV's initial scroll position
+	value: 100,
+
+	// this is called when the slider is clicked. we animate the DIV
+	change: function(e, i) {
+		scroll.animate({left: -i}, "fast");
+	},
+
+	// disable drag handle animation when when slider is clicked
+	speed: 0
+
+});
+</script>
+</body>
+</html>

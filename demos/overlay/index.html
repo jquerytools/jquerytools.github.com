@@ -1,0 +1,688 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Minimal setup for overlay</title>
+    <meta name="description" content="Overlay your HTML with eye candy">
+    <meta name="keywords" content="javascript overlay,jquery lightbox,jquery applebox,jquery overlay,jquery overlayed content,applebox,apple box">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/overlay-basic.css"/>
+<style>
+  /* some styling for triggers */
+  #triggers {
+  text-align:center;
+  }
+
+  #triggers img {
+  cursor:pointer;
+  margin:0 5px;
+  background-color:#fff;
+  border:1px solid #ccc;
+  padding:2px;
+
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+
+  }
+
+    /* styling for elements inside overlay */
+  .details {
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:11px;
+  color:#fff;
+  width:150px;
+  }
+
+  .details h3 {
+  color:#aba;
+  font-size:15px;
+  }
+  </style>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/overlay.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Minimal setup for overlay</h1>
+<p>
+  Below you can see two images that launch overlays. There are two
+  terms being used: the <strong>trigger</strong> is the element that
+  launches the overlay and the <strong>overlay</strong> is the element
+  that is being positioned on top of the page.
+</p>
+
+<div class="box">
+<!-- trigger elements -->
+<div id="triggers">
+  <img src="http://farm4.static.flickr.com/3651/3445879840_7ca4b491e9_m.jpg" rel="#mies1"/>
+  <img src="http://farm4.static.flickr.com/3346/3449388113_71a06b8548_m.jpg" rel="#mies2"/>
+</div>
+
+<!-- overlays -->
+<div class="simple_overlay" id="mies1">
+  <img src="http://farm4.static.flickr.com/3651/3445879840_7ca4b491e9.jpg" />
+
+  <div class="details">
+    <h3>The Barcelona Pavilion</h3>
+    <h4>Barcelona, Spain</h4>
+    <p>
+      The Barcelona Pavilion, designed by Ludwig Mies van der Rohe,
+      was the German Pavilion for the 1929 International Exposition in
+      Barcelona, Spain. It was an important building in the history of
+      modern architecture.
+    </p>
+    <p>
+      Several critics, historians and modernists have declared it "the
+      most beautiful building of the century"
+    </p>
+  </div>
+</div>
+
+<div class="simple_overlay" id="mies2">
+  <img src="http://farm4.static.flickr.com/3346/3449388113_71a06b8548.jpg" />
+  <div class="details">
+    <h3>The Barcelona Pavilion</h3>
+    <h4>Barcelona, Spain</h4>
+    <p>
+      Another unique feature of this building is the <em>exotic
+      materials Mies chose to use</em>.
+    </p>
+    <p>
+      Plates of high-grade stone materials like veneers of Tinos verde
+      antico marble and golden onyx as well as tinted glass of grey,
+      green, white, in addition to translucent glass, perform
+      exclusively as spatial dividers.
+    </p>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("img[rel]").overlay();
+    });
+</script>
+
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
+
+</div>
+
+<h3>HTML code for the <em>triggers</em></h3>
+
+<p>
+  First we define the triggers as follows:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;thumbs/barcelona-pavilion.jpg&quot;</span> <span class="na">rel=</span><span class="s">&quot;#mies1&quot;</span><span class="nt">/&gt;</span><br /><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;thumbs/barcelona-pavilion2.jpg&quot;</span> <span class="na">rel=</span><span class="s">&quot;#mies2&quot;</span><span class="nt">/&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  These triggers have a reference to the overlay element in
+  the <samp>rel</samp> attribute. This attribute is
+  a <a href="http://api.jquery.com/category/selectors/"
+  class="external">jQuery selector</a> that selects the overlay being
+  used. A typical selector selects one element that has a
+  unique <samp>id</samp>. For example, <samp>#mies1</samp> selects an
+  element that has an <samp>id</samp> of "mies1".
+</p>
+
+<p>
+  You can have one or many triggers on the page and each can reference
+  the same or different overlays.
+</p>
+
+<p>
+  <strong>Note:</strong> we used a <samp>button</samp> tag here but
+  you can use any element as a trigger as long as it has
+  the <samp>rel</samp> attribute. A typical scenario is to
+  use <samp>a</samp> tag with the <samp>rel</samp> attribute and a
+  nested <samp>img</samp> tag.
+</p>
+
+<h3>HTML code for <em>overlays</em></h3>
+
+<p>
+  Now we need the overlays:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- first overlay. id attribute matches our selector --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;simple_overlay&quot;</span> <span class="na">id=</span><span class="s">&quot;mies1&quot;</span><span class="nt">&gt;</span><br />  <span class="c">&lt;!-- large image --&gt;</span><br />  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;photos/barcelona-pavilion-large.jpg&quot;</span> <span class="nt">/&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- image details --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;details&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;h3&gt;</span>The Barcelona Pavilion<span class="nt">&lt;/h3&gt;</span><br />    <span class="nt">&lt;h4&gt;</span>Barcelona, Spain<span class="nt">&lt;/h4&gt;</span><br />    <span class="nt">&lt;p&gt;</span>The content ...<span class="nt">&lt;/p&gt;</span><br />  <span class="nt">&lt;/div&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- second overlay --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;simple_overlay&quot;</span> <span class="na">id=</span><span class="s">&quot;mies2&quot;</span><span class="nt">&gt;</span><br />  ...<br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  The overlay can be any HTML elements but the <samp>div</samp> is
+  most commonly used. The overlay can contain any HTML including
+  forms, images, Flash objects and JavaScript widgets and it is
+  totally up to you how you structure and style it. This is why this
+  tool is so flexible. It allows you to visualize both the overlay and
+  its content. Just use your imagination.
+</p>
+
+<h3>CSS coding</h3>
+
+<p>
+  Here is the styling for the overlayed element. There are a couple of
+  things you should note here:
+</p>
+
+<ul>
+  <li>
+    We have not used any images at all. Everything is pure CSS. This
+    gives us the ability to change the dimensions of the overlay
+    dynamically. The overlay's height is dynamically adjusted to the
+    height of the elements <em>inside</em> the overlay.
+  </li>
+  <li>
+    We have used some CSS3 rounded borders and drop shadows. These
+    settings will make the overlay look better in most recent browsers
+    without harming older browsers. This is known as "Progressive
+    Enhancement with CSS".
+  </li>
+  <li>
+    We have styled the close button although it is not in our HTML
+    structure. This button is automatically generated by the overlay
+    tool with the class name <samp>close</samp>. You can alter this in
+    the <a href="/overlay/index.html#configuration">configuration</a>.
+  </li>
+  <li>
+    You can use <em>absolute positioning</em> of the elements inside
+    the overlay and those elements are positioned relative to the
+    overlay element. This is because the overlay is also absolutely
+    positioned. This is how CSS works.
+  </li>
+  <li>
+    Since the overlay is absolutely positioned it is in most cases
+    placed on top of the page. However if you have other absolutely
+    (or relatively) positioned elements on the page they may appear
+    over your overlay. You can use the <samp>z-index</samp> parameter
+    to layer your elements properly. An element with a
+    higher <samp>z-index</samp> is placed on top of an element with a
+    lower value.
+  </li>
+</ul>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* the overlayed element */</span><br /><span class="nc">.simple_overlay</span> <span class="p">{</span><br />&nbsp;<br />    <span class="c">/* must be initially hidden */</span><br />    <span class="k">display</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><br />&nbsp;<br />    <span class="c">/* place overlay on top of other elements */</span><br />    <span class="k">z-index</span><span class="o">:</span><span class="m">10000</span><span class="p">;</span><br />&nbsp;<br />    <span class="c">/* styling */</span><br />    <span class="k">background-color</span><span class="o">:</span><span class="m">#333</span><span class="p">;</span><br />&nbsp;<br />    <span class="k">width</span><span class="o">:</span><span class="m">675px</span><span class="p">;</span><br />    <span class="k">min-height</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span><br />    <span class="k">border</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#666</span><span class="p">;</span><br />&nbsp;<br />    <span class="c">/* CSS3 styling for latest browsers */</span><br />    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span><span class="m">0</span> <span class="m">0</span> <span class="m">90px</span> <span class="m">5px</span> <span class="m">#000</span><span class="p">;</span><br />    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">90px</span> <span class="m">#000</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* close button positioned on upper right corner */</span><br /><span class="nc">.simple_overlay</span> <span class="nc">.close</span> <span class="p">{</span><br />    <span class="k">background-image</span><span class="o">:</span><span class="sx">url(/media/img/overlay/close.png)</span><span class="p">;</span><br />    <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />    <span class="k">right</span><span class="o">:-</span><span class="m">15px</span><span class="p">;</span><br />    <span class="k">top</span><span class="o">:-</span><span class="m">15px</span><span class="p">;</span><br />    <span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">;</span><br />    <span class="k">height</span><span class="o">:</span><span class="m">35px</span><span class="p">;</span><br />    <span class="k">width</span><span class="o">:</span><span class="m">35px</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<p>
+  Here is the simple styling for the <samp>.details</samp> element
+  inside the overlay that shows the description of the image:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c">/* styling for elements inside overlay */</span><br />  <span class="nc">.details</span> <span class="p">{</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />  <span class="k">top</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span><br />  <span class="k">right</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span><br />  <span class="k">font-size</span><span class="o">:</span><span class="m">11px</span><span class="p">;</span><br />  <span class="k">color</span><span class="o">:</span><span class="m">#fff</span><span class="p">;</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">150px</span><span class="p">;</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="nc">.details</span> <span class="nt">h3</span> <span class="p">{</span><br />  <span class="k">color</span><span class="o">:</span><span class="m">#aba</span><span class="p">;</span><br />  <span class="k">font-size</span><span class="o">:</span><span class="m">15px</span><span class="p">;</span><br />  <span class="p">}</span><br />  <br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<h3>JavaScript coding</h3>
+
+<p>
+  This is by far the easiest part of this setup. We simply select the
+  trigger elements and enable overlaying without any additional
+  options:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img[rel]&quot;</span><span class="p">).</span><span class="nx">overlay</span><span class="p">();</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  <a href="/credits.html" id="credits">Photo credits
+  &raquo;</a>
+</p>
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a class="active"                title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

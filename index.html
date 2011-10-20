@@ -1,64 +1,108 @@
 <!doctype html>
-<html class="no-js">
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
 
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width; initial-scale=1.0">
-	
-	<title>The missing UI library for the Web : jQuery Tools</title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">	
-	<meta name="author" content="Tero Piirainen">	
-	<meta name="robots" content="noindex" />
-	
-	<link rel="shortcut icon" href="/media/favicon.ico">
-	<link rel="apple-touch-icon" href="/media/apple-touch-icon.png"> 
-	<link rel="stylesheet" href="/media/css/style.css">
-	
-	
-	<!-- only one thing inside your HEAD: mom (momjs.com) -->
-	<script src="/media/js/mom.js"></script>
-	<script>mom.feature("logged", mom.cookie("authcode"));</script>
-</head>
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <style>
+#scroll {
+	background-color: white;
+}
+#tools_index #content {
+	background-image:none;
+	float:none;
+	margin-top:25px;
+	padding:0;
+	width:100%;
+}
 
-<body>
+#right {
+	display:none;
+}
 
-	<div id="top">
-	
-		<div id="top-wrap">
-			<a id="top-fp" href="http://flowplayer.org/index.html">Flowplayer</a>
-			<a id="top-jt" class="active">jQuery Tools</a>		
-				
-			<form id="top-search" action="/search.html">
-				<input type="text" name="q" />
-				<button type="submit">Search</button>
-			</form>
-		</div>
-		
-	</div>
+#tease {
+	background-image:url(/media/img/1.2/banner.jpg);
+	margin-top:30px;
+	display:block;
+	height:148px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                                                class="active home"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
 
-	<div id="wrap">
-	
-		<div id="nav" class="clear"> 
-			<a id="nav1" href="/index.html">Home</a>
-			<a id="nav2" href="/download/index.html">Download</a>
-			<a id="nav3" href="/demos/index.html">Demos</a>
-			<a id="nav4" href="/documentation/index.html">Documentation</a>
-			<a id="nav5" href="http://forum.jquerytools.org/">Forum</a>
-		</div>
-		
-		<div id="page">
-			
-<div id="content" class="clear">
-	
+    <div id="wrap">
 
+      <div id="nav" class="clear">
+            <ul>
+                <li class="active">
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
 
-
-
+      <div id="content">
+        <script>$(function() { $("#jqt1").addClass("active"); });</script>
 
 <style>
 img {
-	border:0;		
+	border:0;
 }
 
 #scroll {
@@ -165,270 +209,223 @@ img {
 #t6.active	{ background-position:-875px 0 !important; }
 </style>
 
-
-
 <!-- root element for everything -->
 <div id="scroll">
 
-	<!-- scrollable items -->
-	<div id="tools">
+  <!-- scrollable items -->
+  <div id="tools">
 
-		<!-- empty slot -->
-		<div class="tool">&nbsp;</div>
+    <!-- empty slot -->
+    <div class="tool">&nbsp;</div>
 
-		<!-- tabs -->
-		<div class="tool">
+    <!-- tabs -->
+    <div class="tool">
 
-			<a href="${jqt}/tabs/index.html">
-				<img src="/media/img/hero/tabs.jpg"/></a>
+      <a href="/tabs/index.html">
+	<img src="/media/img/hero/tabs.jpg"/></a>
 
-			<div class="details">
-				<strong>Tabs</strong> is the most popular JavaScript tool on the web. Tabs, horizontal tabs and accordions, finally done the right way.
-			</div>
+      <div class="details">
+	<strong>Tabs</strong> is the most popular JavaScript tool on
+	the web. Tabs, horizontal tabs and accordions, finally done
+	the right way.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- tooltip -->
-		<div class="tool">
+    <!-- tooltip -->
+    <div class="tool">
 
-			<a href="${jqt}/tooltip/index.html">
-				<img src="/media/img/hero/tooltip.jpg"/></a>
+      <a href="/tooltip/index.html">
+	<img src="/media/img/hero/tooltip.jpg"/></a>
 
-			<div class="details">
-				<strong>Tooltip</strong> helps you to build easier user interfaces. Big or small. Pluggable effects. Yet another crucial tool.
-			</div>
+      <div class="details">
+	<strong>Tooltip</strong> helps you to build easier user
+	interfaces. Big or small. Pluggable effects. Yet another
+	crucial tool.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- overlay -->
-		<div class="tool">
+    <!-- overlay -->
+    <div class="tool">
 
-			<a href="${jqt}/overlay/index.html">
-				<img src="/media/img/hero/overlay.jpg"/></a>
+      <a href="/overlay/index.html">
+	<img src="/media/img/hero/overlay.jpg"/></a>
 
-			<div class="details">
-				<strong>Overlay</strong> is a significant part of the JavaScript/Web 2.0 landscape. This tool handles them all: commercial overlays, modal dialogs and slideshows.
-			</div>
+      <div class="details">
+	<strong>Overlay</strong> is a significant part of the
+	JavaScript/Web 2.0 landscape. This tool handles them all:
+	commercial overlays, modal dialogs and slideshows.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- scrollable -->
-		<div class="tool">
+    <!-- scrollable -->
+    <div class="tool">
 
-			<a href="${jqt}/scrollable/index.html">
-				<img src="/media/img/hero/scrollable.jpg"/></a>
+      <a href="/scrollable/index.html">
+	<img src="/media/img/hero/scrollable.jpg"/></a>
 
-			<div class="details">
-				<strong>Scrollable</strong> is the most successful tool in this library. Any size and shape. Infinite loops and more.
-			</div>
+      <div class="details">
+	<strong>Scrollable</strong> is the most successful tool in
+	this library. Any size and shape. Infinite loops and more.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- FORM -->
-		<div class="tool">
+    <!-- FORM -->
+    <div class="tool">
 
-			<a href="${jqt}/release-notes/index.html#form">
-				<img src="/media/img/hero/form.jpg"/></a>
+      <a href="/release-notes/index.html#form">
+	<img src="/media/img/hero/form.jpg"/></a>
 
-			<div class="details">
-				<strong>FORM</strong> is a collection of essential form building tools. Validation, range- and date inputs for humans. New wave form development is here.
-			</div>
+      <div class="details">
+	<strong>FORM</strong> is a collection of essential form
+	building tools. Validation, range- and date inputs for
+	humans. New wave form development is here.
+      </div>
 
-		</div>
+    </div>
 
-		<!-- toolbox -->
-		<div class="tool">
+    <!-- toolbox -->
+    <div class="tool">
 
-			<a href="${jqt}/toolbox/flashembed.html">
-				<img src="/media/img/hero/toolbox/toolbox.jpg"/></a>
+      <a href="/toolbox/flashembed.html">
+	<img src="/media/img/hero/toolbox/toolbox.jpg"/></a>
 
-			<div class="details">
-				<strong>TOOLBOX</strong> is a set of small niceties. Take control of the mousewheel and your browser's back button. Embed Flash and place masks over your document.
-			</div>
+      <div class="details">
+	<strong>TOOLBOX</strong> is a set of small niceties. Take
+	control of the mousewheel and your browser's back
+	button. Embed Flash and place masks over your document.
+      </div>
 
-		</div>
+    </div>
 
-	</div>
+    <%--}}}--%>
+  </div>
 
-	<!-- intro "page" -->
-	<div id="intro" class="tool">
+  <!-- intro "page" -->
+  <div id="intro" class="tool">
 
-		<img style="margin:-17px 0 28px 0" width="721" height="346" alt="jQuery Tools. The ultimate UI library for web"
-			src="/media/img/hero/jquerytools.jpg" />
+    <img style="margin:-17px 0 28px 0" width="721" height="346"
+	 alt="jQuery Tools. The ultimate UI library for web"
+	 src="/media/img/hero/jquerytools.jpg" />
 
-		<div class="details">
-			<strong>jQuery Tools</strong> is a collection of the most important user-interface components for modern websites. Used by large sites all over the world.
-		</div>
+    <div class="details">
+      <strong>jQuery Tools</strong> is a collection of the most
+      important user-interface components for modern websites. Used by
+      large sites all over the world.
+    </div>
 
-	</div>
+  </div>
 
-	<!-- required for IE6/IE7 -->
-	<br clear="all" />
+  <!-- required for IE6/IE7 -->
+  <br clear="all" />
 
-	<!-- thumbnails -->
-	<div id="thumbs" class="t">
+  <!-- thumbnails -->
+  <div id="thumbs" class="t">
 
-		<!-- intro page navi button -->
-		<a id="t0" class="active"></a>
+    <!-- intro page navi button -->
+    <a id="t0" class="active"></a>
 
-		<!-- scrollable navigator root element -->
-		<div class="navi">
-			<a style="display:none"></a>
-			<a id="t1"></a>
-			<a id="t2"></a>
-			<a id="t3"></a>
-			<a id="t4"></a>
-			<a id="t5"></a>
-			<a id="t6"></a>
-		</div>
+    <!-- scrollable navigator root element -->
+    <div class="navi">
+      <a style="display:none"></a>
+      <a id="t1"></a>
+      <a id="t2"></a>
+      <a id="t3"></a>
+      <a id="t4"></a>
+      <a id="t5"></a>
+      <a id="t6"></a>
+    </div>
 
-	</div>
+  </div>
 
 </div>
-
 
 <script>
-/* dependencies with LAB */
-$LAB.script("/media/js/jquery.tools.min.js").wait(function() {
-	
-// initialize scrollable and return the programming API
-var api = $("#scroll").scrollable({
-	items: '#tools'
+  // initialize scrollable and return the programming API
+  var api = $("#scroll").scrollable({
+  items: '#tools'
 
-// use the navigator plugin
-}).navigator().data("scrollable");
+  // use the navigator plugin
+  }).navigator().data("scrollable");
 
 
-// this callback does the special handling of our "intro page"
-api.onBeforeSeek(function(e, i) {
+  // this callback does the special handling of our "intro page"
+  api.onBeforeSeek(function(e, i) {
 
-	// when on the first item: hide the intro
-	if (i) {
-		$("#intro").fadeOut("slow");
+  // when on the first item: hide the intro
+  if (i) {
+  $("#intro").fadeOut("slow");
 
-		// dirty hack for IE7-. cannot explain
-		if ($.browser.msie && $.browser.version < 8) {
-			$("#intro").hide();
-		}
+  // dirty hack for IE7-. cannot explain
+  if ($.browser.msie && $.browser.version < 8) {
+			                    $("#intro").hide();
+		                            }
 
-	// otherwise show the intro
-	} else {
-		$("#intro").fadeIn(1000);
-	}
+	                                    // otherwise show the intro
+	                                    } else {
+		                            $("#intro").fadeIn(1000);
+	                                    }
 
-	// toggle activity for the intro thumbnail
-	$("#t0").toggleClass("active", i == 0);
-});
+	                                    // toggle activity for the intro thumbnail
+	                                    $("#t0").toggleClass("active", i == 0);
+                                            });
 
-// a dedicated click event for the intro thumbnail
-$("#t0").click(function() {
+                                            // a dedicated click event for the intro thumbnail
+                                            $("#t0").click(function() {
 
-	// seek to the beginning (the hidden first item)
-	$("#scroll").scrollable().begin();
+	                                    // seek to the beginning (the hidden first item)
+	                                    $("#scroll").scrollable().begin();
 
-});
-			
-});
-document.getElementById("nav1").className = "active";
+                                            });
+
 </script>
 
-<div id="features">
-	
-	<div id="less" class="feature clear">
-	
-		<h2>Less is <strong>MORE</strong></h2> 
-		
-		{#
-			firebug Net tab, ZOOM: cdn, combined, expiry. Badge: 4.9 KB!
-			http://culturedcode.com/styles_2.0/images/screenshot_things_big4.jpg
-			http://dribbble.com/shots/32157-Geek-Girls-Guide-Badges
-		#}
-		
-		<p>
-			Web is all about speed. Your ADHD audience hates to wait. jQuery Tools is freaking 80% smaller in file size than others. It does the essentials only. Your job is to make faster sites with thinner manuals.
-		</p>
-		
-	</div>
-	
-	<div id="possible" class="feature clear toright">
-	
-		<h2>Everything is possible</h2>	
-	
-		
-		
-		<p>
-			You have an idea. Time to build it. After a desperate search for a magic widget you'll end up <strong>combining</strong> the tools. Overlayed tabs, scrollable inside a tooltip, tabbed HTML5 form, big or small, black or white - you design it.
-		</p>
-		
-	</div>
-	
-		
-	<div id="policy" class="feature clear">
-	
-		<h2>Say <strong>NO</strong> to frameworks</h2>
-		
-		{#
-			firebug HTML tab + zoom
-			http://flowplayer.org/tools/demos/combine/html5-form/img/code.jpg
-		#}
-		
-		<p>
-			jQuery Tools is there to make the job done. It's a simple collection of tools and not a heavy framework. Just pick what you need. No weird idioms or coding rules. Just good old HTML, CSS and JavaScript. 
-		</p>
-		
-	</div>
-		
-	<div id="mobile" class="feature clear toright">
-	
-		<h2>Mobile users will love it</h2>
-		
-		
-		
-		<p>
-			Mobile sites are the same - their goal is to present your idea. This time in a very small screen. Now speed is even more important. Heavy frameworks will kill. 
-		</p>
-		
-		<p>	
-			Once again you need <strong>speed</strong>, your own <strong>looks</strong> and the right <strong>tools</strong>.
-		</p>
-		
-	</div>
-		
-</div>	
-	
 
-<a id="tease" href="release-notes/" class="clear"></a>
+<a id="tease" href="release-notes/"></a>
 
-				
-</div>
-			
-		</div>
-	
-		<div id="footer" class="clear">
-		
-			
-			
-			<div id="footerlinks" class="clear">
-				<a href="https://github.com/jquerytools/jquerytools">tools on github</a>
-				<a href="https://github.com/jquerytools/jquerytools/www">website on github</a>
-				<a href="https://github.com/jquerytools/jquerytools/issues">report a bug</a>									
-			</div>
-			
-		</div>
-		
-	</div>
-  
-	<script>	
-	$LAB
-	
-	
-	// google analytics
-	.script("/media/js/ga.js").wait(function(){
-		var tracker = _gat._getTracker("");
-		 
-	});
-	
-	</script>
-   
-</body>
+<br clear="all" />
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
 </html>

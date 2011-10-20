@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <style>
+  .tooltip {
+    display:none;
+    background-color:#ffa;
+    border:1px solid #cc9;
+    padding:3px;
+    font-size:13px;
+    -moz-box-shadow: 2px 2px 11px #666;
+    -webkit-box-shadow: 2px 2px 11px #666;
+}
+
+/* style the trigger elements */
+#triggers img {
+    border:0;
+    cursor:pointer;
+    margin-left:1px;
+}
+</style>
+</head>
+<body><!-- the tooltip -->
+<span class="tooltip">&nbsp;</span>
+
+<!-- a couple of trigger elements -->
+<div id="triggers">
+  <img src="/media/img/photos/1.jpg"
+       title="This is browser's default tooltip."/>
+
+  <img src="/media/img/photos/2.jpg"
+       title="Another default tooltip. It comes with a slight delay"/>
+
+  <img src="/media/img/photos/3.jpg"
+       title="This is jQuery.Tools tooltip. Look/feel is almost similar."/>
+
+  <img src="/media/img/photos/4.jpg"
+       title="You can customize every aspect of this tip"/>
+</div>
+
+<script>
+  $(document).ready(function() {
+        $("img[title]:gt(1)").tooltip({
+          // use div.tooltip as our tooltip
+          tip: '.tooltip',
+
+          // use the fade effect instead of the default
+          effect: 'fade',
+
+          // make fadeOutSpeed similar to the browser's default
+          fadeOutSpeed: 100,
+
+          // the time before the tooltip is shown
+          predelay: 400,
+
+          // tweak the position
+          position: "bottom right",
+          offset: [-50, -80]
+      });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>An artist's portfolio</title>
+    <meta name="description" content="Possibilities are endless. Get creative!">
+    <meta name="keywords" content="javascript image gallery, javascript portfolio, image gallery, jquery image gallery">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/portfolio-demo.css"/>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/combinations.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">An artist's portfolio</h1>
+
+<p>
+  This demo shows you some of the possibilities you have when you
+  start combining the jQuery Tools. This demo uses the scrollable,
+  overlay, tooltip and expose tools together. Click on the thumbnails
+  to see larger versions of the flower images.
+</p>
+
+<div class="box full">
+
+<!-- include reflection plugin -->
+<script src="/media/js/portfolio-demo/reflection.min.js"></script>
+
+<!-- thumbnail scrollable -->
+<div class="navi prev"></div>
+<div id="thumbnails">
+  <div class="items">
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/02.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/03.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/04.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/06.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/07.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/09.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/11.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/12.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/15.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/16.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/17.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/19.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/20.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/22.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/23.jpg" />
+    </div>
+        <div>
+      <img src="/media/img/portfolio-demo/thumb/59.jpg" />
+    </div>
+      </div>
+</div>
+
+<div class="navi next"></div>
+<br clear="all" />
+
+<!-- overlay -->
+<div id="box">
+  <!-- overlay scrollable -->
+  <div id="images">
+
+    <div class="items">
+
+                        <div><img src="/media/img/portfolio-demo/02.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/03.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/04.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/06.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/07.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/09.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/11.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/12.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/15.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/16.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/17.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/19.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/20.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/22.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/23.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                                <div><img src="/media/img/portfolio-demo/59.jpg"></div>
+                <div class="info">
+            <h3>A Blue Flower</h3>
+            <p>
+                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.
+            </p>
+            <p class="copy">
+                Wed Jun 10, 2:35 PM <strong>&copy; John Doe</strong>
+            </p>
+        </div>
+                    </div>
+
+    <!-- prev/next buttons -->
+    <div class="navi prev"></div>
+    <div class="navi next"></div>
+    <a class="close" href="#"> &nbsp; &nbsp; &nbsp; </a>
+  </div>
+</div>
+
+<script>
+  $(function() {
+
+    // thumbnail scrollable
+  $("#thumbnails").scrollable({size: 5, clickable: false})
+                .find("img").each(function(index) {
+
+  // thumbnail images trigger the overlay
+  $(this).overlay({
+
+  effect: 'apple',
+  target: '#box',
+  mask: { maskId: 'mask' },
+
+  // when box is opened, scroll to correct position (in 0 seconds)
+  onLoad: function() {
+  $("#images").data("scrollable").seekTo(index, 0);
+  }
+  });
+  });
+  
+    // scrollable inside the box.
+  $("#images").scrollable();
+
+    // enable tooltips for the images
+  $("#images img").tooltip({
+  position: "bottom center",
+  offset: [-75, -30],
+  opacity: 0.8,
+  effect: 'fade',
+
+  // position tooltips relative to the parent scrollable
+  relative: true
+  });
+    
+    // enable reflections
+  $("#thumbnails img").reflect({height: 0.5, opacity: 0.6});
+  
+    });
+</script>
+
+</div>
+<a class="standalone" href="index.htm">standalone demo</a>
+
+<p>
+  All tools are "skin free" and they only provide the necessary
+  functionality. For that reason you have full control over their
+  appearance. You'll also be surprised how little JavaScript coding
+  this setup requires. The possibilities are endless.
+</p>
+</div>
+<h3>HTML for the thumbnail scrollable</h3>
+
+<p>
+  This is the scrollable that can be seen on the page and contains the
+  small thumbnail images:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- &quot;prev page&quot; button --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi prev&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- root element for scrollable --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;thumbnails&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- root element for thumbnails --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;entries&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;div&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;img/thumb/thumb1.jpg&quot;</span> <span class="nt">/&gt;&lt;/div&gt;</span><br />    <span class="nt">&lt;div&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;img/thumb/thumb2.jpg&quot;</span> <span class="nt">/&gt;&lt;/div&gt;</span><br />    <span class="nt">&lt;div&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;img/thumb/thumb3.jpg&quot;</span> <span class="nt">/&gt;&lt;/div&gt;</span><br />    ...<br />  <span class="nt">&lt;/div&gt;</span><br />&nbsp;<br /><span class="nt">&lt;/div&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- &quot;next page&quot; button --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi next&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />&nbsp;<br /><span class="nt">&lt;br</span> <span class="na">clear=</span><span class="s">&quot;all&quot;</span> <span class="nt">/&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h3>HTML coding for the overlay</h3>
+
+<p>
+  This is fairly similar to the thumbnail scrollable. The difference
+  is that the scrollable elements have an associated tooltip
+  element. Since the tooltip can contain any HTML, we have filled it
+  with a header, description and a small paragraph. Navigational
+  buttons are positioned on the bottom of the scrollable.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- our overlay is called &quot;box&quot; --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;box&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- root element for scrollable --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;images&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />    <span class="c">&lt;!-- root element for portfolio images --&gt;</span><br />    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;items&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />      <span class="c">&lt;!-- single portfolio entry --&gt;</span><br />      <span class="nt">&lt;div&gt;</span><br />&nbsp;<br />        <span class="c">&lt;!-- the image --&gt;</span><br />        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;img/image1.jpg&quot;</span> <span class="nt">/&gt;</span><br />&nbsp;<br />        <span class="c">&lt;!-- the tooltip --&gt;</span><br />        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;info&quot;</span><span class="nt">&gt;</span><br />          <span class="nt">&lt;h3&gt;</span>A Blue Flower<span class="nt">&lt;/h3&gt;</span><br />&nbsp;<br />          <span class="nt">&lt;p&gt;</span>Neque porro quisquam est qui dolorem ipsum quia dolor<br />            sit amet, consectetur.<span class="nt">&lt;/p&gt;</span><br />&nbsp;<br />          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;copy&quot;</span><span class="nt">&gt;</span><br />            Wed Jun 10, 2:35 PM <span class="nt">&lt;strong&gt;</span><span class="ni">&amp;copy;</span> John Doe<span class="nt">&lt;/strong&gt;</span><br />          <span class="nt">&lt;/p&gt;</span><br />        <span class="nt">&lt;/div&gt;</span><br />      <span class="nt">&lt;/div&gt;</span><br />&nbsp;<br />      <span class="c">&lt;!-- ... rest of the images goes here --&gt;</span><br />&nbsp;<br />    <span class="nt">&lt;/div&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;/div&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- prev/next buttons --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi prev&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi next&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br />&nbsp;<br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h3>CSS coding</h3>
+
+<p>
+  As always, the CSS coding may be the hardest part of the job. We are
+  using an external CSS file
+  called <a href="boxed-02.css">boxed.css</a>.
+</p>
+
+<h3>Setting up the thumbnail <em>scrollable</em></h3>
+
+<p>
+  Here is the JavaScript configuration for the thumbnail
+  scrollable. When the scrollable is initialized, a jQuery object is
+  returned. We continue using that and find the actual images inside
+  the scrollable. For those images we assign a <samp>click</samp>
+  event which launches the overlay. The overlay constructor uses our
+  "box" HTML element as the actual overlay. We enable the exposing
+  effect and use a custom mask <samp>ID</samp> "mask" so that we can
+  tweak the look of the mask with our <a href="boxed-02.css">CSS
+  file</a>.
+</p>
+
+<p>
+  We have defined an <samp>onLoad</samp> callback that will position
+  the overlayed scrollable into the same position as what was the
+  index number of the clicked thumbnail image:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// thumbnail scrollable</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#thumbnails&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">({</span><span class="nx">size</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">clickable</span><span class="o">:</span> <span class="kc">false</span><span class="p">})</span><br />                <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// thumbnail images trigger the overlay</span><br />  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">overlay</span><span class="p">({</span><br />&nbsp;<br />  <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span><br />  <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;#box&#39;</span><span class="p">,</span><br />  <span class="nx">mask</span><span class="o">:</span> <span class="p">{</span> <span class="nx">maskId</span><span class="o">:</span> <span class="s1">&#39;mask&#39;</span> <span class="p">},</span><br />&nbsp;<br />  <span class="c1">// when box is opened, scroll to correct position (in 0 seconds)</span><br />  <span class="nx">onLoad</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#images&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">).</span><span class="nx">seekTo</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span><br />  <span class="p">}</span><br />  <span class="p">});</span><br />  <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>
+  Setting up the overlayed <em>scrollable</em> and <em>tooltips</em>
+</h3>
+
+<p>
+  Again, we have a pretty straightforward layout. The second
+  scrollable has only one item visible at a time. We enable
+  the <samp>api</samp> property to get a handle to the scrollable's
+  API. This is used in our overlay's <samp>onLoad</samp> event (see
+  above).
+</p>
+
+<p>
+  The tooltip is also straightforward. We position it on the bottom
+  edge and move it a little upward so that it will overlap our image
+  with an opacity of 80%. We alter the show/hide behaviour by using
+  the built-in "fade" effect:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// scrollable inside the box.</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#images&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">();</span><br />&nbsp;<br />    <span class="c1">// enable tooltips for the images</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#images img&quot;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span><br />  <span class="nx">position</span><span class="o">:</span> <span class="s2">&quot;bottom center&quot;</span><span class="p">,</span><br />  <span class="nx">offset</span><span class="o">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">],</span><br />  <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.8</span><span class="p">,</span><br />  <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span><span class="p">,</span><br />&nbsp;<br />  <span class="c1">// position tooltips relative to the parent scrollable</span><br />  <span class="nx">relative</span><span class="o">:</span> <span class="kc">true</span><br />  <span class="p">});</span><br />    <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>Thumbnail reflections</h3>
+
+<p>
+  In addition to the Tools, we are using a third-party
+  plugin, <a href="http://www.digitalia.be/software/reflectionjs-for-jquery"
+  class="external">reflection</a>, to enable those reflection effects
+  on the thumbnails:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// enable reflections</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#thumbnails img&quot;</span><span class="p">).</span><span class="nx">reflect</span><span class="p">({</span><span class="nx">height</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.6</span><span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  As you can see, there are no problems using the Tools and other
+  jQuery plugins together.
+</p>
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a class="active"                title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

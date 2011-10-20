@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- wrapper, inputs and labels  -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/dateinput/flight.css"/>
+
+<!-- calendar styling -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/dateinput/flight-calendar.css"/>
+</head>
+<body><form id="flight">
+  <label>
+    Arrival <br/>
+    <input type="date" name="arrival" value="Today"/>
+  </label>
+
+  <label>
+    Departure <br/>
+    <input type="date" name="departure" data-value="7" value="After one week"/>
+  </label>
+</form>
+
+<script>
+$(":date").dateinput({ trigger: true, format: 'dd mmmm yyyy', min: -1 })
+
+// use the same callback for two different events. possible with bind
+$(":date").bind("onShow onHide", function()  {
+	$(this).parent().toggleClass("active");
+});
+
+// when first date input is changed
+$(":date:first").data("dateinput").change(function() {
+	// we use it's value for the seconds input min option
+	$(":date:last").data("dateinput").setMin(this.getValue(), true);
+});
+</script>
+</body>
+</html>

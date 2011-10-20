@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <link rel="stylesheet" type="text/css"
+      href="/media/css/validator/form.css"/>
+<style>
+/* error container */
+#errors {
+	background-color:#163356;
+	color:#fff;
+	width:400px;
+	padding:20px;
+	margin:5px auto;
+	display:none;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+/* title */
+#errors h2 {
+	margin:-5px 0;
+	color:yellow;
+}
+</style>
+</head>
+<body><div id="errors">
+  <h2>Please fix these first</h2>
+</div>
+
+<form id="myform">
+  <fieldset>
+    <h3>Sample registration form</h3>
+    <p> Enter bad values and then press the submit button. </p>
+
+    <p>
+      <label>email *</label>
+      <input type="email" name="email" required="required" />
+    </p>
+    <p>
+      <label>website *</label>
+      <input type="url" name="url" required="required" />
+    </p>
+    <p>
+      <label>name *</label>
+      <input type="text" name="name" pattern="[a-zA-Z ]{5,}" maxlength="30" />
+    </p>
+    <p>
+      <label>age</label>
+      <input type="number" name="age" size="4" min="5" max="50" />
+    </p>
+    <p id="terms">
+      <label>I accept the terms</label>
+      <input type="checkbox" required="required" />
+    </p>
+    <button type="submit">Submit form</button>
+    <button type="reset">Reset</button>
+  </fieldset>
+</form>
+<script>
+// adds an effect called "wall" to the validator
+$.tools.validator.addEffect("wall", function(errors, event) {
+
+	// get the message wall
+	var wall = $(this.getConf().container).fadeIn();
+
+	// remove all existing messages
+	wall.find("p").remove();
+
+	// add new ones
+	$.each(errors, function(index, error) {
+		wall.append(
+			"<p><strong>" +error.input.attr("name")+ "</strong> " +error.messages[0]+ "</p>"
+		);
+	});
+
+// the effect does nothing when all inputs are valid
+}, function(inputs)  {
+
+});
+
+// initialize validator with the new effect
+$("#myform").validator({
+   effect: 'wall',
+   container: '#errors',
+
+   // do not validate inputs when they are edited
+   errorInputEvent: null
+
+// custom form submission logic
+}).submit(function(e)  {
+
+   // when data is valid
+   if (!e.isDefaultPrevented()) {
+
+      // tell user that everything is OK
+      $("#errors").html("<h2>All good</h2>");
+
+      // prevent the form data being submitted to the server
+      e.preventDefault();
+   }
+
+});
+</script>
+</body>
+</html>

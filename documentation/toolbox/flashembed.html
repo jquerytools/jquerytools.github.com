@@ -1,0 +1,752 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <style>
+#flash2 {
+	width:704px;
+	height:300px;
+	background-image:url(/media/img/flashembed/splash.jpg);
+	text-align:center;
+	cursor:pointer;
+}
+
+#flash2 img {
+	margin-top:110px;
+}
+</style>
+
+<style>
+#flash2 {
+  margin-left:-20px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background:url(/media/img/hero/toolbox/flashembed.jpg) 0 30px no-repeat">
+  jQuery TOOLS / flashembed - Adobe Flash embedding.
+  Your future tool to place Flash objects on your pages
+</h1>
+
+<p class="more" style="color:black;padding-left:40px">
+  Flashembed is a modern way of embedding Flash. Simple, elegant and robust.
+</p>
+
+<script>
+// use the jQuery alternative for flashembed.domReady
+$(function() {
+  // bind an onClick event for this second Flash container
+  $("#flash2").click(function() {
+    // same as in previous example
+    $(this).flashembed("/media/swf/global/flash10.swf");
+  });
+});
+</script>
+
+<div id="flash2">
+  <img src="/media/img/global/player/btn/play_text_large.png" alt="" />
+</div>
+
+
+<div class="feat">
+  <h3>Simple</h3>
+  <p>
+    The above example was performed with this JavaScript call:
+    <samp>flashembed(this, "flash_promo.swf");</samp> If you don't
+    need anything special, it's easy to get Flash up and running on
+    your site.
+  </p>
+</div>
+<div class="feat last">
+  <h3>JSON configuration</h3>
+  <p>
+    Flash can be configured with JSON. Compared to XML this is simpler
+    and much more flexible. In fact this was the main reason for
+    developing this tool.
+  </p>
+</div>
+<div class="feat">
+  <h3>jQuery support</h3>
+  <p>
+    flashembed is designed with scripters in mind. A polished
+    programming API together with support for jQuery selectors has
+    been built-in. As opposed to other jQuery Tools flashembed does
+    not <em>require</em>jQuery.
+  </p>
+</div>
+<div class="feat last">
+  <h3>1.09 kb!</h3>
+  <p>
+    This crazy size is one quarter of the competitors. The clean
+    source code passes Douglas
+    Crockford's <a href="http://www.jslint.com"
+    class="external">JavaScript Verifier</a> and it assigns only one
+    global variable: <samp>flashembed</samp>.
+  </p>
+</div>
+<div class="clear"></div>
+
+
+<p class="more">
+  <strong>Note:</strong> Flash is becoming an old school
+  technology. The iPad and other products are removing the support for
+  Flash. JavaScript will rule. Having said that, Flash technology
+  still has an important role to play on the Internet; especially when
+  you want to play videos.
+</p>
+
+
+<h3>Flashembed and jQuery Tools</h3>
+<p>
+  Distinct from other jQuery Tools, this tool
+  does <strong>not</strong> depend on jQuery. You can use it as a
+  standalone tool for embedding Flash. The jQuery syntax
+  is <em>supported</em> but not required. For this reason, this tool
+  lacks some of the features available in other tools such as callback
+  functions and the ability to write plugins.
+</p>
+
+
+
+<h2>Demos</h2>
+
+<p>
+  We have seen that the best way to learn is through demos. Each of
+  the following examples contain both documented source code and a
+  standalone version of the demo that you can use to get flashembed
+  working on your site:
+</p>
+
+<ul>
+  <c:forEach items="${f:getDemo(context.toolDemos2, 'toolbox/flashembed/index.html').category.demos}" var="demo">
+    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
+  </c:forEach>
+</ul>
+
+
+
+<a name="documentation"></a>
+<h2>Usage</h2>
+
+<p>
+  <samp>flashembed</samp> is a function and it accepts the following
+  arguments:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">flashembed</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">embedOptions</span><span class="p">,</span> <span class="nx">flashConfiguration</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<ol>
+  <li>
+    <strong>container</strong> identifies <em>where</em> the Flash
+    object is placed on the document.
+  </li>
+  <li>
+    <strong>embedOptions</strong> specifies the <em>path</em> to the
+    Flash object and optionally <em>how</em> it is embedded.
+  </li>
+  <li>
+    <strong>flashConfiguration</strong> is an optional argument and it
+    configures the actual Flash object.
+  </li>
+</ol>
+
+
+<h3><span class="blue">1st argument: </span> container</h3>
+<p>
+  This is either a DOM element or a string representing some
+  element's <samp>id</samp> attribute. The Flash object is
+  placed <em>inside</em> this container. It's important to note that
+  you don't have to worry about where you place your container on the
+  page or where you place your flashembed call. This tool takes care
+  of finding the container you specify.
+</p>
+<p>
+  As of version 1.2 you can prefix the <samp>ID</samp> name
+  with <samp>#</samp> character. For example, <samp>#mydiv</samp>
+  simulating the syntax of jQuery selectors.
+</p>
+
+<h3><span class="blue">2nd argument: </span> configuration</h3>
+<p>
+  The second argument specifies the <em>path</em> to the Flash object
+  and optionally <em>how</em> it is embedded. This is either a simple
+  string representing the path to the embedded flash object or an
+  object that has many different configuration options including the
+  path to the Flash object.
+</p>
+<p>
+  In case you specify the second argument as an object, you can find a
+  list of available options below. The options <em>before</em> the
+  grey line are specific to flashembed and below that you can see the
+  most popular <a class="external"
+  href="http://kb.adobe.com/selfservice/viewContent.do?externalId=tn_12701">Flash
+  parameters</a> that are understood by the Flash technology itself.
+</p>
+
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code"><strong>src</strong></td>
+    <td></td>
+    <td>
+      The path to the Flash object to be embedded. This is the only
+      required option.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">version</td>
+    <td>[3, 0]</td>
+    <td>
+      <p>
+        Specifies the minimum version required for the plugin. Adobe
+        releases Flash versions in the following format: <samp>[major,
+        0, fix]</samp> where the minor number is always zero. For that
+        reason, this tool ignores the second version number and the
+        version is given in this format: <samp>[major, fix]</samp>.
+      </p>
+      <p>
+	So if you want to provide alternate content for versions that
+	are below <samp>[9,0,45]</samp>, you must
+	supply <samp>[9,45]</samp> here.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="code">expressInstall</td>
+    <td></td>
+    <td>
+      <p>
+        This is an absolute or relative path to
+        a <a href="/media/swf/global/expressinstall.swf">expressinstall.swf</a> file.
+      </p>
+      <p>
+	<a href="http://www.adobe.com/devnet/flashplayer/articles/express_install.html"
+	class="external">Express Install</a> technology allows you to
+	seamlessly upgrade visitors to your website to the latest
+	player using a Flash-based experience. Express Install allows
+	you to design an in-context upgrade experience for your
+	content so users never have to leave your site. It also lets
+	you gracefully handle user cancellation and avoid system
+	restarts.
+      </p>
+      <p>
+	If this is specified and the user's Flash version is greater
+	than <samp>[6, 65]</samp>, then this plugin attempts to
+	install Flash on-the-fly. You can learn more
+	with <a href="/demos/toolbox/flashembed/fail.html">this
+	demo</a>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onFail</td>
+    <td></td>
+    <td>
+      A JavaScript function that is evaluated when the Flash plugin is
+      missing or its version is too old. You can learn more
+      from <a href="/demos/toolbox/flashembed/fail.html">this
+      demo</a>. This function is called in every possible scenario
+      when and old version is detected. Inside the function
+      the <samp>this</samp> variable is a pointer to
+      the <a href="#api">flashembed API</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">w3c</td>
+    <td class="code">false</td>
+    <td>
+      If set to <samp>true</samp>, the tool switches to
+      standards-based <samp>object</samp> syntax when generating
+      HTML. You can find more information about this technical
+      subject <a href="#html">here</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">cachebusting</td>
+    <td class="code">false</td>
+    <td>
+      By enabling this property flashembed will force the SWF file to
+      be loaded from the server and skip the browser's cache no matter
+      what the expiry headers are. This is achieved by appending a
+      random query string variable to the request URL.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">id</td>
+    <td class="code">random string</td>
+    <td>
+      id attribute for the generated OBJECT tag. If this is not
+      explicitly given then a random string is used because in certain
+      browser/os combinations the ID is required for solid
+      functionality.
+    </td>
+  </tr>
+  <tr><td colspan="3" style="background-color:#efefef"></td></tr>
+
+  <tr>
+    <td class="code">bgcolor</td>
+    <td></td>
+    <td>
+      The hexadecimal RGB value in the format of #RRGGBB. This
+      specifies the background color of the movie.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">width</td>
+    <td class="code">100%</td>
+    <td>
+      It is recommended that you not change this and instead specify
+      the width and height for the <em>container</em> element using
+      CSS.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">height</td>
+    <td class="code">100%</td>
+    <td>
+      It is recommended that you not change this and instead specify
+      the width and height for the <em>container</em> element using
+      CSS.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">wmode</td>
+    <td class="code">window</td>
+    <td>
+      Set this to "opaque" if you want to place normal HTML elements
+      on top of the Flash object, for example, a dropdown menu. You
+      can find a demo about
+      this <a href="/demos/toolbox/flashembed/wmode.html">here</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">allowfullscreen</td>
+    <td class="code">true</td>
+    <td>
+      Allows your Flash object to enter Fullscreen mode. If you don't
+      need this feature or are concerned about security, set this
+      to <samp>false</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">allowscriptaccess</td>
+    <td class="code">always</td>
+    <td>
+      This enables Flash-to-JavaScript communication. If you don't
+      need this feature or are concerned about security, set this
+      to <samp>false</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">quality</td>
+    <td class="code">high</td>
+    <td>
+      Possible values are <samp>low</samp>, <samp>high</samp>,
+      <samp>autolow</samp>, <samp>autohigh</samp>, and <samp>best</samp>.
+      <samp>low</samp> favors playback speed over appearance
+      and <samp>best</samp> provides the best display quality and does
+      not consider playback speed. It is recommended that you not
+      change this. The default value <samp>high</samp> is the best
+      compromise between quality and playback speed.
+    </td>
+  </tr>
+</table>
+
+<h3><span class="blue">3rd argument: </span> flashvars</h3>
+<p>
+  The third argument configures the Flash object you have defined in
+  the second argument. This is optional because not all Flash objects
+  are configurable. This is specified as a JavaScript object as
+  follows:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// supply configuration (flashvars) for the Flash object</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="s2">&quot;my_object.swf&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />  <span class="nx">my_param</span><span class="o">:</span> <span class="s1">&#39;foobar&#39;</span><span class="p">,</span><br />  <span class="nx">my_other_param</span><span class="o">:</span> <span class="s1">&#39;Hello world&#39;</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Flashembed has the unique feature of configuring your Flash objects
+  with JSON. This gives you the ability to supply complex
+  configurations directly upon embedding. JSON is a JavaScript-based
+  syntax and is much more flexible and simpler than XML which has
+  historically been used for Flash configuration. Here is an example
+  of a JSON-based configuration:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="s2">&quot;my_object.swf&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />  <span class="cm">/*</span><br /><span class="cm">  a JSON-based configuration variable.</span><br /><span class="cm">  enter the modern world of Flash configuration!</span><br /><span class="cm">  */</span><br />  <span class="nx">my_param</span><span class="o">:</span> <span class="p">{</span><br />  <span class="nx">my_array</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">,</span><br />  <span class="nx">my_other_param</span><span class="o">:</span> <span class="s1">&#39;Hello world&#39;</span><span class="p">,</span><br />  <span class="nx">nested_object</span><span class="o">:</span> <span class="p">{</span><br />  <span class="nx">another_array</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="mf">30.3</span><span class="p">]</span><br />  <span class="p">}</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  If you are developing a Flash object and want to configure it with
+  JSON, you can download JSON parsers for Flash
+  from <a href="http://code.google.com/p/as3corelib/"
+  class="external">as3corelib</a>.
+</p>
+
+
+<h3>A few embedding examples</h3>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// install the Flash object inside an element whose id is &quot;flash&quot;</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="s2">&quot;myfolder/my_flash_object.swf&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// install the Flash inside a certain DOM element</span><br />  <span class="kd">var</span> <span class="nx">domElement</span> <span class="o">=</span> <span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">);</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="nx">domElement</span><span class="p">,</span> <span class="s2">&quot;my_flash_object.swf&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// tweak the embedding options</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="p">{</span><br />  <span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;my_object.swf&#39;</span><span class="p">,</span><br />  <span class="nx">allowfullscreen</span><span class="o">:</span> <span class="kc">false</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+
+<a name="jquery"></a>
+<h2>jQuery support</h2>
+
+<p>
+  Flashembed has support for jQuery. This means that it can work as
+  both a standalone script or as a jQuery plugin. You can use jQuery
+  selectors to select elements from the page and place Flash objects
+  inside them. Here is the generic jQuery syntax for flashembed:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;jquery_selector&quot;</span><span class="p">).</span><span class="nx">flashembed</span><span class="p">(</span><span class="nx">configuration</span><span class="p">,</span> <span class="nx">flashvars</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  As you can see, there are a maximum of 2 arguments here
+  and <samp>flashvars</samp> is optional as before. You can find more
+  information about jQuery
+  selectors <a href="http://api.jquery.com/category/selectors/">here</a>. Here
+  is an example that will search all <samp>div</samp> elements with
+  the class name "flash" and place a Flash object inside them:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div.flash&quot;</span><span class="p">).</span><span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;my_object.swf&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Simple and powerful. Once you have installed the Flash objects you
+  can access the <a href="#api">flashembed API</a> with
+  jQuery's <samp>data</samp> method as follows:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// get access to the flashembed programming API</span><br />  <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div.flash:eq(0)&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;flashembed&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+
+
+<a name="api"></a>
+<h2>Flashembed <span class="blue">API</span></h2>
+
+<p>
+  Here you can see the two different ways of accessing the Flashembed
+  API:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// the API is returned by the flashembed call</span><br />  <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;flash&quot;</span><span class="p">,</span> <span class="s2">&quot;myfolder/my_flash_object.swf&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// inside the onFail function, the &quot;this&quot; variable is a pointer to the API</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;container&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;my_object.swf&#39;</span><span class="p">,</span> <span class="nx">version</span><span class="o">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">115</span><span class="p">],</span> <span class="nx">onFail</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// use API methods here</span><br />  <span class="kd">var</span> <span class="nx">conf</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getConf</span><span class="p">();</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  This API has thr following methods available for your use:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>method</th>
+      <th nowrap>return value</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">getApi()</td>
+    <td><code>DOM element</code></td>
+    <td>
+      Some Flash objects have a JavaScript API. This method returns a
+      pointer to that API.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getConf()</td>
+    <td><code>Object</code></td>
+    <td>
+      Returns the optional configuration for the Flash object (3rd
+      argument).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getOptions()</td>
+    <td><code>Object</code></td>
+    <td>
+      Returns the embedding options for the Flash component (2nd
+      argument).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getRoot()</td>
+    <td><code>DOM element</code></td>
+    <td>Returns the container for the Flash object</td>
+  </tr>
+</table>
+
+
+
+<h2>Static methods</h2>
+<p>
+  Flashembed exposes few static methods. Static methods don't need any
+  instances and can be called directly from
+  the <samp>flashembed</samp> namespace. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// get the embedding code for the supplied options and configuration</span><br />  <span class="nx">flashembed</span><span class="p">.</span><span class="nx">getHTML</span><span class="p">({</span><span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;my_object.swf&#39;</span><span class="p">,</span> <span class="nx">w3c</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><br />  <span class="nx">param1</span><span class="o">:</span> <span class="s1">&#39;foobar&#39;</span><span class="p">,</span><br />  <span class="nx">param2</span><span class="o">:</span> <span class="s1">&#39;baz&#39;</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>method</th>
+      <th nowrap>return value</th>
+      <th>description/example</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">asString(Object)</td>
+    <td><code>String</code></td>
+    <td>
+      Converts given Object to a JSON encoded string. The object can
+      contain any JavaScript literals such as strings, arrays and
+      other objects on any level. Function properties are converted to
+      a string: <samp>function()</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getHTML(options, config)</td>
+    <td><code>String</code></td>
+    <td>
+      Returns the embedding code for the given embedding options and
+      optional Flash configuration. This method is useful if you want
+      to quickly generate the <samp>object</samp> tag for your Flash
+      objects so that you don't need to use JavaScript on your pages.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getVersion()</td>
+    <td><code>Array</code></td>
+    <td>
+      Returns the Flash version of the user. Returns the array [major,
+      fix]. For example: <samp>[9,45]</samp>. If Flash is not
+      installed at all a <samp>[0, 0]</samp> is returned.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">isSupported(version)</td>
+    <td><code>boolean</code></td>
+    <td>
+      Whether the given version is
+      supported. Example: <samp>flashembed.isSupported([9, 0]);</samp>
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="html"></a>
+<h2>Generated HTML</h2>
+
+<p>
+  This section describes what happens "behind the scenes" and what
+  kind of HTML is generated for the client when the Flash object is
+  embedded. This is quite technical and if you are not interested in
+  W3C standards feel free to skip this section.
+</p>
+
+<p>
+  When studying what HTML will be produced we are using the following
+  flashembed call:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;clock&quot;</span><span class="p">,</span> <span class="s2">&quot;/media/swf/global/clock.swf&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Which will generate a Flash-based clock as seen below:
+</p>
+
+<div id="clock" style="height:120px;width:120px"></div>
+
+<script>
+  flashembed("clock", "/media/swf/global/clock.swf");
+</script>
+
+<p>
+  This will generate the following HTML for Mozilla, Safari, Opera and
+  Chrome:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;object</span> <span class="na">data=</span><span class="s">&quot;/media/swf/global/clock.swf&quot;</span><br />          <span class="na">type=</span><span class="s">&quot;application/x-shockwave-flash&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">height=</span><span class="s">&quot;100%&quot;</span><span class="nt">&gt;</span><br />&nbsp;<br />    <span class="c">&lt;!-- these parameters are generated by default --&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;allowfullscreen&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;allowscriptaccess&quot;</span> <span class="na">value=</span><span class="s">&quot;always&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;quality&quot;</span> <span class="na">value=</span><span class="s">&quot;high&quot;</span><span class="nt">&gt;</span><br />  <span class="nt">&lt;/object&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  This is the standards-based syntax as specified in
+  this <a href="http://www.w3.org/TR/REC-html40/struct/objects.html"
+  class="external">W3C specification</a>. It's no surprise that
+  Internet Explorer does not support this syntax so this browser is
+  supplied with the following HTML instead.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;object</span> <span class="na">classid=</span><span class="s">&quot;clsid:D27CDB6E-AE6D-11cf-96B8-444553540000&quot;</span><br />          <span class="na">height=</span><span class="s">&quot;100%&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;/media/swf/global/clock.swf&quot;</span> <span class="na">name=</span><span class="s">&quot;movie&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="na">name=</span><span class="s">&quot;allowfullscreen&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;always&quot;</span> <span class="na">name=</span><span class="s">&quot;allowscriptaccess&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;high&quot;</span> <span class="na">name=</span><span class="s">&quot;quality&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;/object&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  This works only in IE and not in other browers.
+</p>
+
+
+<a name="w3c"></a>
+<h3><em>W3C</em> configuration option</h3>
+
+<p>
+  Flashembed comes with a <samp>W3C</samp> option that will generate a
+  standards-based syntax that works on <strong>all</strong>
+  browsers. This syntax is specified in
+  this <a href="http://www.alistapart.com/articles/flashsatay"
+  class="external">A List Apart document</a> and you can generate
+  similar code like this:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// enable W3C object code syntax</span><br />  <span class="nx">flashembed</span><span class="p">(</span><span class="s2">&quot;clock&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">src</span><span class="o">:</span> <span class="s2">&quot;/media/swf/global/clock.swf&quot;</span><span class="p">,</span> <span class="nx">w3c</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The generated HTML looks like this:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;object</span> <span class="na">data=</span><span class="s">&quot;/media/swf/global/clock.swf&quot;</span><br />          <span class="na">type=</span><span class="s">&quot;application/x-shockwave-flash&quot;</span> <span class="na">height=</span><span class="s">&quot;100%&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;/media/swf/global/clock.swf&quot;</span> <span class="na">name=</span><span class="s">&quot;movie&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="na">name=</span><span class="s">&quot;allowfullscreen&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;always&quot;</span> <span class="na">name=</span><span class="s">&quot;allowscriptaccess&quot;</span><span class="nt">/&gt;</span><br />    <span class="nt">&lt;param</span> <span class="na">value=</span><span class="s">&quot;high&quot;</span> <span class="na">name=</span><span class="s">&quot;quality&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;/object&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  This would appear to be a perfect solution, but there is one
+  drawback. While every other browser is getting it right, IE/Windows
+  is not streaming - it waits for the entire movie to download before
+  playing it. This is fine for small movies, but for anything serious
+  the lack of streaming is unacceptable. This is why this flag is only
+  suitable for standards fanatics that are using small SWF files. The
+  A List Apart document describes a workaround for this called
+  "<a href="http://www.alistapart.com/articles/flashsatay"
+  class="external">Flash satay</a>" and you can read about it in that
+  document.
+</p>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

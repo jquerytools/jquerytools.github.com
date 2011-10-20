@@ -1,0 +1,514 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <style>
+p.more, p.more a {
+  font-size:16px;
+  margin:20px 0;
+  letter-spacing:-1px;
+}
+#content .plus {
+  list-style-image:url(/media/img/plus.png);
+}
+#content .minus {
+  list-style-image:url(/media/img/plus.png);
+}
+h1.hero_title {
+  background:url( /media/img/hero/usersguide.jpg ) no-repeat 0 10px;
+  margin-bottom:-360px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+        <script>
+$(function() {
+  var page = location.href.split("/").pop().split("#").shift() || 'index.html';
+  $("ul.tabs a[href*=" +page+ "]").addClass("current");
+  $("#right ul a[href*=/configuration]").addClass("selected");
+  $("#biglink").addClass("current").click(function() { return false; });
+});
+</script>
+  </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 class="hero_title">
+  jQuery Tools Users Guide - Common practices for each of the tools
+</h1>
+
+<ul class="tabs" style="position:relative;top:-25px;">
+  <li><a href="/documentation/index.html">Introduction</a>
+  <li><a href="/documentation/basics.html">The Basics</a>
+  <li><a class="w1" href="/documentation/scripting.html">
+      Scripting &amp; Events
+  </a></li>
+  <li><a href="/documentation/performance.html">
+      Performance
+  </a></li>
+</ul>
+
+<h2 class="first">In this document</h2>
+
+<p>
+  This document describes common practices for each of the tools such as:
+</p>
+
+<ul>
+  <li><a href="#api">API</a></li>
+  <li><a href="#events">Events</a></li>
+  <li><a href="#plugins">Writing Plugins</a></li>
+</ul>
+
+
+<a name="api"></a>
+<h2>Application Programming Interface (<em>API</em>)</h2>
+
+<p>
+  Every tool has a well defined Application Programming Interface
+  (API) that you can work with. This is one of the greatest strengths
+  of this library. You can call tool methods and access their
+  properties. The internal state is hidden and private variables are
+  not accessible by the outer world which is what you would expect
+  from good programming practice. You can get access to the API by
+  using jQuery's <samp>data</samp> method. For example
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// get access to the API</span><br /><span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#scroller&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The argument to the <samp>data</samp> method is the tool's
+  name. Once you have the API available, you can start calling its
+  methods. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// we scroll two items forward</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// scroll to the beginning in 2000 milliseconds</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">begin</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span><br />&nbsp;<br />  <span class="c1">// do something upon scroll</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">onSeek</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// inside callbacks the &quot;this&quot; variable is a reference to the API</span><br />  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;current position is: &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">getIndex</span><span class="p">())</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  It is natural to have a tool-specific API available when working
+  with a certain widget. There are no redundant methods and typically
+  you won't need, for example, the DOM manipluation methods that
+  jQuery offers. You will want to stick with the methods that relate
+  to the task at hand. There are getters, setters and methods that
+  invoke actions. Invoking methods will always return the API itself
+  so you can perform method chaining. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// normal API coding that programmers are accustomed to</span><br />  <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#example&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;tabs&quot;</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">getIndex</span><span class="p">();</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  If your selector returns multiple instances and you want to access a
+  particular API, you can do following:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// select the correct instance with a jQuery selector</span><br />  <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.scrollable:eq(2)&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// or with traversing methods. it is just a matter of taste</span><br />  <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.scrollable&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  You can easily see the available API methods a jQuery Tool is using
+  with <a href="http://getfirebug.com/"
+  class="external">Firebug</a>. Issue
+  the <samp>console.dir(api);</samp> command in Firebug's
+  Console. Here is a screenshot:
+</p>
+
+<p>
+  <img src="/media/img/tabs-api.gif" alt="Inspecting Tabs API from Firebug" />
+</p>
+
+<p>
+  This provides you with a good source of "documentation".
+</p>
+
+<h3>jQuery UI <em>unified API</em></h3>
+
+<p>
+  jQuery UI has a so-called "unified API" which uses the following
+  syntax for invoking methods:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// call select method for tabs</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;ul.example&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;select&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  API methods are called by supplying the method name as a string
+  followed by method arguments. This kind of syntax
+  is <strong>not</strong> supported jQuery Tools. To be honest, I
+  think that this kind API design is fundamentally wrong. It has the
+  following problems:
+</p>
+
+<ol>
+  <li>The syntax is unique to jQuery UI and people outside the UI
+  community are not accustomed to it.</li>
+  <li>
+    The syntax is cubersome. For example, if you want to perform
+    method chaining you have to write the following:
+    <samp>$("ul.example").tabs("select", 1).tabs("disable", 2);</samp>
+  </li>
+  <li>
+    The JavaScript engine cannot see typos. writing "selecct" does not
+    produce any errors and makes it hard to debug.
+  </li>
+</ol>
+
+
+<div style="color:#444;margin-top:20px">
+  <h4 style="color:#666">Deprecated <samp>api</samp> property</h4>
+
+  <p>
+    jQuery Tools versions below 1.2 used an "<samp>api</samp>"
+    configuration property for accessing the api upon
+    initialization. This property is now deprecated and will be
+    removed in the next version. Also the ability to access the API by
+    calling the tool constuctor again after the initialization is
+    deprecated. The <samp>data</samp> method will only be supported
+    after the next version.
+  </p>
+
+</div>
+
+<a name="events"></a>
+<h2>jQuery Tools Events</h2>
+
+<p>
+  Every tool is firing <em>events</em>. These are points in time where
+  something critical happens in the tool. For example, scrollable
+  fires the <samp>onSeek</samp> event every time scrolling occurs. You
+  can supply your own <em>event listeners</em> that are called every
+  time an event occurs. These event listeners are normal JavaScript
+  functions and are the most typical and effective way of extending
+  the behaviour of jQuery Tools. Event listeners are sometimes
+  called <em>callback functions</em> and both are valid terms.
+</p>
+
+<h3>Before and after events</h3>
+
+<p>
+  These tools provide both the <samp>onBefore</samp> event which
+  occurs before some action is taken and the <samp>on</samp> event
+  that occurs at the time (or after) an action takes place. You can
+  have custom functionality bound to these events. All tools provide
+  such events and they share a common naming
+  policy. The <samp>onBefore</samp> event provides you with the
+  possibility of cancelling the action.
+</p>
+
+
+<h3>Example</h3>
+
+<p>
+  This example demonstrates the <samp>onBeforeClick</samp> callback
+  function for Tabs:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#example&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;.panes &gt; div&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// here is a &quot;normal&quot; configuration variable</span><br />  <span class="nx">current</span><span class="o">:</span> <span class="err">&#39;</span><span class="nx">active</span><span class="p">,</span><br />&nbsp;<br />  <span class="c1">// here is a callback function that is called before the tab is clicked</span><br />  <span class="nx">onBeforeClick</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">tabIndex</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// the &quot;this&quot; variable is a pointer to the API. You can do a lot with it.</span><br />  <span class="kd">var</span> <span class="nx">tabPanes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">();</span><br />&nbsp;<br />  <span class="cm">/*</span><br /><span class="cm">  By returning false here the default behaviour is cancelled.</span><br /><span class="cm">  This time another tab cannot be clicked when &quot;terms&quot; are not accepted</span><br /><span class="cm">  */</span><br />  <span class="k">return</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:checkbox[name=terms]&quot;</span><span class="p">).</span><span class="nx">is</span><span class="p">(</span><span class="s2">&quot;:checked&quot;</span><span class="p">);</span><br />  <span class="p">}</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+<h3>Supplying Events</h3>
+
+<p>
+  There are three different ways of supplying event listeners:
+</p>
+
+<h4>1. In the configuration</h4>
+
+<p>
+  You can supply your event listeners directly in the configuration
+  when the tool is initialized. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.tabs&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">({</span><br />&nbsp;<br />  <span class="c1">// do your own stuff here</span><br />  <span class="nx">onClick</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// &quot;this&quot; is a reference to the Tabs API</span><br />  <span class="kd">var</span> <span class="nx">tabPanes</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getPanes</span><span class="p">();</span><br />&nbsp;<br />  <span class="p">}</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  This is the most common way to supply callbacks and is suitable for
+  most of the situations. The biggest drawback to this method is that
+  you can supply only one callback for each event. For example, you
+  cannot define two different <samp>onClick</samp> event listeners in
+  the same configuration.
+</p>
+
+<p>
+  <strong>Note:</strong> in the above example the <samp>this</samp>
+  variable is a reference to
+  the <a href="/tools/tabs/index.html#api">Tabs API</a>.
+</p>
+
+<h4>2. Using jQuery's <em>bind</em> method</h4>
+
+<p>
+  This is a standard way of assigning callback methods in jQuery
+  land. Here is an example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// first callback</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.tabs&quot;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;onClick&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// &quot;this&quot; is a reference to the DOM element</span><br />  <span class="kd">var</span> <span class="nx">ulElement</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span><br />&nbsp;<br />  <span class="c1">// another one</span><br />  <span class="p">}).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;onClick&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The <samp>bind</samp> method can be called multiple times so you can
+  assign multiple <samp>onClick</samp> listeners (also known as
+  "chaining"). This is crucial when developing jQuery Tools plugins.
+</p>
+
+<p>
+  By using the <samp>bind</samp> method you can use the whole event
+  binding arsenal that jQuery provides such
+  as <a href="http://api.jquery.com/unbind"
+  class="external">unbind</a> for removing event listeners
+  and <a href="http://api.jquery.com/one" class="external">one</a> for
+  calling your listener only once. The jQuery documentation for
+  the <a href="http://api.jquery.com/bind" class="external">bind</a>
+  method is good reading and describes you the basics of event
+  binding. It also talks about advanced topics such as namespacing
+  which are also valid in jQuery Tools.
+</p>
+
+
+<p>
+  Inside your event listener the <samp>this</samp> variable is a
+  reference to the DOM element returned by the jQuery selector just
+  like jQuery programmers are accustomed to.
+</p>
+
+<p>
+  By far the best thing about the <samp>bind</samp> method is that you
+  can bind the same event listener to multiple instances with the same
+  call. If for example the selector <samp>.tabs</samp> in our above
+  example returns multiple instances, the <samp>bind</samp> method
+  will assign the listener to all instances simultaneously. Also note
+  that <samp>bind</samp> allows you to supply multiple events types
+  with the same call. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// the same event listener is called before *and* after a tab is clicked</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.tabs&quot;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;onBeforeClick onClick&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h4>3. Supplying listeners from the API</h4>
+
+<p>
+  Each jQuery Tool allows you to supply the event listeners from the
+  API. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// grab the API with jQuery&#39;s data method</span><br />  <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.tabs&quot;</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;tabs&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// supply an event listener</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">onBeforeClick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span>  <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// supply another</span><br />  <span class="p">}).</span><span class="nx">onClick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Inside the event listener the <samp>this</samp> variable is a
+  reference to the Tools API and you can chain the methods
+  "normally". This syntax follows a more traditional programming style
+  that is more fluent and understandable for people outside the jQuery
+  community.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// loop through each instances</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.tabs&quot;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// assign the onClick listener to a single instance</span><br />  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;tabs&quot;</span><span class="p">).</span><span class="nx">onClick</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="p">});</span><br />&nbsp;<br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<a name="object"></a><a name="event_object"></a>
+<h3>The Event object</h3>
+
+<p>
+  Every callback function receives
+  the <a href="http://api.jquery.com/category/events/event-object/"
+  class="external">jQuery.Event</a> object as the first argument for
+  the callback function. This event object standardizes the event
+  processing according to the
+  <a href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-flow-cancelation" class="external">W3C standards</a>.
+  Here are some things you can do with this object:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// the event object is the first argument for *all* callbacks in jQuery Tools</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">onClick</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// cancel the default action.</span><br />  <span class="c1">// same as using &quot;return false;&quot; as the last line of this code block.</span><br />  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span><br />&nbsp;<br />  <span class="cm">/* If you have multiple callbacks of the same type this prevents</span><br /><span class="cm">  the rest of the callbacks from being executed. */</span><br />  <span class="nx">event</span><span class="p">.</span><span class="nx">stopImmediatePropagation</span><span class="p">();</span><br />&nbsp;<br />  <span class="c1">// retrieve the value returned by the previous callback function</span><br />  <span class="nx">event</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span><br />&nbsp;<br />  <span class="c1">// The timestamp (in milliseconds) of when the event was created.</span><br />  <span class="nx">event</span><span class="p">.</span><span class="nx">timeStamp</span><span class="p">;</span><br />&nbsp;<br />  <span class="c1">// mouse position when event was fired</span><br />  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span><span class="p">;</span><br />  <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span><span class="p">;</span><br />&nbsp;<br />  <span class="c1">// whether CTRL, ALT, SHIFT or ESC was being pressed</span><br />  <span class="kd">var</span> <span class="nx">alt</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">altKey</span><span class="p">,</span><br />  <span class="nx">ctrl</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">ctrlKey</span><span class="p">,</span><br />  <span class="nx">shift</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">shiftMey</span><span class="p">,</span><br />  <span class="nx">esc</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">metaKey</span><span class="p">;</span><br />&nbsp;<br /><br />  <span class="c1">// the original triggering element</span><br />  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">originalTarget</span> <span class="o">||</span> <span class="nx">e</span><span class="p">.</span><span class="nx">srcElement</span><span class="p">;</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Within the scope of jQuery Tools, the <samp>preventDefault()</samp>
+  is identical to returning <samp>false</samp> from the callback. This
+  is just a matter of style where the <samp>preventDefault()</samp> is
+  the modern manner of cancelling.
+</p>
+
+<p>
+  You can get the handle to the actual element that fired the event
+  with <samp>var element = e.originalTarget ||
+  e.srcElement;</samp>. For example, you can get a handle to the
+  scrollable navigator item that was clicked inside
+  the <samp>onSeek</samp> event.
+</p>
+
+<h3>A quick comparison with class-based inheritance</h3>
+
+<p>
+  Some programmers may argue that a better solution would have been to
+  implement "classes" that users can "extend". Trust me, it's
+  not. JavaScript is an inherently functional language, not an
+  object-oriented one. Trying to mimic classical inherintance leads to
+  poor design and makes programs longer and harder to understand. This
+  is especially important in jQuery development because this library
+  itself is highly dependent on callbacks and does not support any
+  kind of inheritance. Functions are an easy, light-weight and
+  effective way of extending behavior. Even newcomers can use them
+  without understanding the anatomy of the JavaScript language.
+</p>
+
+<a name="plugins"></a>
+<h2>Creating jQuery Tools <em>Plugins</em></h2>
+
+<p>
+  It is possible to implement jQuery plugins that are tightly
+  integrated with jQuery Tools. These plugins would typically alter
+  the default behaviour of a tool or they can add new functionality.
+  jQuery Tools plugins are authored just like normal jQuery plugins
+  with the exception that inside your plugin you'll get a handle to
+  the Tools programming API and possibly supply callback
+  functions. The fact that the tools can have an unlimited number of
+  callback functions registered is the backbone of plugin
+  development. Here is a simple skeleton for a plugin that will track
+  Google Analytics each time a tab is clicked:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// create jQuery plugin called &quot;analytics&quot;</span><br />  <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">analytics</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tracker</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// loop through each tab and enable analytics</span><br />  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />&nbsp;<br />  <span class="c1">// get handle to tabs API.</span><br />  <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;tabs&quot;</span><span class="p">);</span><br />&nbsp;<br />  <span class="c1">// setup onClick listener for tabs</span><br />  <span class="nx">api</span><span class="p">.</span><span class="nx">onClick</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>  <span class="p">{</span><br />  <span class="nx">tracker</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s2">&quot;tabs&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span><br />  <span class="p">});</span><br />&nbsp;<br />  <span class="p">});</span><br />  <span class="p">};</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  After you have this plugin included on your page, you can use the
+  plugin in the following manner:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// initialize tabs and the analytics plugin. the Analytics tracker argument is defined elsewhere</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;ul.tabs&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;div.panes &gt; div&quot;</span><span class="p">).</span><span class="nx">analytics</span><span class="p">(</span><span class="nx">tracker</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+<p>
+  If you are a jQuery plugin developer, you can see that this follows
+  the "standard" way of developing plugins. Our setup requires that
+  the tabs are initialized before the analytics plugin, so
+  you <strong>cannot</strong> write:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// this is wrong. the analytics plugin does not get access to the tabs API</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;ul.tabs&quot;</span><span class="p">).</span><span class="nx">analytics</span><span class="p">(</span><span class="nx">tracker</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;div.panes &gt; div&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Here is a relatively sane writing about
+  <a href="http://www.learningjquery.com/2007/10/a-plugin-development-pattern"
+  class="external">developing jQuery plugins</a>. There are many
+  plugins available on the <a href="/download/index.html">download
+  page</a>. You can take a look at their commented source code to get
+  a better understanding of plugin development.
+</p>
+
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

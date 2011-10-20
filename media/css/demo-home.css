@@ -1,0 +1,20 @@
+.clearfix{display:block;zoom:1;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+.vhidden{visibility:hidden}
+h1{color:#444;font-size:36px;line-height:64px;padding:24px 0}
+#sections{display:block;zoom:1;margin-top:12px;width:984px}
+#sections:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+.sect{padding:12px 32px 0;float:left;height:1172px;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;-moz-box-shadow:0 1px 3px #666;-webkit-box-shadow:0 1px 3px #666;-o-box-shadow:0 1px 3px #666;box-shadow:0 1px 3px #666;background-color:#fff;width:255px;}
+.sect header{color:#084a5e;font-size:16px;line-height:24px;padding:12px 0;display:block;zoom:1;}
+.sect header:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+.sect .icon{width:200px;height:200px;background:transparent url("/media/img/jqt_sprite_medium.png") no-repeat}
+.sect h2{width:120px;margin:0 auto;border:0;text-shadow:-1px 0 1px #ededed}
+.sect ol.cat h3{margin-top:12px;display:inline-block}
+.sect.one .icon{background-position:0 10px}
+.sect.two{margin:0 12px;}
+.sect.two .icon{background-position:0 -200px}
+.sect.three .icon{background-position:0 -400px}
+ol.cat{list-style-position:inside;color:#006c83;line-height:24px}
+ol.links{list-style-type:none;font-size:12px;line-height:18px;}
+ol.links a{color:#999;text-decoration:none;}
+ol.links a:hover{color:#084a5e}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <style>
+#flash {
+	width:704px;
+	height:300px;
+	background-color:#333;
+	border:1px outset #000;
+	text-align:center;
+	cursor:pointer;
+}
+
+#flash h2 {
+	font-size:40px;
+	color:#fff;
+	margin-top:80px;
+}
+
+</style>
+</head>
+<body><!-- our flash container with some initial HTML inside it -->
+<div id="flash">
+	<h2>Click here to play movie</h2>
+</div>
+
+<script>
+// get flash container and assign click handler for it
+document.getElementById("flash").onclick = function() {
+
+	// when being clicked -> load flash inside "this".
+	flashembed(this, "/media/swf/global/flash10.swf");
+}
+</script>
+</body>
+</html>

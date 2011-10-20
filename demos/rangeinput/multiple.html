@@ -1,0 +1,587 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Multiple small ranges</title>
+    <meta name="description" content="HTML5 range input for humans">
+    <meta name="keywords" content="HTML5 range input, jquery range, jquery rangeinput, javascript range input, skinnable rangeinput">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <!-- style for the range inputs only -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/small.css"/>
+
+<!-- style for the "surroundings" -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/multiple.css"/>
+
+<!-- IE6 tweaks are needed. Didn't bother finish this. sorry. -->
+<!--[if lt IE 7]>
+<style>
+  #controls { background-image:none; } 
+  .vertical { width:120px; }
+</style>
+<![endif]-->
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/rangeinput.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Multiple small ranges</h1>
+<p>
+  These ranges are initialized with a
+  single <samp>$(":range").rangeinput()</samp> call. Ranges on the
+  second column are <strong>readonly</strong> and ranges on the third
+  column are <strong>disabled</strong>.
+</p>
+
+<div class="box full">
+<div id="controls">
+  <fieldset>
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  /> 
+    <input type="range"  />
+  </fieldset>
+
+  <fieldset>
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" disabled />
+  </fieldset>
+</div>
+<p class="clear:both;height:10px"></p>
+
+<script>
+      $(":range").rangeinput({ precision: 1, value: 50.5 });
+  </script>
+
+</div>
+<a class="standalone" href="multiple.htm">standalone demo</a>
+
+<p>
+  You can click on the values and edit them.
+</p>
+
+</div>
+
+<h3>Rangeinput initialization</h3>
+
+<p>
+  A single call is enough to initialize all rangeinputs. The tool is
+  smart enough to determine whether the slider is vertical or
+  horizontal.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:range&quot;</span><span class="p">).</span><span class="nx">rangeinput</span><span class="p">({</span> <span class="nx">precision</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">value</span><span class="o">:</span> <span class="mf">50.5</span> <span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>HTML coding</h3>
+
+<p>
+  We have grouped the inputs inside fieldset elements. Inputs on the
+  second column are <samp>readonly</samp>, meaning that you can change
+  the value from the slider but not from the input
+  field. The <samp>disabled</samp> slider cannot be changed at
+  all. You can toggle <samp>readonly</samp> and <samp>disabled</samp>
+  attributes with scripting using jQuery's <samp>attr</samp> method.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;fieldset&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">readonly</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">readonly</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">readonly</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">readonly</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">readonly</span> <span class="nt">/&gt;</span><br />  <span class="nt">&lt;/fieldset&gt;</span><br />&nbsp;<br />  <span class="nt">&lt;fieldset</span> <span class="na">class=</span><span class="s">&quot;vertical&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">disabled</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">disabled</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">disabled</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">disabled</span> <span class="nt">/&gt;</span><br />    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">disabled</span> <span class="nt">/&gt;</span><br />  <span class="nt">&lt;/fieldset&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<h3>CSS coding</h3>
+
+<p>
+  This skin is image based. Both the slider and the drag handle have a
+  background image. Here are the most crucial parts of
+  the <a href="/media/css/rangeinput/small.css">CSS file</a>:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* slider root */</span><br /><span class="nc">.slider</span> <span class="p">{</span><br />  <span class="k">background</span><span class="o">:</span><span class="sx">url(rangeinput.png)</span> <span class="k">no-repeat</span>  <span class="m">0</span> <span class="m">-5px</span><span class="p">;</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">94px</span><span class="p">;</span><br />  <span class="k">height</span><span class="o">:</span><span class="m">5px</span><span class="p">;</span><br />  <span class="k">cursor</span><span class="o">:</span><span class="k">pointer</span><span class="p">;</span><br />  <span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span><br />  <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* drag handle */</span><br /><span class="nc">.handle</span> <span class="p">{</span><br />  <span class="k">background</span><span class="o">:</span><span class="k">transparent</span> <span class="sx">url(rangeinput.png)</span> <span class="k">no-repeat</span> <span class="k">scroll</span> <span class="m">-97px</span> <span class="m">0</span><span class="p">;</span><br />  <span class="k">height</span><span class="o">:</span><span class="m">13px</span><span class="p">;</span><br />  <span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />  <span class="k">top</span><span class="o">:-</span><span class="m">5px</span><span class="p">;</span><br />  <span class="k">width</span><span class="o">:</span><span class="m">12px</span><span class="p">;</span><br />  <span class="k">cursor</span><span class="o">:</span><span class="n">move</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<p>
+  You need to place the <samp>script</samp> block <em>after</em> the
+  HTML code or you can alternatively use
+  jQuery's <samp>$(document).ready</samp> to execute the script as
+  soon as the webpage's Document Object Model (DOM) has been
+  loaded. Read more about that from
+  the <a href="/documentation/basics.html#document_ready">User's
+  Manual</a>.
+</p>
+
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a class="active"                title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- same styling as in minimal setup -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/validator/form.css"/>
+
+<!-- override it to have a columned layout -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/validator/columns.css"/>
+</head>
+<body><form id="myform" class="cols">
+  <h3>HTML5 form with custom inputs</h3>
+
+  <fieldset>
+    <label> email * <input type="email" required="required" minlength="9" /> </label>
+    <label> username * <input type="text" name="username" minlength="5" /> </label>
+    <label> Password <input type="password" name="password" minlength="4" /> </label>
+    <label> Password check <input type="password" name="check" data-equals="password" /> </label>
+  </fieldset>
+
+  <fieldset>
+    <label> website * <input type="url" required="required" /> </label>
+    <label> name * <input type="text" name="name" required="required" maxlength="30" /> </label>
+    <label> age <input type="number" name="age" size="4" maxlength="3" /> </label>
+    <label> time <input type="time" name="time" maxlength="8" /> </label>
+  </fieldset>
+
+  <div class="clear"></div>
+
+  <button type="submit">Submit form</button>
+</form>
+
+<script>
+      // Regular Expression to test whether the value is valid
+    $.tools.validator.fn("[type=time]", "Please supply a valid time", function(input, value) {
+    return /^\d\d:\d\d$/.test(value);
+    });
+        $.tools.validator.fn("[data-equals]", "Value not equal with the $1 field", function(input) {
+    var name = input.attr("data-equals"),
+    field = this.getInputs().filter("[name=" + name + "]");
+    return input.val() == field.val() ? true : [name];
+    });
+        $.tools.validator.fn("[minlength]", function(input, value) {
+    var min = input.attr("minlength");
+
+    return value.length >= min ? true : {
+    en: "Please provide at least " +min+ " character" + (min > 1 ? "s" : ""),
+    fi: "Kent&auml;n minimipituus on " +min+ " merkki&auml;"
+    };
+    });
+        $.tools.validator.localizeFn("[type=time]", {
+    en: 'Please supply a valid time',
+    fi: 'Virheellinen aika'
+    });
+        $("#myform").validator({
+    position: 'top left',
+    offset: [-12, 0],
+    message: '<div><em/></div>' // em element is the arrow
+    });
+  </script>
+</body>
+</html>

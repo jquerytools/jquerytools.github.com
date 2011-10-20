@@ -1,0 +1,830 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Scrollable plugins in action</title>
+    <meta name="description" content="Scroll your HTML with eye candy">
+    <meta name="keywords" content="jquery scrolling,jquery scrollable,javascript scrolling,javascript scrolling plugin,jquery scrolling plugin,jquery scrollable plugin,scrolling html elements">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-navigator.css" />
+
+<link rel="stylesheet" type="text/css" href="/media/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/scrollable-navigator.css" />
+<style>
+.scrollable img {
+	width:100px;
+	margin:20px 5px 20px 21px;
+}
+
+.scrollable img.hover {
+	background-color:#123;
+}
+</style>
+
+<style>
+#actionButtons {
+	text-align:center;
+	margin-top:30px;
+}
+</style>
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-buttons.css" />
+
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-horizontal.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-buttons.css" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-navigator.css" />
+<style>
+div.demowrap {
+  margin:10px -15px;
+}
+#content div.box {
+  outline-width:0px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/scrollable.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Scrollable plugins in action</h1>
+
+<p>
+  Here are the available plugins in action:
+</p>
+
+<ol>
+  <li><a href="#navigator">Navigator</a></li>
+  <li><a href="#autoscroll">Autoscroll</a></li>
+  <li><a href="#circular">Mousewheel</a></li>
+</ol>
+
+<p>
+  You can additionally see a demo where all the plugins
+  are <a href="#chain">used together</a>. Each demo here is built upon
+  the <a href="index.html">minimal setup</a>.
+</p>
+
+<a name="navigator"></a>
+<h2>Navigator plugin</h2>
+
+<p>
+  Provides navigation buttons for switching between pages.
+</p>
+
+<div class="box full">
+
+<!-- wrapper for navigator elements -->
+<div class="navi"></div>
+
+<div style="margin:0 auto; width: 634px; height:120px;">
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="navigator">
+
+  <!-- root element for the items -->
+  <div class="items">
+
+    <!-- 1-5 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
+      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
+    </div>
+
+    <!-- 5-10 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
+      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+    </div>
+
+    <!-- 10-15 -->
+    <div>
+      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
+    </div>
+
+  </div>
+
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+</div>
+<br clear="all" />
+
+<!-- javascript coding -->
+<script>
+$(document).ready(function() {
+// initialize scrollable together with the navigator plugin
+$("#navigator").scrollable().navigator();
+});
+</script>
+
+
+</div>
+<a class="standalone" href="plugins-navigator.htm">standalone demo</a>
+
+</div>
+
+<h3>HTML setup</h3>
+
+<p>
+  By default the plugin searches for an element whose CSS class name
+  is "navi" and auto-generates the navigational buttons inside this
+  element. In our previous setup we have placed the
+  following <samp>DIV</samp> above the scrollable:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- wrapper for navigator elements --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi&quot;</span><span class="nt">&gt;&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  Afterwards the plugin will transform the empty <samp>DIV</samp> into
+  the following structure:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- wrapper --&gt;</span><br /><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;navi&quot;</span><span class="nt">&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;0&quot;</span> <span class="na">class=</span><span class="s">&quot;active&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;1&quot;</span> <span class="na">class=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;2&quot;</span> <span class="na">class=</span><span class="s">&quot;&quot;</span><span class="nt">/&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  We have styled the navigator with
+  the <a href="/media/css/scrollable-navigator.css">scrollable-navigator.css</a>
+  file which looks like this:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">/* position and dimensions of the navigator */</span><br /><span class="nc">.navi</span> <span class="p">{</span><br />    <span class="k">margin-left</span><span class="o">:</span><span class="m">328px</span><span class="p">;</span><br />    <span class="k">width</span><span class="o">:</span><span class="m">200px</span><span class="p">;</span><br />    <span class="k">height</span><span class="o">:</span><span class="m">20px</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><br /><span class="c">/* items inside navigator */</span><br /><span class="nc">.navi</span> <span class="nt">a</span> <span class="p">{</span><br />    <span class="k">width</span><span class="o">:</span><span class="m">8px</span><span class="p">;</span><br />    <span class="k">height</span><span class="o">:</span><span class="m">8px</span><span class="p">;</span><br />    <span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><br />    <span class="k">margin</span><span class="o">:</span><span class="m">3px</span><span class="p">;</span><br />    <span class="k">background</span><span class="o">:</span><span class="sx">url(/media/img/scrollable/arrow/navigator.png)</span> <span class="m">0</span> <span class="m">0</span> <span class="k">no-repeat</span><span class="p">;</span><br />    <span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><br />    <span class="k">font-size</span><span class="o">:</span><span class="m">1px</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* mouseover state */</span><br /><span class="nc">.navi</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span><br />    <span class="k">background-position</span><span class="o">:</span><span class="m">0</span> <span class="m">-8px</span><span class="p">;</span><br /><span class="p">}</span><br />&nbsp;<br /><span class="c">/* active state (current page state) */</span><br /><span class="nc">.navi</span> <span class="nt">a</span><span class="nc">.active</span> <span class="p">{</span><br />    <span class="k">background-position</span><span class="o">:</span><span class="m">0</span> <span class="m">-16px</span><span class="p">;</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+
+
+<p>
+  You can alternatively generate the navigator links manually as we do
+  in our <a href="/demos/scrollable/one-sized.html">next
+  demo</a>.
+</p>
+
+<h3>JavaScript setup</h3>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// initialize scrollable together with the navigator plugin</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#navigator&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">().</span><span class="nx">navigator</span><span class="p">();</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  View the
+  <a href="/scrollable/index.html#navigator">documentation</a>
+  of the navigator plugin.
+</p>
+
+<a name="autoscroll"></a>
+<h2>Autoscroll plugin</h2>
+
+<p>
+  Makes the scrolling automatic. You can play with the action buttons
+  below the scrollable. The autoscrolling will pause if you interact
+  with the scrollable with your mouse.
+</p>
+
+<div class="box">
+
+<div style="margin:0 auto; width: 634px; height:120px;">
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="autoscroll">
+
+  <!-- root element for the items -->
+  <div class="items">
+
+    <!-- 1-5 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
+      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
+    </div>
+
+    <!-- 5-10 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
+      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+    </div>
+
+    <!-- 10-15 -->
+    <div>
+      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
+    </div>
+
+  </div>
+
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+</div>
+<br clear="all" />
+
+<div id="actionButtons">
+	<button type="button" onClick="api.play()">Play</button>
+	<button type="button" onClick="api.pause()">Pause</button>
+	<button type="button" onClick="api.stop()">Stop</button>
+</div>
+
+<br clear="all" />
+
+<!-- javascript coding -->
+<script>
+$(document).ready(function() {
+// initialize scrollable together with the autoscroll plugin
+var root = $("#autoscroll").scrollable({circular: true}).autoscroll({ autoplay: false });
+
+// provide scrollable API for the action buttons
+window.api = root.data("scrollable");
+});
+</script>
+
+
+</div>
+<a class="standalone" href="autoscroll.htm">standalone demo</a>
+
+<h3>JavaScript setup</h3>
+
+<p>
+  This time we have supplied two configuration options for the
+  plugin. By disabling the <samp>autoplay</samp> configuration option,
+  the autoscroll won't start when the page loads. Just like all the
+  tools, the plugins also support the <samp>api</samp> configuration
+  option so that you have an easy access to the tool's programming
+  interface. The API is being used by the action buttons.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// initialize scrollable together with the autoscroll plugin</span><br /><span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#autoscroll&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">({</span><span class="nx">circular</span><span class="o">:</span> <span class="kc">true</span><span class="p">}).</span><span class="nx">autoscroll</span><span class="p">({</span> <span class="nx">autoplay</span><span class="o">:</span> <span class="kc">false</span> <span class="p">});</span><br />&nbsp;<br /><span class="c1">// provide scrollable API for the action buttons</span><br /><span class="nb">window</span><span class="p">.</span><span class="nx">api</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">);</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<h3>Action buttons</h3>
+
+<p>
+  The difference between <samp>pause</samp> and <samp>stop</samp> is
+  that when the autoscroll is in the paused state the playback will
+  resume if the user interacts with the scrollable with the mouse.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;actionButtons&quot;</span><span class="nt">&gt;</span><br />	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onClick=</span><span class="s">&quot;api.play()&quot;</span><span class="nt">&gt;</span>Play<span class="nt">&lt;/button&gt;</span><br />	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onClick=</span><span class="s">&quot;api.pause()&quot;</span><span class="nt">&gt;</span>Pause<span class="nt">&lt;/button&gt;</span><br />	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">onClick=</span><span class="s">&quot;api.stop()&quot;</span><span class="nt">&gt;</span>Stop<span class="nt">&lt;/button&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+<p>
+  View the <a href="/scrollable/index.html#autoscroll">documentation</a> of the autoscroll plugin.
+</p>
+
+<a name="chain"></a>
+<h2>Chaining plugins</h2>
+
+<p>
+  Here we use all the plugins together. We have also
+  enabled <samp>mousewheel</samp> and <samp>circular</samp> options.
+</p>
+
+<div class="box full">
+
+<!-- wrapper for navigator elements -->
+<div class="navi"></div>
+
+<div style="margin:0 auto; width: 634px; height:120px;">
+<!-- "previous page" action -->
+<a class="prev browse left"></a>
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="chained">
+
+  <!-- root element for the items -->
+  <div class="items">
+
+    <!-- 1-5 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
+      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
+    </div>
+
+    <!-- 5-10 -->
+    <div>
+      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
+      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
+      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+    </div>
+
+    <!-- 10-15 -->
+    <div>
+      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
+      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
+    </div>
+
+  </div>
+
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"></a>
+</div>
+<br clear="all" />
+
+<!-- javascript coding -->
+<script>
+$(document).ready(function() {
+// heeeeeeeeeeere we go.
+$("#chained").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({
+	interval: 3000
+});
+});
+</script>
+
+</div>
+<a class="standalone" href="chain.htm">standalone demo</a>
+
+<h3>JavaScript setup</h3>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// heeeeeeeeeeere we go.</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#chained&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">({</span><span class="nx">circular</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">mousewheel</span><span class="o">:</span> <span class="kc">true</span><span class="p">}).</span><span class="nx">navigator</span><span class="p">().</span><span class="nx">autoscroll</span><span class="p">({</span><br />	<span class="nx">interval</span><span class="o">:</span> <span class="mi">3000</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  <a href="/credits.html" id="credits">Photo credits &raquo;</a>
+</p>
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a class="active"                title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

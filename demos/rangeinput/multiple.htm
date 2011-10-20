@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- style for the range inputs only -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/small.css"/>
+
+<!-- style for the "surroundings" -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/multiple.css"/>
+
+<!-- IE6 tweaks are needed. Didn't bother finish this. sorry. -->
+<!--[if lt IE 7]>
+<style>
+  #controls { background-image:none; } 
+  .vertical { width:120px; }
+</style>
+<![endif]-->
+</head>
+<body><div id="controls">
+  <fieldset>
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  />
+    <input type="range"  /> 
+    <input type="range"  />
+  </fieldset>
+
+  <fieldset>
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+    <input type="range" readonly />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+    <input type="range" disabled />
+  </fieldset>
+
+  <fieldset class="vertical">
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" />
+    <input type="range" disabled />
+  </fieldset>
+</div>
+<p class="clear:both;height:10px"></p>
+
+<script>
+      $(":range").rangeinput({ precision: 1, value: 50.5 });
+  </script>
+</body>
+</html>

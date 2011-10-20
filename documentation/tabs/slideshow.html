@@ -1,0 +1,463 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/tabs-slideshow.css"/>
+<!--
+   fix IE "black box" problems with PNG images when opacity is being animated
+-->
+<!--[if IE]>
+<style type="text/css">
+  .images img {
+    background:#efefef url(/media/img/gradient/h300.png) repeat-x 0 -22px;
+  }
+</style>
+<![endif]-->
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+        <script>
+$(function() {
+  $(".tabs").tabs(".panes > div");
+});
+</script>
+  </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background-image:url(/media/img/hero/tabs.jpg)">
+  jQuery Slideshow Plugin
+</h1>
+
+<h2 class="first" style="text-align:center">
+  <strong>Slideshow</strong> plugin for Tabs
+</h2>
+
+<p class="more" style="text-align:center">
+  Automatic switching between tabs at pre-configured intervals.
+</p>
+
+<!-- "previous slide" button -->
+<a class="backward">prev</a>
+
+<!-- container for the slides -->
+<div class="images">
+
+  <!-- first slide -->
+  <div>
+    <h3>First pane</h3>
+    <img src="/media/img/title/screens.png" alt="Flying screens"
+         style="float:left;margin:0 30px 20px 0" />
+
+    <p style="font-weight:bold">
+      Aenean nec imperdiet ligula. Cum sociis natoque penatibus et
+      magnis dis parturient montes, nascetur ridiculus mus.
+    </p>
+    <p>
+      Suspendisse potenti. Sed elementum risus eleifend massa
+      vestibulum consectetur. Duis massa augue, aliquam eget fringilla
+      vel, aliquam vitae arcu. Nam sed magna mi. Praesent odio neque,
+      dapibus sit amet suscipit at, tempus sed nibh. Aliquam sagittis
+      ligula in ligula faucibus cursus. Quisque vulputate pellentesque
+      facilisis.
+    </p>
+  </div>
+
+  <!-- second slide -->
+  <div>
+    <h3>Second pane</h3>
+    <img src="/media/img/title/eye192.png" alt="Flying screens"
+         style="float:left;margin:0 30px 20px 0" />
+
+    <p style="font-weight:bold">
+      Consectetur adipiscing elit. Praesent bibendum eros ac
+      nulla. Integer vel lacus ac neque viverra.
+    </p>
+    <p>
+      Vivamus euismod euismod sagittis. Etiam cursus neque non lectus
+      mattis cursus et a libero. Vivamus condimentum hendrerit metus,
+      a sollicitudin magna vulputate eu. Donec sed tincidunt
+      lectus. Donec tellus lectus, fermentum sit amet porta non,
+      rhoncus ac mi. Quisque placerat auctor justo, a egestas urna
+      tincidunt eleifend.
+    </p>
+  </div>
+
+  <!-- third slide -->
+  <div>
+    <h3>Third pane</h3>
+    <p style="font-weight:bold">
+      Non lectus lacinia egestas. Nulla hendrerit, felis quis
+      elementum viverra, purus felis egestas magna.
+    </p>
+    <p>
+      Aenean elit lorem, pretium vitae dictum in, fermentum consequat
+      dolor. Proin consectetur sollicitudin tellus, non elementum
+      turpis pharetra non. Sed quis tellus quam.
+    </p>
+  </div>
+</div>
+
+<!-- "next slide" button -->
+<a class="forward">next</a>
+
+<!-- the tabs -->
+<div class="slidetabs">
+  <a href="#"></a>
+  <a href="#"></a>
+  <a href="#"></a>
+</div>
+
+<div style="clear:both;margin:30px 0 0;text-align:center;">
+    <button onClick='$(".slidetabs").data("slideshow").play();'>Play</button>
+  <button onClick='$(".slidetabs").data("slideshow").stop();'>Stop</button>
+  </div>
+
+<script language="JavaScript">
+  $(function() {
+      $(".slidetabs").tabs(".images > div", {
+
+    // enable "cross-fading" effect
+    effect: 'fade',
+    fadeOutSpeed: "slow",
+
+    // start from the beginning after the last tab
+    rotate: true
+
+    // use the slideshow plugin. It accepts its own configuration
+    }).slideshow();
+    });
+</script>
+
+
+<a name="features"></a>
+<h2>Features</h2>
+
+<ul>
+  <li>
+    The "Next slide" and "Previous slide" action buttons work without
+    any JavaScript. Buttons can easily be hidden when there is no next
+    or previous tab available.
+  </li>
+  <li>
+    The slideshow is automatically paused when you move your mouse
+    over any of the slideshow elements.
+  </li>
+  <li>
+    By default the next slide is shown when the active pane is
+    clicked; however, this can be changed in the configuration.
+  </li>
+</ul>
+
+<a name="usage"></a>
+<h2>Usage</h2>
+
+<p>
+  The best way to learn is to study
+  the <a href="/demos/tabs/slideshow.html">full
+  documentation</a> for the example above. For the impatient here is
+  the JavaScript setup:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.slidetabs&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;.images &gt; div&quot;</span><span class="p">,</span> <span class="p">{</span><br />&nbsp;<br />    <span class="c1">// enable &quot;cross-fading&quot; effect</span><br />    <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;fade&#39;</span><span class="p">,</span><br />    <span class="nx">fadeOutSpeed</span><span class="o">:</span> <span class="s2">&quot;slow&quot;</span><span class="p">,</span><br />&nbsp;<br />    <span class="c1">// start from the beginning after the last tab</span><br />    <span class="nx">rotate</span><span class="o">:</span> <span class="kc">true</span><br />&nbsp;<br />    <span class="c1">// use the slideshow plugin. It accepts its own configuration</span><br />    <span class="p">}).</span><span class="nx">slideshow</span><span class="p">();</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+
+<a name="configuration"></a>
+<h2>Configuration</h2>
+
+<p>
+  Full list of configuration options for the Slideshow plugin.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">next</td>
+    <td><code>'.forward'</code></td>
+    <td>
+      Selector for the element to which a "next tab" action should be
+      bound. If you instantiate multiple slideshows on the same page
+      you need to enclose all slideshow elements (tabs/panes/next
+      &amp; prev actions) inside a mutual wrapper element. This logic
+      follows the <a href="#multiple">same principles</a> as creating
+      multiple Tabs instances.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">prev</td>
+    <td><code>'.backward'</code></td>
+    <td>
+      Selector for the sibling element to which a "previous tab"
+      action should be bound. If you instantiate multiple slideshows
+      with the same call you need to enclose all slideshow elements
+      (tabs/panes/next &amp; prev actions) inside a mutual wrapper
+      element. This logic follows the <a href="#multiple">same
+      principles</a> as creating multiple Tabs instances.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">disabledClass</td>
+    <td><code>'disabled'</code></td>
+    <td>
+      The CSS class name for disabled <samp>prev</samp>
+      and <samp>next</samp> elements. For example,
+      the <samp>prev</samp> element is disabled when there are no
+      previous items to scroll to.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">autoplay</td>
+    <td><code>false</code></td>
+    <td>
+      If this property is set to <samp>true</samp> then the tabs will
+      automatically advance to the next tab implementing an
+      automatically "playable" slideshow. This is convenient when you
+      have enabled the <samp>rotate</samp> property for tabs.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">autopause</td>
+    <td><code>true</code></td>
+    <td>
+      If this property is set to <samp>true</samp>, when the next/prev
+      tab action buttons are mouseovered then the autoplay
+      functionality will pause.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">interval</td>
+    <td><code>3000</code></td>
+    <td>
+      The time (in milliseconds) between automatic stepping between
+      tabs. This option is valid only when <samp>autoplay</samp> is
+      enabled or the <samp>play()</samp> method is called.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">clickable</td>
+    <td><code>true</code></td>
+    <td>
+      When set to <samp>true</samp> then the tabs will automatically
+      advance to the next tab by clicking on the visible pane.
+    </td>
+  </tr>
+</table>
+
+
+<a name="api"></a>
+<h2>JavaScript API</h2>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>method</th>
+      <th nowrap>return value</th>
+      <th>description/example</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">getConf</td>
+    <td><code>Object</code></td>
+    <td>
+      <strong>since 1.2.0</strong>. returns the configuration object
+      for this plugin
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getTabs</td>
+    <td><code><a href="index.html#api">Tabs</a></code></td>
+    <td>
+      <strong>since 1.2.0</strong>. returns a reference to
+      the <a href="index.html#api">Tabs API</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">play</td>
+    <td><code>API</code></td>
+    <td>
+      Begins a playable slideshow.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">pause</td>
+    <td><code>API</code></td>
+    <td>
+      Pauses the slideshow. Playback will resume when the mouse has
+      moved away from <th></th>e tabs, panes and navigational buttons.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">stop</td>
+    <td><code>API</code></td>
+    <td>
+      Stops the slideshow. This can only be resumed by calling
+      the <samp>play()</samp> method.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="events"></a>
+<h2>Events</h2>
+
+<p>
+  Make sure you have read
+  about <a href="/documentation/scripting.html#events">Events in
+  jQuery Tools</a>. All event listeners receive
+  the <a href="/documentation/scripting.html#event_object">Event
+  Object</a> as the first argument.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>event</th>
+      <th nowrap>When does it occur?</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">onBeforePlay</td>
+    <td>
+      before the playback starts. Returning <samp>false</samp> in the
+      callback prevents the playback from starting.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onPlay</td>
+    <td>
+      when the playback starts.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onBeforePause</td>
+    <td>
+      before the playback pauses. Returning <samp>false</samp> in the
+      callback prevents the playback from starting.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onPause</td>
+    <td>
+      when the playback pauses.
+    </td>
+  </tr>
+</table>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

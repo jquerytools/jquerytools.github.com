@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- dateinput styling -->
+<link rel="stylesheet" type="text/css"
+      href="/media/css/dateinput/skin1.css"/>
+</head>
+<body><div style="width:204px;margin:0 auto;">
+<!-- HTML5 date input -->
+<input type="date" name="mydate" />
+</div>
+<!-- make it happen -->
+<script>
+  $(":date").dateinput();
+</script>
+</body>
+</html>

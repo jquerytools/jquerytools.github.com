@@ -1,0 +1,247 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/tabs-no-images.css"/>
+
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background:url(/media/img/hero/toolbox/history.jpg) 0 30px no-repeat">
+  jQuery History @ jQuery TOOLS - Back button for AJAX apps
+</h1>
+
+<p>
+  The History tool allows you to take control of the browser's back
+  button. This means that when the user clicks on the browser's back
+  or forward buttons your JavaScript functions will notified.
+</p>
+
+
+
+<h2>Usage</h2>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a.links_with_history&quot;</span><span class="p">).</span><span class="nx">history</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">hash</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  You select a one or more anchor links (<samp>A</samp> tags) from
+  your page and supply a callback function that is called whenever the
+  browser's back (or forward) button is pressed. The callback is
+  called when the link is clicked <strong>and</strong> when the
+  browser navigates to any of the locations that are specified in the
+  links' <samp>href</samp> attribute.
+</p>
+
+<p>
+  The callback takes two arguments. The first one is the
+  jQuery <a href="http://docs.jquery.com/Event" class="external">event
+  object</a> and the second one is the anchor link (also called a
+  hash) where the browser is navigating to.
+</p>
+
+
+
+<h2><em>Example</em> Tabs with history</h2>
+
+<p>
+  Use the following tabs together with back/forward buttons to see it
+  in action:
+</p>
+
+<!-- tabs -->
+<ul class="css-tabs">
+  <li><a id="t1" href="#tab1">Tab 1</a></li>
+  <li><a id="t2" href="#tab2">Second tab</a></li>
+  <li><a id="t3" href="#tab3">A ultra long third tab</a></li>
+</ul>
+
+<!-- panes -->
+<div class="css-panes">
+
+  <div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+      viverra, leo sit amet auctor fermentum, risus lorem posuere
+      tortor, in accumsan purus magna imperdiet sem.
+    </p>
+
+    <p>
+      Suspendisse enim. Pellentesque facilisis aliquam enim. Maecenas
+      facilisis molestie lectus. Sed ornare ultricies tortor. Vivamus
+      nibh metus, faucibus quis, semper ut, dignissim id, diam.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Mauris ultricies. Nam feugiat egestas nulla. Donec augue dui,
+      molestie sed, tristique sit amet, blandit eu, turpis. Mauris
+      hendrerit, nisi et sodales tempor, orci tellus laoreet elit, sed
+      molestie dui quam vitae dui.
+    </p>
+    <p>
+      Pellentesque nisl. Ut adipiscing vehicula risus. Nam eget
+      tortor. Maecenas id augue. Vivamus interdum nulla ac
+      dolor. Fusce metus. Suspendisse eu purus. Maecenas quis lacus
+      eget dui volutpat molestie.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      Maecenas at odio. Nunc laoreet lectus vel ante. Nullam
+      imperdiet. Sed justo dolor, mattis eu, euismod sed, tempus a,
+      nisl. Cum sociis natoque penatibus et magnis dis parturient
+      montes, nascetur ridiculus mus.
+    </p>
+
+    <p>
+      In sed dolor. Etiam eget quam ac nibh pharetra
+      adipiscing. Nullam vitae ligula. Sed sit amet leo sit amet arcu
+      mollis ultrices. Vivamus rhoncus sapien nec lorem. In mattis
+      nisi. Vivamus at enim. Integer semper imperdiet
+      massa. Vestibulum nulla massa, pretium quis, porta id,
+      vestibulum vitae, velit.
+    </p>
+  </div>
+</div>
+
+
+<script>
+$(function() {
+  $(".css-tabs:first").tabs(".css-panes:first > div", { history: true });
+});
+</script>
+
+
+<a name="history_usage"></a>
+<h3>Tabs initialization</h3>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.css-tabs:first&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;.css-panes:first &gt; div&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">history</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  The history feature of the tabs uses this tool to enable the "back
+  button". The feature is enabled by setting the <samp>history</samp>
+  configuration variable to <samp>true</samp>. You can find the above
+  demo <a href="/demos/tabs/history.html">here</a>. Here is
+  another demo demonstrating
+  the <a href="/demos/scrollable/one-sized.html">history feature
+  in scrollable</a>.
+</p>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

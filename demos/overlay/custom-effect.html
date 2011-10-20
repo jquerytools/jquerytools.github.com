@@ -1,0 +1,674 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>Creating a customized overlay effect</title>
+    <meta name="description" content="Overlay your HTML with eye candy">
+    <meta name="keywords" content="javascript overlay,jquery lightbox,jquery applebox,jquery overlay,jquery overlayed content,applebox,apple box">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+    
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/demos.css"/>
+    <link rel="stylesheet" type="text/css"
+      href="/media/css/overlay-basic.css"/>
+<style>
+  /* some styling for triggers */
+  #triggers {
+  text-align:center;
+  }
+
+  #triggers img {
+  cursor:pointer;
+  margin:0 5px;
+  background-color:#fff;
+  border:1px solid #ccc;
+  padding:2px;
+
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+
+  }
+
+    /* styling for elements inside overlay */
+  .details {
+  position:absolute;
+  top:15px;
+  right:15px;
+  font-size:11px;
+  color:#fff;
+  width:150px;
+  }
+
+  .details h3 {
+  color:#aba;
+  font-size:15px;
+  }
+  </style>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li class="active">
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/overlay.jpg">
+
+<div id="demo_content">
+<div class="blurb">
+
+<h1 class="teaser title">Creating a customized overlay effect</h1>
+<p>
+  Here you can see a customized "drop" overlay effect. We set up
+  things similarly as in the <a href="index.html">basic setup</a>, but
+  we have modified the loading effect with our own:
+</p>
+
+<div class="box">
+<!-- trigger elements -->
+<div id="triggers">
+  <img src="http://farm4.static.flickr.com/3651/3445879840_7ca4b491e9_m.jpg" rel="#mies1"/>
+  <img src="http://farm4.static.flickr.com/3346/3449388113_71a06b8548_m.jpg" rel="#mies2"/>
+</div>
+
+<!-- overlays -->
+<div class="simple_overlay" id="mies1">
+  <img src="http://farm4.static.flickr.com/3651/3445879840_7ca4b491e9.jpg" />
+
+  <div class="details">
+    <h3>The Barcelona Pavilion</h3>
+    <h4>Barcelona, Spain</h4>
+    <p>
+      The Barcelona Pavilion, designed by Ludwig Mies van der Rohe,
+      was the German Pavilion for the 1929 International Exposition in
+      Barcelona, Spain. It was an important building in the history of
+      modern architecture.
+    </p>
+    <p>
+      Several critics, historians and modernists have declared it "the
+      most beautiful building of the century"
+    </p>
+  </div>
+</div>
+
+<div class="simple_overlay" id="mies2">
+  <img src="http://farm4.static.flickr.com/3346/3449388113_71a06b8548.jpg" />
+  <div class="details">
+    <h3>The Barcelona Pavilion</h3>
+    <h4>Barcelona, Spain</h4>
+    <p>
+      Another unique feature of this building is the <em>exotic
+      materials Mies chose to use</em>.
+    </p>
+    <p>
+      Plates of high-grade stone materials like veneers of Tinos verde
+      antico marble and golden onyx as well as tinted glass of grey,
+      green, white, in addition to translucent glass, perform
+      exclusively as spatial dividers.
+    </p>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $("img[rel]").overlay();
+    });
+</script>
+
+
+<script>
+// create custom animation algorithm for jQuery called "drop"
+$.easing.drop = function (x, t, b, c, d) {
+    return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+};
+
+// loading animation
+$.tools.overlay.addEffect("drop", function(css, done) {
+
+    // use Overlay API to gain access to crucial elements
+    var conf = this.getConf(),
+    overlay = this.getOverlay();
+
+    // determine initial position for the overlay
+    if (conf.fixed)  {
+        css.position = 'fixed';
+    } else {
+        css.top += $(window).scrollTop();
+        css.left += $(window).scrollLeft();
+        css.position = 'absolute';
+    }
+
+    // position the overlay and show it
+    overlay.css(css).show();
+
+    // begin animating with our custom easing
+    overlay.animate(
+        { top: '+=55',  opacity: 1,  width: '+=20'}, 400, 'drop', done
+    );
+
+    /* closing animation */
+}, function(done) {
+    this.getOverlay().animate(
+        {top:'-=55', opacity:0, width:'-=20'}, 300, 'drop',
+        function() {
+            $(this).hide();
+            done.call();
+        });
+});
+
+$("img[rel]").overlay({
+    effect: 'drop',
+    mask: '#789'
+});
+</script>
+
+</div>
+<a class="standalone" href="custom-effect.htm">standalone demo</a>
+
+
+<h2>Custom easing for the jQuery <em>animate</em> method</h2>
+
+<p>
+  We start by adding a new animation algorithm for jQuery called
+  "drop". This is possible by extending the <samp>jQuery.easing</samp>
+  object. I grabbed this easing function from
+  the <a href="http://gsgd.co.uk/sandbox/jquery/easing/"
+  class="external">jQuery Easing
+  Plugin</a>'s <a href="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"
+  class="external">source code</a>. There are quite a lot of different
+  easing algorithms that you can try.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// create custom animation algorithm for jQuery called &quot;drop&quot;</span><br /><span class="nx">$</span><span class="p">.</span><span class="nx">easing</span><span class="p">.</span><span class="nx">drop</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span> <span class="p">{</span><br />    <span class="k">return</span> <span class="o">-</span><span class="nx">c</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nx">t</span><span class="o">/=</span><span class="nx">d</span><span class="p">)</span><span class="o">*</span><span class="nx">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span><br /><span class="p">};</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+</div>
+
+<h2>Custom Overlay effect</h2>
+
+<p>
+  Custom overlay effects are done with
+  the <samp>$.tools.overlay.addEffect</samp> method. The first
+  argument is the effect name, the second argument is the function
+  that defines how the overlay is shown and the third argument defines
+  how the overlay closes. Inside the functions the <samp>this</samp>
+  variable is a reference to
+  the <a href="/tools/overlay/index.html#api">overlay
+  API</a>.
+</p>
+
+<p>
+  The loading function receives two arguments. The first
+  argument <samp>css</samp> defines the <samp>top</samp>
+  and <samp>left</samp> properties given in the configuration. The
+  second argument is a callback function that must be called after you
+  have performed your loading effect.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// loading animation</span><br /><span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">overlay</span><span class="p">.</span><span class="nx">addEffect</span><span class="p">(</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">css</span><span class="p">,</span> <span class="nx">done</span><span class="p">)</span> <span class="p">{</span><br />&nbsp;<br />    <span class="c1">// use Overlay API to gain access to crucial elements</span><br />    <span class="kd">var</span> <span class="nx">conf</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getConf</span><span class="p">(),</span><br />    <span class="nx">overlay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getOverlay</span><span class="p">();</span><br />&nbsp;<br />    <span class="c1">// determine initial position for the overlay</span><br />    <span class="k">if</span> <span class="p">(</span><span class="nx">conf</span><span class="p">.</span><span class="nx">fixed</span><span class="p">)</span>  <span class="p">{</span><br />        <span class="nx">css</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;fixed&#39;</span><span class="p">;</span><br />    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br />        <span class="nx">css</span><span class="p">.</span><span class="nx">top</span> <span class="o">+=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">();</span><br />        <span class="nx">css</span><span class="p">.</span><span class="nx">left</span> <span class="o">+=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollLeft</span><span class="p">();</span><br />        <span class="nx">css</span><span class="p">.</span><span class="nx">position</span> <span class="o">=</span> <span class="s1">&#39;absolute&#39;</span><span class="p">;</span><br />    <span class="p">}</span><br />&nbsp;<br />    <span class="c1">// position the overlay and show it</span><br />    <span class="nx">overlay</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="nx">css</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span><br />&nbsp;<br />    <span class="c1">// begin animating with our custom easing</span><br />    <span class="nx">overlay</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><br />        <span class="p">{</span> <span class="nx">top</span><span class="o">:</span> <span class="s1">&#39;+=55&#39;</span><span class="p">,</span>  <span class="nx">opacity</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="nx">width</span><span class="o">:</span> <span class="s1">&#39;+=20&#39;</span><span class="p">},</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="nx">done</span><br />    <span class="p">);</span><br />&nbsp;<br />    <span class="cm">/* closing animation */</span><br /><span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span><br />    <span class="k">this</span><span class="p">.</span><span class="nx">getOverlay</span><span class="p">().</span><span class="nx">animate</span><span class="p">(</span><br />        <span class="p">{</span><span class="nx">top</span><span class="o">:</span><span class="s1">&#39;-=55&#39;</span><span class="p">,</span> <span class="nx">opacity</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span><span class="s1">&#39;-=20&#39;</span><span class="p">},</span> <span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;drop&#39;</span><span class="p">,</span><br />        <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span><br />            <span class="nx">done</span><span class="p">.</span><span class="nx">call</span><span class="p">();</span><br />        <span class="p">});</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  <strong>Note:</strong> you can get access to the configuration
+  option with the <samp>this.getConf()</samp> method, and you can use
+  this object to supply custom configuration options as well.
+</p>
+
+<h3>JavaScript coding</h3>
+
+<p>
+  Here is the overlay configuration. We supply our newly created
+  overlay effect with the <samp>effect</samp> configuration variable.
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img[rel]&quot;</span><span class="p">).</span><span class="nx">overlay</span><span class="p">({</span><br />    <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;drop&#39;</span><span class="p">,</span><br />    <span class="nx">mask</span><span class="o">:</span> <span class="s1">&#39;#789&#39;</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  <a href="/credits.html" id="credits">Photo credits &raquo;</a>
+</p>
+</div>
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+<div class="sect one" id="sect0">
+        <header  class="open" >
+        <div class="icon"></div>
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/index.html">
+                Minimal setup for&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/anchors.html">
+                Naming the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/skins.html">
+                4 different skins with&nbsp;<span class="caps">CSS</span></a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/mouseover.html">
+                Using mouseover to switch&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/wizard.html">
+                Making wizards with the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion.html">
+                Making accordions with&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-custom.html">
+                Customizing the accordion&nbsp;effect</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/accordion-horizontal.html">
+                Horizontal accordion using the&nbsp;tabs</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/multiple.html">
+                Multiple tabs and accordion&nbsp;instances</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/history.html">
+                Handling browsers back&nbsp;button</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax.html">
+                Loading tab contents with&nbsp;ajax</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/ajax-history.html">
+                AJAXed tabs with history&nbsp;support</a>
+            </li><li>
+            <a                 title="The most import ui widget for the web"
+                href="/demos/tabs/slideshow.html">
+                Slideshow plugin for the&nbsp;tabs</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/index.html">
+                Basics of using the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/any-html.html">
+                Using any <span class="caps">HTML</span> inside the&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/imitate.html">
+                Imitating browsers default&nbsp;tooltip</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/form.html">
+                Using tooltips in form&nbsp;fields</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/table.html">
+                Using tooltips in tables or&nbsp;lists</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/custom-effect.html">
+                Custom tooltip&nbsp;effect</a>
+            </li><li>
+            <a                 title="The second most important UI widget"
+                href="/demos/tooltip/dynamic.html">
+                Dynamic positioning of the&nbsp;tooltip</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/index.html">
+                Minimal setup for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/apple.html">
+                The apple effect for&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/modal-dialog.html">
+                Creating modal dialogs with&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/trigger.html">
+                Opening overlays&nbsp;programmatically</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/styling.html">
+                Overlays with different&nbsp;styles</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/external.html">
+                Loading external pages into&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Overlay your HTML with eye candy"
+                href="/demos/overlay/multiple.html">
+                Multiple overlays on the same&nbsp;page</a>
+            </li><li>
+            <a class="active"                title="Overlay your HTML with eye candy"
+                href="/demos/overlay/custom-effect.html">
+                Creating a customized overlay&nbsp;effect</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/index.html">
+                Minimal setup for&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/vertical.html">
+                A vertical&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/gallery.html">
+                A simple scrollable image&nbsp;gallery</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/multiple-scrollables.html">
+                Gallery with multiple&nbsp;scrollables</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/wizard.html">
+                A scrollable registration&nbsp;wizard</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/plugins.html">
+                Scrollable plugins in&nbsp;action</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/one-sized.html">
+                Browser back button&nbsp;navigation</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/home.html">
+                jQuery tools home page&nbsp;setup</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/site-navigation.html">
+                A complete navigational&nbsp;system</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/edit.html">
+                Add and remove items from&nbsp;scrollable</a>
+            </li><li>
+            <a                 title="Scroll your HTML with eye candy"
+                href="/demos/scrollable/easing.html">
+                Customizing the scrolling&nbsp;animation</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect two" id="sect1">
+        <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/index.html">
+                Minimal setup for&nbsp;validator</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-validators.html">
+                Custom input types and&nbsp;attributes</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/server-side.html">
+                Server <span class="amp">&amp;</span> client-side&nbsp;validation</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/custom-effect.html">
+                Error&nbsp;Summary</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/events.html">
+                Validator events in&nbsp;action</a>
+            </li><li>
+            <a                 title="HTML5 form validation made easy"
+                href="/demos/validator/localize.html">
+                Localizing the&nbsp;validator</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/index.html">
+                Minimal setup for&nbsp;rangeinput</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/vertical.html">
+                A couple of vertical&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/multiple.html">
+                Multiple small&nbsp;ranges</a>
+            </li><li>
+            <a                 title="HTML5 range input for humans"
+                href="/demos/rangeinput/scrollbar.html">
+                A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+            <li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/index.html">
+                Minimal setup for&nbsp;dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/large-skin.html">
+                A large skin for&nbsp;Dateinput</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/customize.html">
+                Customizing Dateinput&nbsp;behavior</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/flight.html">
+                Prompting for start and end&nbsp;dates</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/static.html">
+                Calendar that is always&nbsp;available</a>
+            </li><li>
+            <a                 title="HTML5 date input for humans"
+                href="/demos/dateinput/localize.html">
+                Localizing the Dateinput&nbsp;(french)</a>
+            </li>        </ol>
+        </li>    </ol>
+</div><div class="sect three" id="sect2">
+        <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/index.html">
+                Minimal setup for&nbsp;expose</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/styling.html">
+                Styling the&nbsp;mask</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/form.html">
+                Exposing a&nbsp;form</a>
+            </li><li>
+            <a                 title="Make your HTML elements stand out"
+                href="/demos/toolbox/expose/video.html">
+                Exposing videos with a custom&nbsp;mask</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+            <li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/index.html">
+                Basics of Flash&nbsp;embedding</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/jquery.html">
+                Flashembed and&nbsp;jQuery</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/onclick.html">
+                Loading flash on a mouse&nbsp;click</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/wmode.html">
+                Placing <span class="caps">HTML</span> on top of a flash&nbsp;object</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/fail.html">
+                Handling old flash&nbsp;versions</a>
+            </li><li>
+            <a                 title="The Future of Flash embedding"
+                href="/demos/toolbox/flashembed/flowplayer.html">
+                Flashembed and&nbsp;Flowplayer</a>
+            </li>        </ol>
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+            <li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/html5-form/index.html">
+                <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/index.html">
+                An artist&#8217;s&nbsp;portfolio</a>
+            </li><li>
+            <a                 title="Possibilities are endless. Get creative!"
+                href="/demos/combine/portfolio/preload.html">
+                Speeding up the&nbsp;portfolio</a>
+            </li>        </ol>
+        </li>    </ol>
+</div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <script>
+// toggle category
+$("#right header").click(function() {
+    $(this).toggleClass("open");
+    $(this).next(".cat").toggleClass("active");
+});
+</script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

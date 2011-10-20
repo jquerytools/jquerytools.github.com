@@ -1,0 +1,359 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/overlay-apple.css"/>
+<style>
+/* black version of the overlay. simply uses a different background image */
+div.apple_overlay.black {
+background-image:url(/media/img/overlay/transparent.png);
+color:#fff;
+}
+
+div.apple_overlay h2 {
+margin:10px 0 -9px 0;
+font-weight:bold;
+font-size:14px;
+}
+
+div.black h2 {
+color:#fff;
+}
+
+#apple {
+margin-top:10px;
+text-align:center;
+}
+
+#apple img {
+background-color:#fff;
+padding:2px;
+border:1px solid #ccc;
+margin:2px 5px;
+cursor:pointer;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+}
+</style>
+<!--[if lt IE 7]>
+<style>
+  div.apple_overlay {
+    background-image:url(/media/img/overlay/overlay_IE6.gif);
+    color:#fff;
+  }
+
+  /* default close button positioned on upper right corner */
+  div.apple_overlay div.close {
+    background-image:url(/media/img/overlay/overlay_close_IE6.gif);
+  }
+</style>
+<![endif]-->
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background-image:url(/media/img/hero/overlay.jpg)">
+  jQuery Overlay / Apple Effect
+</h1>
+
+<h2 class="first"><strong>Apple Effect</strong> for Overlay</h2>
+
+<p>
+  The Apple effect looks and behaves like you might have seen
+  on <strong>apple.com</strong>.
+</p>
+
+<!-- trigger elements -->
+<div id="apple">
+  <img src="/media/img/photos/gustavohouse.jpg" rel="#photo1"/>
+  <img src="/media/img/photos/alexanderplatz-station.jpg"
+       rel="#photo2"/>
+</div>
+
+<!-- overlayed element, which is styled with external stylesheet -->
+<div class="apple_overlay black" id="photo1">
+  <img src="/media/img/photos/gustavohouse-medium.jpg" />
+  <div class="details">
+    <h2>Berlin Gustavohouse</h2>
+    <p>
+      The Gustavo House in Storkower Strasse. It was built in 1978 and
+      reconstructed in 1998 by the Spanish artist Gustavo.
+    </p>
+  </div>
+</div>
+
+<div class="apple_overlay" id="photo2">
+  <img src="/media/img/photos/alexanderplatz-station-medium.jpg" />
+  <div class="details">
+    <h2>Berlin Alexanderplatz Station</h2>
+    <p>
+      Berlin Alexanderplatz is a railway station in the Berlin city
+      centre and is one of the city's most important interchange
+      points for local public transport.
+    </p>
+  </div>
+</div>
+
+<!-- make all links with the 'rel' attribute open overlays -->
+<script>
+  $(function() {
+      $("#apple img[rel]").overlay({effect: 'apple'});
+    });
+</script>
+
+
+<p>
+  Overlaying is done in a visually appealing way by growing a
+  background image from 0 to the desired size. If you choose to use
+  this effect you are <em>tied to the dimensions of the
+  image</em>. You can change the width but the height changes
+  accordingly so that the aspect ratio remains the same.
+</p>
+
+
+<a name="apple_usage"></a>
+<h3>Usage</h3>
+
+<p>
+  The best way to learn is to study
+  the <a href="/demos/overlay/apple.html">full documentation</a>
+  for the example above. Here you can see the JavaScript setup for
+  this effect:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#apple img[rel]&quot;</span><span class="p">).</span><span class="nx">overlay</span><span class="p">({</span><span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;apple&#39;</span><span class="p">});</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  It's important to note that this effect is not included in the
+  standard distribution of jQuery Tools. You need to include it
+  yourself on
+  the <a href="/download/index.html#combine">download page</a>.
+</p>
+
+<p>
+  You may want to configure this effect as a default effect so that
+  you don't have to define the <samp>effect</samp> property on every
+  call. This can be achieved
+  with <a href="/documentation/index.html#global">global
+  configuration</a>.
+</p>
+
+
+<a name="apple_configuration"></a>
+<h3>Configuration</h3>
+
+<p>
+  Here is a full list of available configuration options for this
+  effect. These options are added to the Overlay's
+  normal <a href="index.html#configuration">configuration options</a>.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>property</th>
+      <th>default</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">start (<code>Object</code>)</td>
+    <td nowrap>
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="p">{</span><br />  <span class="nx">top</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span><br />  <span class="nx">left</span><span class="p">;</span> <span class="kc">null</span><span class="p">,</span><br />  <span class="nx">absolute</span><span class="o">:</span> <span class="kc">false</span><br /><span class="p">}</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+    </td>
+    <td>
+      <p>
+        The starting position and dimensions of the animated image. By
+        default, the starting position is the position of the element
+        that triggers the overlay and typically you don't need to
+        configure this option.
+        </p>
+      <p>
+	When the overlay is loaded programmatically with
+	the <samp>load()</samp> API call, the default starting
+	position is the centre of the screen. You can override these
+	defaults using the following properties:
+      </p>
+      <ul>
+	<li>
+          <samp>top</samp> specifies how far from the top edge of the
+          screen the growing animation should start.
+        </li>
+	<li>
+          <samp>left</samp> specifies how far from the left-hand edge
+          of the screen the growing animation should start.
+        </li>
+	<li>
+          <samp>absolute</samp> By default this is set
+          to <samp>true</samp> so the starting position is measured
+          from the top left-hand corner of the browser window and the
+          scrolling position has no impact. By default the scrolling
+          position is added.
+        </li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="code">fadeInSpeed</td>
+    <td><code>'fast'</code></td>
+    <td>
+      The speed at which the content fades in on top of the background
+      image after the growing animation has completed. Valid values
+      are 'slow', 'normal' and 'fast', or you can supply a numerical
+      value (in milliseconds).
+    </td>
+  </tr>
+  <tr>
+    <td class="code">zIndex</td>
+    <td><code>9999</code></td>
+    <td>
+      This is the CSS z-index property for the background image. A
+      z-index specifies the placement of an element on a document's
+      z-axis. This value must be greater than the z-index of any other
+      element on the page so that the overlay will always be on top of
+      other elements on the page. Note: If you are using the expose
+      effect together with the overlay the <samp>zIndex</samp> of the
+      expose mask is 9998 by default.
+    </td>
+  </tr>
+</table>
+
+
+
+<a name="apple_load"></a>
+<h3>Using the Apple effect upon page load</h3>
+
+<p>
+  Due to a <a href="http://dev.jquery.com/ticket/4187"
+  class="external">major bug</a> in jQuery you should not load
+  overlays with the Apple effect upon <samp>document.ready()</samp>
+  event when using external stylesheets. This causes unpredictable
+  behaviour in Safari&nbsp;3+ and Chrome (WebKit-based
+  browsers). There are two workarounds for handling this:
+</p>
+
+<ul>
+  <li>
+    Use <samp>$(window).load()</samp> instead. This will definitely be
+    executed after the stylesheets have been loaded.
+  </li>
+  <li>
+    Define your overlay style directly on the page or inline for the element.
+  </li>
+</ul>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

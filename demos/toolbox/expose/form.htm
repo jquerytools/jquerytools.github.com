@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<!--
+   This is a jQuery Tools standalone demo. Feel free to copy/paste.
+   http://flowplayer.org/tools/demos/
+
+   Do *not* reference CSS files and images from flowplayer.org when in
+   production Enjoy!
+-->
+<head>
+  <title>jQuery Tools standalone demo</title>
+
+    <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  
+  <!-- standalone page styling (can be removed) -->
+  <link rel="shortcut icon" href="/media/img/favicon.ico">
+  <link rel="stylesheet" type="text/css"
+        href="/media/css/standalone.css"/>
+
+  <!-- styling of an exposed element -->
+<style>
+#exposeMask {
+	background:#678 url(/media/img/mask/mask_gradient_1000.png) no-repeat;
+	background-position: 13% 160px;
+}
+
+form.expose {
+	border:1px outset #ccc;
+	background:#fff url(/media/img/gradient/h150.png) repeat-x;
+	padding:20px;
+	margin:20px auto;
+	text-align:center;
+	width:350px;
+	-moz-border-radius:4px;
+}
+
+/* http://www.quirksmode.org/css/forms.html */
+label, input {
+	display: block;
+	width: 150px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+label {
+	text-align: right;
+	width: 75px;
+	padding-right: 20px;
+}
+
+br {
+	clear: left;
+}
+</style>
+</head>
+<body><form class="expose">
+	<label for="username">Username</label>
+	<input id="username" /><br/>
+
+	<label for="password">Password</label>
+	<input id="password" type="password" /><br/>
+
+</form>
+
+<!-- javascript coding -->
+<script>
+// execute your scripts when the DOM is ready. this is a good habit
+$(function() {
+
+	// expose the form when it's clicked or cursor is focused
+	var form = $(".expose").bind("click keydown", function() {
+
+		$(this).expose({
+
+			// when exposing is done, change form's background color
+			onLoad: function() {
+				form.css({backgroundColor: '#c7f8ff'});
+			},
+
+			// when "unexposed", return to original background color
+			onClose: function() {
+				form.css({backgroundColor: null});
+			}
+
+		});
+	});
+});
+</script>
+</body>
+</html>

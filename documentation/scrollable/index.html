@@ -1,0 +1,809 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-horizontal.css?v=1" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-buttons.css?v=1" />
+<link rel="stylesheet" type="text/css"
+      href="/media/css/scrollable-navigator.css?v=1" />
+<style>
+#flowtabs li {
+	list-style-image: none !important;
+}
+#content {
+	background-image:none;
+}
+div.demowrap {
+	margin:10px -15px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/media/css/tabs-no-images.css"/>
+<!-- tab styling -->
+
+<style>
+  	/* override the root element to enable scrolling */
+	.css-panes {
+        height: 450px;
+        width: 702px;
+		position:relative;
+		overflow:hidden;
+		clear:both;
+        background-color: transparent;
+	}
+
+	/* override single pane */
+	.css-panes div {
+		float:left;
+		display:block;
+		width:660px;
+		font-size:14px;
+        background-color: transparent;
+	}
+
+	/* our additional wrapper element for the items */
+	.css-panes .items {
+		width:20000em;
+		position:absolute;
+		clear:both;
+		margin:0;
+		padding:0;
+        border:0;
+	}
+
+
+	.css-panes .less, .css-panes .less a {
+		color:#999 !important;
+		font-size:11px;
+	}
+    
+    .css-panes .items div {
+        background-color: #ddd;
+    }
+    .css-panes .items div div {
+        border: 0 !important;
+    }
+</style>
+
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <h1 style="background-image:url(/media/img/hero/scrollable.jpg)">
+  jQuery Tools / Scrollable - New Wave UI design
+</h1>
+
+<div style="position:relative;top:-23px;">
+  <!-- tabs work as navigator for scrollable -->
+<ul id="tabs" class="css-tabs navi">
+  <li><a id="t1" class="current" href="#story">The Story</a></li>
+  <li><a id="t2" href="#features">Features</a></li>
+  <li><a id="t3" href="#plugins">Plugins</a></li>
+  <li><a id="t4" href="#demos">Demos</a></li>
+</ul>
+
+<!-- panes -->
+<div class="css-panes">
+
+  <!-- wrapper for scrollable items -->
+  <div class="items">
+
+    <div>
+
+      <h2>Add custom scrolls to your site</h2>
+
+      <img src="/media/img/title/eye192.png"
+           alt="Flying screens" style="float:right;margin:0 0 20px 20px" />
+
+      <p>
+	You can use this tool on
+      </p>
+
+      <ul>
+	<li>home pages, like this one right here</li>
+	<li>product catalogues</li>
+	<li>news tickers</li>
+	<li>custom select boxes in forms</li>
+	<li>image galleries</li>
+	<li>video playlists</li>
+	<li>all kinds of navigational systems</li>
+      </ul>
+
+      <p>
+	The main design goals of this tool are to provide <em>visual
+	customization</em>, <em>ease of use</em>
+	and <em>programmability</em>. The first version of the library
+	was released on January 3, 2008. Since then, this tool has
+	come a long way and it is now a stable and mature product.
+      </p>
+
+      <br clear="all" />
+
+    </div>
+
+    <div>
+
+      <h2>Rich yet simple</h2>
+
+      <ul>
+	<li>Horizontal and vertical scrolling.</li>
+	<li>Scrolling using navigational buttons, API calls, keyboard
+	  arrow keys, and the mouse scroll wheel.</li>
+	<li>Any amount of items on one "page". Pages can have variable
+	  width.</li>
+	<li>The navigational buttons are setup without a single line
+	  of JavaScript.</li>
+	<li>Tabbed navigation like this example can be setup without
+	  any programming.</li>
+	<li>Programmatic actions are available, such
+	  as: <samp>next</samp>, <samp>prev</samp>, <samp>seekTo</samp>,
+          <samp>begin</samp>,and <samp>end</samp>.</li>
+	<li>Dynamic addition and removal of Scrollable items.</li>
+	<li>The ability to customize the scrolling experience
+	  with <samp>onBeforeSeek</samp> and <samp>onSeek</samp>
+	  listeners.</li>
+	<li>Ability to setup infinite loops without beginning or
+	  end</li>
+      </ul>
+
+      <p>
+	<strong>All of this in just a 1.02 Kb file!</strong>
+	Unmatched. Uncomparable.
+      </p>
+    </div>
+
+    <div>
+      <div style="margin: 30px 0 0 50px; width: 500px;">
+	<h2>Extendable architecture</h2>
+
+	<p>
+	  Just like other tools this tool can be extended with
+	  plugins. Currently available plugins include:
+	</p>
+
+	<ul>
+	  <li>
+	    <a href="/scrollable/index.html#autoscroll">autoscroll</a>
+	    &nbsp; makes the scrolling behaviour automatic and is
+	    highly configurable.
+	  </li>
+
+	  <li style="margin-top:15px">
+	    <a href="/scrollable/index.html#navigator">navigator</a>
+	    &nbsp; provides navigation buttons for switching between
+	    pages in Scrollable. Can be enabled with a history feature
+	    so that you can scroll with your browser's back (and
+	    forward) button.
+	  </li>
+	</ul>
+
+	<p>
+	  You can also
+	  write <a href="/documentation/index.html#plugins">your
+	  own plugins</a>. Another way to alter the default behaviour
+	  is the ability to make
+	  your <a href="/demos/scrollable/easing.html">own
+	  animation effects</a>. There is lots of room for
+	  experimentation!
+	</p>
+
+      </div>
+
+    </div>
+
+    <div class="narrow">
+
+      <div style="margin:0 0 0 50px; width: 500px;">
+	<h2>Study the first demo to get a quick start</h2>
+
+	<ul>
+    	    <li> <a href="/demos/scrollable/index.html">
+            Minimal setup for&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/vertical.html">
+            A vertical&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/gallery.html">
+            A simple scrollable image&nbsp;gallery</a>
+        </li>
+		    <li> <a href="/demos/scrollable/multiple-scrollables.html">
+            Gallery with multiple&nbsp;scrollables</a>
+        </li>
+		    <li> <a href="/demos/scrollable/wizard.html">
+            A scrollable registration&nbsp;wizard</a>
+        </li>
+		    <li> <a href="/demos/scrollable/plugins.html">
+            Scrollable plugins in&nbsp;action</a>
+        </li>
+		    <li> <a href="/demos/scrollable/one-sized.html">
+            Browser back button&nbsp;navigation</a>
+        </li>
+		    <li> <a href="/demos/scrollable/home.html">
+            jQuery tools home page&nbsp;setup</a>
+        </li>
+		    <li> <a href="/demos/scrollable/site-navigation.html">
+            A complete navigational&nbsp;system</a>
+        </li>
+		    <li> <a href="/demos/scrollable/edit.html">
+            Add and remove items from&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/easing.html">
+            Customizing the scrolling&nbsp;animation</a>
+        </li>
+		</ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p style="text-align:center;width:700px">
+  <button class="custom prev">&laquo; Previous</button>
+  <button class="custom next">Next &raquo;</button>
+</p>
+
+<!-- activate tabs with JavaScript -->
+<script>
+      // wait until document is fully scriptable
+    $(function() {
+
+    // select #flowplanes and make it scrollable. use circular and navigator plugins
+    $(".css-panes").scrollable({ circular: true, mousewheel: true }).navigator({
+
+    // select #flowtabs to be used as navigator
+    navi: ".css-tabs",
+
+    // select A tags inside the navigator to work as items (not direct children)
+    naviItem: 'a',
+
+    // assign "current" class name for the active A tag inside navigator
+    activeClass: 'current',
+
+    // make browser's back button work
+    history: true
+
+    });
+    });
+  </script>
+
+</div>
+
+<p>
+  Besides clicking on the tabs you can also scroll through the elements
+</p>
+
+<ol>
+  <li>By using the left and right arrow keys on your keyboard</li>
+  <li>With your mouse scroll wheel</li>
+  <li>By clicking on the action buttons below the scrollable</li>
+</ol>
+
+
+<a name="configuration"></a>
+<h2>Configuration</h2>
+
+<p>
+  Here is a list of all available configuration options:
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th nowrap>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">clonedClass</td>
+    <td><code>'cloned'</code></td>
+    <td>
+      The plugin behaves so that the first and last items
+      are <em>cloned</em> at both ends. These cloned items are
+      assigned the CSS class name given in this configuration
+      variable.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">disabledClass</td>
+    <td><code>"disabled"</code></td>
+    <td>
+      The CSS class name for disabled <samp>next</samp>
+      and <samp>prev</samp> elements. For example,
+      the <samp>prev</samp> element is disabled when there are no
+      previous items to scroll to. Typically you assign
+      the <samp>visibility: 'hidden'</samp> CSS definition to disabled
+      elements.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">easing</td>
+    <td><code>"swing"</code></td>
+    <td>
+      The type of "easing" applied to the scrolling animation. 'swing'
+      means that there is an acceleration, followed by a constant
+      speed, followed by a deceleration. 'linear' means that the whole
+      animation happens at a constant speed. You can also make
+      your <a href="/demos/scrollable/easing.html">own 
+      easing effects</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">items</td>
+    <td><code>".items"</code></td>
+    <td>
+      <p>
+        The scrollable root element is not directly used as a parent
+        for the scrollable items. The root must have one nested
+        element that contains the actual items. By default scrollable
+        uses the <em>first and only element</em> inside the root as a
+        wrapper for the items. It does not have to have any particular
+        CSS class name. A simple <samp>div</samp> is fine.
+      </p>
+      <p>
+	If for some reason you have multiple elements inside the root
+	element, then scrollable looks for the element specified by
+	this property. By default an element with the class name
+	"items" is used, but you can use any jQuery selector you like
+	for this property.
+      </p>
+      <p>
+	See the <a href="/demos/scrollable">minimal
+        setup</a> for an understanding of the HTML setup for scrollable.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="code">keyboard</td>
+    <td><code>true</code></td>
+    <td>
+      <p>
+        Whether or not keyboard arrow key navigation is enabled. The
+        horizontal scroller moves backwards/forwards with the
+        left/right arrow keys; the vertical scroller moves with the
+        up/down keys. The arrow keys are valid for the scrollable that
+        was used most recently. Since version 1.1.0 you can also
+        supply the value <samp>'static'</samp> here which means that
+        the scrollable is always controlled with the arrow keys and it
+        does not have to be active.
+      </p>
+      <p>
+	You can also use the <samp>focus()</samp> method to force the
+	focus to a certain scrollable on the page. You can take a look
+	at the
+        <a href="/demos/scrollable/site-navigation.html">A
+	complete scrollable navigational system</a> demo which takes
+	advantage of the "static" value and the <samp>focus()</samp>
+	method.
+      </p>
+      <p>
+	If you want to disable the keyboard for a particular
+	scrollable, you can do the following:
+      </p>
+      <div class="codebox"><figure class="code"><div class="highlight"><pre>        <span class="c1">// grab second scrollabe and its API</span><br />        <span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.horizontal&quot;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">data</span><span class="p">(</span><span class="s2">&quot;scrollable&quot;</span><span class="p">);</span><br />&nbsp;<br />        <span class="c1">// disable keyboard navigation</span><br />        <span class="nx">instance</span><span class="p">.</span><span class="nx">getConf</span><span class="p">().</span><span class="nx">keyboard</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span><br />      <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="code">circular</td>
+    <td><code>false</code></td>
+    <td>
+      A property indicating whether scrolling starts from the
+      beginning when the last item is exceeded making an "infinite
+      loop".
+    </td>
+  </tr>
+  <tr>
+    <td class="code">next</td>
+    <td><code>".next"</code></td>
+    <td>
+      Selector for the elements to which a "scroll forwards" action
+      should be bound. These elements should have
+      a <a href="#multiple">mutual wrapper element</a> together with
+      the scrollable itself.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">prev</td>
+    <td><code>".prev"</code></td>
+    <td>
+      Selector for the elements to which a "scroll backwards" action
+      should be bound. These elements should have
+      a <a href="#multiple">mutual wrapper element</a> together with
+      the scrollable itself.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">speed</td>
+    <td><code>400</code></td>
+    <td>
+      The time (in milliseconds) of the scrolling animation.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">vertical</td>
+    <td><code>false</code></td>
+    <td>
+      The scrollable is good at guessing whether it's vertical or
+      horizontal by investigating it's dimensions. If the height is
+      larger than the width then the scrollable is vertical. This can
+      also be manually configured with this configuration option which
+      overrides the automatic determination.
+    </td>
+  </tr>
+</table>
+
+
+<a name="multiple"></a>
+<h3>Multiple scrollables with <em>next</em> and <em>prev</em> links</h3>
+
+<p>
+  If you have multiple scrollables on your page you need to make sure
+  that each navigational element is controlling the right scrollable
+  instance. Let's say we have the following call to instantiate
+  multiple scrollables with their own "next" and "prev" elements:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.vertical&quot;</span><span class="p">).</span><span class="nx">scrollable</span><span class="p">();</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
+
+
+<p>
+  Now each of the scrollable uses the default
+  selectors <samp>.next</samp> and <samp>.prev</samp> to look for the
+  navigational elements causing multiple elements to be returned. How
+  do we know which navigational element controls which scrollable? The
+  problem can be solved by enclosing each scrollable <em>and</em> its
+  navigational actions inside a mutual wrapper element. For example:
+</p>
+
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- 1st scrollable and its navigational actions are wrapped inside an</span><br /><span class="c">     extra DIV --&gt;</span><br /><span class="nt">&lt;div&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;next&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;scrollable&quot;</span><span class="nt">&gt;</span><br />    ...<br />  <span class="nt">&lt;/div&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;prev&quot;</span><span class="nt">/&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- 2nd instance --&gt;</span><br /><span class="nt">&lt;div&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;next&quot;</span><span class="nt">/&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;scrollable&quot;</span><span class="nt">&gt;</span><br />    ...<br />  <span class="nt">&lt;/div&gt;</span><br />  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;prev&quot;</span><span class="nt">/&gt;</span><br /><span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+
+
+
+
+<a name="events"></a><a name="callbacks"></a>
+<h3>Events</h3>
+
+<p>
+  Make sure you have read
+  about <a href="/documentation/scripting.html#events">Events in
+  jQuery Tools</a>. All event listeners receive
+  the <a href="/documentation/scripting.html#event_object">Event
+  Object</a> as the first argument and the second argument is the
+  index number of the scrollable being scrolled to.
+</p>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th>event</th>
+      <th nowrap>When does it occur?</th>
+    </tr>
+  </thead>
+
+  <tr>
+    <td class="code">onBeforeSeek</td>
+    <td>
+      Before items are scrolled.
+      <p>
+	You have the ability to change the speed of the animation
+	inside this function by changing
+	the <samp>api.getConf().speed</samp> configuration option.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onSeek</td>
+    <td>
+      After items have been scrolled.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">onAddItem</td>
+    <td>
+      When an item was added to the scrollable via
+      the <samp>addItem</samp> method.
+    </td>
+  </tr>
+</table>
+
+
+<a name="api"></a>
+<h2>JavaScript API</h2>
+
+<p>
+  First make sure you have familiarized yourself
+  with <a href="/documentation/scripting.html">jQuery Tools
+  scripting</a>.
+</p>
+
+<h3>Method index</h3>
+
+<table class="listing">
+  <thead>
+    <tr>
+      <th style="width:150px">Method</th>
+      <th nowrap>Return value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tr>
+    <td class="code">addItem()</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      scrollable supports the dynamic addition and removal of
+      scrollable elements and all core functionalities such as
+      circular looping, navigator resizing, browser back button
+      navigation (via toolbox.history) which will work as
+      expected. Take a look at
+      this <a href="/demos/scrollable/edit.html">demo</a> for
+      more details.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">begin(speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Moves to the beginning. Identical to <samp>seekTo(0)</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">end(speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Moves to the end.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">focus()</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      After this call the keyboard arrow keys will control this
+      particular scrollable instance.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getConf()</td>
+    <td><code>Object</code></td>
+    <td>
+      Returns the configuration object for the scrollable
+      instance. Note that this object <strong>can be modified</strong>
+      and the changes are dynamically reflected in the behaviour of
+      the associated scrollable element.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getIndex()</td>
+    <td><code>number</code></td>
+    <td>
+      Returns the current scroll position. This is the index number of
+      the <samp>first visible item</samp> of the scrollable. Indexing
+      starts from zero.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getItems()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the scrollable items as a jQuery object.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getItemWrap()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the parent element for the scrollable items as a jQuery
+      object.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getNaviButtons()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns navigational buttons (next/prev/prevAll/nextAll) as a
+      single jQuery object. If you are using
+      the <a href="#navigator">navigator plugin</a> it is also
+      appended to this return value.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getRoot()</td>
+    <td><code>jQuery</code></td>
+    <td>
+      Returns the main scrollable element as a jQuery object.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">getSize()</td>
+    <td><code>number</code></td>
+    <td>
+      Returns the amount of items in the scrollable. Identical
+      to <samp>getItems().size()</samp>.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">move(offset, speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Moves a certain number of items from the current position. For
+      example, <samp>move(2)</samp> moves two items forward. Negative
+      numbers move backwards.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">next(speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Scrolls one item forward.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">prev(speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Scrolls one item backward.
+    </td>
+  </tr>
+  <tr>
+    <td class="code">seekTo(index, speed)</td>
+    <td><code><a href="#api">API</a></code></td>
+    <td>
+      Seeks to the specified index.
+    </td>
+  </tr>
+</table>
+
+
+<p>
+  The <samp>speed</samp> argument is used to specify how long (in
+  milliseconds) the scrolling animation lasts. This overrides
+  the <samp>speed</samp> property specified in the configuration.
+</p>
+
+<a name="graphics"></a>
+<h2 style="text-transform:capitalize">${tool} Graphics</h2>
+
+<a href="/media/img//.zip">
+  <img src="/media/img/global/zip.gif"
+       alt="Download graphics pack" style="float:right" />
+</a>
+
+<p>
+  You can use our graphics as the basis for your design. You can
+  freely change the design as you see fit. Click the image on the
+  right to download a zip file.  Before using the graphics, you should
+  consult the
+  <a href="/documentation/basics.html#graphics">User's
+  Guide</a> on how graphics can be used when designing the look and
+  feel of the tools.
+</p>
+
+
+<p>
+  Here are a few examples of what is included in the zip file:
+</p>
+
+<br clear="all" />
+<p>
+  <img src="/media/img/scrollable/thumb/black.jpg" style="margin-right:20px"/>
+  <img src="/media/img/scrollable/thumb/white.jpg" style="margin-right:50px" />
+
+  <img src="/media/img/scrollable/arrow/left.png" style="margin-right:20px" />
+  <img src="/media/img/scrollable/arrow/right.png" style="margin-right:50px" />
+
+  <img src="/media/img/scrollable/arrow/left_dark.png" style="margin-right:20px" />
+  <img src="/media/img/scrollable/arrow/right_dark.png" style="margin-right:20px"/>
+</p>
+
+      </div>
+            <div id="right">
+                        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>
