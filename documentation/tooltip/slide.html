@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Slide effect</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<style>
     /* trigger button */
   #download_now {
     background:transparent url(/media/img/downloadnow.png) no-repeat scroll 0 0;
@@ -123,18 +127,16 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/tooltip.jpg) no-repeat -9px 25px">
-  jQuery Tooltip / slide effect
-</h1>
+        <img id="hero" src="/media/img/hero/tooltips.jpg">
+<div class="blurb">
+<h1 class="teaser title">Slide&nbsp;effect</h1>
 
-<h2 class="first center"><strong>Slide effect</strong> for Tooltip</h2>
-
-<p class="more center">
+<p class="teaser text">
   Impress your mom with a tooltip that slides and fades. Up, down,
   left or right.
 </p>
 
-<div style="width:150px;margin:auto">
+<div class="box">
   <!-- trigger element. a regular workable link -->
 <a id="download_now">Download now</a>
 
@@ -174,6 +176,10 @@
 
 
 </div>
+<a class="standalone" href="demos/tooltip/any-html.htm">standalone demo</a>
+
+</div>
+
 
 <p>
   Here you can see the JavaScript setup for the above example:
@@ -183,7 +189,7 @@
 
 
 <a name="slide_configuration"></a>
-<h3>Configuration options</h3>
+<h2>Configuration options</h2>
 
 <p>
   Here is a full list of available configuration options for this
@@ -192,6 +198,7 @@
 </p>
 
 <a name="slide_configuration"></a>
+<div class="table">
 <table class="listing">
 
   <thead>
@@ -255,13 +262,14 @@
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   <strong>Note:</strong> this effect uses a fading animation from zero
   to full opacity in all browsers other than Internet Explorer.
 </p>
 
-<h3 class="lower">Example</h3>
+<h2>Example</h2>
 
 <p>
   An example setup using the <samp>slide</samp> effect with the custom
@@ -271,9 +279,177 @@
 <div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;a.withTooltip&quot;</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">({</span><br />  <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;slide&#39;</span><span class="p">,</span><br />  <span class="nx">slideOffset</span><span class="o">:</span> <span class="mi">30</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+    <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li></ol>
+
+    <li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+    </ol>
+
+        </li>        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -307,7 +483,8 @@
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

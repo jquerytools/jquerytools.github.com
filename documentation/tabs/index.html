@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Tab tool basics</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,12 +17,16 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<style>
 div.panes div {
 	margin-top:10px;
 	display:none;
 	height:80px;
-	width:700px;
+	width:650px;
 	font-size:18px;
 }
 
@@ -32,12 +36,7 @@ div.panes img {
 }
 </style>
         <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
-        <script>
-$(function() {
-  $(".tabs").tabs(".panes > div");
-});
-</script>
-  </head>
+          </head>
   <body>
     <div id="top">
         <div id="top-wrap">
@@ -94,18 +93,18 @@ $(function() {
         </div>
 
       <div id="content">
-        <h1 style="background-image:url(/media/img/hero/tabs.jpg)">
-  jQuery TOOLS / Tabs - Tabs done right
-</h1>
-
-<ul class="tabs" style="position:relative;top:-46px;margin-top:0px">
+        <img id="hero" src="/media/img/hero/tabs.jpg">
+<div class="blurb">
+<h1 class="teaser title">Tab tool&nbsp;basics</h1>
+<div class="box">
+<ul class="tabs">
   <li><a href="#">First tab</a></li>
   <li><a href="#">Second tab</a></li>
   <li><a href="#">Third tab</a></li>
 </ul>
 <br clear="all" />
 
-<div class="panes" style="height:110px;position:relative;top:-40px">
+<div class="panes">
   <div>
     <img src="/media/img/logo-medium.png"
          style="position:relative;top:-75px;margin-bottom:-80px"/>
@@ -133,10 +132,10 @@ $(function() {
     orci luctus et ultrices posuere cubilia Curae.
   </div>
 </div>
+</div>
 <br clear="all" />
 
-
-<div class="feat">
+<div class="col">
   <h3 class="first">Simple</h3>
 
   <p>
@@ -155,7 +154,7 @@ $(function() {
   </p>
 </div>
 
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Respects browsers' back button</h3>
   <p>
     You can enable <samp>history</samp> support for tabs so that end
@@ -174,33 +173,20 @@ $(function() {
     size is 2.9 Kb.
   </p>
 </div>
-<br clear="all" />
+
+
+</div>
 
 
 
-<h3>Quick Start</h3>
+<h2>Quick Start</h2>
 
 <p>
   Here is the minimal HTML code to get tabs working:
 </p>
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- the tabs --&gt;</span><br />  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;tabs&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Tab 1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Tab 2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span><span class="nt">&gt;</span>Tab 3<span class="nt">&lt;/a&gt;&lt;/li&gt;</span><br />  <span class="nt">&lt;/ul&gt;</span><br />&nbsp;<br />  <span class="c">&lt;!-- tab &quot;panes&quot; --&gt;</span><br />  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panes&quot;</span><span class="nt">&gt;</span><br />    <span class="nt">&lt;div&gt;</span>pane 1 content<span class="nt">&lt;/div&gt;</span><br />    <span class="nt">&lt;div&gt;</span>pane 2 content<span class="nt">&lt;/div&gt;</span><br />    <span class="nt">&lt;div&gt;</span>pane 3 content<span class="nt">&lt;/div&gt;</span><br />  <span class="nt">&lt;/div&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
 
-<pii:code lang="html">
-  <!-- the tabs -->
-  <ul class="tabs">
-    <li><a href="#">Tab 1</a></li>
-    <li><a href="#">Tab 2</a></li>
-    <li><a href="#">Tab 3</a></li>
-  </ul>
-
-  <!-- tab "panes" -->
-  <div class="panes">
-    <div>pane 1 content</div>
-    <div>pane 2 content</div>
-    <div>pane 3 content</div>
-  </div>
-</pii:code>
-
-<h4>JavaScript setup</h4>
+<h3>JavaScript setup</h3>
 
 <p>
   This JavaScript snippet activates those tabs:
@@ -224,7 +210,7 @@ $(function() {
 
 
 <a name="demos"></a>
-<h2>demos</h2>
+<h2>Demos</h2>
 
 <p>
   It's important to <strong>study the first demo</strong>, "Minimal
@@ -233,27 +219,25 @@ $(function() {
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos, 'tabs/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
-  </c:forEach>
-</ul>
+        <li> <a href="/demos/tabs/index.html">Minimal setup for tabs</a> </li>
+      <li> <a href="/demos/tabs/anchors.html">Naming the tabs</a> </li>
+      <li> <a href="/demos/tabs/skins.html">4 different skins with CSS</a> </li>
+      <li> <a href="/demos/tabs/mouseover.html">Using mouseover to switch tabs</a> </li>
+      <li> <a href="/demos/tabs/wizard.html">Making wizards with the tabs</a> </li>
+      <li> <a href="/demos/tabs/accordion.html">Making accordions with tabs</a> </li>
+      <li> <a href="/demos/tabs/accordion-custom.html">Customizing the accordion effect</a> </li>
+      <li> <a href="/demos/tabs/accordion-horizontal.html">Horizontal accordion using the tabs</a> </li>
+      <li> <a href="/demos/tabs/multiple.html">Multiple tabs and accordion instances</a> </li>
+      <li> <a href="/demos/tabs/history.html">Handling browsers back button</a> </li>
+      <li> <a href="/demos/tabs/ajax.html">Loading tab contents with ajax</a> </li>
+      <li> <a href="/demos/tabs/ajax-history.html">AJAXed tabs with history support</a> </li>
+      <li> <a href="/demos/tabs/slideshow.html">Slideshow plugin for the tabs</a> </li>
+  </ul>
 
-<c:set var="description">
-  <p>
-    These graphics are being used in the following CSS
-    files: <a href="/media/css/tabs.css">default tabs</a>
-    and <a href="/media/css/validator/form-flowplayer.css">tabs
-    with panes</a> and they are using a technique
-    called <a href="http://www.alistapart.com/articles/sprites/"
-    class="external">CSS sprites</a> which is a very important
-    technology in tab design.
-  </p>
-</c:set>
 
 <a name="graphics"></a>
-<h2 style="text-transform:capitalize">${tool} Graphics</h2>
-
-<a href="/media/img//.zip">
+<h2 style="text-transform:capitalize">tabs Graphics</h2>
+<a href="/media/img/tabs/tabs.zip">
   <img src="/media/img/global/zip.gif"
        alt="Download graphics pack" style="float:right" />
 </a>
@@ -290,6 +274,17 @@ $(function() {
   <img src="/media/img/tabs/thumb/blue_panes.jpg" />
 </p>
 
+<p>
+  These graphics are being used in the following CSS files:
+  <ul>
+    <li><a href="/media/css/tabs.css">default tabs</a></li>
+    <li><a href="/media/css/validator/form-flowplayer.css">tabs with panes</a></li>
+  </ul>
+
+  They are using a technique called <a href="http://www.alistapart.com/articles/sprites/"
+  class="external">CSS sprites</a> which is a very important
+  technology in tab design.
+</p>
 
 <a name="configuration"></a>
 <h2>Configuration</h2>
@@ -298,21 +293,7 @@ $(function() {
   There are many other ways of using this tool than the demos provided
   above. Here is a generic form for constructing tabs:
 </p>
-
-<pii:code>
-  $("<tabs_selector>").tabs("<pane_selector>", {
-      /* tabs configuration goes here */
-
-      // first configuration property
-      event: 'mouseover',
-
-      // another property
-      effect: 'slide',
-
-      // ... the rest of the configuration properties
-      });
-</pii:code>
-
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;tabs_selector&gt;&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;&lt;pane_selector&gt;&quot;</span><span class="p">,</span> <span class="p">{</span><br />      <span class="cm">/* tabs configuration goes here */</span><br />&nbsp;<br />      <span class="c1">// first configuration property</span><br />      <span class="nx">event</span><span class="o">:</span> <span class="s1">&#39;mouseover&#39;</span><span class="p">,</span><br />&nbsp;<br />      <span class="c1">// another property</span><br />      <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;slide&#39;</span><span class="p">,</span><br />&nbsp;<br />      <span class="c1">// ... the rest of the configuration properties</span><br />      <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 <h4>tabs_selector</h4>
 
@@ -363,6 +344,7 @@ $(function() {
   the same call then you should <a href="#multiple">read this</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -495,6 +477,7 @@ $(function() {
   </tr>
 
 </table>
+</div>
 
 <a name="multiple"></a>
 <h3>Initializing multiple Tabs</h3>
@@ -551,6 +534,7 @@ $(function() {
   Object</a> as the first argument.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -573,6 +557,7 @@ $(function() {
     </td>
   </tr>
 </table>
+</div>
 
 <a name="api"></a>
 <h2>Scripting <em>API</em></h2>
@@ -593,6 +578,7 @@ $(function() {
   Here is a list of all API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -680,6 +666,7 @@ $(function() {
     </td>
   </tr>
 </table>
+</div>
 
 <a name="effects"></a>
 <h2>Making custom effects</h2>
@@ -729,9 +716,177 @@ $(function() {
   effect</a>.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+    <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li></ol>
+
+    <li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+    <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+    </ol>
+
+        </li>        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -765,7 +920,13 @@ $(function() {
       </div>
     </div>
 
-        <script>
+    
+<script>
+$(function() {
+  $(".tabs").tabs(".panes > div");
+});
+</script>
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

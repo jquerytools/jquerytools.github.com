@@ -79,6 +79,7 @@ nav header:before{content:" ►"}
 nav header.open:before{content:" ▼"}
 nav h1{font-weight:normal;color:#999;letter-spacing:2px;text-transform:uppercase;text-align:left;padding-bottom:6px;margin-bottom:12px}
 nav h2{color:#444;letter-spacing:1px;text-align:left}
+nav ol,nav ul{margin:0;padding:0}
 nav ol.cat{display:none;}
 nav ol.cat.active{display:block}
 nav li{margin-left:0;padding-left:0;line-height:20px;list-style-type:none;font-size:12px;}
@@ -93,6 +94,8 @@ nav div.sect header h2{color:inherit}
 nav div.sect h2{float:left;width:219px;margin:0;font-size:14px;border:0;letter-spacing:0;margin-top:-4px}
 nav div.sect h3{margin-top:12px;margin-left:6px}
 .box{margin:12px 0 12px}
+p{margin:12px 0}
+ul,ol{margin:2px 16px 6px;line-height:20px}
 .blurb{margin:12px 0 24px;padding:12px 24px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;background-color:#fff;}
 .blurb .box{margin:24px -24px;padding:0 24px}
 h3{margin:8px 0}
@@ -106,8 +109,6 @@ body{position:relative;z-index:-1}
 .blurb{margin-top:-32px;border-top:1px solid #ededed;}
 .blurb a.standalone{margin:-24px -24px 24px -24px;-moz-box-shadow:0 1px 0 #f5f5f5;-webkit-box-shadow:0 1px 0 #f5f5f5;-o-box-shadow:0 1px 0 #f5f5f5;box-shadow:0 1px 0 #f5f5f5}
 .blurb .tease.first{margin-top:12px}
-.blurb p{margin:12px 0}
-.blurb ul,.blurb ol{margin:2px 16px 6px;line-height:20px}
 .blurb .box{background-color:#fcfcfc;display:block;zoom:1;padding-bottom:12px;}
 .blurb .box:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
 .blurb .box.full{margin-left:-24px;padding:12px 3px}

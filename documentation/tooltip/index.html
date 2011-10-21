@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Tooltip basics</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<style>
     /* tooltip styling. by default the element to be styled is .tooltip  */
   .tooltip {
     display:none;
@@ -127,12 +131,12 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/tooltip.jpg) no-repeat -9px 25px">
-  jQuery Tools / Tooltip - Tooltips done right
-</h1>
+        <img id="hero" src="/media/img/hero/tooltips.jpg">
+<div class="blurb">
+<h1 class="teaser title">Tooltip&nbsp;basics</h1>
 
-<div style="margin:0 -5px 20px -5px">
-  <div id="dyna">
+<div class="box full">
+<div id="dyna">
   <img src="/media/img/photos/1.jpg" style="margin-left:4px"
        title="A must have tool for designing better layouts and more intuitive user-interfaces."/>
   <img src="/media/img/photos/2.jpg"
@@ -160,9 +164,9 @@ $("#dyna img[title]").tooltip({
 </script>
 
 </div>
+<a class="standalone" href="/demos/tooltip/dynamic.htm">standalone demo</a>
 
-
-<div class="feat" style="min-height:100px">
+<div class="col">
   <h3 class="first">Simple or Rich</h3>
   <p>
     A simple call such as <samp>$("img[title]").tooltip();</samp> will
@@ -173,7 +177,7 @@ $("#dyna img[title]").tooltip({
   </p>
 </div>
 
-<div class="feat last" style="min-height:100px">
+<div class="col last" style="min-height:100px">
   <h3 class="first">Configure design, timing and positioning</h3>
   <p>
     Use CSS to create rounded borders, arrows, gradients or
@@ -181,8 +185,8 @@ $("#dyna img[title]").tooltip({
     pre and post-delays and positioning to your personal needs.
   </p>
 </div>
-
-<div class="feat">
+<br clear="all" class="clear">
+<div class="col">
   <h3>Fading, sliding, dynamic</h3>
   <p>
     Tooltip comes with two built-in effects: <samp>toggle</samp>,
@@ -195,7 +199,7 @@ $("#dyna img[title]").tooltip({
   </p>
 </div>
 
-<div class="feat last">
+<div class="col last">
   <h3>File size: 1.10 Kb</h3>
   <p>
     This tool has all the features and configuration options you'll
@@ -206,7 +210,8 @@ $("#dyna img[title]").tooltip({
     size is 3.5 Kb.
   </p>
 </div>
-<br clear="all" />
+
+</div>
 
 
 <a name="usage"></a>
@@ -276,9 +281,8 @@ $("#dyna img[title]").tooltip({
 </ul>
 
 <a name="graphics"></a>
-<h2 style="text-transform:capitalize">${tool} Graphics</h2>
-
-<a href="/media/img//.zip">
+<h2 style="text-transform:capitalize">tooltips Graphics</h2>
+<a href="/media/img/tooltip/tooltip.zip">
   <img src="/media/img/global/zip.gif"
        alt="Download graphics pack" style="float:right" />
 </a>
@@ -309,6 +313,7 @@ $("#dyna img[title]").tooltip({
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -463,7 +468,7 @@ $("#dyna img[title]").tooltip({
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="positioning"></a>
 <h3>Tooltip positioning</h3>
@@ -503,6 +508,7 @@ $("#dyna img[title]").tooltip({
   Object</a> as the first argument.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -537,6 +543,7 @@ $("#dyna img[title]").tooltip({
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   Here is an example of an <samp>onShow</samp> callback function that
@@ -649,6 +656,7 @@ $("#dyna img[title]").tooltip({
   Here is a list of all API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -704,7 +712,7 @@ $("#dyna img[title]").tooltip({
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="fade"></a>
 <h2>Built-in effect: <em>fade</em></h2>
@@ -714,6 +722,7 @@ $("#dyna img[title]").tooltip({
   as follows:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -733,7 +742,7 @@ $("#dyna img[title]").tooltip({
     <td>The fade-out speed when the tooltip is hidden, in milliseconds.</td>
   </tr>
 </table>
-
+</div>
 
 <a name="effects"></a>
 <h2>Making custom effects</h2>
@@ -797,9 +806,177 @@ $("#dyna img[title]").tooltip({
   effect</a>.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+    <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li></ol>
+
+    <li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+    <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+    </ol>
+
+        </li>        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -833,7 +1010,8 @@ $("#dyna img[title]").tooltip({
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");
