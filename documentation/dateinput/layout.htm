@@ -1,86 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
 
-<link rel="stylesheet" type="text/css" href="/media/css/dateinput/skin1.css"/>
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/media/css/doc_home.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
 
-<div id="pickroot">
-  <div id="pickhead">
-    <a id="pickprev"></a>
-    <div id="picktitle">
-      <select id="pickmonth">
-	<option value="1">February</option>
-	<option value="2">March</option>
-	<option value="3">April</option>
-	<option value="4">May</option>
-	<option value="5">June</option>
-	<option value="6">July</option>
-	<option value="7">August</option>
-	<option value="8">September</option>
-	<option value="9">October</option>
-	<option value="10">November</option>
-	<option value="11">December</option>
-      </select>
-      <select id="pickyear">
-	<option>2004</option>
-	<option>2005</option>
-	<option>2006</option>
-      </select>
-    </div>
-    <a id="picknext" class=""></a>
-  </div>
-  <div id="pickdays">
-    <span>Sun</span>
-    <span>Mon</span>
-    <span>Tue</span>
-    <span>Wed</span>
-    <span>Thu</span>
-    <span>Fri</span>
-    <span>Sat</span>
-  </div>
-  <div id="pickweeks">
-    <div class="pickweek">
-      <a class="" href="#29">29</a>
-      <a href="#1">1</a>
-      <a href="#2">2</a>
-      <a href="#3">3</a>
-      <a href="#4">4</a>
-      <a href="#5">5</a>
-      <a href="#6">6</a>
-    </div>
-    <div class="pickweek">
-      <a href="#7">7</a>
-      <a href="#8">8</a>
-      <a href="#9">9</a>
-      <a href="#10">10</a>
-      <a href="#11">11</a>
-      <a href="#12">12</a>
-      <a href="#13">13</a>
-    </div>
-    <div class="pickweek">
-      <a href="#14">14</a>
-      <a href="#15">15</a>
-      <a href="#16">16</a>
-      <a href="#17">17</a>
-      <a href="#18">18</a>
-      <a href="#19">19</a>
-      <a id="picktoday" class="pickfocus" href="#20">20</a>
-    </div>
-    <div class="pickweek">
-      <a href="#21">21</a>
-      <a href="#22">22</a>
-      <a href="#23">23</a>
-      <a href="#24">24</a>
-      <a href="#25">25</a>
-      <a href="#26">26</a>
-      <a href="#27">27</a>
-    </div>
-    <div class="pickweek">
-      <a href="#28">28</a>
-      <a href="#29">29</a>
-      <a href="#30">30</a>
-      <a href="#31">31</a>
-      <a class="pickoff" href="#1">1</a>
-      <a class="pickoff" href="#2">2</a>
-      <a class="pickoff" href="#3">3</a>
-    </div>
-  </div>
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li class="active">
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <img id="hero" src="/media/img/hero/usersguide.jpg">
+<div class="blurb">
+<h1 class="teaser title">jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</h1>
 </div>
+
+
+      </div>
+            <div id="right">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <h2 class="first">Ui&nbsp;Tools</h2>
+    </header>
+        <ol class="cat">
+    <li>
+        <h3 title="">Tabs</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Tooltips</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Overlay</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Scrollable</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>    </ol>
+    </div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+        <ol class="cat active">
+    <li>
+        <h3 title="">Validator</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Rangeinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li><li>
+        <h3 title="">Dateinput</h3>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
+    </li></ol>
+
+        </li>    </ol>
+    </div><div class="sect three" id="sect2">
+    <header >
+        <h2>Toolbox</h2>
+    </header>
+        <ol class="cat">
+    <li>
+        <h3 title="">Expose</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Flashembed</h3>
+        <ol class="links">
+    </ol>
+
+        </li><li>
+        <h3 title="">Combinations</h3>
+        <ol class="links">
+    </ol>
+
+        </li>    </ol>
+    </div></nav>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/tools/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.5 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+    // toggle category
+    $("#right header").click(function() {
+        $(this).toggleClass("open");
+        $(this).next(".cat").toggleClass("active");
+    });
+    </script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

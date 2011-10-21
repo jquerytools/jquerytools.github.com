@@ -607,6 +607,13 @@
     </div>
 
         <script>
+    // toggle category
+    $("#right header").click(function() {
+        $(this).toggleClass("open");
+        $(this).next(".cat").toggleClass("active");
+    });
+    </script>
+    <script>
                   var _tracker = _gat._getTracker("");
           </script>
 

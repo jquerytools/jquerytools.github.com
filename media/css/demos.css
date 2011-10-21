@@ -27,13 +27,3 @@ code{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;b
 .panes .pane{display:none}
 p.intro{clear:both;padding-top:12px}
 #nav{border-bottom:1px solid #ccc}
-nav{margin-top:184px;}
-nav li{margin-left:0;}
-nav li a{margin-left:0;display:inline-block}
-nav ol.cat{display:none;}
-nav ol.cat.active{display:block}
-nav div.sect div.icon{float:left}
-nav div.sect header{cursor:pointer;padding-top:6px;color:#006c83;}
-nav div.sect header h2{color:inherit}
-nav div.sect h2{float:left;width:219px;margin:0;font-size:14px;border:0;letter-spacing:0;margin-top:-4px}
-nav div.sect h3{margin-top:12px;margin-left:6px}

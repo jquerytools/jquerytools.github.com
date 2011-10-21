@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>jQuery tools scripting & events</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,33 +17,10 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
-p.more, p.more a {
-  font-size:16px;
-  margin:20px 0;
-  letter-spacing:-1px;
-}
-#content .plus {
-  list-style-image:url(/media/img/plus.png);
-}
-#content .minus {
-  list-style-image:url(/media/img/plus.png);
-}
-h1.hero_title {
-  background:url( /media/img/hero/usersguide.jpg ) no-repeat 0 10px;
-  margin-bottom:-360px;
-}
-</style>
+        <link rel="stylesheet" type="text/css" href="/media/css/doc_home.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
         <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
-        <script>
-$(function() {
-  var page = location.href.split("/").pop().split("#").shift() || 'index.html';
-  $("ul.tabs a[href*=" +page+ "]").addClass("current");
-  $("#right ul a[href*=/configuration]").addClass("selected");
-  $("#biglink").addClass("current").click(function() { return false; });
-});
-</script>
-  </head>
+          </head>
   <body>
     <div id="top">
         <div id="top-wrap">
@@ -100,23 +77,9 @@ $(function() {
         </div>
 
       <div id="content">
-        <h1 class="hero_title">
-  jQuery Tools Users Guide - Common practices for each of the tools
-</h1>
-
-<ul class="tabs" style="position:relative;top:-25px;">
-  <li><a href="/documentation/index.html">Introduction</a>
-  <li><a href="/documentation/basics.html">The Basics</a>
-  <li><a class="w1" href="/documentation/scripting.html">
-      Scripting &amp; Events
-  </a></li>
-  <li><a href="/documentation/performance.html">
-      Performance
-  </a></li>
-</ul>
-
-<h2 class="first">In this document</h2>
-
+        <img id="hero" src="/media/img/hero/usersguide.jpg">
+<div class="blurb">
+<h1 class="teaser title">jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</h1>
 <p>
   This document describes common practices for each of the tools such as:
 </p>
@@ -126,6 +89,7 @@ $(function() {
   <li><a href="#events">Events</a></li>
   <li><a href="#plugins">Writing Plugins</a></li>
 </ul>
+</div>
 
 
 <a name="api"></a>
@@ -472,7 +436,58 @@ $(function() {
 
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header  class="open" >
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+        <ol class="links">
+    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li></ol>
+
+    </div><div class="sect two" id="sect1">
+    <header >
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+        <ol class="links">
+    </ol>
+
+    </div><div class="sect three" id="sect2">
+    <header >
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+        <ol class="links">
+    </ol>
+
+    </div><div class="sect one" id="sect3">
+    <header >
+        <h2>Toolbox</h2>
+    </header>
+        <ol class="links">
+    </ol>
+
+    </div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -507,6 +522,13 @@ $(function() {
     </div>
 
         <script>
+    // toggle category
+    $("#right header").click(function() {
+        $(this).toggleClass("open");
+        $(this).next(".cat").toggleClass("active");
+    });
+    </script>
+    <script>
                   var _tracker = _gat._getTracker("");
           </script>
 

@@ -74,21 +74,24 @@ html.ie #top li.linkOnly{padding-bottom:9px}
 #footerlinks{color:#666;font-size:10px;text-align:center;border-top:1px dotted #ededed;padding-top:8px}
 #footerlinks a{color:#5f5f5f;font-size:10px;text-decoration:none;margin:0 5px}
 #footerlinks a:hover{color:#123;text-decoration:underline}
+nav{margin-top:184px;}
 nav header:before{content:" ►"}
 nav header.open:before{content:" ▼"}
 nav h1{font-weight:normal;color:#999;letter-spacing:2px;text-transform:uppercase;text-align:left;padding-bottom:6px;margin-bottom:12px}
 nav h2{color:#444;letter-spacing:1px;text-align:left}
-nav small,nav .more{display:none}
-nav li{padding-left:0;line-height:20px;list-style-type:none;font-size:12px;}
-nav li a{color:#999;text-decoration:none;margin-left:30px;padding:1px 6px 2px;}
+nav ol.cat{display:none;}
+nav ol.cat.active{display:block}
+nav li{margin-left:0;padding-left:0;line-height:20px;list-style-type:none;font-size:12px;}
+nav li a{color:#999;text-decoration:none;margin-left:0;display:inline-block;padding:1px 6px 2px;}
 nav li a:hover{color:#084a5e}
 nav li a.active{-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;background-color:#084a5e;color:#fff}
 nav div.sect{margin-top:12px;}
 nav div.sect:first-child{margin-top:12px}
-nav div.sect header{display:block;zoom:1;}
-nav div.sect header .icon{float:left;margin-right:6px}
-nav div.sect header .text{float:left;line-height:24px}
+nav div.sect header{display:block;zoom:1;cursor:pointer;padding-top:6px;color:#006c83;}
 nav div.sect header:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+nav div.sect header h2{color:inherit}
+nav div.sect h2{float:left;width:219px;margin:0;font-size:14px;border:0;letter-spacing:0;margin-top:-4px}
+nav div.sect h3{margin-top:12px;margin-left:6px}
 .box{margin:12px 0 12px}
 .blurb{margin:12px 0 24px;padding:12px 24px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;background-color:#fff;}
 .blurb .box{margin:24px -24px;padding:0 24px}
