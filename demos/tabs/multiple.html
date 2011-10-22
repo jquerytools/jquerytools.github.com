@@ -180,91 +180,11 @@
 <div class="codebox"><figure class="code"><div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;ul.tabs&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;&gt; .pane&quot;</span><span class="p">);</span><br />  <br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
-<div class="box">
-<div class="wrap">
-  <!-- the tabs -->
-<ul class="tabs">
-  <li><a href="#">Tab 1</a></li>
-  <li><a href="#">Tab 2</a></li>
-  <li><a href="#">Tab 3</a></li>
-</ul>
-
-<!-- tab "panes" -->
-<div class="pane">First tab content.</div>
-<div class="pane">Second tab content</div>
-<div class="pane">Third tab content</div>
+<div class="box" >
 
 </div>
-
-<div class="wrap">
-
-  <!-- the tabs -->
-  <ul class="tabs">
-    <li><a href="#">Tab 1</a></li>
-    <li><a href="#">Tab 2</a></li>
-    <li><a href="#">Tab 3</a></li>
-  </ul>
-
-  <!-- tab "panes" -->
-  <div class="pane">
-    <p>#1</p>
-    <!-- the tabs -->
-<ul class="tabs">
-  <li><a href="#">Tab 1</a></li>
-  <li><a href="#">Tab 2</a></li>
-  <li><a href="#">Tab 3</a></li>
-</ul>
-
-<!-- tab "panes" -->
-<div class="pane">First tab content.</div>
-<div class="pane">Second tab content</div>
-<div class="pane">Third tab content</div>
-
-  </div>
-
-  <div class="pane">
-    <p>#2</p>
-    <!-- the tabs -->
-<ul class="tabs">
-  <li><a href="#">Tab 1</a></li>
-  <li><a href="#">Tab 2</a></li>
-  <li><a href="#">Tab 3</a></li>
-</ul>
-
-<!-- tab "panes" -->
-<div class="pane">First tab content.</div>
-<div class="pane">Second tab content</div>
-<div class="pane">Third tab content</div>
-
-  </div>
-
-  <div class="pane">
-    <p>#3</p>
-    <!-- the tabs -->
-<ul class="tabs">
-  <li><a href="#">Tab 1</a></li>
-  <li><a href="#">Tab 2</a></li>
-  <li><a href="#">Tab 3</a></li>
-</ul>
-
-<!-- tab "panes" -->
-<div class="pane">First tab content.</div>
-<div class="pane">Second tab content</div>
-<div class="pane">Third tab content</div>
-
-  </div>
-</div>
-
-<!-- This JavaScript snippet activates those tabs -->
-<script>
-  // perform JavaScript after the document is scriptable.
-  $(function() {
-      $("ul.tabs").tabs("> .pane");
-    });
-</script>
-
-</div>
-<a class="standalone" href="multiple-tabs.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/tabs/multiple-tabs.htm">standalone demo</a>
 
 </div>
 
@@ -317,106 +237,11 @@
 <div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.accordion&quot;</span><span class="p">).</span><span class="nx">tabs</span><span class="p">(</span><span class="s2">&quot;.pane&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">tabs</span><span class="o">:</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="nx">effect</span><span class="o">:</span> <span class="s1">&#39;slide&#39;</span><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
-<div class="box">
-<div class="accordion">
-  <h2>First pane</h2>
-
-  <div class="pane" style="display:block">
-    <img src="/media/img/title/javascript24.png"
-         alt="JavaScript tools" style="float:left; margin:0 15px 15px 0" />
-
-    <h3>Lorem ipsum dolor</h3>
-    <p>
-      <strong>Fusce semper, nisi nec pellentesque sollicitudin.</strong>
-    </p>
-    <p style="clear:both">
-      Consectetur adipiscing elit. Praesent bibendum eros ac
-      nulla. Integer vel lacus ac neque viverra ornare. Nulla id massa
-      nec erat laoreet elementum. Vivamus tristique auctor
-      odio. Integer mi neque.
-    </p>
-  </div>
-
-  <h2>Second pane</h2>
-  <div class="pane">
-    <h3>Vestibulum ante ipsum</h3>
-    <p>
-      Cras diam. Donec dolor lacus, vestibulum at, varius in, mollis
-      id, dolor. Aliquam erat volutpat. Praesent pretium tristique
-      est. Maecenas nunc lorem, blandit nec, accumsan nec, facilisis
-      quis, pede. Aliquam erat volutpat. Donec sit amet urna quis nisi
-      elementum fermentum.
-    </p>
-  </div>
-
-  <h2>Third pane</h2>
-  <div class="pane">
-    <h3>Curabitur vel dolor</h3>
-    <p>
-      Non lectus lacinia egestas. Nulla hendrerit, felis quis
-      elementum viverra, purus felis egestas magna, non vulputate
-      libero justo nec sem. Nullam arcu. Donec pellentesque vestibulum
-      urna. In mauris odio, fringilla commodo, commodo ac, dignissim
-      ac, augue.
-    </p>
-  </div>
-</div>
-
-<div class="accordion">
-  <h2>First pane</h2>
-
-  <div class="pane" style="display:block">
-    <img src="/media/img/title/javascript24.png"
-         alt="JavaScript tools" style="float:left; margin:0 15px 15px 0" />
-
-    <h3>Lorem ipsum dolor</h3>
-    <p>
-      <strong>Fusce semper, nisi nec pellentesque sollicitudin.</strong>
-    </p>
-    <p style="clear:both">
-      Consectetur adipiscing elit. Praesent bibendum eros ac
-      nulla. Integer vel lacus ac neque viverra ornare. Nulla id massa
-      nec erat laoreet elementum. Vivamus tristique auctor
-      odio. Integer mi neque.
-    </p>
-  </div>
-
-  <h2>Second pane</h2>
-  <div class="pane">
-    <h3>Vestibulum ante ipsum</h3>
-    <p>
-      Cras diam. Donec dolor lacus, vestibulum at, varius in, mollis
-      id, dolor. Aliquam erat volutpat. Praesent pretium tristique
-      est. Maecenas nunc lorem, blandit nec, accumsan nec, facilisis
-      quis, pede. Aliquam erat volutpat. Donec sit amet urna quis nisi
-      elementum fermentum.
-    </p>
-  </div>
-
-  <h2>Third pane</h2>
-  <div class="pane">
-    <h3>Curabitur vel dolor</h3>
-    <p>
-      Non lectus lacinia egestas. Nulla hendrerit, felis quis
-      elementum viverra, purus felis egestas magna, non vulputate
-      libero justo nec sem. Nullam arcu. Donec pellentesque vestibulum
-      urna. In mauris odio, fringilla commodo, commodo ac, dignissim
-      ac, augue.
-    </p>
-  </div>
-</div>
-
-
-<!-- activate tabs with JavaScript -->
-<script>
-  $(function() {
-  $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
-  });
-</script>
+<div class="box" >
 
 </div>
-<a class="standalone" href="multiple-accordions.htm">standalone demo</a>
-
+<a class="standalone"
+          href="/demos/tabs/multiple-accordions.htm">standalone demo</a>
 
 <h3 style="clear:both">HTML coding</h3>
 
@@ -451,6 +276,7 @@
 
 <div class="sect one" id="sect0">
     <header  class="open" >
+        <div class="icon"></div>
         <h2 class="first">Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat active">
@@ -633,6 +459,7 @@
         </li>        </ol>
 </div><div class="sect two" id="sect1">
     <header >
+        <div class="icon"></div>
         <h2>Form&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -722,6 +549,7 @@
         </li>        </ol>
 </div><div class="sect three" id="sect2">
     <header >
+        <div class="icon"></div>
         <h2>Toolbox</h2>
     </header>
     <ol class="cat">

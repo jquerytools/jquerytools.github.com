@@ -152,65 +152,11 @@ div.demowrap {
   Provides navigation buttons for switching between pages.
 </p>
 
-<div class="box full">
-
-<!-- wrapper for navigator elements -->
-<div class="navi"></div>
-
-<div style="margin:0 auto; width: 634px; height:120px;">
-<!-- "previous page" action -->
-<a class="prev browse left"></a>
-
-<!-- root element for scrollable -->
-<div class="scrollable" id="navigator">
-
-  <!-- root element for the items -->
-  <div class="items">
-
-    <!-- 1-5 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
-      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
-      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
-    </div>
-
-    <!-- 5-10 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
-      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-    </div>
-
-    <!-- 10-15 -->
-    <div>
-      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
-    </div>
-
-  </div>
+<div class="boxfull" >
 
 </div>
-
-<!-- "next page" action -->
-<a class="next browse right"></a>
-</div>
-<br clear="all" />
-
-<!-- javascript coding -->
-<script>
-$(document).ready(function() {
-// initialize scrollable together with the navigator plugin
-$("#navigator").scrollable().navigator();
-});
-</script>
-
-
-</div>
-<a class="standalone" href="plugins-navigator.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/scrollable/plugins-navigator.htm">standalone demo</a>
 
 </div>
 
@@ -269,73 +215,12 @@ $("#navigator").scrollable().navigator();
   with the scrollable with your mouse.
 </p>
 
-<div class="box">
-
-<div style="margin:0 auto; width: 634px; height:120px;">
-<!-- "previous page" action -->
-<a class="prev browse left"></a>
-
-<!-- root element for scrollable -->
-<div class="scrollable" id="autoscroll">
-
-  <!-- root element for the items -->
-  <div class="items">
-
-    <!-- 1-5 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
-      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
-      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
-    </div>
-
-    <!-- 5-10 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
-      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-    </div>
-
-    <!-- 10-15 -->
-    <div>
-      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
-    </div>
-
-  </div>
+<div class="box" >
 
 </div>
+<a class="standalone"
+          href="/demos/scrollable/plugins-autoscroll.htm">standalone demo</a>
 
-<!-- "next page" action -->
-<a class="next browse right"></a>
-</div>
-<br clear="all" />
-
-<div id="actionButtons">
-	<button type="button" onClick="api.play()">Play</button>
-	<button type="button" onClick="api.pause()">Pause</button>
-	<button type="button" onClick="api.stop()">Stop</button>
-</div>
-
-<br clear="all" />
-
-<!-- javascript coding -->
-<script>
-$(document).ready(function() {
-// initialize scrollable together with the autoscroll plugin
-var root = $("#autoscroll").scrollable({circular: true}).autoscroll({ autoplay: false });
-
-// provide scrollable API for the action buttons
-window.api = root.data("scrollable");
-});
-</script>
-
-
-</div>
-<a class="standalone" href="autoscroll.htm">standalone demo</a>
 
 <h3>JavaScript setup</h3>
 
@@ -374,66 +259,11 @@ window.api = root.data("scrollable");
   enabled <samp>mousewheel</samp> and <samp>circular</samp> options.
 </p>
 
-<div class="box full">
-
-<!-- wrapper for navigator elements -->
-<div class="navi"></div>
-
-<div style="margin:0 auto; width: 634px; height:120px;">
-<!-- "previous page" action -->
-<a class="prev browse left"></a>
-
-<!-- root element for scrollable -->
-<div class="scrollable" id="chained">
-
-  <!-- root element for the items -->
-  <div class="items">
-
-    <!-- 1-5 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
-      <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
-      <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
-    </div>
-
-    <!-- 5-10 -->
-    <div>
-      <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
-      <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
-      <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-    </div>
-
-    <!-- 10-15 -->
-    <div>
-      <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
-      <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
-    </div>
-
-  </div>
+<div class="boxfull" >
 
 </div>
-
-<!-- "next page" action -->
-<a class="next browse right"></a>
-</div>
-<br clear="all" />
-
-<!-- javascript coding -->
-<script>
-$(document).ready(function() {
-// heeeeeeeeeeere we go.
-$("#chained").scrollable({circular: true, mousewheel: true}).navigator().autoscroll({
-	interval: 3000
-});
-});
-</script>
-
-</div>
-<a class="standalone" href="chain.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/scrollable/plugins-chain.htm">standalone demo</a>
 
 <h3>JavaScript setup</h3>
 
@@ -450,6 +280,7 @@ $("#chained").scrollable({circular: true, mousewheel: true}).navigator().autoscr
 
 <div class="sect one" id="sect0">
     <header  class="open" >
+        <div class="icon"></div>
         <h2 class="first">Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat active">
@@ -632,6 +463,7 @@ $("#chained").scrollable({circular: true, mousewheel: true}).navigator().autoscr
         </li>        </ol>
 </div><div class="sect two" id="sect1">
     <header >
+        <div class="icon"></div>
         <h2>Form&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -721,6 +553,7 @@ $("#chained").scrollable({circular: true, mousewheel: true}).navigator().autoscr
         </li>        </ol>
 </div><div class="sect three" id="sect2">
     <header >
+        <div class="icon"></div>
         <h2>Toolbox</h2>
     </header>
     <ol class="cat">

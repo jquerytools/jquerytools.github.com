@@ -121,23 +121,13 @@
   have an example:
 </p>
 
-<div class="box full">
-<!-- our flash container with some initial HTML inside it -->
-<div id="flash">
-	<h2>Click here to play movie</h2>
-</div>
 
-<script>
-// get flash container and assign click handler for it
-document.getElementById("flash").onclick = function() {
-
-	// when being clicked -> load flash inside "this".
-	flashembed(this, "/media/swf/global/flash10.swf");
-}
-</script>
+<div class="boxfull" >
 
 </div>
-<a class="standalone" href="onclick1.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/onclick1.htm">standalone demo</a>
+
 </div>
 
 <h3>The setup</h3>
@@ -161,24 +151,11 @@ document.getElementById("flash").onclick = function() {
   scenario:
 </p>
 
-<div class="box">
-<script>
-// use the jQuery alternative for flashembed.domReady
-$(function() {
-  // bind an onClick event for this second Flash container
-  $("#flash2").click(function() {
-    // same as in previous example
-    $(this).flashembed("/media/swf/global/flash10.swf");
-  });
-});
-</script>
-
-<div id="flash2">
-  <img src="/media/img/global/player/btn/play_text_large.png" alt="" />
-</div>
+<div class="box" >
 
 </div>
-<a class="standalone" href="onclick2.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/onclick2.htm">standalone demo</a>
 
 <p>
   We have set a background image for the container and
@@ -195,6 +172,7 @@ $(function() {
 
 <div class="sect one" id="sect0">
     <header >
+        <div class="icon"></div>
         <h2 class="first">Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -377,6 +355,7 @@ $(function() {
         </li>        </ol>
 </div><div class="sect two" id="sect1">
     <header >
+        <div class="icon"></div>
         <h2>Form&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -466,6 +445,7 @@ $(function() {
         </li>        </ol>
 </div><div class="sect three" id="sect2">
     <header  class="open" >
+        <div class="icon"></div>
         <h2>Toolbox</h2>
     </header>
     <ol class="cat active">

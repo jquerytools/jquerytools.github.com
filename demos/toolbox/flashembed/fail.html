@@ -140,15 +140,12 @@
   any additional setup.
 </p>
 
-<div class="box full">
-<div id="clock"></div>
 
-<script>
-flashembed("clock", {src: "/media/swf/global/clock.swf", version: [20, 0]});
-</script>
+<div class="boxfull" >
 
 </div>
-<a class="standalone" href="fail1.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/fail1.htm">standalone demo</a>
 
 </div>
 
@@ -174,28 +171,12 @@ The default behaviour is to write the
   container. Here is one example message:
 </p>
 
-<div class="box">
-<!-- here is the container with the default error message inside it -->
-<div id="fail2">
-  <img src="/media/img/flashplayer_100x100.jpg" />
-  <h3>Get Adobe Flash Player</h3>
 
-  <p>
-    You must have the latest Flash player installed.  You
-    can <a href="http://get.adobe.com/flashplayer/">download it
-    here</a>.
-  </p>
-
-  <br clear="all" />
-</div>
-
-<!-- place flash in our container and require version 20 and above -->
-<script>
-  flashembed("fail2", {src: "/media/swf/global/clock.swf", version: [20, 0]});
-</script>
+<div class="box" >
 
 </div>
-<a class="standalone" href="fail2.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/fail2.htm">standalone demo</a>
 
 <p>
   And here is the corresponding HTML code:
@@ -227,30 +208,11 @@ The default behaviour is to write the
   SWF file:
 </p>
 
-<div class="box">
-<div id="fail3"></div>
-<div class="info" id="info"></div>
-
-<script>
-flashembed("fail3", {
-	src: "/media/swf/global/clock.swf",
-
-	// provide large enough version number so we can see what happens
-	version: [20, 0],
-
-	// supply your path to the express install Flash object.
-	expressInstall: "/media/swf/global/expressinstall.swf",
-
-	// called every time the supported version is not found
-	onFail: function() {
-		document.getElementById("info").innerHTML
-			= "You need version 20.0 to view this content";
-	}
-});
-</script>
+<div class="box" >
 
 </div>
-<a class="standalone" href="fail3.htm">standalone demo</a>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/fail3.htm">standalone demo</a>
 
 <h3>JavaScript coding</h3>
 
@@ -268,6 +230,7 @@ flashembed("fail3", {
 
 <div class="sect one" id="sect0">
     <header >
+        <div class="icon"></div>
         <h2 class="first">Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -450,6 +413,7 @@ flashembed("fail3", {
         </li>        </ol>
 </div><div class="sect two" id="sect1">
     <header >
+        <div class="icon"></div>
         <h2>Form&nbsp;Tools</h2>
     </header>
     <ol class="cat">
@@ -539,6 +503,7 @@ flashembed("fail3", {
         </li>        </ol>
 </div><div class="sect three" id="sect2">
     <header  class="open" >
+        <div class="icon"></div>
         <h2>Toolbox</h2>
     </header>
     <ol class="cat active">

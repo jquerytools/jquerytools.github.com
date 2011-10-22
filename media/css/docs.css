@@ -33,3 +33,4 @@ code{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;b
 .col p.more{font-size:14px;color:#999;margin-bottom:16px}
 .col.last{margin:0;float:right}
 .col img{float:left;margin:10px 8px}
+.icon{display:none}
