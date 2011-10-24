@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Rangeinput</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-          <!-- rangeinput styling -->
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+  <!-- rangeinput styling -->
   <link rel="stylesheet" type="text/css"
         href="/media/css/rangeinput/skin1.css"/>
 
@@ -79,18 +83,17 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/rangeinput.jpg) no-repeat -14px 5px">
-  jQuery Rangeinput @ jQuery Tools
-  <em>HTML5 range input for humans</em>
-</h1>
+        <img id="hero" src="/media/img/hero/rangeinput.jpg">
+<div class="blurb">
+<h1 class="teaser title">Rangeinput</h1>
 
-<p class="more" style="margin-top:0">
+<p>
   This tool brings <strong>HTML5</strong> range input to all browsers
   in such a way that you can make it look and behave like you
   want. This small candy weights only <strong>2.2 Kb</strong>.
 </p>
 
-<div style="margin:20px 0">
+<div class="box full" style="padding-left:14px">
   <!-- HTML5 range input -->
   <input type="range" name="test" min="100" max="300" value="150" />
 
@@ -100,9 +103,11 @@
   </script>
 
 </div>
+<a class="standalone"
+          href="/demos/rangeinput/index.htm">standalone demo</a>
 
-<p class="less" style="margin-bottom:30px">
-  <small>
+<p>
+
     Change the value of the above range either by dragging the handle,
     clicking on the slider or changing the value of the input
     field. When you have the focus on the input field you can change
@@ -110,10 +115,10 @@
     with <strong>VIM</strong> keyboard
     shortcuts <samp>HJKL</samp>. <samp>PageUp</samp>
     and <samp>PageDown</samp> go 10 steps forward and backward.
-  </small>
+
 </p>
 
-<div class="feat">
+<div class="col">
   <h3 class="first">HTML5 range input</h3>
   <p>
     This tool brings HTML5 <samp>&lt;input type="range" /&gt;</samp>
@@ -124,8 +129,8 @@
     JavaScript is disabled.
   </p>
 </div>
-<div class="feat last">
-  <h3 class="first">For nerds and humans</h3>
+<div class="col last">
+  <h3>For nerds and humans</h3>
   <p>
     Call <samp>$(":range").rangeinput();</samp> and all your HTML5
     range inputs are working. End users can pick values by dragging a
@@ -134,7 +139,8 @@
     and forth.
   </p>
 </div>
-<div class="feat">
+<br class="clear" clear="all">
+<div class="col">
   <h3>Styleable</h3>
   <p>
     You can design ranges to fit the overall feel of your site. Use
@@ -145,7 +151,7 @@
     them for free.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>File size: <strong>2.20 Kb!</strong></h3>
   <p>
     It contains everything you need: configurability, skinning,
@@ -156,6 +162,8 @@
   </p>
 </div>
 <br clear="all" />
+
+</div>
 
 
 <a name="usage"></a>
@@ -184,16 +192,17 @@
 <h2>Demos</h2>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'rangeinput/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
-  </c:forEach>
-</ul>
-
+        <li> <a href="/demos/rangeinput/index.html">Minimal setup for rangeinput</a> </li>
+      <li> <a href="/demos/rangeinput/vertical.html">A couple of vertical ranges</a> </li>
+      <li> <a href="/demos/rangeinput/multiple.html">Multiple small ranges</a> </li>
+      <li> <a href="/demos/rangeinput/scrollbar.html">A custom scrollbar for a DIV</a> </li>
+  </ul>
 
 
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -295,7 +304,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="attributes"></a>
@@ -309,6 +318,7 @@
 <div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">value=</span><span class="s">&quot;40&quot;</span> <span class="na">min=</span><span class="s">&quot;20&quot;</span> <span class="na">max=</span><span class="s">&quot;400&quot;</span> <span class="na">step=</span><span class="s">&quot;20&quot;</span> <span class="nt">/&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -355,7 +365,7 @@
     <td>Initial value.</td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="skinning"></a>
@@ -392,6 +402,7 @@
   scripting</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -483,7 +494,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <h3>DOM API</h3>
@@ -495,6 +506,7 @@
   enabled by this tool.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -522,7 +534,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="events"></a>
@@ -539,6 +551,7 @@
 <div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// select all range inputs and assign event listeners to them</span><br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:range&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span><br />  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;value changed to&quot;</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -569,10 +582,191 @@
     </td>
   </tr>
 </table>
+</div>
+
 
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -606,7 +800,8 @@
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

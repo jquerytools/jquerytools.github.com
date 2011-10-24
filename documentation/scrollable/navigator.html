@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Navigator plugin</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <link rel="stylesheet" type="text/css"
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<link rel="stylesheet" type="text/css"
       href="/media/css/scrollable-horizontal.css" />
 <link rel="stylesheet" type="text/css"
       href="/media/css/scrollable-buttons.css" />
@@ -82,11 +86,9 @@
         </div>
 
       <div id="content">
-        <h1 style="background-image:url(/media/img/hero/scrollable.jpg)">
-  jQuery Tools / Scrollable - New Wave UI design
-</h1>
-
-<h2 class="first">Navigator plugin</h2>
+        <img id="hero" src="/media/img/hero/scrollable.jpg">
+<div class="blurb">
+<h1 class="teaser title">Navigator&nbsp;plugin</h1>
 
 <p>
   The Navigator plugin will allow your users to more easily navigate
@@ -95,8 +97,8 @@
   navigator plugin in action:
 </p>
 
-<div style="margin:20px -15px">
-  
+<div class="box full" >
+
 <!-- wrapper for navigator elements -->
 <div class="navi"></div>
 
@@ -153,9 +155,14 @@ $("#navigator").scrollable().navigator();
 
 
 </div>
+<a class="standalone"
+          href="/demos/scrollable/plugins-navigator.htm">standalone demo</a>
+
+</div>
+
 
 <a name="navigator_usage"></a>
-<h3>HTML setup</h3>
+<h2>HTML setup</h2>
 
 <p>
   Here is the HTML setup for the example above:
@@ -182,7 +189,7 @@ $("#navigator").scrollable().navigator();
   navigation element.
 </p>
 
-<h3>JavaScript setup</h3>
+<h2>JavaScript setup</h2>
 
 <p>
   Here is the JavaScript setup for the example above.
@@ -193,7 +200,7 @@ $("#navigator").scrollable().navigator();
 
 
 <a name="navigator_manual"></a>
-<h3>Manual setup</h3>
+<h2>Manual setup</h2>
 
 <p>
   You can also use an existing HTML structure as a navigator. Here is
@@ -233,12 +240,13 @@ $("#navigator").scrollable().navigator();
 
 
 <a name="navigator_configuration"></a>
-<h3>Configuration</h3>
+<h2>Configuration</h2>
 
 <p>
   Here is a full list of available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -315,10 +323,10 @@ $("#navigator").scrollable().navigator();
     </td>
   </tr>
 </table>
-
+</div>
 
 <a name="navigator_api"></a>
-<h3>JavaScript API</h3>
+<h2>JavaScript API</h2>
 
 <p>
   The navigator plugin <em>overrides</em>
@@ -327,9 +335,189 @@ $("#navigator").scrollable().navigator();
   contain the navigator element.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -363,7 +551,8 @@ $("#navigator").scrollable().navigator();
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

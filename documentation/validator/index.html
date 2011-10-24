@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Validator</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <link rel="stylesheet" type="text/css"
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<link rel="stylesheet" type="text/css"
       href="/media/css/validator/form.css"/>
 
         <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
@@ -78,18 +82,18 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/validator.jpg) no-repeat 0 45px">
-  jQuery Validator @ jQuery Tools
-  <em>HTML5 input validation for humans</em>
-</h1>
+        <img id="hero" src="/media/img/hero/validator.jpg">
+<div class="blurb">
+<h1 class="teaser title">Validator</h1>
 
-<p class="more" style="margin-top:5px">
+<p>
   The 20 year wait is over. Enter the missing form validation tool. It
   takes the best parts of <strong>HTML 5</strong> and <strong>Web
   Forms 2.0</strong> standards and turns them into something pure
   amazing. All in <strong>1.75 Kb</strong> of code.
 </p>
 
+<div class="box full" >
 <form id="myform">
   <fieldset>
     <h3>Sample registration form</h3>
@@ -123,10 +127,11 @@
 $("#myform").validator();
 </script>
 
+</div>
+<a class="standalone"
+          href="/demos/validator/index.htm">standalone demo</a>
 
-<div style="height:40px"></div>
-
-<div class="feat">
+<div class="col">
   <h3 class="first">Use HTML5 input types today</h3>
   <p>
     HTML5 provides new input types such
@@ -138,7 +143,7 @@ $("#myform").validator();
     easy to create your own custom inputs.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Take control of your error messages</h3>
   <p>
     You can fully control when, where and how the error messages are
@@ -148,7 +153,7 @@ $("#myform").validator();
     dynamically change or disappear depending on the input.
   </p>
 </div>
-<div class="feat">
+<div class="col">
   <h3>Server-side integration</h3>
   <p>
     You can use a generic <samp>invalidate</samp> function to display
@@ -158,7 +163,7 @@ $("#myform").validator();
     is the capability to return data in JSON format.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>Web Forms 2.0</h3>
   <p>
     <a href="http://www.whatwg.org/specs/web-forms/current-work/#form-validation"
@@ -169,8 +174,9 @@ $("#myform").validator();
     functions for your inputs.
   </p>
 </div>
-<br clear="all" />
 
+
+</div>
 
 
 <a name="usage"></a>
@@ -256,6 +262,7 @@ $("#myform").validator();
   by validator:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -279,6 +286,7 @@ $("#myform").validator();
     <td>Accepts a valid URL only.</td>
   </tr>
 </table>
+</div>
 
 <p>
   HTML5 <samp>range</samp> and <samp>date</samp> types are also
@@ -297,6 +305,7 @@ $("#myform").validator();
 
 <h3>HTML5 Attributes</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -345,7 +354,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
-
+</div>
 
 <h3>HTML4 Attributes</h3>
 
@@ -354,6 +363,7 @@ $("#myform").validator();
   will make your forms more user friendly:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -407,6 +417,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   <strong>Note:</strong> all the above attributes can be changed
@@ -428,6 +439,7 @@ $("#myform").validator();
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -575,7 +587,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="positioning"></a>
@@ -766,6 +778,7 @@ $("#myform").validator();
 <div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">tools</span><span class="p">.</span><span class="nx">validator</span><span class="p">.</span><span class="nx">fn</span><span class="p">(</span><span class="nx">matcher</span><span class="p">,</span> <span class="p">[</span><span class="nx">errorMessages</span><span class="p">],</span> <span class="nx">validator</span><span class="p">)</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -834,6 +847,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
+</div>
 
 <p>
   As you can see you can supply error messages in two ways: as the
@@ -926,6 +940,7 @@ $("#myform").validator();
   scripting</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -1007,8 +1022,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
-
-
+</div>
 
 <a name="events"></a>
 <h2>Events</h2>
@@ -1027,6 +1041,7 @@ $("#myform").validator();
   events</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -1075,7 +1090,7 @@ $("#myform").validator();
     </td>
   </tr>
 </table>
-
+</div>
 
 <h3>Field specific events</h3>
 
@@ -1169,9 +1184,189 @@ $("#myform").validator();
   validator effect</a> in action.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -1205,7 +1400,8 @@ $("#myform").validator();
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

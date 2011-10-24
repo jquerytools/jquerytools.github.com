@@ -24,7 +24,7 @@
 <style>
   	/* override the root element to enable scrolling */
 	.css-panes {
-        height: 450px;
+        height: 410px;
         width: 702px;
 		position:relative;
 		overflow:hidden;
@@ -146,7 +146,7 @@ margin:0px !important;
   back button.
 </p>
 
-<div class="boxfull" >
+<div class="box full" >
 <!-- tabs work as navigator for scrollable -->
 <ul id="tabs" class="css-tabs navi">
   <li><a id="t1" class="current" href="#story">The Story</a></li>
@@ -270,7 +270,40 @@ margin:0px !important;
 	<h2>Study the first demo to get a quick start</h2>
 
 	<ul>
-    	</ul>
+        	    <li> <a href="/demos/scrollable/index.html">
+            Minimal setup for&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/vertical.html">
+            A vertical&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/gallery.html">
+            A simple scrollable image&nbsp;gallery</a>
+        </li>
+		    <li> <a href="/demos/scrollable/multiple-scrollables.html">
+            Gallery with multiple&nbsp;scrollables</a>
+        </li>
+		    <li> <a href="/demos/scrollable/wizard.html">
+            A scrollable registration&nbsp;wizard</a>
+        </li>
+		    <li> <a href="/demos/scrollable/plugins.html">
+            Scrollable plugins in&nbsp;action</a>
+        </li>
+		    <li> <a href="/demos/scrollable/one-sized.html">
+            Browser back button&nbsp;navigation</a>
+        </li>
+		    <li> <a href="/demos/scrollable/home.html">
+            jQuery tools home page&nbsp;setup</a>
+        </li>
+		    <li> <a href="/demos/scrollable/site-navigation.html">
+            A complete navigational&nbsp;system</a>
+        </li>
+		    <li> <a href="/demos/scrollable/edit.html">
+            Add and remove items from&nbsp;scrollable</a>
+        </li>
+		    <li> <a href="/demos/scrollable/easing.html">
+            Customizing the scrolling&nbsp;animation</a>
+        </li>
+		</ul>
       </div>
 
     </div>
@@ -353,7 +386,7 @@ margin:0px !important;
   enable scrolling:
 </p>
 
-<div class="codebox"><figure class="code"><div class="highlight"><pre>	<span class="c">/* override the root element to enable scrolling */</span><br />	<span class="nc">.css-panes</span> <span class="p">{</span><br />        <span class="k">height</span><span class="o">:</span> <span class="m">450px</span><span class="p">;</span><br />        <span class="k">width</span><span class="o">:</span> <span class="m">702px</span><span class="p">;</span><br />		<span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">;</span><br />		<span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span><br />		<span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><br />        <span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br />	<span class="c">/* override single pane */</span><br />	<span class="nc">.css-panes</span> <span class="nt">div</span> <span class="p">{</span><br />		<span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><br />		<span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><br />		<span class="k">width</span><span class="o">:</span><span class="m">660px</span><span class="p">;</span><br />		<span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span><br />        <span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br />	<span class="c">/* our additional wrapper element for the items */</span><br />	<span class="nc">.css-panes</span> <span class="nc">.items</span> <span class="p">{</span><br />		<span class="k">width</span><span class="o">:</span><span class="m">20000em</span><span class="p">;</span><br />		<span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />		<span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><br />		<span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />		<span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />        <span class="k">border</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br /><br />	<span class="nc">.css-panes</span> <span class="nc">.less</span><span class="o">,</span> <span class="nc">.css-panes</span> <span class="nc">.less</span> <span class="nt">a</span> <span class="p">{</span><br />		<span class="k">color</span><span class="o">:</span><span class="m">#999</span> <span class="cp">!important</span><span class="p">;</span><br />		<span class="k">font-size</span><span class="o">:</span><span class="m">11px</span><span class="p">;</span><br />	<span class="p">}</span><br />    <br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
+<div class="codebox"><figure class="code"><div class="highlight"><pre>	<span class="c">/* override the root element to enable scrolling */</span><br />	<span class="nc">.css-panes</span> <span class="p">{</span><br />        <span class="k">height</span><span class="o">:</span> <span class="m">410px</span><span class="p">;</span><br />        <span class="k">width</span><span class="o">:</span> <span class="m">702px</span><span class="p">;</span><br />		<span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">;</span><br />		<span class="k">overflow</span><span class="o">:</span><span class="k">hidden</span><span class="p">;</span><br />		<span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><br />        <span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br />	<span class="c">/* override single pane */</span><br />	<span class="nc">.css-panes</span> <span class="nt">div</span> <span class="p">{</span><br />		<span class="k">float</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><br />		<span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><br />		<span class="k">width</span><span class="o">:</span><span class="m">660px</span><span class="p">;</span><br />		<span class="k">font-size</span><span class="o">:</span><span class="m">14px</span><span class="p">;</span><br />        <span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br />	<span class="c">/* our additional wrapper element for the items */</span><br />	<span class="nc">.css-panes</span> <span class="nc">.items</span> <span class="p">{</span><br />		<span class="k">width</span><span class="o">:</span><span class="m">20000em</span><span class="p">;</span><br />		<span class="k">position</span><span class="o">:</span><span class="k">absolute</span><span class="p">;</span><br />		<span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><br />		<span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />		<span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />        <span class="k">border</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><br />	<span class="p">}</span><br />&nbsp;<br /><br />	<span class="nc">.css-panes</span> <span class="nc">.less</span><span class="o">,</span> <span class="nc">.css-panes</span> <span class="nc">.less</span> <span class="nt">a</span> <span class="p">{</span><br />		<span class="k">color</span><span class="o">:</span><span class="m">#999</span> <span class="cp">!important</span><span class="p">;</span><br />		<span class="k">font-size</span><span class="o">:</span><span class="m">11px</span><span class="p">;</span><br />	<span class="p">}</span><br />    <br /></pre></div><br /><figcaption>CSS</figcaption></figure></div>
 
 
 <h3>JavaScript coding</h3>
@@ -388,9 +421,9 @@ margin:0px !important;
     </header>
     <ol class="cat active">
         <li>
-        <h3 title="">Tabs</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
     <a         title="The most import ui widget for the web"
         href="/demos/tabs/index.html">
         Minimal setup for&nbsp;tabs</a>
@@ -442,12 +475,12 @@ margin:0px !important;
     <a         title="The most import ui widget for the web"
         href="/demos/tabs/slideshow.html">
         Slideshow plugin for the&nbsp;tabs</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Tooltips</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
     <a         title="The second most important UI widget"
         href="/demos/tooltip/index.html">
         Basics of using the&nbsp;tooltip</a>
@@ -475,12 +508,12 @@ margin:0px !important;
     <a         title="The second most important UI widget"
         href="/demos/tooltip/dynamic.html">
         Dynamic positioning of the&nbsp;tooltip</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Overlay</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
     <a         title="Overlay your HTML with eye candy"
         href="/demos/overlay/index.html">
         Minimal setup for&nbsp;overlay</a>
@@ -512,12 +545,12 @@ margin:0px !important;
     <a         title="Overlay your HTML with eye candy"
         href="/demos/overlay/custom-effect.html">
         Creating a customized overlay&nbsp;effect</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Scrollable</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
     <a         title="Scroll your HTML with eye candy"
         href="/demos/scrollable/index.html">
         Minimal setup for&nbsp;scrollable</a>
@@ -561,8 +594,8 @@ margin:0px !important;
     <a         title="Scroll your HTML with eye candy"
         href="/demos/scrollable/easing.html">
         Customizing the scrolling&nbsp;animation</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li>        </ol>
 </div><div class="sect two" id="sect1">
     <header >
@@ -571,9 +604,9 @@ margin:0px !important;
     </header>
     <ol class="cat">
         <li>
-        <h3 title="">Validator</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Validator</h3>
+                    <li>
     <a         title="HTML5 form validation made easy"
         href="/demos/validator/form.fragment.html">
         jQuery <span class="caps">TOOLS</span> - The missing <span class="caps">UI</span> library for the&nbsp;Web</a>
@@ -601,12 +634,12 @@ margin:0px !important;
     <a         title="HTML5 form validation made easy"
         href="/demos/validator/localize.html">
         Localizing the&nbsp;validator</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Rangeinput</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Rangeinput</h3>
+                    <li>
     <a         title="HTML5 range input for humans"
         href="/demos/rangeinput/index.html">
         Minimal setup for&nbsp;rangeinput</a>
@@ -622,12 +655,12 @@ margin:0px !important;
     <a         title="HTML5 range input for humans"
         href="/demos/rangeinput/scrollbar.html">
         A custom scrollbar for a&nbsp;<span class="caps">DIV</span></a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Dateinput</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Dateinput</h3>
+                    <li>
     <a         title="HTML5 date input for humans"
         href="/demos/dateinput/index.html">
         Minimal setup for&nbsp;dateinput</a>
@@ -651,8 +684,8 @@ margin:0px !important;
     <a         title="HTML5 date input for humans"
         href="/demos/dateinput/localize.html">
         Localizing the Dateinput&nbsp;(french)</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li>        </ol>
 </div><div class="sect three" id="sect2">
     <header >
@@ -661,9 +694,9 @@ margin:0px !important;
     </header>
     <ol class="cat">
         <li>
-        <h3 title="">Expose</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Expose</h3>
+                    <li>
     <a         title="Make your HTML elements stand out"
         href="/demos/toolbox/expose/index.html">
         Minimal setup for&nbsp;expose</a>
@@ -679,12 +712,12 @@ margin:0px !important;
     <a         title="Make your HTML elements stand out"
         href="/demos/toolbox/expose/video.html">
         Exposing videos with a custom&nbsp;mask</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Flashembed</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Flashembed</h3>
+                    <li>
     <a         title="The Future of Flash embedding"
         href="/demos/toolbox/flashembed/index.html">
         Basics of Flash&nbsp;embedding</a>
@@ -708,12 +741,12 @@ margin:0px !important;
     <a         title="The Future of Flash embedding"
         href="/demos/toolbox/flashembed/flowplayer.html">
         Flashembed and&nbsp;Flowplayer</a>
-    </li></ol>
-
+    </li>
+            </ol>
         </li><li>
-        <h3 title="">Combinations</h3>
-        <ol class="links">
-    <li>
+            <ol class="links">
+                <h3 title="">Combinations</h3>
+                    <li>
     <a         title="Possibilities are endless. Get creative!"
         href="/demos/combine/html5-form/index.html">
         <span class="caps">HTML5</span> form inside an&nbsp;overlay</a>
@@ -725,8 +758,18 @@ margin:0px !important;
     <a         title="Possibilities are endless. Get creative!"
         href="/demos/combine/portfolio/preload.html">
         Speeding up the&nbsp;portfolio</a>
-    </li></ol>
-
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">History</h3>
+                    
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Mousewheel</h3>
+                    
+            </ol>
         </li>        </ol>
 </div></nav>
         <ul class="more_info">

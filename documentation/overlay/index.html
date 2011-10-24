@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Overlay</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,18 +17,21 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<style>
 #promo {
 	text-align:center;
-	margin:0 -15px 15px -5px;
-	height:200px;
+	height:240px;
 }
 
 .trigger {
 	background:url(/media/img/screens/eye-candy.png);
-	width:240px;
+	width:200px;
 	height:150px;
-	margin:15px 0;
+	margin:15px auto;
 }
 
 #presentations {
@@ -40,7 +43,12 @@
 }
 
 #promo .col {
-	width:240px;
+	width:208px;
+  margin: 0 12px;
+}
+
+#promo .col.last {
+  float: left;
 }
 
 #promo h3 {
@@ -105,10 +113,10 @@
         </div>
 
       <div id="content">
-        <h1 style="background-image:url(/media/img/hero/overlay.jpg)">
-  jQuery Overlay @ jQuery Tools A generic tool for overlaying needs
-</h1>
-<div id="promo">
+        <img id="hero" src="/media/img/hero/overlay.jpg">
+<div class="blurb">
+<h1 class="teaser title">Overlay</h1>
+<div id="promo" class="box full">
   <div class="col">
     <h3>For eye candy</h3>
     <div class="trigger" id="eyecandy"></div>
@@ -124,10 +132,8 @@
     <div class="trigger" id="interactions"></div>
   </div>
 </div>
-
 <br clear="all" />
-
-<div class="feat">
+<div class="col">
   <h3 class="first">For every overlaying need</h3>
   <p>
     You'll need different kinds of overlays for different situations
@@ -140,7 +146,7 @@
     framework</a>.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">Configure the looks and behaviour</h3>
   <p>
     The overlay can contain any HTML such as images, links, forms and
@@ -152,7 +158,8 @@
     durations and the ways of closing the overlay.
   </p>
 </div>
-<div class="feat">
+<br clear="all" />
+<div class="col">
   <h3>Plays nice with other Tools</h3>
   <p>
     Overlay offers a good container for other tools. Think of
@@ -160,7 +167,7 @@
     fancy user interfaces to be explored.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>File size: 0.93 Kb</h3>
   <p>
     This tool has all the features and configuration options you'll
@@ -172,6 +179,8 @@
   </p>
 </div>
 <br clear="all" />
+
+</div>
 
 
 <a name="usage"></a>
@@ -204,10 +213,15 @@
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'overlay/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
-  </c:forEach>
-</ul>
+        <li> <a href="/demos/overlay/index.html">Minimal setup for overlay</a> </li>
+      <li> <a href="/demos/overlay/apple.html">The apple effect for overlay</a> </li>
+      <li> <a href="/demos/overlay/modal-dialog.html">Creating modal dialogs with overlay</a> </li>
+      <li> <a href="/demos/overlay/trigger.html">Opening overlays programmatically</a> </li>
+      <li> <a href="/demos/overlay/styling.html">Overlays with different styles</a> </li>
+      <li> <a href="/demos/overlay/external.html">Loading external pages into overlay</a> </li>
+      <li> <a href="/demos/overlay/multiple.html">Multiple overlays on the same page</a> </li>
+      <li> <a href="/demos/overlay/custom-effect.html">Creating a customized overlay effect</a> </li>
+  </ul>
 
 <h3>Combining overlay with Flowplayer</h3>
 
@@ -272,6 +286,7 @@
   Here is a list of all available configuration options:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -426,7 +441,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="callbacks"></a><a name="events"></a>
@@ -441,6 +456,7 @@
   for Overlay.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -474,7 +490,7 @@
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="api"></a>
@@ -486,6 +502,7 @@
   scripting</a>. Here is a list of all available API methods:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -546,7 +563,7 @@
   </tr>
 
 </table>
-
+</div>
 
 
 <a name="close"></a>
@@ -640,9 +657,189 @@
   overlay effect</a> demo.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -676,7 +873,8 @@
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

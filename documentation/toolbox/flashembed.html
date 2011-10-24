@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Flashembed</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <style>
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<style>
 #flash2 {
 	width:704px;
 	height:300px;
@@ -94,15 +98,15 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/toolbox/flashembed.jpg) 0 30px no-repeat">
-  jQuery TOOLS / flashembed - Adobe Flash embedding.
-  Your future tool to place Flash objects on your pages
-</h1>
+        <img id="hero" src="/media/img/hero/toolbox/flashembed.jpg">
+<div class="blurb">
+<h1 class="teaser title">Flashembed</h1>
 
-<p class="more" style="color:black;padding-left:40px">
+<p class="tease text">
   Flashembed is a modern way of embedding Flash. Simple, elegant and robust.
 </p>
 
+<div class="box" >
 <script>
 // use the jQuery alternative for flashembed.domReady
 $(function() {
@@ -118,8 +122,11 @@ $(function() {
   <img src="/media/img/global/player/btn/play_text_large.png" alt="" />
 </div>
 
+</div>
+<a class="standalone"
+          href="/demos/toolbox/flashembed/onclick2.htm">standalone demo</a>
 
-<div class="feat">
+<div class="col">
   <h3>Simple</h3>
   <p>
     The above example was performed with this JavaScript call:
@@ -128,7 +135,7 @@ $(function() {
     your site.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>JSON configuration</h3>
   <p>
     Flash can be configured with JSON. Compared to XML this is simpler
@@ -136,7 +143,8 @@ $(function() {
     developing this tool.
   </p>
 </div>
-<div class="feat">
+<br class="clear" clear="all">
+<div class="col">
   <h3>jQuery support</h3>
   <p>
     flashembed is designed with scripters in mind. A polished
@@ -145,7 +153,7 @@ $(function() {
     not <em>require</em>jQuery.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>1.09 kb!</h3>
   <p>
     This crazy size is one quarter of the competitors. The clean
@@ -155,10 +163,12 @@ $(function() {
     global variable: <samp>flashembed</samp>.
   </p>
 </div>
-<div class="clear"></div>
+
+</div>
 
 
-<p class="more">
+
+<p>
   <strong>Note:</strong> Flash is becoming an old school
   technology. The iPad and other products are removing the support for
   Flash. JavaScript will rule. Having said that, Flash technology
@@ -167,7 +177,7 @@ $(function() {
 </p>
 
 
-<h3>Flashembed and jQuery Tools</h3>
+<h2>Flashembed and jQuery Tools</h2>
 <p>
   Distinct from other jQuery Tools, this tool
   does <strong>not</strong> depend on jQuery. You can use it as a
@@ -189,10 +199,13 @@ $(function() {
 </p>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'toolbox/flashembed/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
-  </c:forEach>
-</ul>
+        <li> <a href="/demos/toolbox/flashembed/index.html">Basics of Flash embedding</a> </li>
+      <li> <a href="/demos/toolbox/flashembed/jquery.html">Flashembed and jQuery</a> </li>
+      <li> <a href="/demos/toolbox/flashembed/onclick.html">Loading flash on a mouse click</a> </li>
+      <li> <a href="/demos/toolbox/flashembed/wmode.html">Placing HTML on top of a flash object</a> </li>
+      <li> <a href="/demos/toolbox/flashembed/fail.html">Handling old flash versions</a> </li>
+      <li> <a href="/demos/toolbox/flashembed/flowplayer.html">Flashembed and Flowplayer</a> </li>
+  </ul>
 
 
 
@@ -256,6 +269,7 @@ $(function() {
 </p>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -430,6 +444,7 @@ $(function() {
     </td>
   </tr>
 </table>
+</div>
 
 <h3><span class="blue">3rd argument: </span> flashvars</h3>
 <p>
@@ -521,6 +536,7 @@ $(function() {
   This API has thr following methods available for your use:
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -559,7 +575,7 @@ $(function() {
     <td>Returns the container for the Flash object</td>
   </tr>
 </table>
-
+</div>
 
 
 <h2>Static methods</h2>
@@ -572,6 +588,7 @@ $(function() {
 <div class="codebox"><figure class="code"><div class="highlight"><pre>  <span class="c1">// get the embedding code for the supplied options and configuration</span><br />  <span class="nx">flashembed</span><span class="p">.</span><span class="nx">getHTML</span><span class="p">({</span><span class="nx">src</span><span class="o">:</span> <span class="s1">&#39;my_object.swf&#39;</span><span class="p">,</span> <span class="nx">w3c</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><br />  <span class="nx">param1</span><span class="o">:</span> <span class="s1">&#39;foobar&#39;</span><span class="p">,</span><br />  <span class="nx">param2</span><span class="o">:</span> <span class="s1">&#39;baz&#39;</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -618,7 +635,7 @@ $(function() {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="html"></a>
@@ -708,9 +725,189 @@ $(function() {
   document.
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -744,7 +941,8 @@ $(function() {
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");

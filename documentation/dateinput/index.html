@@ -5,7 +5,7 @@
 -->
 <html lang="en">
   <head>
-    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <title>Dateinput</title>
     <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
 ">
     <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
@@ -17,7 +17,11 @@
 
     <link rel="shortcut icon" href="/media/img/favicon.ico">
         <link rel="stylesheet" href="/media/css/style.css">
-        <!-- wrapper, inputs and labels  -->
+        
+
+<link rel="stylesheet" type="text/css" href="/media/css/docs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css">
+<!-- wrapper, inputs and labels  -->
 <link rel="stylesheet" type="text/css"
       href="/media/css/dateinput/flight.css"/>
 
@@ -83,19 +87,18 @@
         </div>
 
       <div id="content">
-        <h1 style="background:url(/media/img/hero/dateinput.jpg) no-repeat -14px 34px">
-  jQuery Dateinput @ jQuery Tools
-  <em>HTML5 date input for humans</em>
-</h1>
+        <img id="hero" src="/media/img/hero/dateinput.jpg">
+<div class="blurb">
+<h1 class="teaser title">Dateinput</h1>
 
-<p class="more" style="margin-top:0">
+<p>
   This tool brings <strong>HTML5</strong> date input to all browsers
   in such a way that you can make it look and behave like you
   want. This small screen candy weights only <strong>2.0 Kb</strong>.
 </p>
 
-<div style="margin:20px 0">
-  <form id="flight">
+<div class="box full" >
+<form id="flight">
   <label>
     Arrival <br/>
     <input type="date" name="arrival" value="Today"/>
@@ -123,10 +126,11 @@ $(":date:first").data("dateinput").change(function() {
 </script>
 
 </div>
+<a class="standalone"
+          href="/demos/dateinput/flight.htm">standalone demo</a>
 
+<p>
 
-<p class="less" style="margin-bottom:30px">
-  <small>
     When the calendar is visible you can navigate between days with
     your <samp>Arrow Keys</samp> or with <strong>VIM</strong> keyboard
     shortcuts <samp>HJKL</samp>. <samp>PageUp</samp>
@@ -134,10 +138,10 @@ $(":date:first").data("dateinput").change(function() {
     and <samp>Enter</samp> selects the day. The <samp>Home</samp> key
     will navigate to the present day and <samp>backspace</samp> clears
     the input.
-  </small>
+
 </p>
 
-<div class="feat">
+<div class="col">
   <h3 class="first">HTML5 date input</h3>
   <p>
     This tool brings HTML5 <samp>&lt;input type="date" /&gt;</samp>
@@ -148,7 +152,7 @@ $(":date:first").data("dateinput").change(function() {
     disabled.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3 class="first">For nerds and humans</h3>
   <p>
     Call <samp>$(":date").dateinput();</samp> and all your HTML5 date
@@ -158,7 +162,8 @@ $(":date:first").data("dateinput").change(function() {
     dates and months.
   </p>
 </div>
-<div class="feat">
+<br class="clear" clear="all">
+<div class="col">
   <h3>Styleable</h3>
   <p>
     You can design calendars that fit the overall feel of your
@@ -169,7 +174,7 @@ $(":date:first").data("dateinput").change(function() {
     use them for free.
   </p>
 </div>
-<div class="feat last">
+<div class="col last">
   <h3>File size: 2.0 Kb</h3>
   <p>
     This tool give you all the features and configuration options
@@ -181,21 +186,26 @@ $(":date:first").data("dateinput").change(function() {
 </div>
 <br clear="all" />
 
+</div>
 
 
 <h2>Demos</h2>
 
 <ul>
-  <c:forEach items="${f:getDemo(context.toolDemos2, 'dateinput/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
-  </c:forEach>
-</ul>
+        <li> <a href="/demos/dateinput/index.html">Minimal setup for dateinput</a> </li>
+      <li> <a href="/demos/dateinput/large-skin.html">A large skin for Dateinput</a> </li>
+      <li> <a href="/demos/dateinput/customize.html">Customizing Dateinput behavior</a> </li>
+      <li> <a href="/demos/dateinput/flight.html">Prompting for start and end dates</a> </li>
+      <li> <a href="/demos/dateinput/static.html">Calendar that is always available</a> </li>
+      <li> <a href="/demos/dateinput/localize.html">Localizing the Dateinput (french)</a> </li>
+  </ul>
 
 
 
 <a name="configuration"></a>
 <h2>Configuration</h2>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -312,7 +322,7 @@ $(":date:first").data("dateinput").change(function() {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="attributes"></a>
@@ -331,6 +341,7 @@ $(":date:first").data("dateinput").change(function() {
   valid HTML5 attributes.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -386,7 +397,7 @@ $(":date:first").data("dateinput").change(function() {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="values"></a>
@@ -433,21 +444,7 @@ $(":date:first").data("dateinput").change(function() {
   the <samp>getDate()</samp> function in the API. Here are a few
   examples:
 </p>
-
-<pii:code>
-  $(".date").dateinput({
-
-  // this is displayed to the user
-  format: 'You selected: dddd / dd.mm.yyyy',
-
-  // a different format is sent to the server
-  change: function() {
-  var isoDate = this.getValue('yyyy-mm-dd');
-
-  $("#backendValue").val(isoDate);
-  }
-  });
-</pii:code>
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.date&quot;</span><span class="p">).</span><span class="nx">dateinput</span><span class="p">({</span><br />&nbsp;<br />  <span class="c1">// this is displayed to the user</span><br />  <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;You selected: dddd / dd.mm.yyyy&#39;</span><span class="p">,</span><br />&nbsp;<br />  <span class="c1">// a different format is sent to the server</span><br />  <span class="nx">change</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br />  <span class="kd">var</span> <span class="nx">isoDate</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;yyyy-mm-dd&#39;</span><span class="p">);</span><br />&nbsp;<br />  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#backendValue&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">isoDate</span><span class="p">);</span><br />  <span class="p">}</span><br />  <span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 <p>
   Formatting characters can be mixed with other characters and you can
@@ -456,6 +453,7 @@ $(":date:first").data("dateinput").change(function() {
 
 <h3>List of formatting characters</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -504,7 +502,7 @@ $(":date:first").data("dateinput").change(function() {
     <td>Year represented by four digits.</td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="skinning"></a>
@@ -540,6 +538,7 @@ $(":date:first").data("dateinput").change(function() {
 
 <h3>CSS names</h3>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -701,7 +700,7 @@ $(":date:first").data("dateinput").change(function() {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="api"></a>
@@ -713,6 +712,7 @@ $(":date:first").data("dateinput").change(function() {
   scripting</a>.
 </p>
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -859,7 +859,7 @@ $(":date:first").data("dateinput").change(function() {
   </tr>
 
 </table>
-
+</div>
 
 
 <a name="events"></a>
@@ -876,6 +876,7 @@ $(":date:first").data("dateinput").change(function() {
 <div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c1">// select an input field and assign an event listener to it.</span><br /><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;:input.date&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">date</span><span class="p">)</span> <span class="p">{</span><br />  <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s2">&quot;a date was selected&quot;</span><span class="p">,</span> <span class="nx">date</span><span class="p">);</span><br /><span class="p">});</span><br /></pre></div><br /><figcaption>JavaScript</figcaption></figure></div>
 
 
+<div class="table">
 <table class="listing">
   <thead>
     <tr>
@@ -915,7 +916,7 @@ $(":date:first").data("dateinput").change(function() {
     </td>
   </tr>
 </table>
-
+</div>
 
 
 <a name="localizing"></a>
@@ -956,9 +957,189 @@ $(":date:first").data("dateinput").change(function() {
   'fr';</samp>
 </p>
 
+
       </div>
             <div id="right">
-                        <ul class="more_info">
+        <nav class="sidebar">
+
+<div class="sect one" id="sect0">
+    <header >
+        <div class="icon"></div>
+        <h2 class="first">User&nbsp;Guide</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/index.html">
+        Introduction to jQuery&nbsp;tools</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/basics.html">
+        jQuery tools&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scripting.html">
+        jQuery tools scripting <span class="amp">&amp;</span>&nbsp;events</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/performance.html">
+        jQuery tools&nbsp;performance</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect two" id="sect1">
+    <header >
+        <div class="icon"></div>
+        <h2>Ui&nbsp;Tools</h2>
+    </header>
+    <ol class="cat">
+        <li>
+            <ol class="links">
+                <h3 title="">Tabs</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/index.html">
+        Tab tool&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tabs/slideshow.html">
+        Slideshow&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Tooltips</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/index.html">
+        Tooltip&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/slide.html">
+        Slide&nbsp;effect</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/tooltip/dynamic.html">
+        Dynamic&nbsp;tooltips</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Overlay</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/index.html">
+        Overlay</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/overlay/apple.html">
+        Apple&nbsp;Effect</a>
+    </li>
+            </ol>
+        </li><li>
+            <ol class="links">
+                <h3 title="">Scrollable</h3>
+                    <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/index.html">
+        Scrollable&nbsp;basics</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/autoscroll.html">
+        Scrollable&nbsp;autoscrolling</a>
+    </li><li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/scrollable/navigator.html">
+        Navigator&nbsp;plugin</a>
+    </li>
+            </ol>
+        </li>        </ol>
+</div><div class="sect three" id="sect2">
+    <header  class="open" >
+        <div class="icon"></div>
+        <h2>Form&nbsp;Tools</h2>
+    </header>
+    <ol class="cat active">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/validator/index.html">
+        Validator</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/rangeinput/index.html">
+        Rangeinput</a>
+    </li>
+            <li>
+    <a class="active"        title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/dateinput/index.html">
+        Dateinput</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div><div class="sect one" id="sect3">
+    <header >
+        <div class="icon"></div>
+        <h2>Toolbox</h2>
+    </header>
+    <ol class="cat">
+        <li>
+        <ol class="links">
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/expose.html">
+        Expose</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/flashembed.html">
+        Flashembed</a>
+    </li>
+            
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/history.html">
+        History</a>
+    </li>
+            <li>
+    <a         title="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+"
+        href="/documentation/toolbox/mousewheel.html">
+        Mousewheel</a>
+    </li>
+                </ol>
+    </li>
+        </ol>
+</div></nav>
+        <ul class="more_info">
           <li>
             <a href="https://github.com/jquerytools/jquerytools/issues">
               report a bug &raquo;</a>
@@ -992,7 +1173,8 @@ $(":date:first").data("dateinput").change(function() {
       </div>
     </div>
 
-        <script>
+    
+    <script>
     // toggle category
     $("#right header").click(function() {
         $(this).toggleClass("open");
