@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="/media/css/style.css">
         <link rel="stylesheet" type="text/css" href="/media/css/tooltip-generic.css"/>
 <link rel="stylesheet" type="text/css" href="/media/css/download.css"/>
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
         <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
           </head>
   <body>
@@ -98,13 +99,8 @@
 </p>
 
 <ol>
-  <li><a href="http://jquery.com" class="external">jQuery ${v.jquery}</a></li>
-  <c:forEach items="${metadata.tools}" var="tool" begin="1" end="12" varStatus="i">
-    <c:if test="${empty tool.plugin && empty tool.cat}">
-      <li><a href="/${tool.www}">${tool.title}</a></li>
-    </c:if>
-  </c:forEach>
-</ol>
+  <li><a href="http://jquery.com" class="external">jQuery </a></li>
+  </ol>
 
 <p>
   The tools will be loaded
@@ -138,68 +134,445 @@
   versions</strong> are available.
 </p>
 
+<div class="blurb">
+<h3>Version</h3>
+<div class="table">
+  <table class="listing">
+    <tr>
+      <td>
+        <label>
+          <input type="radio" checked="checked" value="v1.2.6" name="build" id="build_stable" />
+          1.2.6 stable
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label>
+          <input type="radio" value="dev" name="build" id="build_dev" />
+          1.2.7-dev
+        </label>
+      </td>
+    </tr>
+  </table>
+</div>
 
+<h3>Include jQuery</h3>
+<div class="table">
+  <table class="listing">
+    <tr id="t_jquery" >
+        <td>
+          <label>
+            <input type="checkbox" name="include_jquery" value="72174" /> jQuery
+            <span id="jquery_version"></span>
+          </label>
+        </td>
+        <td><small></small></td>
+        <td class="size" id="jquery_size"></td>
+        <td style="text-align:right;padding-right:5px">
+          <img src="http://flowplayer.org/img/global/info_small.png" />
+          <div class="tooltip">
+            <h3>jQuery 1.6.4</h3>
+            <p>All tools depend on this library (except flashembed). Can alternatively be included from googleapis (see below)</p>
+          </div>
+        </td>
+    </tr>
+  </table>
+</div>
+
+
+<h3>UI Tools</h3>
+<div class="table">
 <table class="listing">
-  <c:forEach items="${metadata.tools}" var="tool" varStatus="i">
-    <c:if test="${!empty tool.cat}">
-</table>
-<h3>${tool.cat}</h3>
-<table class="listing">
-</c:if>
 
-<c:if test="${empty tool.cat}">
-  <c:set var="base" value="/download/{{jqt.v }}/${tool.file}"/>
-  <c:set var="source" value="${base}.js"/>
-  <c:set var="min" value="${base}.min.js"/>
 
-  <tr id="t_${tool.key}" ${!empty tool.plugin ? 'class="plugin"' : ''}>
+  <tr id="t_tabs" >
     <td>
-      <c:if test="${!empty tool.file}">
-	<label>
-	  <input type="checkbox" name="${tool.key}" value="${f:fileLength(min)}" /> ${tool.title}
-	</label>
-      </c:if>
-
-      <c:if test="${empty tool.file}">
-	<strong>${tool.title}</strong>
-      </c:if>
+     <label>
+       <input type="checkbox" name="tabs/tabs.js" value="2896.0" /> Tabs
+     </label>
     </td>
-    <td><small>${tool.requires}</small></td>
-
-    <%-- download links --%>
-    <c:if test="${!empty tool.file}">
-      <td><a href="${source}?download=true">${f:fileSize(source)}</a></td>
-      <td><a href="${min}?download=true">${f:fileSize(min)}</a></td>
-    </c:if>
+    <td><small></small></td>
+    <td class="size">6761.0</td>
 
     <td style="text-align:right;padding-right:5px">
       <img src="/media/img/global/info_small.png" />
       <div class="tooltip">
-	<h3>${tool.title}</h3>
-	<p>${tool.description}</p>
-	<c:if test="${i.index > 0}">
-	  <p> <a href="/${tool.www}">documentation</a> </p>
-	</c:if>
+       <h3>Tabs</h3>
+       <p>The most important UI tool</p>
+       <p> <a href="/tabs/index.html">documentation</a></p>
       </div>
     </td>
   </tr>
 
-</c:if>
 
-</c:forEach>
+
+  <tr id="t_tabs.slideshow" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="tabs/tabs.slideshow.js" value="1571.0" /> Slideshow plugin
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">3678.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Slideshow plugin</h3>
+       <p>Transforms tabs into a working slideshow</p>
+       <p> <a href="/tabs/slideshow.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_tooltip" >
+    <td>
+     <label>
+       <input type="checkbox" name="tooltip/tooltip.js" value="3569.0" /> Tooltip
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">7832.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Tooltip</h3>
+       <p>The basics of UI design</p>
+       <p> <a href="/tooltip/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_tooltip.slide" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="tooltip/tooltip.slide.js" value="706.0" /> Slide effect
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">1687.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Slide effect</h3>
+       <p>A sliding tooltip effect with customized sliding directions, dimensions and speeds
+</p>
+       <p> <a href="/tooltip/slide.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_tooltip.dynamic" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="tooltip/tooltip.dynamic.js" value="1483.0" /> Dynamic plugin
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">3914.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Dynamic plugin</h3>
+       <p>Dynamic positioning of the tooltip so that it always stays in the viewport
+</p>
+       <p> <a href="/tooltip/dynamic.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_scrollable" >
+    <td>
+     <label>
+       <input type="checkbox" name="scrollable/scrollable.js" value="3906.0" /> Scrollable
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">8400.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Scrollable</h3>
+       <p>A generic HTML scrolling widget</p>
+       <p> <a href="/scrollable/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_scrollable.autoscroll" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="scrollable/scrollable.autoscroll.js" value="648.0" /> Autoscroll plugin
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">1921.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Autoscroll plugin</h3>
+       <p>Makes the scrolling behavior automatic. highly configurable
+</p>
+       <p> <a href="/scrollable/autoscroll.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_scrollable.navigator" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="scrollable/scrollable.navigator.js" value="1357.0" /> Navigator plugin
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">2799.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Navigator plugin</h3>
+       <p>Provides navigation buttons for switching between pages in scrollable
+</p>
+       <p> <a href="/scrollable/navigator.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_overlay" >
+    <td>
+     <label>
+       <input type="checkbox" name="overlay/overlay.js" value="2809.0" /> Overlay
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">6455.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Overlay</h3>
+       <p>A generic HTML overlaying widget</p>
+       <p> <a href="/overlay/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_overlay.apple" class="plugin">
+    <td>
+     <label>
+       <input type="checkbox" name="overlay/overlay.apple.js" value="1506.0" /> Apple effect
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">3281.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Apple effect</h3>
+       <p>An overlay effect that you might have seen on apple.com
+</p>
+       <p> <a href="/overlay/apple.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
 
 </table>
-
-<a href="#" id="downloadLink">
-  <img src="/media/img/global/commerce/download.png"
-       alt="Download jQuery Tools" />
-</a>
-
-<h3 style="margin:10px 0 20px 0">
-  <em>Size</em>: <span id="minified"></span> / <span id="gzipped"></span>
-</h3>
+</div>
+<h3>Form Tools</h3>
+<div class="table">
+<table class="listing">
 
 
+  <tr id="t_dateinput" >
+    <td>
+     <label>
+       <input type="checkbox" name="dateinput/dateinput.js" value="8201.0" /> Dateinput
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">17850.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Dateinput</h3>
+       <p>HTML5 date input for humans</p>
+       <p> <a href="/dateinput/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_rangeinput" >
+    <td>
+     <label>
+       <input type="checkbox" name="rangeinput/rangeinput.js" value="4289.0" /> Rangeinput
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">10653.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Rangeinput</h3>
+       <p>HTML5 range input for humans</p>
+       <p> <a href="/rangeinput/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_validator" >
+    <td>
+     <label>
+       <input type="checkbox" name="validator/validator.js" value="6377.0" /> Validator
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">14803.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Validator</h3>
+       <p>HTML5 input validation for humans</p>
+       <p> <a href="/validator/index.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+</table>
+</div>
+<h3>Toolbox</h3>
+<div class="table">
+<table class="listing">
+
+
+  <tr id="t_toolbox.flashembed" >
+    <td>
+     <label>
+       <input type="checkbox" name="toolbox/toolbox.flashembed.js" value="3654.0" /> Flashembed
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">6773.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Flashembed</h3>
+       <p>The future of Flash embedding. Works as a standalone tool and jQuery is not required.
+</p>
+       <p> <a href="/toolbox/flashembed.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_toolbox.history" >
+    <td>
+     <label>
+       <input type="checkbox" name="toolbox/toolbox.history.js" value="961.0" /> History
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">2193.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>History</h3>
+       <p>Back button for AJAX apps</p>
+       <p> <a href="/toolbox/history.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_toolbox.expose" >
+    <td>
+     <label>
+       <input type="checkbox" name="toolbox/toolbox.expose.js" value="2031.0" /> Expose
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">4497.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Expose</h3>
+       <p>Makes your HTML stand out from its surroundings
+</p>
+       <p> <a href="/toolbox/expose.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+
+
+  <tr id="t_toolbox.mousewheel" >
+    <td>
+     <label>
+       <input type="checkbox" name="toolbox/toolbox.mousewheel.js" value="604.0" /> Mousewheel
+     </label>
+    </td>
+    <td><small></small></td>
+    <td class="size">1601.0</td>
+
+    <td style="text-align:right;padding-right:5px">
+      <img src="/media/img/global/info_small.png" />
+      <div class="tooltip">
+       <h3>Mousewheel</h3>
+       <p>A generic mousewheel support for jQuery
+</p>
+       <p> <a href="/toolbox/mousewheel.html">documentation</a></p>
+      </div>
+    </td>
+  </tr>
+
+</table>
+</div>
+
+<div class="footer">
+  <a href="#" id="downloadLink">
+    <img src="/media/img/global/commerce/download.png"
+         alt="Download jQuery Tools" />
+  </a>
+
+  <h3>
+    <em>Size</em>: <span id="minified"></span> / <span id="gzipped"></span>
+  </h3>
+</div>
+</div>
 <a name="cdn"></a>
 <h2>jQuery Tools from CDN</h2>
 
@@ -208,7 +581,7 @@
   a <strong>free</strong> Content Delivery Network.
 </p>
 
-<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay (${v.jqtSize} Kb) --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/tiny/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- Form tools: Dateinput, Rangeinput and Validator. No jQuery library. (${v.jqtFormSize} Kb) --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/form/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- ALL jQuery Tools. No jQuery library --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/all/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- jQuery Library + UI Tools --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- jQuery Library + ALL jQuery Tools --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="c">&lt;!-- UI Tools: Tabs, Tooltip, Scrollable and Overlay ( Kb) --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/tiny/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- Form tools: Dateinput, Rangeinput and Validator. No jQuery library. ( Kb) --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/form/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- ALL jQuery Tools. No jQuery library --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/all/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- jQuery Library + UI Tools --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br />&nbsp;<br /><span class="c">&lt;!-- jQuery Library + ALL jQuery Tools --&gt;</span><br /><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
 
 
 <p>
@@ -218,7 +591,7 @@
   library.
 </p>
 
-<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery/${v.jquery}/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
+<div class="codebox"><figure class="code"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;http://ajax.googleapis.com/ajax/libs/jquery//jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span><br /></pre></div><br /><figcaption>HTML</figcaption></figure></div>
 
 
       </div>
@@ -258,79 +631,131 @@
     </div>
 
     <script>
-    $(function() {
-	// global navi
-	$("#jqt2").addClass("active");
+$(function() {
 
-	var els = $(".listing :checkbox").attr("checked", false);
+  // global navi
+  $("#jqt2").addClass("active");
 
-	// tooltips
-	$(".listing img").tooltip(
-            { position: 'right top', offset: [60, 10], delay: 50 }
-        );
+  var els = $(".listing :checkbox, .listing :radio").attr("checked", false);
 
-	// checkbox change
-	els.change(function() {
+  // tooltips
+  $(".listing img").tooltip({ position: 'right top', offset: [60, 10], delay: 50 });
 
-	    // count size
-	    var size = 0,
-	    count = 0,
-	    tools = "";
+  var INFO;
+  $.ajax({
+    url: 'http://builder.jquerytools.org/info',
+    dataType: 'jsonp',
+    success: function (info) {
+      INFO = info;
+      $('input[name="build"]').change();
+    }
+  });
 
-	    els.filter(":checked").each(function() {
+  // returns a string representing the size in kb
+  var bytes_to_kb = function (bytes) {
+    return (Math.round(bytes / 102.4) / 10) + ' Kb';
+  };
 
-		// 170 bytes for stripping down comment size
-		size += parseFloat($(this).val()) - 170;
-		count++;
-		tools += "&t=" + this.name;
-	    });
+  // checkbox change
+  els.change(function() {
 
-	    // user information
-	    $("#selected").html('('+count+' of '+els.size()+' selected)');
-	    $("#minified").html(Math.round(size / 10) / 100 + ' Kb');
-	    $("#gzipped") .html(
-                Math.round(size * 0.0322) / 100 + ' Kb <em>gzipped</em>'
-            );
-
-
-	    // download link
-	    $("#downloadLink").attr("href", "http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js?download=true"+tools);
-	    $("#tokens").html(tools);
+    // count size
+    var size = 0,
+       count = 0,
+       tools = "";
 
 
-	    // highlight row
-	    var tr = $(this).parents("tr"), checked = this.checked;
-
-	    if (checked) {
-		tr.addClass("selected");
-	    } else {
-		tr.removeClass("selected");
-	    }
-
-	    // show/hide plugins
-	    if (!tr.is(".plugin")) {
-		tr.nextAll().each(function()  {
-		    if ($(this).is(".plugin"))  {
-			if (checked) {
-			    $(this).fadeIn();
-			} else {
-			    $(this).hide().removeClass("selected").
-                                find(":checkbox").attr("checked", false);
-			}
-
-		    } else  {
-			return false;
-		    }
-		});
-	    }
-
-	});
-
-	// default selection
-	$("#t_tabs, #t_tooltip, #t_scrollable, #t_overlay").each(function() {
-	    $(this).find(":checkbox").click().triggerHandler("change");
-	});
+    var version_info;
+    $('input[name="build"]').each(function () {
+      var tr = $(this).parents('tr');
+      if (this.checked) {
+        tr.addClass('selected');
+        if (INFO) {
+          version_info = INFO[this.value];
+        }
+      }
+      else {
+        tr.removeClass('selected');
+      }
     });
+
+    if (version_info) {
+      $('#jquery_version').text(version_info.jquery.version);
+      $('#jquery_size').text(bytes_to_kb(version_info.jquery.size));
+      $('.listing :checkbox').each(function () {
+        if (this.name !== 'include_jquery') {
+          var size = version_info.sizes[decodeURIComponent(this.name)];
+          var el = $('.size', $(this).parent().parent().parent());
+          el.text(size ? bytes_to_kb(size): '');
+          this.value = size;
+        }
+      });
+    }
+
+    els.filter(":checked").each(function() {
+      if (this.name === 'include_jquery') {
+        tools += "&include_jquery=true";
+        if (version_info) {
+          size += version_info.jquery.size;
+        }
+      }
+      else if (this.name !== 'build') {
+        // 170 bytes for stripping down comment size
+        size += parseFloat($(this).val()) - 170;
+        count++;
+        tools += "&t=" + this.name;
+      }
+    });
+
+    // user information
+    $("#selected").html('(' +count+ ' of ' + els.size() + ' selected)');
+    $("#minified").html(bytes_to_kb(size));
+    $("#gzipped") .html(bytes_to_kb(size * 0.322) + ' <em>gzipped</em>');
+
+    // build choice
+    var build = $('input[name="build"]').filter(':checked').val() || 'v1.2.6';
+
+    // download link
+    $("#downloadLink").attr(
+      "href",
+      "http://builder.jquerytools.org/" + build + "/jquery.tools.min.js?" + tools
+    );
+    $("#tokens").html(tools);
+
+
+    // highlight row
+    var tr = $(this).parents("tr"), checked = this.checked;
+
+    if (checked) {
+      tr.addClass("selected");
+    } else {
+      tr.removeClass("selected");
+    }
+
+    // show/hide plugins
+    if (!tr.is(".plugin")) {
+      tr.nextAll().each(function()  {
+        if ($(this).is(".plugin"))  {
+          if (checked) {
+            $(this).fadeIn();
+          } else {
+            $(this).hide().removeClass("selected").find(":checkbox").attr("checked", false);
+          }
+
+        } else  {
+          return false;
+        }
+      });
+    }
+
+  });
+
+  // default selection
+  $("#t_tabs, #t_tooltip, #t_scrollable, #t_overlay").each(function() {
+    $(this).find(":checkbox").click().triggerHandler("change");
+  });
+  $("#build_stable").click().triggerHandler("change");
+});
 </script>
     <script>
     // toggle category

@@ -1,83 +1,59 @@
-.tooltip {
-    background:#05345B url(/media/img/gradient/h300.png) repeat-x;
-    width:170px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-}
-
-#content .tooltip p {
-    font-size:11px;
-}
-
-.tooltip h3 {
-    margin-top:0px;
-    color:#ffc;
-}
-
-.tooltip a {
-    color:yellow;
-    text-decoration:none;
-}
-
-.tooltip a:hover {
-    color:yellow !important;
-    text-decoration:underline;
-}
-
-label {
-    width:200px;
-    display:block;
-    padding:4px 0;
-    cursor:pointer;
-    color:#123;
-}
-
-#tool_jquery td {
-    border-bottom:30px solid #fff;
-}
-
-#tool_jquery label {
-    font-weight:bold;
-}
-
-#tool_js_core td {
-    padding-top:30px;
-}
-
-#combined td {
-    font-weight:bold;
-}
-
-#combined td em, #combined td a {
-    font-weight:normal;
-}
-
-#gzipped {
-    font-weight:bold;
-}
-
-table.listing td {
-    padding:1px 2px;
-}
-
-.plugin td {
-    color:#666;
-}
-
-.plugin label {
-    text-indent:15px;
-    color:#666;
-    font-size:11px;
-}
-
-.plugin a {
-    font-size:11px;
-}
-
-tr.selected {
-    background:#ECF9FA url(/media/img/gradient/h80.png) repeat-x;
-}
-
-tr.plugin.selected {
-    background-color:#FAFAFA;
-}
+.clearfix{display:block;zoom:1;}
+.clearfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+.vhidden{visibility:hidden}
+figure.code,div.code{position:relative;margin-bottom:12px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;background-color:#202020}
+figure.code figcaption,div.code figcaption{font-size:10px;position:absolute;bottom:3px;right:12px;color:#666}
+.highlight{-webkit-border-top-left-radius:6px;-webkit-border-top-right-radius:6px;-moz-border-radius-topleft:6px;-moz-border-radius-topright:6px;border-top-left-radius:6px;border-top-right-radius:6px;}
+.highlight pre{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;font-size:12px;padding:16px 12px 12px;line-height:24px;margin-bottom:8px}
+code{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;background-color:#fff;padding:0 2px;color:#777}
+div.table{margin-bottom:12px;}
+div.table th,div.table td{padding:4px 8px;vertical-align:middle}
+div.table #content td p:last-child,div.table #content th p:last-child,div.table  p:last-child{margin:0}
+div.table th,div.table tfoot td{font-size:10px;font-variant:italic;font-weight:normal;color:#999;text-align:left}
+div.table tfoot td{padding:5px 0 4px}
+div.table table caption{color:#999;letter-spacing:2px;text-transform:uppercase;text-align:left;padding-bottom:6px}
+div.table tbody{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;}
+div.table tbody tr td:first-child,div.table tbody tr th:first-child{border-left:0}
+div.table tbody tr td:last-child,div.table tbody tr th:last-child{border-right:0}
+div.table tbody tr:first-child td,div.table tbody tr:first-child th{border-top:0;}
+div.table tbody tr:first-child td:first-child,div.table tbody tr:first-child th:first-child{-webkit-border-top-left-radius:6px;-moz-border-radius-topleft:6px;border-top-left-radius:6px}
+div.table tbody tr:first-child td:last-child,div.table tbody tr:first-child th:last-child{-webkit-border-top-right-radius:6px;-moz-border-radius-topright:6px;border-top-right-radius:6px}
+div.table tbody tr:last-child td,div.table tbody tr:last-child th{border-bottom:0;}
+div.table tbody tr:last-child td:first-child,div.table tbody tr:last-child th:first-child{-webkit-border-bottom-left-radius:6px;-moz-border-radius-bottomleft:6px;border-bottom-left-radius:6px}
+div.table tbody tr:last-child td:last-child,div.table tbody tr:last-child th:last-child{-webkit-border-bottom-right-radius:6px;-moz-border-radius-bottomright:6px;border-bottom-right-radius:6px}
+div.table tbody td,div.table tbody th{border:1px solid #ededed;background-color:#fff}
+div.table dt{width:96px;clear:left;float:left}
+div.table dd{float:left;margin-left:-96px;padding-left:96px;width:280px;border-bottom:1px dotted #ccc;margin-bottom:6px;padding-bottom:6px;}
+div.table dd:last-child{border-bottom:0}
+.blurb{margin-top:0;display:block;zoom:1;}
+.blurb:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+#content h1#hero{background:url("/media/img/hero/plain.jpg") no-repeat -31px 16px;font-size:75px;letter-spacing:-3px;padding:151px 0 0 217px;text-transform:uppercase;height:185px;color:#055499;text-indent:0;line-height:45px;position:relative;width:704px !important;}
+#content h1#hero em{display:block;text-transform:none;letter-spacing:0;font-size:22px;color:#000;font-style:normal;margin-top:6px;}
+#content h1#hero em strong{color:#666}
+#content h1#hero span{background:transparent url("/media/img/gradient/letters.png") repeat-x 0 0;height:80px;position:absolute;margin-top:-7px;display:block;width:704px !important}
+.tooltip{background:#05345b url("/media/img/gradient/h300.png") repeat-x;width:170px;-moz-border-radius:5px;-webkit-border-radius:5px}
+#content .tooltip p{font-size:11px}
+.tooltip h3{margin-top:0;color:#ffc}
+.tooltip a{color:#ff0;text-decoration:none}
+.tooltip a:hover{color:#ff0 !important;text-decoration:underline}
+label{width:200px;display:block;padding:4px 0;cursor:pointer;color:#123}
+#tool_jquery td{border-bottom:30px solid #fff}
+#tool_jquery label{font-weight:bold}
+#tool_js_core td{padding-top:30px}
+#combined td{font-weight:bold}
+#combined td em,#combined td a{font-weight:normal}
+#gzipped{font-weight:bold}
+.footer{display:block;zoom:1;margin:12px;float:right;text-align:right}
+.footer:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+div.table table{border-bottom:1px solid #ededed;width:100%;}
+div.table table td{padding:1px 2px;border-right:0;border-left:0;}
+div.table table td:first-child{width:420px}
+div.table table td.size{width:96px;font-size:11px}
+div.table table td img{cursor:pointer;margin-top:6px}
+div.table table td a{font-size:11px}
+div.table table .plugin td{color:#666}
+div.table table .plugin label{text-indent:15px;color:#666;font-size:11px}
+div.table table tr.selected{background:#ecf9fa url("/media/img/gradient/h80.png") repeat-x !important;}
+div.table table tr.selected td{background-color:transparent !important}
+div.table table tr.plugin.selected{background-color:#fafafa !important;}
+div.table table tr.plugin.selected td{background-color:transparent !important}
