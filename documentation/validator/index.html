@@ -240,7 +240,7 @@ $("#myform").validator();
 
 <ul>
   <c:forEach items="${f:getDemo(context.toolDemos2, 'validator/index.html').category.demos}" var="demo">
-    <li> <a href="/demos/${demo.path}">${demo.title}</a> </li>
+    <li> <a href="/demos/%24%7Bdemo.path%7D">${demo.title}</a> </li>
   </c:forEach>
 </ul>
 
@@ -1227,7 +1227,7 @@ $("#myform").validator();
         <h2>Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat">
-        <li>
+                        <li>
             <ol class="links">
                 <h3 title="">Tabs</h3>
                     <li>
@@ -1242,7 +1242,8 @@ $("#myform").validator();
         Slideshow&nbsp;plugin</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Tooltips</h3>
                     <li>
@@ -1262,7 +1263,8 @@ $("#myform").validator();
         Dynamic&nbsp;tooltips</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Overlay</h3>
                     <li>
@@ -1277,7 +1279,8 @@ $("#myform").validator();
         Apple&nbsp;Effect</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Scrollable</h3>
                     <li>
@@ -1297,7 +1300,8 @@ $("#myform").validator();
         Navigator&nbsp;plugin</a>
     </li>
             </ol>
-        </li>        </ol>
+        </li>
+                </ol>
 </div><div class="sect three" id="sect2">
     <header  class="open" >
         <div class="icon"></div>

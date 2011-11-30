@@ -4,8 +4,8 @@
 figure.code,div.code{position:relative;margin-bottom:12px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;background-color:#202020}
 figure.code figcaption,div.code figcaption{font-size:10px;position:absolute;bottom:3px;right:12px;color:#666}
 .highlight{-webkit-border-top-left-radius:6px;-webkit-border-top-right-radius:6px;-moz-border-radius-topleft:6px;-moz-border-radius-topright:6px;border-top-left-radius:6px;border-top-right-radius:6px;}
-.highlight pre{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;font-size:12px;padding:16px 12px 12px;line-height:24px;margin-bottom:8px}
-code{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;background-color:#fff;padding:0 2px;color:#777}
+.highlight pre{font-family:Monaco,Consolas,'Lucida Console','DejaVu Sans Mono',monospace;font-size:12px;padding:16px 12px 12px;line-height:24px;margin-bottom:8px}
+code{font-family:Monaco,Consolas,'Lucida Console','DejaVu Sans Mono',monospace;background-color:#fff;padding:0 2px;color:#777}
 .tabs{list-style:none;margin:0 !important;padding:0;height:30px;border-bottom:1px solid #666}
 .tabs li{float:left;text-indent:0;padding:0;margin:0 !important;list-style-image:none !important}
 .tabs a{background:url("/media/img/global/tabs.png") no-repeat -652px 0;font-size:11px;display:block;height:30px;line-height:30px;width:111px;text-align:center;text-decoration:none;color:#000;padding:0;margin:0;position:relative;top:1px}

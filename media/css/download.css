@@ -4,8 +4,8 @@
 figure.code,div.code{position:relative;margin-bottom:12px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-moz-box-shadow:0 1px 3px #999;-webkit-box-shadow:0 1px 3px #999;-o-box-shadow:0 1px 3px #999;box-shadow:0 1px 3px #999;background-color:#202020}
 figure.code figcaption,div.code figcaption{font-size:10px;position:absolute;bottom:3px;right:12px;color:#666}
 .highlight{-webkit-border-top-left-radius:6px;-webkit-border-top-right-radius:6px;-moz-border-radius-topleft:6px;-moz-border-radius-topright:6px;border-top-left-radius:6px;border-top-right-radius:6px;}
-.highlight pre{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;font-size:12px;padding:16px 12px 12px;line-height:24px;margin-bottom:8px}
-code{font-family:Monaco,Consolas,"Lucida Console","DejaVu Sans Mono",monospace;background-color:#fff;padding:0 2px;color:#777}
+.highlight pre{font-family:Monaco,Consolas,'Lucida Console','DejaVu Sans Mono',monospace;font-size:12px;padding:16px 12px 12px;line-height:24px;margin-bottom:8px}
+code{font-family:Monaco,Consolas,'Lucida Console','DejaVu Sans Mono',monospace;background-color:#fff;padding:0 2px;color:#777}
 div.table{margin-bottom:12px;}
 div.table th,div.table td{padding:4px 8px;vertical-align:middle}
 div.table #content td p:last-child,div.table #content th p:last-child,div.table  p:last-child{margin:0}

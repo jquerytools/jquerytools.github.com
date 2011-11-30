@@ -2,7 +2,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 nav ul{list-style:none}
 blockquote,q{quotes:none}
-blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
 ins{background-color:#ff9;color:#000;text-decoration:none}
 mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
@@ -75,8 +75,8 @@ html.ie #top li.linkOnly{padding-bottom:9px}
 #footerlinks a{color:#5f5f5f;font-size:10px;text-decoration:none;margin:0 5px}
 #footerlinks a:hover{color:#123;text-decoration:underline}
 nav{margin-top:184px;}
-nav header:before{content:" ►"}
-nav header.open:before{content:" ▼"}
+nav header:before{content:' ►'}
+nav header.open:before{content:' ▼'}
 nav h1{font-weight:normal;color:#999;letter-spacing:2px;text-transform:uppercase;text-align:left;padding-bottom:6px;margin-bottom:12px}
 nav h2{color:#444;letter-spacing:1px;text-align:left}
 nav ol,nav ul{margin:0;padding:0}
@@ -134,7 +134,7 @@ div.table dt{width:96px;clear:left;float:left}
 div.table dd{float:left;margin-left:-96px;padding-left:96px;width:280px;border-bottom:1px dotted #ccc;margin-bottom:6px;padding-bottom:6px;}
 div.table dd:last-child{border-bottom:0}
 html{background-color:#fafafa}
-body{margin:0;padding:0;background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.11, rgb(250,250,250)),color-stop(0.52, rgb(242,242,242)),color-stop(0.78, rgb(255,255,255)));background-image:-moz-linear-gradient(center bottom,rgb(250,250,250) 11%,rgb(242,242,242) 52%,rgb(255,255,255) 78%);font-family:"Lucida Sans Unicode","Lucida Grande","Lucida Sans","DejaVu Sans Condensed",sans-serif;font-size:14px;line-height:20px;color:#444}
+body{margin:0;padding:0;background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.11, rgb(250,250,250)),color-stop(0.52, rgb(242,242,242)),color-stop(0.78, rgb(255,255,255)));background-image:-moz-linear-gradient(center bottom,rgb(250,250,250) 11%,rgb(242,242,242) 52%,rgb(255,255,255) 78%);font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;font-size:14px;line-height:20px;color:#444}
 a{color:#006c83;text-decoration:none;}
 ahover{color:#0096b6}
 p{line-height:20px;margin-bottom:8px}

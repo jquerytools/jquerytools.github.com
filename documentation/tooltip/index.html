@@ -278,7 +278,7 @@ $("#dyna img[title]").tooltip({
 
 <ul>
   <c:forEach items="${f:getDemo(context.toolDemos, 'tooltip/index.html').category.demos}" var="demo">
-    <p> <a href="/demos/${demo.path}">${demo.title}</a> </p>
+    <p> <a href="/demos/%24%7Bdemo.path%7D">${demo.title}</a> </p>
   </c:forEach>
 </ul>
 
@@ -851,7 +851,7 @@ $("#dyna img[title]").tooltip({
         <h2>Ui&nbsp;Tools</h2>
     </header>
     <ol class="cat active">
-        <li>
+                        <li>
             <ol class="links">
                 <h3 title="">Tabs</h3>
                     <li>
@@ -866,7 +866,8 @@ $("#dyna img[title]").tooltip({
         Slideshow&nbsp;plugin</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Tooltips</h3>
                     <li>
@@ -886,7 +887,8 @@ $("#dyna img[title]").tooltip({
         Dynamic&nbsp;tooltips</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Overlay</h3>
                     <li>
@@ -901,7 +903,8 @@ $("#dyna img[title]").tooltip({
         Apple&nbsp;Effect</a>
     </li>
             </ol>
-        </li><li>
+        </li>
+                        <li>
             <ol class="links">
                 <h3 title="">Scrollable</h3>
                     <li>
@@ -921,7 +924,8 @@ $("#dyna img[title]").tooltip({
         Navigator&nbsp;plugin</a>
     </li>
             </ol>
-        </li>        </ol>
+        </li>
+                </ol>
 </div><div class="sect three" id="sect2">
     <header >
         <div class="icon"></div>
