@@ -144,7 +144,7 @@ p{line-height:20px;margin-bottom:8px}
 #right{float:right;width:24%}
 #wrap,#top-wrap,#bottom-wrap{display:block;zoom:1;}
 #wrap:after,#top-wrap:after,#bottom-wrap:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
-.more_info{margin:12px 0 0;padding:12px 36px;border:1px dotted #ccc;}
+.more_info{margin:12px 0 0;}
 .more_info li{margin:6px 0;padding:0;list-style-type:none;}
 .more_info li a{color:#999;text-decoration:none;padding:1px 6px 2px;}
 .more_info li a:hover{color:#084a5e}

@@ -123,6 +123,19 @@
 
 
 <div class="box full" >
+<!-- our flash container with some initial HTML inside it -->
+<div id="flash">
+	<h2>Click here to play movie</h2>
+</div>
+
+<script>
+// get flash container and assign click handler for it
+document.getElementById("flash").onclick = function() {
+
+	// when being clicked -> load flash inside "this".
+	flashembed(this, "/media/swf/global/flash10.swf");
+}
+</script>
 
 </div>
 <a class="standalone"
@@ -152,6 +165,20 @@
 </p>
 
 <div class="box" >
+<script>
+// use the jQuery alternative for flashembed.domReady
+$(function() {
+  // bind an onClick event for this second Flash container
+  $("#flash2").click(function() {
+    // same as in previous example
+    $(this).flashembed("/media/swf/global/flash10.swf");
+  });
+});
+</script>
+
+<div id="flash2">
+  <img src="/media/img/global/player/btn/play_text_large.png" alt="" />
+</div>
 
 </div>
 <a class="standalone"
@@ -530,14 +557,14 @@
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="/release-notes/index.html">
 	             <img src="/media/img/1.2/banner-small.jpg"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>
           </li>
           <li>
             <a href="/release-notes/version-1.2.x.html">
-            What's new in v1.2.5 &raquo; </a>
+            What's new in v1.2.6 &raquo; </a>
           </li>
         </ul>
       </div>

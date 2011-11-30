@@ -112,6 +112,18 @@ h3.sifr {
 
 
 <div class="box full" >
+<div style="width:510px;margin:0 auto">
+<div class="clock"></div>
+<div class="clock"></div>
+<div class="clock"></div>
+</div>
+
+<script>
+$(function() {
+    	$("div.clock").flashembed("/media/swf/global/clock.swf");
+    });
+</script>
+
 
 </div>
 <a class="standalone"
@@ -156,6 +168,33 @@ h3.sifr {
 
 
 <div class="box" >
+<h3 class="sifr">Savion Glover</h3>
+<h3 class="sifr">Joseph Wiggan</h3>
+<h3 class="sifr">Samuel Smith</h3>
+
+<!-- example of a nested A tag -->
+<h3 class="sifr">
+  Fred Astaire
+  (See <a href="http://en.wikipedia.org/wiki/Fred_Astaire">Wikipedia page</a>)
+</h3>
+<script>
+// perform this function after the page is scriptable
+$(function() {
+        // loop through all H3 headers with the class name "sifr"
+    $("h3.sifr").each(function() {
+    	/*
+    	  place Flash object inside each tag and configure it with the
+    	  replacement text and its style. external CSS has no effect
+    	*/
+    	flashembed(this, "/media/swf/global/itc_century.swf", {
+    	    txt: $(this).html(),
+    	    css: '* { color: #666666; } '+
+                     'a {color: #007766; text-decoration:underline}'
+    	});
+    });
+    });
+</script>
+
 
 </div>
 <a class="standalone"
@@ -560,14 +599,14 @@ h3.sifr {
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="/release-notes/index.html">
 	             <img src="/media/img/1.2/banner-small.jpg"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>
           </li>
           <li>
             <a href="/release-notes/version-1.2.x.html">
-            What's new in v1.2.5 &raquo; </a>
+            What's new in v1.2.6 &raquo; </a>
           </li>
         </ul>
       </div>

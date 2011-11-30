@@ -101,6 +101,11 @@
 </p>
 
 <div class="box full" >
+<div id="clock"></div>
+
+<script>
+flashembed("clock", "/media/swf/global/clock.swf");
+</script>
 
 </div>
 <a class="standalone"
@@ -176,6 +181,15 @@
 
 
 <div class="box" >
+<div id="info" style="width:300px;height:125px;margin: 0 auto;"></div>
+
+<script>
+flashembed("info", "/media/swf/global/flashvars.swf", {
+	name1: 'configuration value #1',
+	name2: 'configuration value #2',
+	name3: 'Hello World! I am changing'
+});
+</script>
 
 </div>
 <a class="standalone"
@@ -204,6 +218,19 @@
 </p>
 
 <div class="box" >
+<div id="player" style="width:500px;height:300px;margin: 0 auto;"></div>
+
+<script>
+flashembed("player", "/media/swf/flowplayer/flowplayer-3.2.7.swf", {
+	config: {
+		clip:  {
+			autoPlay: false,
+			autoBuffering: true,
+			url: 'http://blip.tv/file/get/KimAronson-TwentySeconds6421.m4v'
+		}
+	}
+});
+</script>
 
 </div>
 <a class="standalone"
@@ -581,14 +608,14 @@
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="/release-notes/index.html">
 	             <img src="/media/img/1.2/banner-small.jpg"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>
           </li>
           <li>
             <a href="/release-notes/version-1.2.x.html">
-            What's new in v1.2.5 &raquo; </a>
+            What's new in v1.2.6 &raquo; </a>
           </li>
         </ul>
       </div>

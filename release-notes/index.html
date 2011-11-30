@@ -1,0 +1,638 @@
+<!doctype html>
+<!--
+   Flowplayer JavaScript, website, forums & jQuery Tools by Tero Piirainen
+   Prefer web standards over Flash. Video is the only exception (for now).
+-->
+<html lang="en">
+  <head>
+    <title>jQuery TOOLS - The missing UI library for the Web</title>
+    <meta name="description" content="A collection of the most important user-interface components for todays websites. This single JavaScript file weighs only 5.8 Kb
+">
+    <meta name="keywords" content="javascript ui library, javascript library, jquery ui library, user interface library, web 2.0 ui library
+">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Distribution" content="Global" />
+    <meta name="author" content="Tero Piirainen">
+    <meta name="Robots" content="index,follow" />
+
+    <link rel="shortcut icon" href="/media/img/favicon.ico">
+        <link rel="stylesheet" href="/media/css/style.css">
+        
+<link rel="stylesheet" type="text/css" href="/media/css/syntax.css"/>
+<style>
+
+#content {
+    margin:0;
+    padding:0;
+    width:100%;
+    background:none;
+}
+
+#right  {
+   display:none;
+}
+
+
+.herotitle h2 {
+    line-height: 80px;
+    border:0;
+}
+
+#breadcrumb {
+    top:0;
+    padding-top: 12px;
+    margin-bottom:-5px;
+    font-size:14px;
+}
+
+#breadcrumb a {
+    font-size:14px;
+}
+
+#breadcrumb a:hover {
+    color:#000;
+}
+
+#content h1 {
+    height:320px;
+    text-indent:-999em;
+    top:-40px;
+    margin-bottom:-80px;
+    z-index:-1;
+}
+
+
+#content h1#hero {
+    background:url(/media/img/hero/plain.jpg) no-repeat -31px 16px;
+    font-size:75px;
+    letter-spacing:-3px;
+    padding:151px 0 0 217px;
+    text-transform:uppercase;
+    height:185px;
+    color:#055499;
+    text-indent:0;
+    line-height:45px;
+    position:relative;
+    width:735px !important;
+}
+
+#content h1 em {
+    display:block;
+    font-size:20px;
+    color:#808080;
+    margin-top:-2px;
+    font-weight:normal;
+    font-style:normal;
+}
+
+#content h1#hero em {
+    text-transform:none;
+    letter-spacing:0;
+    font-size:22px;
+    color:#000;
+}
+
+#content h1 strong{
+    color: #505050;
+}
+
+#hero span {
+    background:transparent url(/media/img/gradient/letters.png) repeat-x 0 0;
+    height:80px;
+    position:absolute;
+    margin-top:-7px;
+    display:block;
+    width:735px !important;
+}
+
+.notes {
+    margin-top: 260px;
+}
+</style>
+        <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+          </head>
+  <body>
+    <div id="top">
+        <div id="top-wrap">
+          <div id="noticeHolder">
+            <div id="notice">
+              This is a message.
+            </div>
+            <div id="closeNotice"></div>
+          </div>
+            <ul>
+                <li class="spacer left"></li>
+                <li>
+                    <a id="top-fp"
+                       href="">Flowplayer</a>
+                </li>
+                <li>
+                    <a id="top-jt"
+                        href="/"  class="active"                        >jQuery Tools</a>
+                </li>
+                <li class="spacer right"></li>
+                <li id="login_link" class="linkOnly">
+                    <a href="/account">Login</a>
+                </li>
+                <li id="logout_link" class="linkOnly">
+                    <a href="/logout.html">Logout</a>
+                </li>
+            </ul>
+            <form id="top-search" action="/search.html">
+                <input type="text" placeholder="Search site" name="q" />
+            </form>
+        </div>
+    </div>
+
+    <div id="wrap">
+
+      <div id="nav" class="clear">
+            <ul>
+                <li >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/demos">Demos</a>
+                </li>
+                <li >
+                    <a href="/documentation">Documentation</a>
+                </li>
+                <li >
+                    <a href="/forum">Forums</a>
+                </li>
+                <li id="download" >
+                    <a href="/download">Download</a>
+                </li>
+            </ul>
+        </div>
+
+      <div id="content">
+        <link rel="stylesheet" type="text/css"
+      href="/media/css/html5-form.css"/>
+<link rel="stylesheet" type="text/css"
+      href="/media/css/dateinput/skin1.css"/>
+<link rel="stylesheet" type="text/css"
+      href="/media/css/rangeinput/skin1.css"/>
+<!--[if IE]>
+<style>
+  .sheet { border: 1px solid; border-color: #e5e5e5 #dbdbdb #d2d2d2; }
+</style>
+<![endif]-->
+
+<style>
+ #breadcrumb {
+ 	border-top: 1px solid #ccc;
+	top: 0;
+	text-align: center;
+	margin-bottom: -5px;
+	font-size: 14px;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/media/release-notes/css/hero.css"/>
+
+<div id="breadcrumb">
+	<a href="version-1.2.x.html">Latest bug-fix release <strong>1.2.6</strong></a> &bull;
+	<a href="1.2.0/index.html">Upgrading from 1.1.X</a>
+</div>
+
+<p>
+   <img src="/media/release-notes/img/1.2.0/hero.jpg" alt="jQuery Tools 1.2.0 Release Notes" />
+</p>
+
+<a name="form"></a>
+<div id="form" class="area">
+
+	<div id="formlogo"></div>
+
+	<div class="herotitle">
+		<h3>introducing</h3>
+		<h2>jQuery TOOLS <span>FORM</span></h2>
+	</div>
+
+	<p class="punch">
+		The 20 year wait is over. Now you can build your forms with HTML5 and make them look and behave like you want. This completely new set of tools weighs only <strong>5.98 Kb</strong> and you can load it from a free content delivery network.
+	</p>
+
+	<div class="clear"></div>
+
+	<div class="col" style="padding-top:130px">
+
+		<h3>HTML5 Form validation</h3>
+
+		<p>
+			jQuery Tools brings form validation to the level that it should have been 20 years ago. It's compact, fast and builds upon the best parts of HTML5 and Web Forms 2.0 standards. Use the new HTML5 inputs or create your own. Together with jQuery these complex standards can be turned into something purely amazing.
+		</p>
+
+	</div>
+
+
+	<div class="col">
+
+		<div class="formpic" style="background-position:-625px -7px"></div>
+
+		<h3>HTML5 date input for humans</h3>
+
+		<p>
+			Now you can use HTML5 date inputs in all browsers. Use CSS to make skins that look and behave like you want. Example skins are provided. Opera will render date input even if JavaScript is disabled.
+		</p>
+
+	</div>
+
+	<div class="col last">
+
+		<div class="formpic" style="background-position:-435px 0"></div>
+
+		<h3>HTML5 range input for us all</h3>
+
+		<p>
+			Range inputs simply make your forms easier to use. Range input is just like any other form field that can be scripted and submitted. Opera and Safari will render range input even if JavaScript is disabled.
+		</p>
+
+	</div>
+
+	<div class="clear"></div>
+
+
+	<div class="box full" >
+
+<a href="#" rel="#sheet" id="see"></a>
+<div id="sheet" class="rounded">
+
+  <div class="pane" id="pane1">
+    <form class="rounded" id="myform">
+      <fieldset>
+	<legend>contact information</legend>
+	<p>
+	  <label>email</label>
+	  <input type="email" required="required" class="invalid" />
+	</p>
+	<p>
+	  <label>website</label>
+	  <input type="url" required="required" />
+	</p>
+	<p>
+	  <label>name</label>
+	  <input type="text" required="required" />
+	</p>
+      </fieldset>
+
+      <fieldset class="last">
+	<legend>server information</legend>
+
+	<p>
+	  <label>number of processors</label>
+	  <input type="range" class="range" min="2" max="20" value="4"/>
+	</p>
+
+	<p>
+	  <label>disk size (GB)</label>
+          <input type="range" class="range" min="30" max="800"
+	         step="30" value="100" />
+	</p>
+	<p>
+	  <label>starting at</label>
+	  <input type="date" value="Today" />
+	</p>
+      </fieldset>
+
+      <p class="high">
+	<button class="rounded" type="submit">Order Now</button>
+      </p>
+    </form>
+
+    <div class="description">
+      This imaginary form is constructed with 100% HTML5 standard. No
+      hacks or tweaks. The form works on all major browsers even in
+      IE6. What's really amazing is that the form can have dateinputs
+      and ranges even when JavaScript is disabled! All this with
+       kB!
+    </div>
+  </div>
+
+  <div class="pane" id="pane2">
+    <div class="description">
+      Here are all the input fields and scripting for the demo. You
+      have a sane subset of the HTML5 and Web Forms 2.0 standards
+      available. Now these complex but useful standards can be used by
+      humans.
+    </div>
+  </div>
+
+  <div class="pane" id="pane3">
+    <div class="description">
+      This form uses CSS3 features such as attribute selectors,
+      rounded borders, RGBA coloring and box shadows. These make web
+      developers' life much, much easier. Together with FORM Tools and
+      HTML5 we can finally make well behaving and good looking forms
+      with ease.
+    </div>
+  </div>
+
+  <div class="pane" id="pane4">
+    <div class="description">
+      At the time of writing Opera has the best native support for
+      HTML5. Here is Opera with JavaScript disabled! The browser
+      displays it's native date and range input controls. Browsers
+      that does not natively support these special inputs will show
+      show a normal text field so that the form is editable in all
+      situations.
+    </div>
+  </div>
+
+  <div class="pane" id="pane5">
+    <div class="description">
+      <strong>Now listen</strong>. Internet Explorer has fairly good
+      JavaScript support so it's possible to make cross-browser
+      libraries like jQuery Tools; however, IE has many issues with
+      CSS and HTML. If you want somewhat similar look for IE
+      <ol>
+	<li>you need quite precisely 300% more development time and
+	  money for dirty hacks and redundant images</li>
+	<li>your application becomes harder to maintain so you also
+	  need 300% more time and money in the future</li>
+	<li>all this 300% for what? your site will feel like IE6 on
+	  all browsers!</li>
+      </ol>
+      <p>
+	Let me put this another way. There is absolutely no good
+	reason to develop an identical look for IE6. Period. Respect
+	the standards and let unstandard browsers do what they
+	can. Luckily you don't have to compromise with the
+	funtionality. It's the looks that IE doesn't care about. I
+	hope IE9 is better.
+      </p>
+    </div>
+  </div>
+
+  <div id="navi">
+    <a class="current" id="nav1"> <span></span> The Form </a>
+    <a id="nav2"> <span></span> The Code </a>
+    <a id="nav3"> <span></span> User Experience </a>
+    <a id="nav4"> <span></span> No JavaScript  </a>
+    <a id="nav5"> <span></span> Unstandard clients </a>
+  </div>
+</div>
+
+<script>
+      // validator. we use custom message layout with a CSS arrow
+    $("#myform").validator({
+    message: '<div><em/></div>',
+    position: 'top left',
+    offset: [3, 40]
+    });
+
+    // dateinput and it's configuration
+    $(":date").dateinput({ trigger: true, format: 'dddd mmm yyyy', offset: [2, 0] });
+
+    // rangeinput with default configuration
+    $(":range").rangeinput();
+
+    // overlay with masking. when overlay is loaded or closed we hide error messages if needed
+    $("#see").overlay({mask: '#999', fixed: false}).bind("onBeforeClose", function(e) {
+    $(".error").hide();
+    });
+
+    // tabs. possible error messages are visible only on the first tab pane
+    $("#navi").tabs(".pane").bind("onClick", function(e, index) {
+    $(".error").toggle(!index);
+    });
+  </script>
+
+</div>
+
+
+</div>
+
+<!--}}}-->
+
+
+<div class="area" id="release">
+
+	<div id="jqtlogo"></div>
+
+	<div class="herotitle">
+		<h3>introducing</h3>
+		<h2>jQuery TOOLS <span>1.2.0</span></h2>
+	</div>
+
+	<p class="punch">
+		A typical software project grows in time. Not jQuery Tools. It gets smaller! Now the UI tools are just <strgon>4.45 Kb</strgon> and the sources are hosted on Github.
+	</p>
+
+	<div class="clear"></div>
+
+	<div class="col">
+
+		<div class="image"
+			style="background-position:2px -630px;margin:0 0 -60px 185px"></div>
+
+		<h3>Smaller and smaller</h3>
+
+		<p>
+			In JavaScript, file size is a very important quality measure. The Web is all about speed. The combined size of Tabs, Tooltips, Overlay and Scrollable is now only <strong>4.45 Kb</strong> when minified and gzipped. New tools are 20% smaller making them faster and easier to understand. The file size can be reduced by writing good code but also by using a proper JavaScript minifier. At the time of writing Google's Closure Compiler is being used to generate the smallest file sizes possible for jQuery Tools 1.2.0.
+		</p>
+
+	</div>
+
+	<div class="col last">
+
+		<div class="image" style="margin:0 0 -60px 80px"></div>
+
+		<h3>A completely new Scrollable</h3>
+
+		<p>
+			The new Scrollable gives you complete freedom in "page" design. You can choose to have a variable amount of items on a single page with variable width. The circular feature is now a core feature and it is no longer in beta. Infinite loops are now rock solid and you can even add new items in a circular scrollable without breaking it. You can navigate between pages with the browser's back button and the browser history also works for dynamically added items. All this in a ridiculously small <strong>0.98 Kb</strong> file size. The smallest scrollable on the web is now 50% smaller!
+		</p>
+
+	</div>
+
+
+	<div class="col">
+
+		<div class="image" style="background-position:-550px -335px;"></div>
+
+		<h3>Toolbox. A set of small essentials.</h3>
+
+		<p>
+			jQuery Tools is a collection of the most important UI components for the Web. Version 1.2.0 tightens this criteria. Flashembed and Expose are no longer main tools. They are now part of a Toolbox which is a collection of small utilities that offer supporting features for the main tools. For example, <samp>history</samp> allows both tabs and scrollables to use the browser's back button.
+		</p>
+
+		<p>
+			Each tool in the Toolbox can also work in a standalone fashion and there are no complex dependencies. Remember that this library is all about "Tools not Policy".
+		</p>
+
+	</div>
+
+
+	<div class="col last">
+
+		<div class="image"
+			style="background-position:-594px -638px;margin-left:20px"></div>
+
+		<h3>Smoother Tooltips</h3>
+
+		<p>
+			Tooltip has undergone a significant rewrite. Just like scrollable this tool is now smaller and simpler but definitely makes no compromises on its behaviour. On the contrary, this version has a dedicated tooltip for each trigger making it possible to have a separate animation for each. The tooltip element itself is automatically generated if not explicitly defined so you can simply write <samp>$(".mytrigger").tooltip();</samp> and you are in business.
+		</p>
+
+	</div>
+
+
+	<div class="col">
+
+		<p>
+			<img src="/media/release-notes/img/1.2.0/flashembed.jpg" style="float:none;margin:-20px 0 -90px;" />
+		</p>
+
+		<h3>New, even more compact Flashembed</h3>
+
+		<p>
+			Another tool with significant size reduction. The new Flashembed has 24% less source code resulting in a 1.10 Kb file size when minified and gzipped. This crazy size is one third of the closest competition. Of course the source code is easier to understand and contains no hacks. As do all Tools in the library it passes Douglas Crockford's JavaScript verifier.
+		</p>
+
+	</div>
+
+	<div class="col last">
+
+		<div class="image" style="background-position:-300px -950px;"></div>
+
+		<h3>jQuery best practices</h3>
+
+		<p>
+			Now you can use <samp>bind</samp> method to assign event listeners and use the <samp>data</samp> method to access the programming API. Both are well known practices in the jQuery community. You can still assign event listeners from the Tools programming API. However the <samp>api</samp> configuration variable has been deprecated.
+		</p>
+
+		<p>
+			jQuery Tools has been tested with jQuery versions 1.3.2 and 1.4.2.
+		</p>
+	</div>
+
+
+	<div class="col">
+
+		<div class="image" style="background-position:-300px -329px;"></div>
+
+		<h3>Github</h3>
+
+		<p>
+			Two GitHub repositories have been created: <a class="external" href="http://github.com/jquerytools/jquerytools">jQuery Tools</a> and the <a class="external" href="http://github.com/jquerytools/www">Website</a>. Now it's easier to contribute.
+		</p>
+
+		<p>
+			If you want to join the project please fork it and push your changes to the Fork Queue. Please send your ideas by email through Github. I'm more than happy to discuss anything about them before any coding starts.
+		</p>
+
+	</div>
+
+
+	<div class="col last">
+
+		<div class="image"
+			style="background-position:27px -910px;"></div>
+
+		<p id="banksy">Thanks <a href="http://www.flickr.com/photos/917press/2583620793/">Banksy</a></p>
+
+		<h3 style="font-size:13px">NO COPYRIGHTS OR LICENSES. DO WHAT YOU LIKE.</h3>
+
+		<p>
+			This is the new jQuery Tools license.
+		</p>
+
+		<p>
+			Copyrights and patents are evil. They block the natural progress of development. We all know it: if people start sharing instead of owning the world would be a better place. Today money is king. This results in closed systems and poor quality and in many cases people are even seriously exploited. For businessmen nothing is enough.
+		</p>
+
+	</div>
+
+
+	<div class="col">
+
+		<h3>New versioning policy</h3>
+
+		<p>
+			Previously each individual tool had its own version number. Now there is only one version number: the version of the jQuery Tools. Every tool belong to a single jQuery Tools version. Simple.
+		</p>
+
+	</div>
+
+	<br clear="all" />
+
+</div>
+
+<div id="releasefooter">
+	<a href="version-1.2.x.html">Latest bug-fix release <strong>1.2.6</strong></a> &bull;
+	<a href="1.2.0/index.html">Upgrading from 1.1.X</a> &bull;
+	<a id="download" href="/download/index.html">Download jQuery Tools</a>
+</div>
+      </div>
+            <div id="right">
+        <div class="notes">
+<h2>Release Notes</h2>
+<ul>
+<li>
+<a href="/release-notes/version-1.2.x.html">version-1.2.x</a>
+</li>
+<li>
+<a href="/release-notes/version-1.2.0.html">version-1.2.0</a>
+</li>
+<li>
+<a href="/release-notes/version-1.1.2.html">version-1.1.2</a>
+</li>
+<li>
+<a href="/release-notes/version-1.1.1.html">version-1.1.1</a>
+</li>
+<li>
+<a href="/release-notes/version-1.1.0.html">version-1.1.0</a>
+</li>
+<li>
+<a href="/release-notes/version-1.0.X.html">version-1.0.X</a>
+</li>
+</ul>
+</div>
+        <ul class="more_info">
+          <li>
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug &raquo;</a>
+          </li>
+          <li>
+            <a href="/release-notes/index.html">
+	             <img src="/media/img/1.2/banner-small.jpg"
+	               alt="Introducing jQuery Tools 1.2" />
+            </a>
+          </li>
+          <li>
+            <a href="/release-notes/version-1.2.x.html">
+            What's new in v1.2.6 &raquo; </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <div id="bottom-wrap">
+      <div id="footer">
+          <div id="footerlinks">
+            <a href="http://twitter.com/jquerytools">Twitter feed</a>
+            &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools">
+              github repository
+            </a> &nbsp;|
+            <a href="https://github.com/jquerytools/jquerytools/issues">
+              report a bug
+            </a>
+          </div>
+      </div>
+    </div>
+
+        <script>
+    // toggle category
+    $("#right header").click(function() {
+        $(this).toggleClass("open");
+        $(this).next(".cat").toggleClass("active");
+    });
+    </script>
+    <script>
+                  var _tracker = _gat._getTracker("");
+          </script>
+
+  </body>
+</html>

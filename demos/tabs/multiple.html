@@ -181,6 +181,87 @@
 
 
 <div class="box" >
+<div class="wrap">
+  <!-- the tabs -->
+<ul class="tabs">
+  <li><a href="#">Tab 1</a></li>
+  <li><a href="#">Tab 2</a></li>
+  <li><a href="#">Tab 3</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="pane">First tab content.</div>
+<div class="pane">Second tab content</div>
+<div class="pane">Third tab content</div>
+
+</div>
+
+<div class="wrap">
+
+  <!-- the tabs -->
+  <ul class="tabs">
+    <li><a href="#">Tab 1</a></li>
+    <li><a href="#">Tab 2</a></li>
+    <li><a href="#">Tab 3</a></li>
+  </ul>
+
+  <!-- tab "panes" -->
+  <div class="pane">
+    <p>#1</p>
+    <!-- the tabs -->
+<ul class="tabs">
+  <li><a href="#">Tab 1</a></li>
+  <li><a href="#">Tab 2</a></li>
+  <li><a href="#">Tab 3</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="pane">First tab content.</div>
+<div class="pane">Second tab content</div>
+<div class="pane">Third tab content</div>
+
+  </div>
+
+  <div class="pane">
+    <p>#2</p>
+    <!-- the tabs -->
+<ul class="tabs">
+  <li><a href="#">Tab 1</a></li>
+  <li><a href="#">Tab 2</a></li>
+  <li><a href="#">Tab 3</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="pane">First tab content.</div>
+<div class="pane">Second tab content</div>
+<div class="pane">Third tab content</div>
+
+  </div>
+
+  <div class="pane">
+    <p>#3</p>
+    <!-- the tabs -->
+<ul class="tabs">
+  <li><a href="#">Tab 1</a></li>
+  <li><a href="#">Tab 2</a></li>
+  <li><a href="#">Tab 3</a></li>
+</ul>
+
+<!-- tab "panes" -->
+<div class="pane">First tab content.</div>
+<div class="pane">Second tab content</div>
+<div class="pane">Third tab content</div>
+
+  </div>
+</div>
+
+<!-- This JavaScript snippet activates those tabs -->
+<script>
+  // perform JavaScript after the document is scriptable.
+  $(function() {
+      $("ul.tabs").tabs("> .pane");
+    });
+</script>
 
 </div>
 <a class="standalone"
@@ -238,6 +319,101 @@
 
 
 <div class="box" >
+<div class="accordion">
+  <h2>First pane</h2>
+
+  <div class="pane" style="display:block">
+    <img src="/media/img/title/javascript24.png"
+         alt="JavaScript tools" style="float:left; margin:0 15px 15px 0" />
+
+    <h3>Lorem ipsum dolor</h3>
+    <p>
+      <strong>Fusce semper, nisi nec pellentesque sollicitudin.</strong>
+    </p>
+    <p style="clear:both">
+      Consectetur adipiscing elit. Praesent bibendum eros ac
+      nulla. Integer vel lacus ac neque viverra ornare. Nulla id massa
+      nec erat laoreet elementum. Vivamus tristique auctor
+      odio. Integer mi neque.
+    </p>
+  </div>
+
+  <h2>Second pane</h2>
+  <div class="pane">
+    <h3>Vestibulum ante ipsum</h3>
+    <p>
+      Cras diam. Donec dolor lacus, vestibulum at, varius in, mollis
+      id, dolor. Aliquam erat volutpat. Praesent pretium tristique
+      est. Maecenas nunc lorem, blandit nec, accumsan nec, facilisis
+      quis, pede. Aliquam erat volutpat. Donec sit amet urna quis nisi
+      elementum fermentum.
+    </p>
+  </div>
+
+  <h2>Third pane</h2>
+  <div class="pane">
+    <h3>Curabitur vel dolor</h3>
+    <p>
+      Non lectus lacinia egestas. Nulla hendrerit, felis quis
+      elementum viverra, purus felis egestas magna, non vulputate
+      libero justo nec sem. Nullam arcu. Donec pellentesque vestibulum
+      urna. In mauris odio, fringilla commodo, commodo ac, dignissim
+      ac, augue.
+    </p>
+  </div>
+</div>
+
+<div class="accordion">
+  <h2>First pane</h2>
+
+  <div class="pane" style="display:block">
+    <img src="/media/img/title/javascript24.png"
+         alt="JavaScript tools" style="float:left; margin:0 15px 15px 0" />
+
+    <h3>Lorem ipsum dolor</h3>
+    <p>
+      <strong>Fusce semper, nisi nec pellentesque sollicitudin.</strong>
+    </p>
+    <p style="clear:both">
+      Consectetur adipiscing elit. Praesent bibendum eros ac
+      nulla. Integer vel lacus ac neque viverra ornare. Nulla id massa
+      nec erat laoreet elementum. Vivamus tristique auctor
+      odio. Integer mi neque.
+    </p>
+  </div>
+
+  <h2>Second pane</h2>
+  <div class="pane">
+    <h3>Vestibulum ante ipsum</h3>
+    <p>
+      Cras diam. Donec dolor lacus, vestibulum at, varius in, mollis
+      id, dolor. Aliquam erat volutpat. Praesent pretium tristique
+      est. Maecenas nunc lorem, blandit nec, accumsan nec, facilisis
+      quis, pede. Aliquam erat volutpat. Donec sit amet urna quis nisi
+      elementum fermentum.
+    </p>
+  </div>
+
+  <h2>Third pane</h2>
+  <div class="pane">
+    <h3>Curabitur vel dolor</h3>
+    <p>
+      Non lectus lacinia egestas. Nulla hendrerit, felis quis
+      elementum viverra, purus felis egestas magna, non vulputate
+      libero justo nec sem. Nullam arcu. Donec pellentesque vestibulum
+      urna. In mauris odio, fringilla commodo, commodo ac, dignissim
+      ac, augue.
+    </p>
+  </div>
+</div>
+
+
+<!-- activate tabs with JavaScript -->
+<script>
+  $(function() {
+  $(".accordion").tabs(".pane", {tabs: 'h2', effect: 'slide'});
+  });
+</script>
 
 </div>
 <a class="standalone"
@@ -634,14 +810,14 @@
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="/release-notes/index.html">
 	             <img src="/media/img/1.2/banner-small.jpg"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>
           </li>
           <li>
             <a href="/release-notes/version-1.2.x.html">
-            What's new in v1.2.5 &raquo; </a>
+            What's new in v1.2.6 &raquo; </a>
           </li>
         </ul>
       </div>

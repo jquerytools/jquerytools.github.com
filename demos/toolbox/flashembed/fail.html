@@ -142,6 +142,11 @@
 
 
 <div class="box full" >
+<div id="clock"></div>
+
+<script>
+flashembed("clock", {src: "/media/swf/global/clock.swf", version: [20, 0]});
+</script>
 
 </div>
 <a class="standalone"
@@ -173,6 +178,24 @@ The default behaviour is to write the
 
 
 <div class="box" >
+<!-- here is the container with the default error message inside it -->
+<div id="fail2">
+  <img src="/media/img/flashplayer_100x100.jpg" />
+  <h3>Get Adobe Flash Player</h3>
+
+  <p>
+    You must have the latest Flash player installed.  You
+    can <a href="http://get.adobe.com/flashplayer/">download it
+    here</a>.
+  </p>
+
+  <br clear="all" />
+</div>
+
+<!-- place flash in our container and require version 20 and above -->
+<script>
+  flashembed("fail2", {src: "/media/swf/global/clock.swf", version: [20, 0]});
+</script>
 
 </div>
 <a class="standalone"
@@ -209,6 +232,26 @@ The default behaviour is to write the
 </p>
 
 <div class="box" >
+<div id="fail3"></div>
+<div class="info" id="info"></div>
+
+<script>
+flashembed("fail3", {
+	src: "/media/swf/global/clock.swf",
+
+	// provide large enough version number so we can see what happens
+	version: [20, 0],
+
+	// supply your path to the express install Flash object.
+	expressInstall: "/media/swf/global/expressinstall.swf",
+
+	// called every time the supported version is not found
+	onFail: function() {
+		document.getElementById("info").innerHTML
+			= "You need version 20.0 to view this content";
+	}
+});
+</script>
 
 </div>
 <a class="standalone"
@@ -588,14 +631,14 @@ The default behaviour is to write the
               report a bug &raquo;</a>
           </li>
           <li>
-            <a href="/tools/release-notes/index.html">
+            <a href="/release-notes/index.html">
 	             <img src="/media/img/1.2/banner-small.jpg"
 	               alt="Introducing jQuery Tools 1.2" />
             </a>
           </li>
           <li>
             <a href="/release-notes/version-1.2.x.html">
-            What's new in v1.2.5 &raquo; </a>
+            What's new in v1.2.6 &raquo; </a>
           </li>
         </ul>
       </div>
